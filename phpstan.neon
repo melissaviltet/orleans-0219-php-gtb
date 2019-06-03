@@ -1,5 +1,3 @@
-parameters:
-	ignoreErrors:
 includes:
     - vendor/phpstan/phpstan-doctrine/extension.neon
     - vendor/phpstan/phpstan-doctrine/rules.neon

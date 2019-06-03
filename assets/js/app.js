@@ -25,10 +25,3 @@ require('bootstrap');
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
-
-$(document).ready(function () {
-   $('li').on('click', function () {
-       $(this).siblings().removeClass('active');
-       $(this).addClass('active');
-   })
-});

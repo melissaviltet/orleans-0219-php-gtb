@@ -1,6 +1,5 @@
 var Encore = require('@symfony/webpack-encore');
-// var webpack = require('webpack');
-var glob = require('glob');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 Encore
     // directory where compiled assets will be stored
@@ -22,7 +21,6 @@ Encore
     .addEntry('app', './assets/js/app.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
-    .addEntry('img', glob.sync('./assets/images/*'))
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -66,6 +64,11 @@ Encore
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
+
+    .addPlugin(new CopyWebpackPlugin([
+        // copies to {output}/static
+        { from: './assets/images', to: 'images' }
+    ]))
 ;
 
 module.exports = Encore.getWebpackConfig();

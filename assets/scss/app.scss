@@ -15,14 +15,14 @@ main.container-fluid {
 /***Visiter Navbar***/
 
 .fa-user {
-  color: $trailPrimaryColor;
+  color: $trail-primary-color;
   font-size: 1.4vw;
 }
 
 main {
   .navbar {
     padding: 0;
-    background-color: $trailSecondaryColor;
+    background-color: $trail-secondary-color;
     .navbar-brand {
       padding: 0;
       margin: 0;
@@ -38,26 +38,26 @@ main {
         width: 100vw;
       }
       &:nth-child(-n+6) {
-        border-right: 0.5px solid darken($fondColor, 50);
+        border-right: 0.5px solid darken($fond-color, 50);
         @include medium {
           border-right: none;
         }
       }
       &:nth-child(1) {
-        border-left: 0.5px solid darken($fondColor, 50);
+        border-left: 0.5px solid darken($fond-color, 50);
         @include medium {
           border-left: none;
         }
       }
     }
     .active {
-      background-color: $trailPrimaryColor;
+      background-color: $trail-primary-color;
     }
     .navbar-nav .nav-link {
       padding-top: 1rem;
       padding-bottom: 1rem;
       font-size: 1.2vw;
-      font-family: $textFont;
+      font-family: $text-font;
       @include medium {
         font-size: 2vw;
       }
@@ -65,7 +65,7 @@ main {
         font-size: 3vw;
       }
       &:hover {
-        background-color: $trailPrimaryColor;
+        background-color: $trail-primary-color;
         transition: all .6s;
       }
     }

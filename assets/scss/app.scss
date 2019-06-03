@@ -1,9 +1,73 @@
-@import "vars";
+@import "~bootstrap/scss/bootstrap";
+@import "vars.scss";
+@import 'mixins.scss';
+@import "functions";
 
-body {
-    background-color: $secondary-color;
+
+/***General styles***/
+
+main.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
 }
 
-a {
-    color: $warm-color;
+
+/***Visiter Navbar***/
+
+.fa-user {
+  color: $trailPrimaryColor;
+  font-size: 1.4vw;
+}
+
+main {
+  .navbar {
+    padding: 0;
+    background-color: $trailSecondaryColor;
+    .navbar-brand {
+      padding: 0;
+      margin: 0;
+      img {
+        max-width: 120px;
+        padding: 0;
+        margin-right: 0;
+      }
+    }
+    .collapse .navbar-nav .nav-home {
+      width: 13.5vw;
+      @include medium {
+        width: 100vw;
+      }
+      &:nth-child(-n+6) {
+        border-right: 0.5px solid darken($fondColor, 50);
+        @include medium {
+          border-right: none;
+        }
+      }
+      &:nth-child(1) {
+        border-left: 0.5px solid darken($fondColor, 50);
+        @include medium {
+          border-left: none;
+        }
+      }
+    }
+    .active {
+      background-color: $trailPrimaryColor;
+    }
+    .navbar-nav .nav-link {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      font-size: 1.2vw;
+      font-family: $textFont;
+      @include medium {
+        font-size: 2vw;
+      }
+      @include small {
+        font-size: 3vw;
+      }
+      &:hover {
+        background-color: $trailPrimaryColor;
+        transition: all .6s;
+      }
+    }
+  }
 }

@@ -1,4 +1,6 @@
 var Encore = require('@symfony/webpack-encore');
+// var webpack = require('webpack');
+var glob = require('glob');
 
 Encore
     // directory where compiled assets will be stored
@@ -20,6 +22,7 @@ Encore
     .addEntry('app', './assets/js/app.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
+    .addEntry('img', glob.sync('./assets/images/*'))
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()

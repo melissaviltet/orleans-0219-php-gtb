@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4bf8fb6a93e0eac79e9420c4fb78e4b",
+    "content-hash": "7a3b060956153518053371c31f8d9aec",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -3698,7 +3698,7 @@
         },
         {
             "name": "symfony/asset",
-            "version": "v4.2.8",
+            "version": "v4.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",

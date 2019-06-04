@@ -3,6 +3,13 @@
 @import 'mixins.scss';
 @import "functions";
 
+@font-face {
+  font-family: "#{$title-font}";
+  src: url('../fonts/#{$title-font}.#{$title-font-ext}');
+}
+
+
+
 
 /***General styles***/
 
@@ -11,12 +18,27 @@ main.container-fluid {
   padding-right: 0;
 }
 
+/***Buttons***/
+
+%btn-primary-outline {
+  border: 1px solid $trail-primary-color;
+  background-color: transparent;
+  color: $trail-primary-color;
+  border-radius: 5px;
+}
+
+%btn-primary {
+  background-color: $trail-secondary-color;
+  color: $trail-primary-color;
+  border-radius: 5px;
+}
+
 
 /***Visiter Navbar***/
 
-.fa-user {
+.fa-user, .fas.fa-map-marker {
   color: $trail-primary-color;
-  font-size: 1.4vw;
+  font-size: 1.5vw;
 }
 
 main {
@@ -69,5 +91,32 @@ main {
         transition: all .6s;
       }
     }
+  }
+}
+
+
+/***Jumbotron***/
+
+.cont-jumbotron {
+  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+  position: relative;
+  .img-jumbotron {
+    padding-top: 4%;
+    padding-bottom: 5px;
+  }
+  .title-jumbotron {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    @include medium {
+      font-size: 2vw;
+    }
+    @include small {
+      font-size: 4vw;
+    }
+    color: white;
+    font-family: $title-font;
+    border-bottom: 1px solid $trail-primary-color;
+    text-shadow: 4px 3px 0 $trail-secondary-color;
   }
 }

@@ -66,7 +66,6 @@ Encore
     //.addEntry('admin', './assets/js/admin.js')
 
     .addPlugin(new CopyWebpackPlugin([
-        // copies to {output}/static
         { from: './assets/images', to: 'images' }
     ]))
 ;

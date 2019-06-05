@@ -1,4 +1,5 @@
 <section class="container sponsors">
+    {{ dump(pictures) }}
     <div class="title-cont">
         <h2 class="text-center">Nos Partenaires</h2>
         <hr class="border border-sponsors">
@@ -12,9 +13,10 @@
         <div class="carousel-inner">
             <div class="carousel-item active container">
                 <div class="card-deck flex-row flex-wrap mt-3">
+
                     {% for picture in pictures %}
                     <div class="card col-6 col-lg-4 p-lg-3">
-                        <img src="{{ picture.url }}" class="card-img-top" alt="{{ picture.name }}">
+                        <img src="{% if picture.subject == 'partenaire' %}{{ picture.url }}{% endif %}" class="card-img-top" alt="{% if picture.subject == 'partenaire' %}{{ picture.name }}{% endif %}">
                     </div>
                     {% endfor %}
                 </div>

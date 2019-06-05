@@ -120,3 +120,31 @@ main {
     text-shadow: 4px 3px 0 $trail-secondary-color;
   }
 }
+
+
+/***Sponsors***/
+
+section.sponsors {
+  .title-cont h2 {
+    text-transform: uppercase;
+    padding-top: 10%;
+    @include medium {
+      font-size: 2vw;
+    }
+    @include small {
+      font-size: 4vw;
+    }
+  }
+  hr.border-sponsors {
+    border: 1px solid $trail-primary-color;
+    width: 10%;
+  }
+  .card {
+    border: none;
+    .card-img-top {
+      width: 50%;
+      margin: auto;
+    }
+  }
+
+}

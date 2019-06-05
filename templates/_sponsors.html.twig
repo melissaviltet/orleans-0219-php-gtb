@@ -12,15 +12,11 @@
         <div class="carousel-inner">
             <div class="carousel-item active container">
                 <div class="card-deck flex-row flex-wrap mt-3">
+                    {% for picture in pictures %}
                     <div class="card col-6 col-lg-4 p-lg-3">
-                        <img src="{{ asset('build/images/logo-intersport.jpg') }}" class="card-img-top" alt="...">
+                        <img src="{{ picture.url }}" class="card-img-top" alt="{{ picture.name }}">
                     </div>
-                    <div class="card col-6 col-lg-4 p-lg-3">
-                        <img src="{{ asset('build/images/logo-veloland.png') }}" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card col-6 col-lg-4 p-lg-3">
-                        <img src="{{ asset('build/images/logo-nemo.jpg') }}" class="card-img-top" alt="...">
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

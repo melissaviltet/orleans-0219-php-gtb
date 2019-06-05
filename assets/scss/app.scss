@@ -128,12 +128,7 @@ section.sponsors {
   .title-cont h2 {
     text-transform: uppercase;
     padding-top: 10%;
-    @include medium {
-      font-size: 2vw;
-    }
-    @include small {
-      font-size: 4vw;
-    }
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
   }
   hr.border-sponsors {
     border: 1px solid $trail-primary-color;
@@ -146,5 +141,4 @@ section.sponsors {
       margin: auto;
     }
   }
-
 }

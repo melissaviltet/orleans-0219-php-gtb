@@ -96,53 +96,68 @@ main {
 
 /***Footer***/
 
-.footer{
+section.footer {
   background-color: $trail-secondary-color;
   color: $fond-color;
   font-family: $text-font;
   font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   margin-left: 0;
   margin-right: 0;
-  .address-footer{
+
+  div.address-footer {
     border-right-style: solid;
     border-width: thin;
-    border-color:$fond-color;
+    border-color: $fond-color;
     padding-left: 0px;
     padding-right: 0px;
+    div.address-bis{
+      padding-top: 20%;
+    }
   }
+
   .image-footer {
     border-right-style: solid;
     border-width: thin;
-    border-color:$fond-color;
+    border-color: $fond-color;
     padding-left: 0px;
     padding-right: 0px;
 
-    .logo-footer{
+    .logo-footer {
       max-width: 120px;
       padding: 0;
       margin-right: 0;
     }
+
     .fa-facebook-square {
       padding-top: 0.7rem;
       padding-bottom: 1rem;
       font-size: 2.5rem;
       color: $trail-primary-color;
-        &:hover {
-          color: lighten($trail-primary-color, 10%);
-        }
+
+      &:hover {
+        color: lighten($trail-primary-color, 10%);
+        transition: 8s;
+      }
     }
   }
+
   .hours-footer {
     padding-left: 0px;
     padding-right: 0px;
-    h6{
+
+    h6 {
       text-align: center;
       font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+      padding-top: 15%;
+
     }
+
     ul {
       text-align: center;
       list-style-type: none;
     }
+  }
+}
 
 
 /***Jumbotron***/

@@ -128,3 +128,51 @@ main {
     text-shadow: 4px 3px 0 $trail-secondary-color;
   }
 }
+
+/* Trail */
+#trail {
+  h2 {
+    text-align: center;
+    color: $trail-secondary-color;
+    font-family: $title-font;
+  }
+
+  .backtrail {
+    width: 100vw;
+    z-index: -1000;
+    filter: brightness(50%);
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  .position-absolute {
+    top: 40%;
+    .text-trail {
+      color: $fond-color;
+      text-align: center;
+    }
+    .col-6 {
+      padding-left: 3em;
+      padding-right: 4em;
+    }
+  }
+
+  .left {
+    left: 15%;
+    .logo {
+      background-color: $trail-primary-color;
+      width: 20vw;
+    }
+  }
+  .btn {
+    background-color: $trail-primary-color;
+    border-color: darken($trail-primary-color, 20%);
+    transition: ease 0.2s;
+  }
+
+  .btn:hover {
+    background-color: darken($trail-primary-color, 20%);
+    border-color: $trail-primary-color;
+  }
+}
+

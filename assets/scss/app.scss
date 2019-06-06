@@ -9,8 +9,6 @@
 }
 
 
-
-
 /***General styles***/
 
 main.container-fluid {
@@ -45,26 +43,31 @@ main {
   .navbar {
     padding: 0;
     background-color: $trail-secondary-color;
+
     .navbar-brand {
       padding: 0;
       margin: 0;
+
       img {
         max-width: 120px;
         padding: 0;
         margin-right: 0;
       }
     }
+
     .collapse .navbar-nav .nav-home {
       width: 13.5vw;
       @include medium {
         width: 100vw;
       }
+
       &:nth-child(-n+6) {
         border-right: 0.5px solid darken($fond-color, 50);
         @include medium {
           border-right: none;
         }
       }
+
       &:nth-child(1) {
         border-left: 0.5px solid darken($fond-color, 50);
         @include medium {
@@ -72,9 +75,11 @@ main {
         }
       }
     }
+
     .active {
       background-color: $trail-primary-color;
     }
+
     .navbar-nav .nav-link {
       padding-top: 1rem;
       padding-bottom: 1rem;
@@ -86,6 +91,7 @@ main {
       @include small {
         font-size: 3vw;
       }
+
       &:hover {
         background-color: $trail-primary-color;
         transition: all .6s;
@@ -96,78 +102,88 @@ main {
 
 /***Footer***/
 
-.footer{
+.footer {
   background-color: $trail-secondary-color;
   color: $fond-color;
   font-family: $text-font;
   font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   margin-left: 0;
   margin-right: 0;
-  .address-footer{
+
+  .address-footer {
     border-right-style: solid;
     border-width: thin;
-    border-color:$fond-color;
+    border-color: $fond-color;
     padding-left: 0px;
     padding-right: 0px;
   }
+
   .image-footer {
     border-right-style: solid;
     border-width: thin;
-    border-color:$fond-color;
+    border-color: $fond-color;
     padding-left: 0px;
     padding-right: 0px;
 
-    .logo-footer{
+    .logo-footer {
       max-width: 120px;
       padding: 0;
       margin-right: 0;
     }
+
     .fa-facebook-square {
       padding-top: 0.7rem;
       padding-bottom: 1rem;
       font-size: 2.5rem;
       color: $trail-primary-color;
-        &:hover {
-          color: lighten($trail-primary-color, 10%);
-        }
+
+      &:hover {
+        color: lighten($trail-primary-color, 10%);
+      }
     }
   }
+}
+
   .hours-footer {
     padding-left: 0px;
     padding-right: 0px;
-    h6{
+
+    h6 {
       text-align: center;
       font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
+
     ul {
       text-align: center;
       list-style-type: none;
     }
-
-
-/***Jumbotron***/
-
-.cont-jumbotron {
-  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-  position: relative;
-  .img-jumbotron {
-    padding-top: 4%;
-    padding-bottom: 5px;
   }
-  .title-jumbotron {
-    position: absolute;
-    bottom: 15%;
-    right: 10%;
-    @include medium {
-      font-size: 2vw;
-    }
-    @include small {
-      font-size: 4vw;
-    }
-    color: white;
-    font-family: $title-font;
-    border-bottom: 1px solid $trail-primary-color;
-    text-shadow: 4px 3px 0 $trail-secondary-color;
 
+
+  /***Jumbotron***/
+
+  .cont-jumbotron {
+    background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+    position: relative;
+
+    .img-jumbotron {
+      padding-top: 4%;
+      padding-bottom: 5px;
+    }
+
+    .title-jumbotron {
+      position: absolute;
+      bottom: 15%;
+      right: 10%;
+      @include medium {
+        font-size: 2vw;
+      }
+      @include small {
+        font-size: 4vw;
+      }
+      color: white;
+      font-family: $title-font;
+      border-bottom: 1px solid $trail-primary-color;
+      text-shadow: 4px 3px 0 $trail-secondary-color;
+    }
   }
-}

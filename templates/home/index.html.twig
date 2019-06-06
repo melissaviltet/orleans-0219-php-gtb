@@ -2,6 +2,7 @@
 
 {% block body %}
     {{ include ('_navbar.html.twig') }}
+
     {{ include ('home/_jumbotron.html.twig') }}
     <div id="trail" class="flex-row position-relative">
         <h2 class="">Trail</h2>
@@ -23,5 +24,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>   
+    {{ include ('_footer.html.twig') }}
 {% endblock %}

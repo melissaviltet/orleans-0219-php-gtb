@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\PictureRepository;
+use App\Repository\SponsorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -10,15 +10,15 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @param PictureRepository $pictureRepository
+     * @param SponsorRepository $sponsorRepository
      * @Route("/", name="home")
      * @return Response
      */
-    public function index(PictureRepository $pictureRepository): Response
+    public function index(SponsorRepository $sponsorRepository): Response
     {
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'pictures' => $pictureRepository->findAll(),
+            'sponsors' => $sponsorRepository->findAll(),
         ]);
     }
 }

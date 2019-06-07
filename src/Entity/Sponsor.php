@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PictureRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\SponsorRepository")
  */
-class Picture
+class Sponsor
 {
     /**
      * @ORM\Id()
@@ -24,17 +24,12 @@ class Picture
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $subject;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $is_private;
+    private $logoUrl;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $url;
+    private $site;
 
     public function getId(): ?int
     {
@@ -53,38 +48,26 @@ class Picture
         return $this;
     }
 
-    public function getSubject(): ?string
+    public function getlogoUrl(): ?string
     {
-        return $this->subject;
+        return $this->logoUrl;
     }
 
-    public function setSubject(string $subject): self
+    public function setlogoUrl(string $logoUrl): self
     {
-        $this->subject = $subject;
+        $this->logoUrl = $logoUrl;
 
         return $this;
     }
 
-    public function getIsPrivate(): ?bool
+    public function getSite(): ?string
     {
-        return $this->is_private;
+        return $this->site;
     }
 
-    public function setIsPrivate(bool $is_private): self
+    public function setSite(string $site): self
     {
-        $this->is_private = $is_private;
-
-        return $this;
-    }
-
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(string $url): self
-    {
-        $this->url = $url;
+        $this->site = $site;
 
         return $this;
     }

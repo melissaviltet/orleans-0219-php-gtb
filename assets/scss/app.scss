@@ -96,53 +96,62 @@ main {
 
 /***Footer***/
 
-.footer{
+.footer {
   background-color: $trail-secondary-color;
   color: $fond-color;
   font-family: $text-font;
   font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   margin-left: 0;
   margin-right: 0;
-  .address-footer{
+
+  .address-footer {
     border-right-style: solid;
     border-width: thin;
-    border-color:$fond-color;
+    border-color: $fond-color;
     padding-left: 0px;
     padding-right: 0px;
   }
+
   .image-footer {
     border-right-style: solid;
     border-width: thin;
-    border-color:$fond-color;
+    border-color: $fond-color;
     padding-left: 0px;
     padding-right: 0px;
 
-    .logo-footer{
+    .logo-footer {
       max-width: 120px;
       padding: 0;
       margin-right: 0;
     }
+
     .fa-facebook-square {
       padding-top: 0.7rem;
       padding-bottom: 1rem;
       font-size: 2.5rem;
       color: $trail-primary-color;
-        &:hover {
-          color: lighten($trail-primary-color, 10%);
-        }
+
+      &:hover {
+        color: lighten($trail-primary-color, 10%);
+      }
     }
   }
+
   .hours-footer {
     padding-left: 0px;
     padding-right: 0px;
-    h6{
+
+    h6 {
       text-align: center;
       font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
+
     ul {
       text-align: center;
       list-style-type: none;
     }
+  }
+}
 
 
 /***Jumbotron***/
@@ -168,7 +177,6 @@ main {
     font-family: $title-font;
     border-bottom: 1px solid $trail-primary-color;
     text-shadow: 4px 3px 0 $trail-secondary-color;
-
   }
 }
 
@@ -176,7 +184,9 @@ main {
 /***Sponsors***/
 
 section.sponsors {
+  padding-bottom: 8%;
   .title-cont h2 {
+    font-family: $title-font;
     text-transform: uppercase;
     padding-top: 10%;
     font-size: calc(16px + 6 * ((100vw - 320px) / 680));
@@ -185,11 +195,10 @@ section.sponsors {
     border: 1px solid $trail-primary-color;
     width: 10%;
   }
+  .carousel-inner {
+    padding-bottom: 5%;
+  }
   .card {
     border: none;
-    .card-img-top {
-      width: 50%;
-      margin: auto;
-    }
   }
 }

@@ -164,35 +164,31 @@ section.footer {
   }
 }
 
+/***Jumbotron***/
 
-    /***Jumbotron***/
-
-    .cont-jumbotron {
-      background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-      position: relative;
-
-      .img-jumbotron {
-        padding-top: 4%;
-        padding-bottom: 5px;
-      }
-
-      .title-jumbotron {
-        position: absolute;
-        bottom: 15%;
-        right: 10%;
-        @include medium {
-          font-size: 2vw;
-        }
-        @include small {
-          font-size: 4vw;
-        }
-        color: white;
-        font-family: $title-font;
-        border-bottom: 1px solid $trail-primary-color;
-        text-shadow: 4px 3px 0 $trail-secondary-color;
-
-      }
+.cont-jumbotron {
+  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+  position: relative;
+  .img-jumbotron {
+    padding-top: 4%;
+    padding-bottom: 5px;
+  }
+  .title-jumbotron {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    @include medium {
+      font-size: 2vw;
     }
+    @include small {
+      font-size: 4vw;
+    }
+    color: white;
+    font-family: $title-font;
+    border-bottom: 1px solid $trail-primary-color;
+    text-shadow: 4px 3px 0 $trail-secondary-color;
+  }
+}
 
 
 
@@ -205,5 +201,28 @@ section.footer {
   .title-club{
     font-family: $title-font;
     color: $trail-primary-color
+  }
+}
+
+
+/***Sponsors***/
+
+section.sponsors {
+  padding-bottom: 8%;
+  .title-cont h2 {
+    font-family: $title-font;
+    text-transform: uppercase;
+    padding-top: 10%;
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+  hr.border-sponsors {
+    border: 1px solid $trail-primary-color;
+    width: 10%;
+  }
+  .carousel-inner {
+    padding-bottom: 5%;
+  }
+  .card {
+    border: none;
   }
 }

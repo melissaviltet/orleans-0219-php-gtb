@@ -19,10 +19,9 @@ class SponsorRepository extends ServiceEntityRepository
         parent::__construct($registry, Sponsor::class);
     }
 
-    // /**
-    //  * @return Sponsor[] Returns an array of Sponsor objects
-    //  */
-    /*
+    /**
+    * @return Sponsor[] Returns an array of Sponsor objects
+    */
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('s')
@@ -34,9 +33,7 @@ class SponsorRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
-    /*
     public function findOneBySomeField($value): ?Sponsor
     {
         return $this->createQueryBuilder('s')
@@ -46,5 +43,5 @@ class SponsorRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
 }
+

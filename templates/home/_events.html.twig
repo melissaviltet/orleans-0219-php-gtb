@@ -1,10 +1,14 @@
 <section id="events" class="row">
-    <div class="card">
-        <img src="{{ first.picture }}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ first.name }}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="col-6">
+        <div class="card">
+            <img src="{{ first.picture |default('https://www.citizencall.fr/wp-content/uploads/2017/02/enquetes-mystere-experience-client-692x675.jpg') }}"
+                 class="card-img-top" alt="{{ first.name |default('Je suis une alternative.') }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ first.name |default('Evénement proche') }}</h5>
+                <p class="card-text">Le {{ first.date |default('vendredi 12') }}
+                    à {{ first.place |default('Yeur') }}</p>
+                <a href="{{ first.url }}" class="btn btn-primary">En savoir plus</a>
+            </div>
         </div>
     </div>
 </section>

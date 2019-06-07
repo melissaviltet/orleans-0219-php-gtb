@@ -17,7 +17,6 @@ class HomeController extends AbstractController
     public function index(SponsorRepository $sponsorRepository): Response
     {
         return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
             'sponsors' => $sponsorRepository->findAll(),
         ]);
     }

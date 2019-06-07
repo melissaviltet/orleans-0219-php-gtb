@@ -19,10 +19,10 @@ class ContentRepository extends ServiceEntityRepository
         parent::__construct($registry, Content::class);
     }
 
-    // /**
-    //  * @return Content[] Returns an array of Content objects
-    //  */
-    /*
+     /**
+      * @return Content[] Returns an array of Content objects
+      */
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('c')
@@ -34,9 +34,9 @@ class ContentRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
-    /*
+
+
     public function findOneBySomeField($value): ?Content
     {
         return $this->createQueryBuilder('c')
@@ -46,5 +46,5 @@ class ContentRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

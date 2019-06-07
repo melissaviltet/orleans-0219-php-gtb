@@ -38,18 +38,24 @@ main.container-fluid {
 nav {
   background-color: $trail-secondary-color;
   width: calc(180px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-  .navbar-nav li {
-    font-size: 0.7rem;
-    .nav-link {
-      color: $fond-color;
-      &:hover {
+  .content {
+    a {
+      text-align: center;
+      .fas, .far {
+        margin: auto;
         color: $trail-primary-color;
-        transition: all .5s;
-      }
-      .fas {
         font-size: xx-large;
-        text-align: justify;
+        text-align: center;
+        &:hover {
+          transform: scale(1.2);
+          transition: all .3s;
+        }
       }
+    }
+    .text {
+      font-size: 0.75rem;
+      color: $fond-color;
+      margin: auto;
     }
   }
 }

@@ -19,4 +19,3 @@ class SponsorRepository extends ServiceEntityRepository
         parent::__construct($registry, Sponsor::class);
     }
 }
-

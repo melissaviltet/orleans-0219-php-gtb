@@ -35,8 +35,6 @@ class ContentRepository extends ServiceEntityRepository
         ;
     }
 
-
-
     public function findOneBySomeField($value): ?Content
     {
         return $this->createQueryBuilder('c')
@@ -46,5 +44,4 @@ class ContentRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-
 }

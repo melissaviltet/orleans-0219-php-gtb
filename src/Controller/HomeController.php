@@ -15,8 +15,8 @@ class HomeController extends AbstractController
      */
     public function index(EventRepository $eventRepository): Response
     {
-        $first = $eventRepository->findBy([],['date'=>'DESC'],1);
-//        dd($first);
+        $first = $eventRepository->findBy([], ['date'=>'DESC'], 1);
+        dd($first);
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'first' => $first,

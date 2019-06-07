@@ -143,7 +143,6 @@ main {
     }
   }
 
-
   .hours-footer {
     padding-left: 0px;
     padding-right: 0px;
@@ -240,3 +239,15 @@ main {
         border-color: $trail-primary-color;
       }
     }
+
+/***Section Le CLub Accueil***/
+
+.club{
+  background-color: $trail-secondary-color;
+  font-family: $text-font;
+  color: $fond-color;
+  .title-club{
+    font-family: $title-font;
+    color: $trail-primary-color
+  }
+}

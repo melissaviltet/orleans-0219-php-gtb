@@ -1,9 +1,228 @@
-@import "vars";
+@import "~bootstrap/scss/bootstrap";
+@import "vars.scss";
+@import 'mixins.scss';
+@import "functions";
 
-body {
-    background-color: $secondary-color;
+@font-face {
+  font-family: "#{$title-font}";
+  src: url('../fonts/#{$title-font}.#{$title-font-ext}');
 }
 
-a {
-    color: $warm-color;
+
+
+
+/***General styles***/
+
+main.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/***Buttons***/
+
+%btn-primary-outline {
+  border: 1px solid $trail-primary-color;
+  background-color: transparent;
+  color: $trail-primary-color;
+  border-radius: 5px;
+}
+
+%btn-primary {
+  background-color: $trail-secondary-color;
+  color: $trail-primary-color;
+  border-radius: 5px;
+}
+
+
+/***Visiter Navbar***/
+
+.fa-user, .fas.fa-map-marker {
+  color: $trail-primary-color;
+  font-size: 1.5vw;
+}
+
+main {
+  .navbar {
+    padding: 0;
+    background-color: $trail-secondary-color;
+    .navbar-brand {
+      padding: 0;
+      margin: 0;
+      img {
+        max-width: 120px;
+        padding: 0;
+        margin-right: 0;
+      }
+    }
+    .collapse .navbar-nav .nav-home {
+      width: 13.5vw;
+      @include medium {
+        width: 100vw;
+      }
+      &:nth-child(-n+6) {
+        border-right: 0.5px solid darken($fond-color, 50);
+        @include medium {
+          border-right: none;
+        }
+      }
+      &:nth-child(1) {
+        border-left: 0.5px solid darken($fond-color, 50);
+        @include medium {
+          border-left: none;
+        }
+      }
+    }
+    .active {
+      background-color: $trail-primary-color;
+    }
+    .navbar-nav .nav-link {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      font-size: 1.2vw;
+      font-family: $text-font;
+      @include medium {
+        font-size: 2vw;
+      }
+      @include small {
+        font-size: 3vw;
+      }
+      &:hover {
+        background-color: $trail-primary-color;
+        transition: all .6s;
+      }
+    }
+  }
+}
+
+/***Footer***/
+
+
+section.footer {
+  background-color: $trail-secondary-color;
+  color: $fond-color;
+  font-family: $text-font;
+  font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  margin-left: 0;
+  margin-right: 0;
+  .background-footer{
+    background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+    position: relative;
+    height : 5px;
+  }
+
+  div.address-footer {
+    border-right: 0.5px solid darken($fond-color, 50);
+    padding-left: 0px;
+    padding-right: 0px;
+    address.address-bis{
+      padding-top: 15%;
+      .address-ter{
+        padding-left: 48px;
+      }
+    }
+  }
+
+  .image-footer {
+    border-right: 0.5px solid darken($fond-color, 50);
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .logo-footer {
+      max-width: 120px;
+      padding: 0;
+      margin-right: 0;
+    }
+
+    .fa-facebook-square {
+      padding-top: 0.7rem;
+      padding-bottom: 1rem;
+      font-size: 2.5rem;
+      color: $trail-primary-color;
+
+      &:hover {
+        color: lighten($trail-primary-color, 10%);
+        transition: 0.5s;
+      }
+    }
+  }
+
+  .hours-footer {
+    padding-left: 0px;
+    padding-right: 0px;
+
+    h6 {
+      text-align: center;
+      font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+      padding-top: 15%;
+
+    }
+
+    ul {
+      text-align: center;
+      list-style-type: none;
+    }
+  }
+}
+
+/***Jumbotron***/
+
+.cont-jumbotron {
+  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+  position: relative;
+  .img-jumbotron {
+    padding-top: 4%;
+    padding-bottom: 5px;
+  }
+  .title-jumbotron {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    @include medium {
+      font-size: 2vw;
+    }
+    @include small {
+      font-size: 4vw;
+    }
+    color: white;
+    font-family: $title-font;
+    border-bottom: 1px solid $trail-primary-color;
+    text-shadow: 4px 3px 0 $trail-secondary-color;
+  }
+}
+
+
+
+/***Section Le CLub Accueil***/
+
+.club{
+  background-color: $trail-secondary-color;
+  font-family: $text-font;
+  color: $fond-color;
+  .title-club{
+    font-family: $title-font;
+    color: $trail-primary-color
+  }
+}
+
+
+/***Sponsors***/
+
+section.sponsors {
+  padding-bottom: 8%;
+  .title-cont h2 {
+    font-family: $title-font;
+    text-transform: uppercase;
+    padding-top: 10%;
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+  hr.border-sponsors {
+    border: 1px solid $trail-primary-color;
+    width: 10%;
+  }
+  .carousel-inner {
+    padding-bottom: 5%;
+  }
+  .card {
+    border: none;
+  }
 }

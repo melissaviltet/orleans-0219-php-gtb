@@ -29,12 +29,12 @@ class Association
     /**
      * @ORM\Column(type="text")
      */
-    private $triaContent;
+    private $triathlonContent;
 
     /**
      * @ORM\Column(type="text")
      */
-    private $triaHome;
+    private $triathlonHome;
 
     /**
      * @ORM\Column(type="text")
@@ -75,26 +75,26 @@ class Association
         return $this;
     }
 
-    public function getTriaContent(): ?string
+    public function getTriathlonContent(): ?string
     {
-        return $this->triaContent;
+        return $this->triathlonContent;
     }
 
-    public function setTriaContent(string $triaContent): self
+    public function setTriathlonContent(string $triathlonContent): self
     {
-        $this->triaContent = $triaContent;
+        $this->triathlonContent = $triathlonContent;
 
         return $this;
     }
 
-    public function getTriaHome(): ?string
+    public function getTriathlonHome(): ?string
     {
-        return $this->triaHome;
+        return $this->triathlonHome;
     }
 
-    public function setTriaHome(string $triaHome): self
+    public function setTriathlonHome(string $triathlonHome): self
     {
-        $this->triaHome = $triaHome;
+        $this->triathlonHome = $triathlonHome;
 
         return $this;
     }

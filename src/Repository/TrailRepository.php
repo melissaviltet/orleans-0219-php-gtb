@@ -19,10 +19,9 @@ class TrailRepository extends ServiceEntityRepository
         parent::__construct($registry, Trail::class);
     }
 
-    // /**
-    //  * @return Trail[] Returns an array of Trail objects
-    //  */
-    /*
+     /**
+      * @return Trail[] Returns an array of Trail objects
+      */
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('t')
@@ -31,12 +30,9 @@ class TrailRepository extends ServiceEntityRepository
             ->orderBy('t.id', 'ASC')
             ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
 
-    /*
     public function findOneBySomeField($value): ?Trail
     {
         return $this->createQueryBuilder('t')
@@ -46,5 +42,4 @@ class TrailRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
 }

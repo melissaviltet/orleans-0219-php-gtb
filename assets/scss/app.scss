@@ -214,7 +214,7 @@ section.footer {
   }
 
   .backtrail {
-    width: 100vw;
+    width: 99vw;
     z-index: -1000;
     filter: brightness(50%);
     height: 50vh;
@@ -267,10 +267,11 @@ section.footer {
 
   p {
     font-family: $text-font;
+    color: $fond-color;
   }
 
   .backtrail {
-    width: 100vw;
+    width: 99vw;
     z-index: -1000;
     filter: brightness(50%);
     height: 50vh;
@@ -290,10 +291,6 @@ section.footer {
       padding-left: 3em;
       padding-right: 4em;
     }
-  }
-
-  .left {
-    left: 15%;
   }
 
   .logo {

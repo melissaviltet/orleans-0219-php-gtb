@@ -44,7 +44,7 @@ main.container-fluid {
 main {
   .navbar {
     padding: 0;
-    background-color: $trail-secondary-color;
+    background: $trail-secondary-color;
     .navbar-brand {
       padding: 0;
       margin: 0;
@@ -58,18 +58,6 @@ main {
       width: 13.5vw;
       @include medium {
         width: 100vw;
-      }
-      &:nth-child(-n+6) {
-        border-right: 0.5px solid darken($fond-color, 50);
-        @include medium {
-          border-right: none;
-        }
-      }
-      &:nth-child(1) {
-        border-left: 0.5px solid darken($fond-color, 50);
-        @include medium {
-          border-left: none;
-        }
       }
     }
     .active {
@@ -170,15 +158,15 @@ section.footer {
   background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
   position: relative;
   .img-jumbotron {
-    padding-top: 4%;
+    padding-top: 5%;
     padding-bottom: 5px;
   }
   .title-jumbotron {
     position: absolute;
     bottom: 15%;
-    right: 10%;
+    right: 5%;
     @include medium {
-      font-size: 2vw;
+      font-size: 3vw;
     }
     @include small {
       font-size: 4vw;
@@ -200,7 +188,8 @@ section.footer {
   color: $fond-color;
   .title-club{
     font-family: $title-font;
-    color: $trail-primary-color
+    color: $trail-primary-color;
+    font-size: calc(2vw + 6 * ((100vw - 320px) / 680));
   }
 }
 
@@ -213,11 +202,17 @@ section.sponsors {
     font-family: $title-font;
     text-transform: uppercase;
     padding-top: 10%;
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(2vw + 6 * ((100vw - 320px) / 680));
   }
   hr.border-sponsors {
     border: 1px solid $trail-primary-color;
     width: 10%;
+  }
+  .carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    background-color: $trail-primary-color;
+    border-radius: 50%;
   }
   .carousel-inner {
     padding-bottom: 5%;

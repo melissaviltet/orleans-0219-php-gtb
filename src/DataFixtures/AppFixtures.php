@@ -13,7 +13,7 @@ class AppFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 9; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             $sponsor = new Sponsor();
             $sponsor->setName($faker->sentence(1));
             $sponsor->setLogoUrl($faker->imageUrl(800, 600, 'abstract', true, 'Faker', true));

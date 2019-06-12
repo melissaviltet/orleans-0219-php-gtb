@@ -19,7 +19,7 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', [
             'sponsors' => $sponsorRepository->findAll(),
-            'association' => $association->findAll(),
+            'association' => $association->findOneBy(['id' => 1]),
         ]);
     }
 }

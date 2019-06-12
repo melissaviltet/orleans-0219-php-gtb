@@ -28,9 +28,12 @@ main.container-fluid {
 }
 
 %btn-primary {
-  background-color: $trail-secondary-color;
-  color: $trail-primary-color;
+  background-color: $trail-primary-color;
+  color: $fond-color;
   border-radius: 5px;
+  &:hover{
+    @extend %btn-primary-outline;
+  }
 }
 
 
@@ -237,9 +240,13 @@ section.sponsors {
     margin-top:10%;
     background-color: $trail-secondary-color;
   }
+  .card-body{
+    .input-group-text{
+      color: $trail-primary-color;
+    }
+  }
   .btn-submit{
-    background-color: $trail-primary-color;
-    color: $fond-color;
+    @extend %btn-primary;
   }
   .new-account{
     text-align: center;

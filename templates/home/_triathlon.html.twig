@@ -1,0 +1,19 @@
+<div id="triathlon" class="flex-row position-relative">
+    <h2 class="">Triathlon</h2>
+    <img src="{{ asset("build/images/GTB-14.jpg") }}" class="backtrail" alt="triathlon">
+    <div class="row position-absolute justify-content-center">
+        <div class="col-6 left">
+            <div class="text-trail">
+                <p>
+                    {% for ass in association %}
+                    {{ ass.triathlonHome }}
+                    {% endfor %}
+                </p>
+                <a href="#" class="btn btn-primary">En savoir plus sur le triathlon</a>
+            </div>
+        </div>
+        <div class="col-6 right">
+            <img src="{{ asset('build/images/GTriB-base-blanc@2x.png') }}" class="logo my-auto" alt="logo gtb">
+        </div>
+    </div>
+</div>

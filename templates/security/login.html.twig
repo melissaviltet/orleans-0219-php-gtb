@@ -3,37 +3,35 @@
 {% block title %}Mon compte{% endblock %}
 
 {% block body %}
-
-    <div class="card w-25 card-connexion col-12 justify-content-center">
-        <div class="card-body">
-            <form method="post">
-                {% if error %}
-                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                {% endif %}
-
-                <h1 class="h3 mb-3 font-weight-normal">Veuillez-vous enregistrer.</h1>
-                <div class="email-log pb-4">
-                    <label for="inputEmail" class="sr-only">Email</label>
-                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+    <div class="row login-card justify-content-center align-content-center mt-5">
+        <div class="card w-50 card-connexion">
+            <div class="card-body">
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    <h1 class="h3 mb-3 font-weight-normal pl-5">Connexion</h1>
+                    <div class="email-log pb-5 pl-5 pr-5">
+                        <label for="inputEmail" class="sr-only">Email</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                               class="form-control" placeholder="Adresse mail" required autofocus>
+                    </div>
+                    <div class="password-log pb-5 pl-5 pr-5">
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control"
+                               placeholder="Mot de passe" required>
+                    </div>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <div class="button-submit row justify-content-center">
+                        <button class="btn btn-lg btn-submit" type="submit">
+                            Valider
+                        </button>
+                    </div>
+                </form>
+                <div class="new-account pt-4">
+                    Si vous n'avez pas encore de compte, veuillez cliquer <a href="#">ici</a>
                 </div>
-                <div class="password-log pb-4">
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                </div>
-
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-                <button class="btn btn-lg btn-primary btn-submit" type="submit">
-                    Valider
-                </button>
-            </form>
-            <div class="new-account pt-4">
-                Si vous n'avez pas encore de compte, veuillez cliquer <a href="#">ici</a>
             </div>
-
         </div>
     </div>
-
-
-
 {% endblock %}

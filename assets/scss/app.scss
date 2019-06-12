@@ -228,13 +228,23 @@ section.sponsors {
 }
 
 /***Login Page***/
-
-.card-connexion{
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: 35%;
-  .btn-submit{
-    margin-left: 40%;
+.login-card{
+  margin-left: 0px;
+  margin-right: 0px;
+  color: $fond-color;
+  font-family: $text-font;
+  .card-connexion{
+    margin-top:10%;
+    background-color: $trail-secondary-color;
   }
-
+  .btn-submit{
+    background-color: $trail-primary-color;
+    color: $fond-color;
+  }
+  .new-account{
+    text-align: center;
+    a:link{
+      color: $trail-primary-color;
+    }
+  }
 }

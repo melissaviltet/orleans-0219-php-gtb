@@ -102,7 +102,7 @@ main {
 
 /***Footer***/
 
-.footer {
+section.footer {
   background-color: $trail-secondary-color;
   color: $fond-color;
   font-family: $text-font;
@@ -114,76 +114,189 @@ main {
     border-right-style: solid;
     border-width: thin;
     border-color: $fond-color;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
 
-  .image-footer {
-    border-right-style: solid;
-    border-width: thin;
-    border-color: $fond-color;
-    padding-left: 0px;
-    padding-right: 0px;
-
-    .logo-footer {
-      max-width: 120px;
-      padding: 0;
-      margin-right: 0;
+    .background-footer {
+      background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+      position: relative;
+      height: 5px;
     }
 
-    .fa-facebook-square {
-      padding-top: 0.7rem;
-      padding-bottom: 1rem;
-      font-size: 2.5rem;
-      color: $trail-primary-color;
+    div.address-footer {
+      border-right: 0.5px solid darken($fond-color, 50);
+      padding-left: 0px;
+      padding-right: 0px;
 
-      &:hover {
-        color: lighten($trail-primary-color, 10%);
+      address.address-bis {
+        padding-top: 15%;
+
+        .address-ter {
+          padding-left: 48px;
+        }
+      }
+    }
+
+    .image-footer {
+      border-right-style: solid;
+      border-width: thin;
+      border-color: $fond-color;
+      border-right: 0.5px solid darken($fond-color, 50);
+      padding-left: 0px;
+      padding-right: 0px;
+
+      .logo-footer {
+        max-width: 120px;
+        padding: 0;
+        margin-right: 0;
+      }
+
+      .fa-facebook-square {
+        padding-top: 0.7rem;
+        padding-bottom: 1rem;
+        font-size: 2.5rem;
+        color: $trail-primary-color;
+
+        &:hover {
+          color: lighten($trail-primary-color, 10%);
+          transition: 0.5s;
+        }
+      }
+    }
+
+    .hours-footer {
+      padding-left: 0px;
+      padding-right: 0px;
+
+      h6 {
+        text-align: center;
+        font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+        padding-top: 15%;
+
+      }
+
+      ul {
+        text-align: center;
+        list-style-type: none;
       }
     }
   }
 }
 
-  .hours-footer {
-    padding-left: 0px;
-    padding-right: 0px;
+/***Jumbotron***/
 
-    h6 {
+.cont-jumbotron {
+  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+  position: relative;
+
+  .img-jumbotron {
+    padding-top: 4%;
+    padding-bottom: 5px;
+  }
+
+  .title-jumbotron {
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    @include medium {
+      font-size: 2vw;
+    }
+    @include small {
+      font-size: 4vw;
+    }
+    color: white;
+    font-family: $title-font;
+    border-bottom: 1px solid $trail-primary-color;
+    text-shadow: 4px 3px 0 $trail-secondary-color;
+  }
+}
+
+
+/* Trail */
+#trail {
+  h2 {
+    text-align: center;
+    color: $trail-secondary-color;
+    font-family: $title-font;
+  }
+
+  .backtrail {
+    width: 100vw;
+    z-index: -1000;
+    filter: brightness(50%);
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  .position-absolute {
+    top: 40%;
+
+    .text-trail {
+      color: $fond-color;
       text-align: center;
-      font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
 
-    ul {
-      text-align: center;
-      list-style-type: none;
+    .col-6 {
+      padding-left: 3em;
+      padding-right: 4em;
     }
   }
 
+  .left {
+    left: 15%;
 
-  /***Jumbotron***/
-
-  .cont-jumbotron {
-    background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-    position: relative;
-
-    .img-jumbotron {
-      padding-top: 4%;
-      padding-bottom: 5px;
-    }
-
-    .title-jumbotron {
-      position: absolute;
-      bottom: 15%;
-      right: 10%;
-      @include medium {
-        font-size: 2vw;
-      }
-      @include small {
-        font-size: 4vw;
-      }
-      color: white;
-      font-family: $title-font;
-      border-bottom: 1px solid $trail-primary-color;
-      text-shadow: 4px 3px 0 $trail-secondary-color;
+    .logo {
+      background-color: $trail-primary-color;
+      width: 20vw;
     }
   }
+
+  .btn {
+    background-color: $trail-primary-color;
+    border-color: darken($trail-primary-color, 20%);
+    transition: ease 0.2s;
+  }
+
+  .btn:hover {
+    background-color: darken($trail-primary-color, 20%);
+    border-color: $trail-primary-color;
+  }
+}
+
+/***Section Le CLub Accueil***/
+
+.club {
+  background-color: $trail-secondary-color;
+  font-family: $text-font;
+  color: $fond-color;
+
+  .title-club {
+    font-family: $title-font;
+    color: $trail-primary-color
+  }
+}
+
+
+/***Sponsors***/
+
+section.sponsors {
+  padding-bottom: 8%;
+
+  .title-cont h2 {
+    font-family: $title-font;
+    text-transform: uppercase;
+    padding-top: 10%;
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+
+  hr.border-sponsors {
+    border: 1px solid $trail-primary-color;
+    width: 10%;
+  }
+
+  .carousel-inner {
+    padding-bottom: 5%;
+  }
+
+  .card {
+    border: none;
+  }
+}

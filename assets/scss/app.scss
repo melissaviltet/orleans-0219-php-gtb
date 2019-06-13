@@ -110,15 +110,23 @@ section.footer {
   margin-left: 0;
   margin-right: 0;
 
-  .address-footer {
-    border-right-style: solid;
-    border-width: thin;
-    border-color: $fond-color;
+  .background-footer {
+    background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+    position: relative;
+    height: 5px;
+  }
 
-    .background-footer {
-      background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-      position: relative;
-      height: 5px;
+  div.address-footer {
+    border-right: 0.5px solid darken($fond-color, 50);
+    padding-left: 0px;
+    padding-right: 0px;
+
+    address.address-bis {
+      padding-top: 15%;
+
+      .address-ter {
+        padding-left: 48px;
+      }
     }
 
     div.address-footer {
@@ -209,18 +217,22 @@ section.footer {
   }
 }
 
-
 /* Trail */
-#trail {
+.triathlon, .trail {
   h2 {
     text-align: center;
     color: $trail-secondary-color;
     font-family: $title-font;
   }
 
-  .backtrail {
-    width: 100vw;
-    z-index: -1000;
+  p {
+    font-family: $text-font;
+    color: $fond-color;
+  }
+
+  .back {
+    width: 99vw;
+    z-index: 0;
     filter: brightness(50%);
     height: 50vh;
     object-fit: cover;
@@ -228,34 +240,33 @@ section.footer {
 
   .position-absolute {
     top: 40%;
-
-    .text-trail {
-      color: $fond-color;
-      text-align: center;
-    }
-
-    .col-6 {
-      padding-left: 3em;
-      padding-right: 4em;
-    }
+    padding-right: 2em;
+    padding-left: 2em;
   }
 
-  .left {
-    left: 15%;
-
-    .logo {
-      background-color: $trail-primary-color;
-      width: 20vw;
-    }
+  .logo {
+    width: 20vw;
   }
+}
 
-  .btn {
+.trail {
+  .logo {
     background-color: $trail-primary-color;
-    border-color: darken($trail-primary-color, 20%);
-    transition: ease 0.2s;
   }
+}
 
-  .btn:hover {
+.triathlon {
+  .logo {
+    background-color: $trail-secondary-color;
+  }
+}
+
+.btn {
+  background-color: $trail-primary-color;
+  border-color: darken($trail-primary-color, 20%);
+  transition: ease 0.2s;
+
+  &:hover {
     background-color: darken($trail-primary-color, 20%);
     border-color: $trail-primary-color;
   }
@@ -273,7 +284,6 @@ section.footer {
     color: $trail-primary-color
   }
 }
-
 
 /***Sponsors***/
 

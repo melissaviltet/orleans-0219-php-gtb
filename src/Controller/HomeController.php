@@ -23,11 +23,16 @@ class HomeController extends AbstractController
         AssociationRepository $association,
         EventRepository $eventRepository
     ): Response {
-        $first = $eventRepository->findBy([], ['date' => 'DESC'], 1);
-        dd($first);
+        $eventsBrut = $eventRepository->findBy([], ['date' => 'DESC'], 4);
+        $first = $eventsBrut[0];
+        $events = '';
+        for ($i=1; $i <4; $i++) {
+            $events[$i-1] = $eventsBrut[$i];
+        }
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'first' => $first,
+            'events' => $events,
             'sponsors' => $sponsorRepository->findAll(),
             'association' => $association->findOneBy(['id' => 1]),
         ]);

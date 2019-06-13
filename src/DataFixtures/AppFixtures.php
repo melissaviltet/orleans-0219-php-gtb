@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Association;
+use App\Entity\Event;
 use App\Entity\Sponsor;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -29,6 +30,17 @@ class AppFixtures extends Fixture
         $association->setClubContent($faker->text);
         $association->setClubHome($faker->text);
         $manager->persist($association);
+
+        for ($i = 0; $i < 4; $i++) {
+            $event = new Event();
+            $event->setName($faker->sentence(3));
+            $event->setUrl($faker->url);
+            $event->setDate($faker->dateTime);
+            $event->setPlace($faker->city);
+            $event->setIsPrivate($faker->boolean);
+            $event->setPicture($faker->imageUrl());
+            $manager->persist($event);
+        }
 
 
         $manager->flush();

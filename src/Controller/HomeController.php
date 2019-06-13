@@ -12,13 +12,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
 
-     /** @param SponsorRepository $sponsorRepository, AssociationRepository $association, EventRepository $eventRepository
+    /** @param SponsorRepository $sponsorRepository
+     * @param AssociationRepository $association
+     * @param EventRepository $eventRepository
      * @Route("/", name="home")
      * @return Response
      */
-    public function index(SponsorRepository $sponsorRepository, AssociationRepository $association, EventRepository $eventRepository): Response
-    {
-        $first = $eventRepository->findBy([], ['date'=>'DESC'], 1);
+    public function index(
+        SponsorRepository $sponsorRepository,
+        AssociationRepository $association,
+        EventRepository $eventRepository
+    ): Response {
+        $first = $eventRepository->findBy([], ['date' => 'DESC'], 1);
         dd($first);
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',

@@ -29,7 +29,7 @@ main.container-fluid {
 
 %btn-primary {
   background-color: $trail-primary-color;
-  color: $fond-color;
+  color: $font-color;
   border-radius: 5px;
   &:hover{
     @extend %btn-primary-outline;
@@ -63,13 +63,13 @@ main {
         width: 100vw;
       }
       &:nth-child(-n+6) {
-        border-right: 0.5px solid darken($fond-color, 50);
+        border-right: 0.5px solid darken($font-color, 50);
         @include medium {
           border-right: none;
         }
       }
       &:nth-child(1) {
-        border-left: 0.5px solid darken($fond-color, 50);
+        border-left: 0.5px solid darken($font-color, 50);
         @include medium {
           border-left: none;
         }
@@ -102,7 +102,7 @@ main {
 
 section.footer {
   background-color: $trail-secondary-color;
-  color: $fond-color;
+  color: $font-color;
   font-family: $text-font;
   font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   margin-left: 0;
@@ -114,7 +114,7 @@ section.footer {
   }
 
   div.address-footer {
-    border-right: 0.5px solid darken($fond-color, 50);
+    border-right: 0.5px solid darken($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
     address.address-bis{
@@ -126,7 +126,7 @@ section.footer {
   }
 
   .image-footer {
-    border-right: 0.5px solid darken($fond-color, 50);
+    border-right: 0.5px solid darken($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
 
@@ -200,7 +200,7 @@ section.footer {
 .club{
   background-color: $trail-secondary-color;
   font-family: $text-font;
-  color: $fond-color;
+  color: $font-color;
   .title-club{
     font-family: $title-font;
     color: $trail-primary-color
@@ -234,7 +234,7 @@ section.sponsors {
 .login-card{
   margin-left: 0px;
   margin-right: 0px;
-  color: $fond-color;
+  color: $font-color;
   font-family: $text-font;
   .card-connexion{
     margin-top:10%;

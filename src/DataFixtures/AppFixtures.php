@@ -16,7 +16,7 @@ class AppFixtures extends Fixture
         for ($i = 0; $i < 15; $i++) {
             $sponsor = new Sponsor();
             $sponsor->setName($faker->sentence(1));
-            $sponsor->setLogoUrl($faker->imageUrl(800, 600, 'abstract', true, 'Faker', true));
+            $sponsor->setLogoUrl('https://via.placeholder.com/150/0000FF/808080C?Text=' . $i);
             $sponsor->setSite($faker->url);
             $manager->persist($sponsor);
         }

@@ -227,7 +227,7 @@ section.footer {
 
   p {
     font-family: $text-font;
-    color: $fond-color;
+    color: $font-color;
   }
 
   .back {
@@ -308,5 +308,14 @@ section.sponsors {
 
   .card {
     border: none;
+  }
+}
+
+/* Events */
+.events {
+  .main {
+    .card {
+      margin-top: auto;
+    }
   }
 }

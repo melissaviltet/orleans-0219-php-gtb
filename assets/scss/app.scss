@@ -45,7 +45,7 @@ main.container-fluid {
 main {
   .navbar {
     padding: 0;
-    background-color: $trail-secondary-color;
+    background: $trail-secondary-color-nav;
 
     .navbar-brand {
       padding: 0;
@@ -63,24 +63,6 @@ main {
       @include medium {
         width: 100vw;
       }
-
-      &:nth-child(-n+6) {
-        border-right: 0.5px solid darken($font-color, 50);
-        @include medium {
-          border-right: none;
-        }
-      }
-
-      &:nth-child(1) {
-        border-left: 0.5px solid darken($font-color, 50);
-        @include medium {
-          border-left: none;
-        }
-      }
-    }
-
-    .active {
-      background-color: $trail-primary-color;
     }
 
     .navbar-nav .nav-link {
@@ -121,10 +103,9 @@ section.footer {
   }
 
   div.address-footer {
-    border-right: 0.5px solid darken($font-color, 50);
+    border-right: 0.5px solid lighten($fond-color, 50);
     padding-left: 0px;
     padding-right: 0px;
-
     address.address-bis {
       padding-top: 15%;
 
@@ -135,7 +116,7 @@ section.footer {
   }
 
   .image-footer {
-    border-right: 0.5px solid darken($font-color, 50);
+    border-right: 0.5px solid lighten($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
 
@@ -179,29 +160,39 @@ section.footer {
 /***Jumbotron***/
 
 .cont-jumbotron {
-  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-  position: relative;
-
-  .img-jumbotron {
-    padding-top: 4%;
-    padding-bottom: 5px;
-  }
+  background-image: url('../images/header-site-gtb.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 60vh;
+  width: 100vw;
+  padding-top: 15%;
+  margin-bottom: 0;
 
   .title-jumbotron {
-    position: absolute;
-    bottom: 15%;
-    right: 10%;
+    font-size: 3rem;
     @include medium {
-      font-size: 2vw;
+      font-size: 3rem;
+      text-shadow: 2px 4px 3px $trail-primary-color;
     }
     @include small {
-      font-size: 4vw;
+      font-size: 2vw;
     }
     color: white;
     font-family: $title-font;
-    border-bottom: 1px solid $trail-primary-color;
-    text-shadow: 4px 3px 0 $trail-secondary-color;
   }
+  .logo-container {
+    bottom: 20%;
+    right: 5%;
+    .logo-link {
+      text-align: right;
+    }
+  }
+}
+
+.border-jumbotron {
+  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+  height : 5px;
 }
 
 /* Trail */
@@ -262,28 +253,41 @@ section.footer {
 .club {
   background-color: $trail-secondary-color;
   font-family: $text-font;
-  color: $font-color; 
+  color: $font-color-light-bg;
+  padding-bottom: $sectionPadding;
+
   .title-club {
     font-family: $title-font;
-    color: $trail-primary-color
+    color: $trail-primary-color;
+    font-size: calc(2vw + 6 * ((100vw - 320px) / 680));
+    padding-top: $sectionPadding - 5;
+  }
+  .border-sponsors {
+    width: 10%;
   }
 }
 
 /***Sponsors***/
 
 section.sponsors {
-  padding-bottom: 8%;
+  padding-bottom: $sectionPadding;
 
   .title-cont h2 {
     font-family: $title-font;
     text-transform: uppercase;
     padding-top: 10%;
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(2vw + 6 * ((100vw - 320px) / 600));
   }
 
   hr.border-sponsors {
-    border: 1px solid $trail-primary-color;
+    border: 1px solid $trail-primary-color!important;
     width: 10%;
+  }
+  .carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    background-color: $trail-primary-color;
+    border-radius: 50%;
   }
 
   .carousel-inner {

@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
-@import "vars.scss";
+@import "_vars.scss";
 @import 'mixins.scss';
 @import "functions";
 
@@ -103,7 +103,7 @@ section.footer {
   }
 
   div.address-footer {
-    border-right: 0.5px solid lighten($fond-color, 50);
+    border-right: 0.5px solid lighten($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
     address.address-bis {
@@ -251,9 +251,9 @@ section.footer {
 /***Section Le CLub Accueil***/
 
 .club {
-  background-color: $trail-secondary-color;
+  background-color: lighten($font-color-light-bg, 50);
   font-family: $text-font;
-  color: $font-color-light-bg;
+  color: $trail-secondary-color;
   padding-bottom: $sectionPadding;
 
   .title-club {

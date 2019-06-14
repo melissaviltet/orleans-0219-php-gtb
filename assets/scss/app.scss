@@ -9,8 +9,6 @@
 }
 
 
-
-
 /***General styles***/
 
 main.container-fluid {
@@ -28,15 +26,18 @@ main.container-fluid {
 }
 
 %btn-primary {
-  background-color: $trail-secondary-color;
-  color: $trail-primary-color;
+  background-color: $trail-primary-color;
+  color: $font-color;
   border-radius: 5px;
+  &:hover{
+    @extend %btn-primary-outline;
+  }
 }
 
 
 /***Visiter Navbar***/
 
-.fa-user, .fas.fa-map-marker {
+.fa-user, .fas.fa-map-marker, .fa-user-check {
   color: $trail-primary-color;
   font-size: 1.5vw;
 }
@@ -45,21 +46,25 @@ main {
   .navbar {
     padding: 0;
     background: $trail-secondary-color-nav;
+
     .navbar-brand {
       padding: 0;
       margin: 0;
+
       img {
         max-width: 120px;
         padding: 0;
         margin-right: 0;
       }
     }
+
     .collapse .navbar-nav .nav-home {
       width: 13.5vw;
       @include medium {
         width: 100vw;
       }
     }
+
     .navbar-nav .nav-link {
       padding-top: 1rem;
       padding-bottom: 1rem;
@@ -71,6 +76,7 @@ main {
       @include small {
         font-size: 3vw;
       }
+
       &:hover {
         background-color: $trail-primary-color;
         transition: all .6s;
@@ -84,15 +90,16 @@ main {
 
 section.footer {
   background-color: $trail-secondary-color;
-  color: $fond-color;
+  color: $font-color;
   font-family: $text-font;
   font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   margin-left: 0;
   margin-right: 0;
-  .background-footer{
+
+  .background-footer {
     background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
     position: relative;
-    height : 5px;
+    height: 5px;
   }
 
   div.address-footer {
@@ -101,14 +108,15 @@ section.footer {
     padding-right: 0px;
     address.address-bis {
       padding-top: 15%;
-      .address-ter{
+
+      .address-ter {
         padding-left: 48px;
       }
     }
   }
 
   .image-footer {
-    border-right: 0.5px solid lighten($fond-color, 50);
+    border-right: 0.5px solid lighten($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
 
@@ -160,6 +168,7 @@ section.footer {
   width: 100vw;
   padding-top: 15%;
   margin-bottom: 0;
+
   .title-jumbotron {
     font-size: 3rem;
     @include medium {
@@ -186,15 +195,67 @@ section.footer {
   height : 5px;
 }
 
+/* Trail */
+.triathlon, .trail {
+  h2 {
+    text-align: center;
+    color: $trail-secondary-color;
+    font-family: $title-font;
+  }
 
+  p {
+    font-family: $text-font;
+    color: $font-color;
+  }
+
+  .back {
+    width: 99vw;
+    z-index: 0;
+    filter: brightness(50%);
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  .position-absolute {
+    top: 40%;
+  }
+
+  .logo {
+    width: 20vw;
+  }
+}
+
+.trail {
+  .logo {
+    background-color: $trail-primary-color;
+  }
+}
+
+.triathlon {
+  .logo {
+    background-color: $trail-secondary-color;
+  }
+}
+
+.btn {
+  background-color: $trail-primary-color;
+  border-color: darken($trail-primary-color, 20%);
+  transition: ease 0.2s;
+
+  &:hover {
+    background-color: darken($trail-primary-color, 20%);
+    border-color: $trail-primary-color;
+  }
+}
 
 /***Section Le CLub Accueil***/
 
-.club{
+.club {
   background-color: $trail-secondary-color;
   font-family: $text-font;
-  color: $fond-color-light-bg;
+  color: $font-color-light-bg;
   padding-bottom: $sectionPadding;
+
   .title-club {
     font-family: $title-font;
     color: $trail-primary-color;
@@ -206,17 +267,18 @@ section.footer {
   }
 }
 
-
 /***Sponsors***/
 
 section.sponsors {
   padding-bottom: $sectionPadding;
+
   .title-cont h2 {
     font-family: $title-font;
     text-transform: uppercase;
     padding-top: 10%;
     font-size: calc(2vw + 6 * ((100vw - 320px) / 600));
   }
+
   hr.border-sponsors {
     border: 1px solid $trail-primary-color!important;
     width: 10%;
@@ -227,10 +289,39 @@ section.sponsors {
     background-color: $trail-primary-color;
     border-radius: 50%;
   }
+
   .carousel-inner {
     padding-bottom: 5%;
   }
+
   .card {
     border: none;
+  }
+}
+
+
+/***Login Page***/
+.login-card{
+  margin-left: 0px;
+  margin-right: 0px;
+  color: $font-color;
+  font-family: $text-font;
+  .card-connexion{
+    margin-top:10%;
+    background-color: $trail-secondary-color;
+  }
+  .card-body{
+    .input-group-text{
+      color: $trail-primary-color;
+    }
+  }
+  .btn-submit{
+    @extend %btn-primary;
+  }
+  .new-account{
+    text-align: center;
+    a:link{
+      color: $trail-primary-color;
+    }
   }
 }

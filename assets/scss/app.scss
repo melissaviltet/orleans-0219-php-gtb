@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
-@import "vars.scss";
+@import "_vars.scss";
 @import 'mixins.scss';
 @import "functions";
 
@@ -7,8 +7,6 @@
   font-family: "#{$title-font}";
   src: url('../fonts/#{$title-font}.#{$title-font-ext}');
 }
-
-
 
 
 /***General styles***/
@@ -28,15 +26,18 @@ main.container-fluid {
 }
 
 %btn-primary {
-  background-color: $trail-secondary-color;
-  color: $trail-primary-color;
+  background-color: $trail-primary-color;
+  color: $font-color;
   border-radius: 5px;
+  &:hover{
+    @extend %btn-primary-outline;
+  }
 }
 
 
 /***Visiter Navbar***/
 
-.fa-user, .fas.fa-map-marker {
+.fa-user, .fas.fa-map-marker, .fa-user-check {
   color: $trail-primary-color;
   font-size: 1.5vw;
 }
@@ -44,37 +45,26 @@ main.container-fluid {
 main {
   .navbar {
     padding: 0;
-    background-color: $trail-secondary-color;
+    background: $trail-secondary-color-nav;
+
     .navbar-brand {
       padding: 0;
       margin: 0;
+
       img {
         max-width: 120px;
         padding: 0;
         margin-right: 0;
       }
     }
+
     .collapse .navbar-nav .nav-home {
       width: 13.5vw;
       @include medium {
         width: 100vw;
       }
-      &:nth-child(-n+6) {
-        border-right: 0.5px solid darken($fond-color, 50);
-        @include medium {
-          border-right: none;
-        }
-      }
-      &:nth-child(1) {
-        border-left: 0.5px solid darken($fond-color, 50);
-        @include medium {
-          border-left: none;
-        }
-      }
     }
-    .active {
-      background-color: $trail-primary-color;
-    }
+
     .navbar-nav .nav-link {
       padding-top: 1rem;
       padding-bottom: 1rem;
@@ -86,6 +76,7 @@ main {
       @include small {
         font-size: 3vw;
       }
+
       &:hover {
         background-color: $trail-primary-color;
         transition: all .6s;
@@ -99,31 +90,33 @@ main {
 
 section.footer {
   background-color: $trail-secondary-color;
-  color: $fond-color;
+  color: $font-color;
   font-family: $text-font;
   font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   margin-left: 0;
   margin-right: 0;
-  .background-footer{
+
+  .background-footer {
     background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
     position: relative;
-    height : 5px;
+    height: 5px;
   }
 
   div.address-footer {
-    border-right: 0.5px solid darken($fond-color, 50);
+    border-right: 0.5px solid lighten($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
-    address.address-bis{
+    address.address-bis {
       padding-top: 15%;
-      .address-ter{
+
+      .address-ter {
         padding-left: 48px;
       }
     }
   }
 
   .image-footer {
-    border-right: 0.5px solid darken($fond-color, 50);
+    border-right: 0.5px solid lighten($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
 
@@ -167,62 +160,168 @@ section.footer {
 /***Jumbotron***/
 
 .cont-jumbotron {
-  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-  position: relative;
-  .img-jumbotron {
-    padding-top: 4%;
-    padding-bottom: 5px;
-  }
+  background-image: url('../images/header-site-gtb.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 60vh;
+  width: 100vw;
+  padding-top: 15%;
+  margin-bottom: 0;
+
   .title-jumbotron {
-    position: absolute;
-    bottom: 15%;
-    right: 10%;
+    font-size: 3rem;
     @include medium {
-      font-size: 2vw;
+      font-size: 3rem;
+      text-shadow: 2px 4px 3px $trail-primary-color;
     }
     @include small {
-      font-size: 4vw;
+      font-size: 2vw;
     }
     color: white;
     font-family: $title-font;
-    border-bottom: 1px solid $trail-primary-color;
-    text-shadow: 4px 3px 0 $trail-secondary-color;
+  }
+  .logo-container {
+    bottom: 20%;
+    right: 5%;
+    .logo-link {
+      text-align: right;
+    }
   }
 }
 
+.border-jumbotron {
+  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+  height : 5px;
+}
 
+/* Trail */
+.triathlon, .trail {
+  h2 {
+    text-align: center;
+    color: $trail-secondary-color;
+    font-family: $title-font;
+  }
+
+  p {
+    font-family: $text-font;
+    color: $font-color;
+  }
+
+  .back {
+    width: 99vw;
+    z-index: 0;
+    filter: brightness(50%);
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  .position-absolute {
+    top: 40%;
+  }
+
+  .logo {
+    width: 20vw;
+  }
+}
+
+.trail {
+  .logo {
+    background-color: $trail-primary-color;
+  }
+}
+
+.triathlon {
+  .logo {
+    background-color: $trail-secondary-color;
+  }
+}
+
+.btn {
+  background-color: $trail-primary-color;
+  border-color: darken($trail-primary-color, 20%);
+  transition: ease 0.2s;
+
+  &:hover {
+    background-color: darken($trail-primary-color, 20%);
+    border-color: $trail-primary-color;
+  }
+}
 
 /***Section Le CLub Accueil***/
 
-.club{
-  background-color: $trail-secondary-color;
+.club {
+  background-color: lighten($font-color-light-bg, 50);
   font-family: $text-font;
-  color: $fond-color;
-  .title-club{
+  color: $trail-secondary-color;
+  padding-bottom: $sectionPadding;
+
+  .title-club {
     font-family: $title-font;
-    color: $trail-primary-color
+    color: $trail-primary-color;
+    font-size: calc(2vw + 6 * ((100vw - 320px) / 680));
+    padding-top: $sectionPadding - 5;
+  }
+  .border-sponsors {
+    width: 10%;
   }
 }
-
 
 /***Sponsors***/
 
 section.sponsors {
-  padding-bottom: 8%;
+  padding-bottom: $sectionPadding;
+
   .title-cont h2 {
     font-family: $title-font;
     text-transform: uppercase;
     padding-top: 10%;
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(2vw + 6 * ((100vw - 320px) / 600));
   }
+
   hr.border-sponsors {
-    border: 1px solid $trail-primary-color;
+    border: 1px solid $trail-primary-color!important;
     width: 10%;
   }
+  .carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    background-color: $trail-primary-color;
+    border-radius: 50%;
+  }
+
   .carousel-inner {
     padding-bottom: 5%;
   }
+
   .card {
     border: none;
+  }
+}
+
+
+/***Login Page***/
+.login-card{
+  margin-left: 0px;
+  margin-right: 0px;
+  color: $font-color;
+  font-family: $text-font;
+  .card-connexion{
+    margin-top:10%;
+    background-color: $trail-secondary-color;
+  }
+  .card-body{
+    .input-group-text{
+      color: $trail-primary-color;
+    }
+  }
+  .btn-submit{
+    @extend %btn-primary;
+  }
+  .new-account{
+    text-align: center;
+    a:link{
+      color: $trail-primary-color;
+    }
   }
 }

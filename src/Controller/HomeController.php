@@ -11,7 +11,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-
     /** @param SponsorRepository $sponsorRepository
      * @param AssociationRepository $association
      * @param EventRepository $eventRepository

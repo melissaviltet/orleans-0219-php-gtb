@@ -11,7 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @param SponsorRepository $sponsorRepository AssociationRepository $association
+     * @param SponsorRepository $sponsorRepository
+     * @param AssociationRepository $association
      * @Route("/", name="home")
      * @return Response
      */
@@ -19,7 +20,7 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', [
             'sponsors' => $sponsorRepository->findAll(),
-            'association' => $association->findOneBy(['id' => 1]),
+            'association' => $association->findOneBy([]),
         ]);
     }
 }

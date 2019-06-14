@@ -5,9 +5,9 @@
                  class="card-img-top" alt="{{ first.name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ first.name }}</h5>
-                <p class="card-text">Le {{ first.date|date('d/m/Y') }}
+                <p class="card-text">Le {{ first.date |date('d/m/Y') }}
                     à {{ first.place }}</p>
-                <a href="{{ first.url }}" class="btn btn-primary">En savoir plus</a>
+                <a href="{{ first.url }}" class="btn btn-primary">Voir l'évènement</a>
             </div>
         </div>
     </div>

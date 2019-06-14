@@ -25,7 +25,6 @@ class HomeController extends AbstractController
     ): Response {
         $eventsBrut = $eventRepository->findBy([], ['date' => 'DESC'], 4);
         $first = $eventsBrut[0];
-        $events = '';
         for ($i=1; $i <4; $i++) {
             $events[$i-1] = $eventsBrut[$i];
         }
@@ -34,7 +33,7 @@ class HomeController extends AbstractController
             'first' => $first,
             'events' => $events,
             'sponsors' => $sponsorRepository->findAll(),
-            'association' => $association->findOneBy(['id' => 1]),
+            'association' => $association->findOneBy([]),
         ]);
     }
 }

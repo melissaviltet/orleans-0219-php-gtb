@@ -36,26 +36,29 @@ main.container-fluid {
 /***Navbar***/
 
 nav {
-  background-color: $trail-secondary-color;
-  .content {
-    a {
-      text-align: center;
-      .fas, .far {
-        margin: auto;
-        color: $fond-color;
-        font-size: calc(15px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  background-color: $trail-primary-color;
+  .aside {
+    background-color: lighten($trail-primary-color, 10);
+    .content {
+      a {
         text-align: center;
-        &:hover {
-          color: $trail-primary-color;
-          transform: scale(1.2);
-          transition: all .3s;
+        .fas, .far {
+          margin: auto;
+          color: $fond-color;
+          font-size: calc(15px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+          text-align: center;
+          &:hover {
+            color: $trail-primary-color;
+            transform: scale(1.2);
+            transition: all .3s;
+          }
         }
       }
-    }
-    .text {
-      font-size: 0.75rem;
-      color: $fond-color;
-      margin: auto;
+      .text {
+        font-size: 0.75rem;
+        color: $fond-color;
+        margin: auto;
+      }
     }
   }
 }

@@ -38,8 +38,6 @@ class AppFixtures extends Fixture
             $picture->setPrivate($faker->boolean);
             $manager->persist($picture);
         }
-
-
         $manager->flush();
     }
 }

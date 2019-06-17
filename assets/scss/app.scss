@@ -221,12 +221,19 @@ section.footer {
   height: 5px;
 }
 
-/* Trail */
+/* Trail & Triathlon */
+
+.trail {
+  border-bottom: $trail-primary-color solid 5px;
+}
 .triathlon, .trail {
   h2 {
-    text-align: center;
-    color: $trail-secondary-color;
+    color: $font-color;
     font-family: $title-font;
+  }
+
+  .row {
+    margin-right: 0;
   }
 
   p {
@@ -238,28 +245,16 @@ section.footer {
     width: 99vw;
     z-index: 0;
     filter: brightness(50%);
-    height: 50vh;
+    height: 20em;
     object-fit: cover;
   }
 
   .position-absolute {
-    top: 40%;
+    top: 20%;
   }
 
   .logo {
     width: 20vw;
-  }
-}
-
-.trail {
-  .logo {
-    background-color: $trail-primary-color;
-  }
-}
-
-.triathlon {
-  .logo {
-    background-color: $trail-secondary-color;
   }
 }
 

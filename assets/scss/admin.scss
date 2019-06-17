@@ -37,16 +37,16 @@ main.container-fluid {
 
 nav {
   background-color: $trail-secondary-color;
-  width: calc(180px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   .content {
     a {
       text-align: center;
       .fas, .far {
         margin: auto;
-        color: $trail-primary-color;
-        font-size: xx-large;
+        color: $fond-color;
+        font-size: calc(15px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
         text-align: center;
         &:hover {
+          color: $trail-primary-color;
           transform: scale(1.2);
           transition: all .3s;
         }

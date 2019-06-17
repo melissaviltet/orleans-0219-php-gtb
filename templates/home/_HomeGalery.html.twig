@@ -1,0 +1,11 @@
+
+<div class="homepage-images flex-row position-relative">
+        <div class="row homepage-picture">
+                {% for picture in pictures %}
+                        <img src="{{ picture.url }}" alt="{{ picture.alt }}">
+                {% endfor %}
+        </div>
+        <div class="row btn-homepage-picture justify-content-center">
+                <a href="#" class="btn btn-primary">Voir plus de photos de notre club</a>
+        </div>
+</div>

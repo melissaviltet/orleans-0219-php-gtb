@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Galery;
 use App\Entity\Association;
 use App\Entity\Sponsor;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -29,6 +30,14 @@ class AppFixtures extends Fixture
         $association->setClubContent($faker->text);
         $association->setClubHome($faker->text);
         $manager->persist($association);
+
+        for ($i = 0; $i<6; $i++) {
+            $picture = new Galery();
+            $picture->setUrl($faker->imageUrl());
+            $picture->setAlt($faker->sentence);
+            $picture->setPrivate($faker->boolean);
+            $manager->persist($picture);
+        }
 
 
         $manager->flush();

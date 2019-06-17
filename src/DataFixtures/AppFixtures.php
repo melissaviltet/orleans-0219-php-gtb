@@ -38,18 +38,17 @@ class AppFixtures extends Fixture
             $picture->setAlt($faker->sentence);
             $picture->setPrivate($faker->boolean);
             $manager->persist($picture);
-
-            for ($i = 0; $i < 4; $i++) {
-                $event = new Event();
-                $event->setName($faker->sentence(3));
-                $event->setUrl($faker->url);
-                $event->setDate($faker->dateTime);
-                $event->setPlace($faker->city);
-                $event->setIsPrivate($faker->boolean);
-                $event->setPicture($faker->imageUrl());
-                $manager->persist($event);
-            }
-            $manager->flush();
         }
+        for ($i = 0; $i < 4; $i++) {
+            $event = new Event();
+            $event->setName($faker->sentence(3));
+            $event->setUrl($faker->url);
+            $event->setDate($faker->dateTime);
+            $event->setPlace($faker->city);
+            $event->setIsPrivate($faker->boolean);
+            $event->setPicture($faker->imageUrl());
+            $manager->persist($event);
+        }
+        $manager->flush();
     }
 }

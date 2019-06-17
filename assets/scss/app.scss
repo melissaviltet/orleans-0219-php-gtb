@@ -106,6 +106,7 @@ section.footer {
     border-right: 0.5px solid lighten($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
+
     address.address-bis {
       padding-top: 15%;
 
@@ -204,9 +205,11 @@ section.footer {
     color: white;
     font-family: $title-font;
   }
+
   .logo-container {
     bottom: 20%;
     right: 5%;
+
     .logo-link {
       text-align: right;
     }
@@ -215,7 +218,7 @@ section.footer {
 
 .border-jumbotron {
   background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-  height : 5px;
+  height: 5px;
 }
 
 /* Trail */
@@ -285,6 +288,7 @@ section.footer {
     font-size: calc(2vw + 6 * ((100vw - 320px) / 680));
     padding-top: $sectionPadding - 5;
   }
+
   .border-sponsors {
     width: 10%;
   }
@@ -303,9 +307,10 @@ section.sponsors {
   }
 
   hr.border-sponsors {
-    border: 1px solid $trail-primary-color!important;
+    border: 1px solid $trail-primary-color !important;
     width: 10%;
   }
+
   .carousel-indicators li {
     width: 15px;
     height: 15px;
@@ -393,7 +398,10 @@ section.sponsors {
 }
 
 /***homepage Galery***/
-.btn-homepage-picture{
-margin-top: -70px;
 
+.btn-homepage-picture {
+  margin-top: -70px;
+}
+.images-index{
+  width: 100%;
 }

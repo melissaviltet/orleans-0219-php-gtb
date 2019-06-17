@@ -32,23 +32,24 @@ class AppFixtures extends Fixture
         $association->setClubHome($faker->text);
         $manager->persist($association);
 
-        for ($i = 0; $i<6; $i++) {
+        for ($i = 0; $i < 6; $i++) {
             $picture = new Galery();
             $picture->setUrl($faker->imageUrl());
             $picture->setAlt($faker->sentence);
             $picture->setPrivate($faker->boolean);
             $manager->persist($picture);
 
-        for ($i = 0; $i < 4; $i++) {
-            $event = new Event();
-            $event->setName($faker->sentence(3));
-            $event->setUrl($faker->url);
-            $event->setDate($faker->dateTime);
-            $event->setPlace($faker->city);
-            $event->setIsPrivate($faker->boolean);
-            $event->setPicture($faker->imageUrl());
-            $manager->persist($event);
+            for ($i = 0; $i < 4; $i++) {
+                $event = new Event();
+                $event->setName($faker->sentence(3));
+                $event->setUrl($faker->url);
+                $event->setDate($faker->dateTime);
+                $event->setPlace($faker->city);
+                $event->setIsPrivate($faker->boolean);
+                $event->setPicture($faker->imageUrl());
+                $manager->persist($event);
+            }
+            $manager->flush();
         }
-        $manager->flush();
     }
 }

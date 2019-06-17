@@ -22,8 +22,9 @@ class HomeController extends AbstractController
         AssociationRepository $association,
         EventRepository $eventRepository
     ): Response {
-        $eventsBrut = $eventRepository->findBy([], ['date' => 'DESC'], 4);
+        $eventsBrut = $eventRepository->findBy([], ['date' => 'ASC'], 4);
         $first = $eventsBrut[0];
+        $events=[];
         for ($i=1; $i <4; $i++) {
             $events[$i-1] = $eventsBrut[$i];
         }

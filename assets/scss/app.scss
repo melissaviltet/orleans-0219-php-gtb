@@ -1,5 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
-@import "vars.scss";
+@import "_vars.scss";
 @import 'mixins.scss';
 @import "functions";
 
@@ -7,8 +7,6 @@
   font-family: "#{$title-font}";
   src: url('../fonts/#{$title-font}.#{$title-font-ext}');
 }
-
-
 
 
 /***General styles***/
@@ -28,15 +26,19 @@ main.container-fluid {
 }
 
 %btn-primary {
-  background-color: $trail-secondary-color;
-  color: $trail-primary-color;
+  background-color: $trail-primary-color;
+  color: $font-color;
   border-radius: 5px;
+
+  &:hover {
+    @extend %btn-primary-outline;
+  }
 }
 
 
 /***Visiter Navbar***/
 
-.fa-user, .fas.fa-map-marker {
+.fa-user, .fas.fa-map-marker, .fa-user-check {
   color: $trail-primary-color;
   font-size: 1.5vw;
 }
@@ -44,37 +46,26 @@ main.container-fluid {
 main {
   .navbar {
     padding: 0;
-    background-color: $trail-secondary-color;
+    background: $trail-secondary-color-nav;
+
     .navbar-brand {
       padding: 0;
       margin: 0;
+
       img {
         max-width: 120px;
         padding: 0;
         margin-right: 0;
       }
     }
+
     .collapse .navbar-nav .nav-home {
       width: 13.5vw;
       @include medium {
         width: 100vw;
       }
-      &:nth-child(-n+6) {
-        border-right: 0.5px solid darken($fond-color, 50);
-        @include medium {
-          border-right: none;
-        }
-      }
-      &:nth-child(1) {
-        border-left: 0.5px solid darken($fond-color, 50);
-        @include medium {
-          border-left: none;
-        }
-      }
     }
-    .active {
-      background-color: $trail-primary-color;
-    }
+
     .navbar-nav .nav-link {
       padding-top: 1rem;
       padding-bottom: 1rem;
@@ -86,6 +77,7 @@ main {
       @include small {
         font-size: 3vw;
       }
+
       &:hover {
         background-color: $trail-primary-color;
         transition: all .6s;
@@ -96,9 +88,10 @@ main {
 
 /***Footer***/
 
-.footer {
+section.footer {
+
   background-color: $trail-secondary-color;
-  color: $fond-color;
+  color: $font-color;
   font-family: $text-font;
   font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   margin-left: 0;
@@ -116,8 +109,21 @@ main {
     border-right-style: solid;
     border-width: thin;
     border-color: $fond-color;
+
+  .background-footer {
+    background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+    position: relative;
+    height: 5px;
+  }
+
+  div.address-footer {
+    border-right: 0.5px solid lighten($font-color, 50);
+
     padding-left: 0px;
     padding-right: 0px;
+    address.address-bis {
+      padding-top: 15%;
+
 
     .logo-footer {
       max-width: 120px;
@@ -152,33 +158,286 @@ main {
     }
 
 
+      .address-ter {
+        padding-left: 48px;
+      }
+    }
+
+    div.address-footer {
+      border-right: 0.5px solid darken($font-color, 50);
+      padding-left: 0px;
+      padding-right: 0px;
+
+      .image-footer {
+        border-right: 0.5px solid darken($font-color, 50);
+        padding-left: 0px;
+        padding-right: 0px;
+
+        address.address-bis {
+          padding-top: 15%;
+
+          .address-ter {
+            padding-left: 48px;
+          }
+        }
+      }
+
+      .image-footer {
+        border-right-style: solid;
+        border-width: thin;
+        border-color: $font-color;
+        border-right: 0.5px solid darken($font-color, 50);
+        padding-left: 0px;
+        padding-right: 0px;
+
+        .logo-footer {
+          max-width: 120px;
+          padding: 0;
+          margin-right: 0;
+        }
+
+        .fa-facebook-square {
+          padding-top: 0.7rem;
+          padding-bottom: 1rem;
+          font-size: 2.5rem;
+          color: $trail-primary-color;
+
+          &:hover {
+            color: lighten($trail-primary-color, 10%);
+            transition: 0.5s;
+          }
+        }
+      }
+
+      .hours-footer {
+        padding-left: 0px;
+        padding-right: 0px;
+
+        h6 {
+          text-align: center;
+          font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+          padding-top: 15%;
+
+        }
+
+        ul {
+          text-align: center;
+          list-style-type: none;
+        }
+      }
+    }
+  }
+}
+
+
     /***Jumbotron***/
 
-    .cont-jumbotron {
-      background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-      position: relative;
+.cont-jumbotron {
+  background-image: url('../images/header-site-gtb.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 60vh;
+  width: 100vw;
+  padding-top: 15%;
+  margin-bottom: 0;
 
-      .img-jumbotron {
-        padding-top: 4%;
-        padding-bottom: 5px;
+  .title-jumbotron {
+    font-size: 3rem;
+    @include medium {
+      font-size: 3rem;
+      text-shadow: 2px 4px 3px $trail-primary-color;
+    }
+    @include small {
+      font-size: 2vw;
+    }
+    color: white;
+    font-family: $title-font;
+  }
+  .logo-container {
+    bottom: 20%;
+    right: 5%;
+    .logo-link {
+      text-align: right;
+    }
+  }
+}
+
+.border-jumbotron {
+  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+  height : 5px;
+}
+
+/* Trail */
+.triathlon, .trail {
+  h2 {
+    text-align: center;
+    color: $trail-secondary-color;
+    font-family: $title-font;
+  }
+
+  p {
+    font-family: $text-font;
+    color: $font-color;
+  }
+
+  .back {
+    width: 99vw;
+    z-index: 0;
+    filter: brightness(50%);
+    height: 50vh;
+    object-fit: cover;
+  }
+
+  .position-absolute {
+    top: 40%;
+  }
+
+  .logo {
+    width: 20vw;
+  }
+}
+
+.trail {
+  .logo {
+    background-color: $trail-primary-color;
+  }
+}
+
+.triathlon {
+  .logo {
+    background-color: $trail-secondary-color;
+  }
+}
+
+.btn {
+  background-color: $trail-primary-color;
+  border-color: darken($trail-primary-color, 20%);
+  transition: ease 0.2s;
+
+  &:hover {
+    background-color: darken($trail-primary-color, 20%);
+    border-color: $trail-primary-color;
+  }
+}
+
+/***Section Le CLub Accueil***/
+
+.club {
+  background-color: lighten($font-color-light-bg, 50);
+  font-family: $text-font;
+  color: $trail-secondary-color;
+  padding-bottom: $sectionPadding;
+
+  .title-club {
+    font-family: $title-font;
+    color: $trail-primary-color;
+    font-size: calc(2vw + 6 * ((100vw - 320px) / 680));
+    padding-top: $sectionPadding - 5;
+  }
+  .border-sponsors {
+    width: 10%;
+  }
+}
+
+/***Sponsors***/
+
+section.sponsors {
+  padding-bottom: $sectionPadding;
+
+  .title-cont h2 {
+    font-family: $title-font;
+    text-transform: uppercase;
+    padding-top: 10%;
+    font-size: calc(2vw + 6 * ((100vw - 320px) / 600));
+  }
+
+  hr.border-sponsors {
+    border: 1px solid $trail-primary-color!important;
+    width: 10%;
+  }
+  .carousel-indicators li {
+    width: 15px;
+    height: 15px;
+    background-color: $trail-primary-color;
+    border-radius: 50%;
+  }
+
+  .carousel-inner {
+    padding-bottom: 5%;
+  }
+
+  .card {
+    border: none;
+  }
+}
+
+/* Events */
+.events {
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+  .main {
+    .card {
+      max-height: 21em;
+      max-width: 50vw;
+      margin-left: 2em;
+
+      .card-img-top {
+        overflow: hidden;
       }
 
-      .title-jumbotron {
-        position: absolute;
-        bottom: 15%;
-        right: 10%;
-        @include medium {
-          font-size: 2vw;
-        }
-        @include small {
-          font-size: 4vw;
-        }
-        color: white;
-        font-family: $title-font;
-        border-bottom: 1px solid $trail-primary-color;
-        text-shadow: 4px 3px 0 $trail-secondary-color;
+      img {
+        object-fit: cover;
+        transition: ease 0.2s;
 
+        &hover {
+          transform: scale(1.1);
+        }
       }
+    }
+  }
+
+  .next {
+    margin-right: 0;
+
+    .card {
+      max-height: 7em;
+      margin-left: 2em;
+      margin-bottom: 0.5em;
+      margin-right: 2em;
+    }
+  }
+}
+
+
+/***Login Page***/
+.login-card {
+  margin-left: 0px;
+  margin-right: 0px;
+  color: $font-color;
+  font-family: $text-font;
+
+  .card-connexion {
+    margin-top: 10%;
+    background-color: $trail-secondary-color;
+  }
+
+  .card-body {
+    .input-group-text {
+      color: $trail-primary-color;
+    }
+  }
+
+  .btn-submit {
+    @extend %btn-primary;
+  }
+
+  .new-account {
+    text-align: center;
+
+    a:link {
+      color: $trail-primary-color;
     }
   }
 }

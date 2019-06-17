@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     /**
      * @param GaleryRepository $picture
      * @param SponsorRepository $sponsorRepository
-     * @param AssociationRepository $association
+     * @param AssociationRepository $associationRepository
      * @param EventRepository $eventRepository
 
      * @Route("/", name="home")
@@ -23,7 +23,7 @@ class HomeController extends AbstractController
      */
     public function index(
         SponsorRepository $sponsorRepository,
-        AssociationRepository $association,
+        AssociationRepository $associationRepository,
         GaleryRepository $picture,
         EventRepository $eventRepository
     ): Response {

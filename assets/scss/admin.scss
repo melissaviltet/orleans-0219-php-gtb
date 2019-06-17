@@ -33,12 +33,13 @@ main.container-fluid {
   border-radius: 5px;
 }
 
-/***Navbar***/
+/***NAVBAR***/
 
 nav {
-  background-color: $trail-primary-color;
+  background-color: lighten($trail-secondary-color, 20);
   .aside {
-    background-color: lighten($trail-primary-color, 10);
+    background-color: lighten($trail-secondary-color, 60);
+    box-shadow: -5px 5px 30px lighten($trail-secondary-color, 60);;
     .content {
       a {
         text-align: center;
@@ -49,7 +50,6 @@ nav {
           text-align: center;
           &:hover {
             color: $trail-primary-color;
-            transform: scale(1.2);
             transition: all .3s;
           }
         }
@@ -59,6 +59,32 @@ nav {
         color: $fond-color;
         margin: auto;
       }
+    }
+  }
+}
+
+
+/***HEADER***/
+
+.header {
+  min-height: 25vh;
+  .heading-text {
+    font-size: calc(30px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  }
+  .fa-user {
+    padding: 10px;
+    border: 1px solid $trail-primary-color;
+    border-radius: 50%;
+    &:hover {
+      color: lighten($trail-primary-color, 30);
+      border: 1px solid lighten($trail-primary-color, 30);
+      transition: all .3s;
+    }
+  }
+  p {
+    color: lighten($trail-secondary-color, 60);
+    i {
+      font-size: 0.75rem;
     }
   }
 }

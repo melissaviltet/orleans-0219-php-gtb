@@ -8,6 +8,10 @@
   src: url('../fonts/#{$title-font}.#{$title-font-ext}');
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
 
 /***General styles***/
 
@@ -186,12 +190,19 @@ section.footer {
 .cont-jumbotron {
   background-image: url('../images/header-site-gtb.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center center;
-  height: 60vh;
+  height: 50vh;
   width: 100vw;
   padding-top: 15%;
   margin-bottom: 0;
+  border-radius: 0;
+  @include medium {
+    height: 30vh;
+  }
+  @include small {
+    height: 10vh;
+  }
 
   .title-jumbotron {
     font-size: 3rem;
@@ -217,7 +228,7 @@ section.footer {
 }
 
 .border-jumbotron {
-  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+  background: $trail-primary-color;
   height: 5px;
 }
 

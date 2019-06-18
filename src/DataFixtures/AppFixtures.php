@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Galery;
 use App\Entity\Association;
 use App\Entity\Event;
 use App\Entity\Sponsor;
@@ -31,6 +32,13 @@ class AppFixtures extends Fixture
         $association->setClubHome($faker->text);
         $manager->persist($association);
 
+        for ($i = 0; $i < 6; $i++) {
+            $picture = new Galery();
+            $picture->setUrl($faker->imageUrl());
+            $picture->setAlt($faker->sentence);
+            $picture->setPrivate($faker->boolean);
+            $manager->persist($picture);
+        }
         for ($i = 0; $i < 4; $i++) {
             $event = new Event();
             $event->setName($faker->sentence(3));
@@ -41,8 +49,6 @@ class AppFixtures extends Fixture
             $event->setPicture($faker->imageUrl());
             $manager->persist($event);
         }
-
-
         $manager->flush();
     }
 }

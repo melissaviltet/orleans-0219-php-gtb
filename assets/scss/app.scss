@@ -193,8 +193,7 @@ section.footer {
   }
 }
 
-/***Jumbotron***/
-
+  /***Jumbotron***/
 .cont-jumbotron {
   background-image: url('../images/header-site-gtb.jpg');
   background-size: cover;
@@ -238,6 +237,7 @@ section.footer {
 .trail {
   border-bottom: $trail-primary-color solid 5px;
 }
+
 .triathlon, .trail {
   h2 {
     color: $font-color;

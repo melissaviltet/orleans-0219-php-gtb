@@ -3,6 +3,11 @@
 @import 'mixins.scss';
 @import "functions";
 
+.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
 @font-face {
   font-family: "#{$title-font}";
   src: url('../fonts/#{$title-font}.#{$title-font-ext}');
@@ -188,8 +193,7 @@ section.footer {
   }
 }
 
-/***Jumbotron***/
-
+  /***Jumbotron***/
 .cont-jumbotron {
   background-image: url('../images/header-site-gtb.jpg');
   background-size: cover;
@@ -233,6 +237,7 @@ section.footer {
 .trail {
   border-bottom: $trail-primary-color solid 5px;
 }
+
 .triathlon, .trail {
   h2 {
     color: $font-color;
@@ -249,7 +254,7 @@ section.footer {
   }
 
   .back {
-    width: 99vw;
+    width: 100vw;
     z-index: 0;
     filter: brightness(50%);
     height: 20em;
@@ -400,6 +405,24 @@ section.sponsors {
   }
 }
 
-.sportpage {
+/***homepage Galery***/
+
+.btn-homepage-picture {
+  left: 42vw;
+  margin-top: -70px;
+  z-index: 1;
+}
+.images-index{
+  overflow: hidden;
+  padding : 0;
+}
+.col-4{
+  img{
+    object-fit: cover;
+    max-width: 40vw;
+
+  }
+
+ .sportpage {
   margin: 3em;
 }

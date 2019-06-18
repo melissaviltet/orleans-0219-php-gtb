@@ -13,6 +13,13 @@
   src: url('../fonts/#{$title-font}.#{$title-font-ext}');
 }
 
+h1, h2, h3, h4, h5 {
+  font-family: $title-font;
+}
+
+p {
+  font-family: $text-font;
+}
 
 /***General styles***/
 
@@ -331,6 +338,7 @@ section.sponsors {
 .events {
   margin-top: 2em;
   margin-bottom: 2em;
+  margin-right: 0;
 
   .main {
     .card {
@@ -414,4 +422,7 @@ section.sponsors {
     max-width: 40vw;
 
   }
+
+ .sportpage {
+  margin: 3em;
 }

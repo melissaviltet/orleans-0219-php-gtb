@@ -93,6 +93,7 @@ main {
       &:hover {
         background-color: $trail-primary-color;
         transition: all .6s;
+        color: $font-color;
       }
     }
   }

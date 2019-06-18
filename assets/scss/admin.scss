@@ -43,7 +43,7 @@ nav {
       text-align: center;
       .fas, .far {
         margin: auto;
-        color: $fond-color;
+        color: $font-color;
         font-size: calc(15px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
         text-align: center;
         &:hover {
@@ -54,7 +54,7 @@ nav {
     }
     .text {
       font-size: 0.75rem;
-      color: $fond-color;
+      color: $font-color;
       margin: auto;
     }
   }

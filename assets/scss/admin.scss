@@ -36,33 +36,33 @@ main.container-fluid {
 /***NAVBAR***/
 
 nav {
-  background-color: lighten($trail-secondary-color, 20);
-  .aside {
-    background-color: lighten($trail-secondary-color, 60);
-    box-shadow: -5px 5px 30px lighten($trail-secondary-color, 60);;
-    .content {
-      a {
+  background-color: lighten($trail-secondary-color, 60);
+  float: left;
+  .content {
+    a {
+      text-align: center;
+      .fas, .far {
+        margin: auto;
+        color: $fond-color;
+        font-size: calc(15px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
         text-align: center;
-        .fas, .far {
-          margin: auto;
-          color: $fond-color;
-          font-size: calc(15px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-          text-align: center;
-          &:hover {
-            color: $trail-primary-color;
-            transition: all .3s;
-          }
+        &:hover {
+          color: $trail-primary-color;
+          transition: all .3s;
         }
       }
-      .text {
-        font-size: 0.75rem;
-        color: $fond-color;
-        margin: auto;
-      }
+    }
+    .text {
+      font-size: 0.75rem;
+      color: $fond-color;
+      margin: auto;
     }
   }
 }
 
+nav.col-md-2 {
+  max-width: 13.7%;
+}
 
 /***HEADER***/
 

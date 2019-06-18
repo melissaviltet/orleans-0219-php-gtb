@@ -14,9 +14,21 @@ class TrailController extends AbstractController
      * @Route("/trail", name="trail")
      * @return Response
      */
-    public function index(AssociationRepository $associationRepository): Response
+    public function trail(AssociationRepository $associationRepository): Response
     {
         return $this->render('trail/index.html.twig', [
+            'association' => $associationRepository->findOneBy([]),
+        ]);
+    }
+
+    /**
+     * @param AssociationRepository $associationRepository
+     * @Route("/triathlon", name="triathlon")
+     * @return Response
+     */
+    public function triathlon(AssociationRepository $associationRepository): Response
+    {
+        return $this->render('triathlon/index.html.twig', [
             'association' => $associationRepository->findOneBy([]),
         ]);
     }

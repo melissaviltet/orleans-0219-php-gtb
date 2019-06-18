@@ -1,10 +1,15 @@
 /***Colors***/
 
 $trail-primary-color: rgb(229, 93, 54);
+$trail-secondary-color-nav: rgba(97, 97, 97, .6);
+$font-color-light-bg: rgba(97, 97, 97, 1);
 $trail-secondary-color: rgb(0, 0, 0);
-$fond-color: rgb(230, 231, 233);
+$font-color: rgb(230, 231, 233);
 
 /***Fonts***/
 $text-font: "Ubuntu";
-$title-font: "Dusha";
+$title-font: "stadium";
 $title-font-ext: "ttf";
+
+/***Margins***/
+$sectionPadding: 8%;

@@ -3,7 +3,7 @@
 @import 'mixins.scss';
 @import "functions";
 
-.row{
+.row {
   margin-left: 0;
   margin-right: 0;
 }
@@ -110,7 +110,7 @@ section.footer {
   margin-right: 0;
 
   .background-footer {
-    background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+    background: $trail-primary-color;
     position: relative;
     height: 5px;
   }
@@ -119,82 +119,58 @@ section.footer {
     border-right: 0.5px solid lighten($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
+  }
 
-    address.address-bis {
-      padding-top: 15%;
+  .image-footer {
+    border-width: thin;
+    border-color: $font-color;
+    border-right: 0.5px solid darken($font-color, 50);
+    border-left: 0.5px solid darken($font-color, 50);;
+    padding-left: 0;
+    padding-right: 0;
 
-      .address-ter {
-        padding-left: 48px;
+    .logo-footer {
+      padding: 0;
+      margin-right: 0;
+
+      img {
+        max-width: 20vw;
       }
     }
 
-    div.address-footer {
-      border-right: 0.5px solid darken($font-color, 50);
-      padding-left: 0px;
-      padding-right: 0px;
+    .fa-facebook-square {
+      padding-top: 0.7rem;
+      padding-bottom: 1rem;
+      font-size: 2.5rem;
+      color: $trail-primary-color;
 
-      .image-footer {
-        border-right: 0.5px solid darken($font-color, 50);
-        padding-left: 0px;
-        padding-right: 0px;
-
-        address.address-bis {
-          padding-top: 15%;
-
-          .address-ter {
-            padding-left: 48px;
-          }
-        }
+      &:hover {
+        color: lighten($trail-primary-color, 10%);
+        transition: 0.5s;
       }
+    }
+  }
 
-      .image-footer {
-        border-right-style: solid;
-        border-width: thin;
-        border-color: $font-color;
-        border-right: 0.5px solid darken($font-color, 50);
-        padding-left: 0px;
-        padding-right: 0px;
+  .hours-footer {
+    padding-left: 0px;
+    padding-right: 0px;
 
-        .logo-footer {
-          max-width: 120px;
-          padding: 0;
-          margin-right: 0;
-        }
+    h6 {
+      text-align: center;
+      font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+      padding-top: 15%;
 
-        .fa-facebook-square {
-          padding-top: 0.7rem;
-          padding-bottom: 1rem;
-          font-size: 2.5rem;
-          color: $trail-primary-color;
+    }
 
-          &:hover {
-            color: lighten($trail-primary-color, 10%);
-            transition: 0.5s;
-          }
-        }
-      }
-
-      .hours-footer {
-        padding-left: 0px;
-        padding-right: 0px;
-
-        h6 {
-          text-align: center;
-          font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-          padding-top: 15%;
-
-        }
-
-        ul {
-          text-align: center;
-          list-style-type: none;
-        }
-      }
+    ul {
+      text-align: center;
+      list-style-type: none;
     }
   }
 }
 
-  /***Jumbotron***/
+
+/***Jumbotron***/
 .cont-jumbotron {
   background-image: url('../images/header-site-gtb.jpg');
   background-size: cover;
@@ -408,22 +384,28 @@ section.sponsors {
 
 /***homepage Galery***/
 
-.btn-homepage-picture {
-  left: 42vw;
-  margin-top: -70px;
-  z-index: 1;
-}
-.images-index{
-  overflow: hidden;
-  padding : 0;
-}
-.col-4 {
-  img {
-    object-fit: cover;
-    max-width: 40vw;
+.homepage-images {
+  .btn-homepage-picture {
+    left: 42vw;
+    margin-top: -70px;
+    z-index: 1;
+  }
 
+  .images-index {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .col-4 {
+    img {
+      object-fit: cover;
+      max-width: 40vw;
+    }
   }
 }
- .sportpage {
+
+/* Pages trail & triathlon */
+
+.sportpage {
   margin: 3em;
 }

@@ -38,7 +38,6 @@ main.container-fluid {
 nav {
   background-color: lighten($trail-secondary-color, 60);
   float: left;
-  min-height: 100%;
   .content {
     a {
       text-align: center;
@@ -105,7 +104,7 @@ html, body {
 .body-tableau-bord.row {
   margin: auto 0;
   .card-tableau-bord {
-    min-height: 13.5rem;
+    min-height: 13rem;
     span {
       right: 1rem;
       top: 1rem;

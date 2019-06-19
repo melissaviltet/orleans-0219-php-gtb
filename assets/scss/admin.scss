@@ -1,4 +1,3 @@
-@import "~bootstrap/scss/bootstrap";
 @import "vars.scss";
 @import 'mixins.scss';
 @import "functions";
@@ -103,7 +102,7 @@ html, body {
 
 .body-tableau-bord.row {
   margin: auto 0;
-  .card-tableau-bord {
+  .card.card-tableau-bord {
     min-height: 13rem;
     span {
       right: 1rem;
@@ -112,6 +111,15 @@ html, body {
         color: $trail-primary-color;
       }
     }
+    .card {
+      background-color: transparent;
+      border: none;
+      h5.card-title {
+        font-family: $text-font;
+      }
+    }
   }
 }
+
+
 

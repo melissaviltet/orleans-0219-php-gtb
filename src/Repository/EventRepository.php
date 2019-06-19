@@ -18,4 +18,26 @@ class EventRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Event::class);
     }
+
+    public function getEventsMoreCommented()
+    {
+        return $this->createQueryBuilder('e')
+            ->select("COUNT(e.id) as nbComments, e.name, e.date, e.picture")
+            ->join('e.comments', 'c')
+            ->groupBy('e.id')
+            ->orderBy('nbComments', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()->getResult();
+    }
+
+    public function getEventsLessCommented()
+    {
+        return $this->createQueryBuilder('e')
+            ->select("COUNT(e.id) as nbComments, e.name, e.date, e.picture")
+            ->join('e.comments', 'c')
+            ->groupBy('e.id')
+            ->orderBy('nbComments', 'ASC')
+            ->setMaxResults(3)
+            ->getQuery()->getResult();
+    }
 }

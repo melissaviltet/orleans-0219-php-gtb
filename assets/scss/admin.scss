@@ -7,8 +7,10 @@
   src: url('../fonts/#{$title-font}.#{$title-font-ext}');
 }
 
-
-
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
 
 /***General styles***/
 

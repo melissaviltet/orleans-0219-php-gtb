@@ -8,10 +8,6 @@
   margin-right: 0;
 }
 
-.btn {
-  background-color: transparent;
-}
-
 @font-face {
   font-family: "#{$title-font}";
   src: url('../fonts/#{$title-font}.#{$title-font-ext}');

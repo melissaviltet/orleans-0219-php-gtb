@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Association{% endblock %}
+
+{% block body %}
+    {% include 'admin/_navbar.html.twig' %}
+    <h1>Association</h1>
+    <a href="{{ path('association_edit') }}" class="btn">Éditer les informations</a>
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    {{ association.trailHome }}
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    {{ association.trailcontent }}
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    {{ association.triathlonHome }}
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    {{ association.triathloncontent }}
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    {{ association.clubhome }}
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    {{ association.clubcontent }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -102,9 +102,9 @@ html, body {
   background-color: lighten($font-color, 7);
 }
 
-.body-tableau-bord.row {
+.body-dashboard.row {
   margin: auto 0;
-  .card.card-tableau-bord {
+  .card.card-dashboard {
     min-height: 13rem;
     span {
       right: 1rem;

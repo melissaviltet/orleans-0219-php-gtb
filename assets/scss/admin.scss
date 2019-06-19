@@ -38,13 +38,14 @@ main.container-fluid {
 nav {
   background-color: lighten($trail-secondary-color, 60);
   float: left;
+  min-height: 100%;
   .content {
     a {
       text-align: center;
       .fas, .far {
         margin: auto;
         color: $font-color;
-        font-size: calc(15px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+        font-size: calc(20px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
         text-align: center;
         &:hover {
           color: $trail-primary-color;
@@ -66,8 +67,9 @@ nav.col-md-2 {
 
 /***HEADER***/
 
-.header {
+.header.row {
   min-height: 25vh;
+  margin: auto 0;
   .heading-text {
     font-size: calc(30px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   }
@@ -88,3 +90,29 @@ nav.col-md-2 {
     }
   }
 }
+
+.header.col-md-10, .header.col-10 {
+  max-width: 86.3%;
+}
+
+
+/***Tableau de Bord***/
+
+html, body {
+  background-color: lighten($font-color, 7);
+}
+
+.body-tableau-bord.row {
+  margin: auto 0;
+  .card-tableau-bord {
+    min-height: 13.5rem;
+    span {
+      right: 1rem;
+      top: 1rem;
+      .far {
+        color: $trail-primary-color;
+      }
+    }
+  }
+}
+

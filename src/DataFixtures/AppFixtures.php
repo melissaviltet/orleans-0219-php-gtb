@@ -41,8 +41,6 @@ class AppFixtures extends Fixture
             $event->setPicture($faker->imageUrl());
             $manager->persist($event);
         }
-
-
         $manager->flush();
     }
 }

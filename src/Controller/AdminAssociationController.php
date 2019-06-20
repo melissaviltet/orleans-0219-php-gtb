@@ -26,17 +26,17 @@ class AdminAssociationController extends AbstractController
     }
 
     /**
-     * @Route("/edit", name="association_edit", methods={"POST"})
+     * @Route("/{id}/edit", name="association_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Association $association): Response
     {
-        $form = $this->createForm(AssociationType::class, $association);
+        $form = $this->createForm(AssociationType::class, $association, ['attr' => ['id' => 'summernote']]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('association_index', [
+            return $this->redirectToRoute('association_show', [
                 'id' => $association->getId(),
             ]);
         }

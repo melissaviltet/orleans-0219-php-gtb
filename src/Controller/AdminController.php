@@ -16,8 +16,8 @@ class AdminController extends AbstractController
     public function index(EventRepository $eventRepository): Response
     {
         return $this->render('admin/index.html.twig', [
-            'eventsMoreCommented' => $eventRepository->getEventsMoreCommented(),
-            'eventsLessCommented' => $eventRepository->getEventsLessCommented(),
+            'eventsMostCommented' => $eventRepository->getEventCommentNumber('DESC'),
+            'eventsLessCommented' => $eventRepository->getEventCommentNumber('ASC'),
         ]);
     }
 }

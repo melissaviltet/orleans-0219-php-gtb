@@ -38,11 +38,11 @@ class User implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
      */
-    private $comment;
+    private $comments;
 
     public function __construct()
     {
-        $this->comment = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,15 +126,15 @@ class User implements UserInterface
     /**
      * @return Collection|Comment[]
      */
-    public function getComment(): Collection
+    public function getComments(): Collection
     {
-        return $this->comment;
+        return $this->comments;
     }
 
     public function addComment(Comment $comment): self
     {
-        if (!$this->comment->contains($comment)) {
-            $this->comment[] = $comment;
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
             $comment->setUser($this);
         }
 
@@ -143,8 +143,8 @@ class User implements UserInterface
 
     public function removeComment(Comment $comment): self
     {
-        if ($this->comment->contains($comment)) {
-            $this->comment->removeElement($comment);
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
             // set the owning side to null (unless already changed)
             if ($comment->getUser() === $this) {
                 $comment->setUser(null);

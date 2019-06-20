@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ include ('admin/_header.html.twig', { titleHeader: 'Page Accueil' }) }}
+    {{ include ('admin/_navbar.html.twig') }}
+
+    <section class="body-page-home container col-10 justify-content-end float-right">
+        <nav class="nav-page-home ml-5">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Jumbotron</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Partenaires</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="contents flex-row pt-5">
+            <div class="logo-gallery col-6 pt-4 d-flex flex-wrap ml-4">
+                {% for sponsor in sponsors %}
+                <div class="card col-11 col-sm-4 col-lg-3 p-1 position-relative">
+                    <img src="{{ sponsor.logoUrl }}" class="card-img-top" alt="{{ sponsor.name }}.">
+                    <small class="text-muted d-block pl-2">{{ sponsor.name }}</small>
+                    <span class="position-absolute"><a href="#"><i class="fas fa-trash-alt"></i></a></span>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="form-logo col-6">
+                {{ form(form) }}
+            </div>
+        </div>
+
+
+    </section>
+{% endblock %}

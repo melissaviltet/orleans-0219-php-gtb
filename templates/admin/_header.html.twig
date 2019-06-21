@@ -1,10 +1,10 @@
 <section class="header col-10 col-md-10 float-right row align-items-center">
     <div class="heading col-9 col-sm-10">
-        <h1 class="text-center heading-text">{% block titleHeader %}Tableau de Bord{% endblock %}</h1>
+        <h1 class="text-center heading-text">{{ titleHeader }}</h1>
         <p class="text-center">Interface Administrateur</p>
     </div>
     <div class="connexion col-3 col-sm-2 d-flex flex-column justify-content-center pr-0 pl-0">
-        <a class="m-auto" href="#"><span class="text-center p-2"><i class="text-center fas fa-user"></i></span></a>
+        <a class="m-auto" href="{{ path('home') }}"><span class="text-center p-2"><i class="text-center fas fa-user"></i></span></a>
         <p class="text-center"><i>Se déconnecter</i></p>
     </div>
 </section>

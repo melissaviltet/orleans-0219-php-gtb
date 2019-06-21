@@ -14,7 +14,7 @@ class EventFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $event = new Event();
             $event->setName($faker->sentence(3));
             $event->setUrl($faker->url);
@@ -22,6 +22,7 @@ class EventFixtures extends Fixture
             $event->setPlace($faker->city);
             $event->setIsPrivate($faker->boolean);
             $event->setPicture($faker->imageUrl());
+            $this->addReference('event_' . $i, $event);
             $manager->persist($event);
         }
         $manager->flush();

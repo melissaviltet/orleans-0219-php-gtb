@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block body %}
+    {% include 'admin/_navbar.html.twig' %}
+    {% include 'admin/_header.html.twig' %}
+    <div class="admin-events position-absolute justify-content-center">
+        <a class="btn btn-primary" href="{{ path('event_new') }}">Créer un nouvel événement</a>
+        <div class="row ">
+            {% for event in events %}
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ event.picture }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ event.name }}</h5>
+                            <p class="card-text"><a href="{{ event.url }}">Lien</a><br>
+                                Le {{ event.date ? event.date|date('d M Y') : '' }}<br>
+                                À {{ event.place }}</p>
+                            <a class="btn btn-primary" href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div>Aucun événement enregistré</div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

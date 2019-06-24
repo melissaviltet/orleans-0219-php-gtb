@@ -341,5 +341,7 @@ section.sponsors {
 .contact-form {
   margin: auto;
   float: none; /* annule le float:left de bootstrap*/
-
+  h2{
+    text-align: center;
+  }
 }

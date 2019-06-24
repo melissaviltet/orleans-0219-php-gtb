@@ -7,7 +7,7 @@
 
     {{ include ('home/_trail.html.twig') }}
     {{ include ('home/_triathlon.html.twig') }}
-
+    {{ render(controller('App\\Controller\\ContactController::Index')) }}
     {{ include ('_sponsors.html.twig') }}
     {{ include ('_footer.html.twig') }}
 {% endblock %}

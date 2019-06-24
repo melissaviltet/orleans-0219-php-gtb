@@ -29,7 +29,8 @@ main.container-fluid {
   background-color: $trail-primary-color;
   color: $font-color;
   border-radius: 5px;
-  &:hover{
+
+  &:hover {
     @extend %btn-primary-outline;
   }
 }
@@ -106,6 +107,7 @@ section.footer {
     border-right: 0.5px solid lighten($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
+
     address.address-bis {
       padding-top: 15%;
 
@@ -181,9 +183,11 @@ section.footer {
     color: white;
     font-family: $title-font;
   }
+
   .logo-container {
     bottom: 20%;
     right: 5%;
+
     .logo-link {
       text-align: right;
     }
@@ -192,7 +196,7 @@ section.footer {
 
 .border-jumbotron {
   background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-  height : 5px;
+  height: 5px;
 }
 
 /* Trail */
@@ -262,6 +266,7 @@ section.footer {
     font-size: calc(2vw + 6 * ((100vw - 320px) / 680));
     padding-top: $sectionPadding - 5;
   }
+
   .border-sponsors {
     width: 10%;
   }
@@ -280,9 +285,10 @@ section.sponsors {
   }
 
   hr.border-sponsors {
-    border: 1px solid $trail-primary-color!important;
+    border: 1px solid $trail-primary-color !important;
     width: 10%;
   }
+
   .carousel-indicators li {
     width: 15px;
     height: 15px;
@@ -301,27 +307,39 @@ section.sponsors {
 
 
 /***Login Page***/
-.login-card{
+.login-card {
   margin-left: 0px;
   margin-right: 0px;
   color: $font-color;
   font-family: $text-font;
-  .card-connexion{
-    margin-top:10%;
+
+  .card-connexion {
+    margin-top: 10%;
     background-color: $trail-secondary-color;
   }
-  .card-body{
-    .input-group-text{
+
+  .card-body {
+    .input-group-text {
       color: $trail-primary-color;
     }
   }
-  .btn-submit{
+
+  .btn-submit {
     @extend %btn-primary;
   }
-  .new-account{
+
+  .new-account {
     text-align: center;
-    a:link{
+
+    a:link {
       color: $trail-primary-color;
     }
   }
+}
+
+/***formulaire contact accueil***/
+.contact-form {
+  margin: auto;
+  float: none; /* annule le float:left de bootstrap*/
+
 }

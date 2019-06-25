@@ -18,11 +18,11 @@ require('./main.js');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 
-// require('jquery');
+require('jquery');
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
-
+require('summernote');
 // or you can include specific pieces
 // require('bootstrap/js/dist/tooltip');
 // require('bootstrap/js/dist/popover');
@@ -32,25 +32,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $('#association1_trailContent').summernote();
+    $('.summernote').summernote();
 });
 
-$(document).ready(function () {
-    $('#association1_trailHome').summernote();
-});
-
-$(document).ready(function () {
-    $('#association1_triathlonContent').summernote();
-});
-
-$(document).ready(function () {
-    $('#association1_triathlonHome').summernote();
-});
-
-$(document).ready(function () {
-    $('#association1_clubContent').summernote();
-});
-
-$(document).ready(function () {
-    $('#association1_clubHome').summernote();
-});
+console.log($('.summernote'));

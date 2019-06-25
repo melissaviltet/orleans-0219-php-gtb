@@ -14,22 +14,34 @@ class Association1Type extends AbstractType
     {
         $builder
             ->add('trailContent', TextareaType::class, [
-                'attr' => ['id' => 'summernote']
+                'label' => 'Page du trail',
+                'label_attr' => ['class' => 'col-12'],
+                'attr' => ['class' => 'summernote']
             ])
             ->add('trailHome', TextareaType::class, [
-                'attr' => ['id' => 'summernote']
+                'label' => 'Résumé du Trail',
+                'label_attr' => ['class' => 'col-12'],
+                'attr' => ['class' => 'summernote']
             ])
             ->add('triathlonContent', TextareaType::class, [
-                'attr' => ['id' => 'summernote']
+                'label' => 'Page du triathlon',
+                'label_attr' => ['class' => 'col-12'],
+                'attr' => ['class' => 'summernote']
             ])
             ->add('triathlonHome', TextareaType::class, [
-                'attr' => ['id' => 'summernote']
+                'label' => 'Résumé du Triathlon',
+                'label_attr' => ['class' => 'col-12'],
+                'attr' => ['class' => 'summernote']
             ])
             ->add('clubContent', TextareaType::class, [
-                'attr' => ['id' => 'summernote']
+                'label' => 'Page du club',
+                'label_attr' => ['class' => 'col-12'],
+                'attr' => ['class' => 'summernote']
             ])
             ->add('clubHome', TextareaType::class, [
-                'attr' => ['id' => 'summernote']
+                'label' => 'Résumé du Club',
+                'label_attr' => ['class' => 'col-12'],
+                'attr' => ['class' => 'summernote']
             ])
         ;
     }

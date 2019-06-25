@@ -5,7 +5,7 @@
 {% block body %}
     {% include 'admin/_navbar.html.twig' %}
     {% include 'admin/_header.html.twig' %}
-    <div class="admin-events position-absolute justify-content-center">
+    <div class="admin-content position-absolute justify-content-center">
         <a class="btn btn-primary" href="{{ path('event_new') }}">Créer un nouvel événement</a>
         <div class="row ">
             {% for event in events %}

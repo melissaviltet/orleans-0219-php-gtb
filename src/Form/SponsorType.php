@@ -4,17 +4,35 @@ namespace App\Form;
 
 use App\Entity\Sponsor;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class SponsorType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('logoUrl')
-            ->add('site')
+            ->add('name', TextType::class, [
+                'label' => 'Partenaire: ',
+                'attr' => [
+                    'placeholder' => 'Partenaire: ',
+                ]
+            ])
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Logo: ',
+                'attr' => [
+                    'placeholder' => 'Chosissez votre image: '
+                ]
+            ])
+            ->add('site', UrlType::class, [
+                'label' => 'Site web: ',
+                'attr' => [
+                    'placeholder' => 'Site web: ',
+                ]
+            ])
         ;
     }
 

@@ -134,18 +134,29 @@ html, body {
       border-top-right-radius: 10px;
     }
   }
-  .contents .logo-gallery .card {
-    border: none;
-    span {
-      right: 6%;
-      top: 4%;
-      a .fas {
-        color: $trail-primary-color;
-        &:hover {
-          cursor: pointer;
-          color: $font-color;
+  .contents .logo-gallery {
+    height: 400px;
+    overflow-y: scroll;
+    .card {
+      border: none;
+      span {
+        right: 6%;
+        top: 4%;
+        a .fas {
+          color: $trail-primary-color;
+          &:hover {
+            cursor: pointer;
+            color: $font-color;
+          }
         }
       }
     }
   }
 }
+
+form.sponsor-form {
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+

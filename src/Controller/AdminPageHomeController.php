@@ -6,6 +6,7 @@ use App\Entity\Sponsor;
 use App\Form\SponsorType;
 use App\Repository\SponsorRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,7 +42,7 @@ class AdminPageHomeController extends AbstractController
             $entityManager->persist($sponsor);
             $entityManager->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('admin_page_home');
         }
         return $this->render('admin/page_home.html.twig', [
             'sponsors' => $sponsorRepository->findAll(),

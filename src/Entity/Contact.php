@@ -2,24 +2,46 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 class Contact
 {
 
     private $id;
 
+    /**
+     * @var string|null
+     * @Assert\Length(min="2",max="100", minMessage="Veuillez saisir un Nom valide", maxMessage="Veuillez saisir un Nom valide")
+     * @Assert\NotBlank(message="Veuillez saisir un Nom valide")
+     */
 
     private $lastname;
 
-
+    /**
+     * @var string|null
+     * @Assert\Length(min="2",max="100", minMessage="Veuillez saisir un Prénom valide", maxMessage="Veuillez saisir un Prénom valide")
+     * @Assert\NotBlank(message="Veuillez saisir un Prénom valide")
+     *
+     */
     private $firstname;
 
-
+    /**
+     * @var string|null
+     * @Assert\NotBlank(message="Veuillez saisir une adresse email valide.")
+     * @Assert\Email(message = "Veuillez saisir une adresse email valide.")
+     */
     private $email;
 
 
     private $subject;
 
-
+    /**
+     * @var string|null
+     * @Assert\Length(min="5",max="10000", maxMessage="votre message ne peux pas dépasser 10000 charactères")
+     * @Assert\NotBlank(message="Veuillez saisir votre message avant l'envoi")
+     *
+     */
     private $message;
 
     public function getId(): ?int

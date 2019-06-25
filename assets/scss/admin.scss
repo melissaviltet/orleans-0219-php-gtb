@@ -123,5 +123,20 @@ html, body {
   }
 }
 
+.admin-content {
+  top: 12em;
+  width: 85%;
+  left: 15%;
+  h2, h3, h4, h5, h6 {
+    font-family: $text-font;
+  }
+  a, button {
+    font-size: 12pt;
+    margin-bottom: 2em;
+  }
+  textarea {
+    width: 75%;
+  }
+}
 
 

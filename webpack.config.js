@@ -1,6 +1,7 @@
 var Encore = require('@symfony/webpack-encore');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+
 Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
@@ -19,6 +20,8 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
+    .addEntry('summernote', 'summernote/src/js/summernote.js')
+    .addEntry('summernotecss', 'summernote/src/less/summernote.scss')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

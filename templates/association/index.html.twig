@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Association index{% endblock %}
+
+{% block body %}
+    {% include 'admin/_navbar.html.twig' %}
+    {% include 'admin/_header.html.twig' %}
+    <div class="admin-content position-absolute text-center">
+        <a class="btn btn-primary" href="{{ path('association_edit', {'id': association.id}) }}">Éditer</a>
+        <div class="row">
+            <div class="col-6">
+                <div class="jumbotron">
+                    <h2>Résumé Club</h2>
+                    <p>{{ association.clubhome }}</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="jumbotron">
+                    <h2>Page Club</h2>
+                    <p>{{ association.clubcontent }}</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="jumbotron">
+                    <h2>Résumé Trail</h2>
+                    <p>{{ association.trailhome }}</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="jumbotron">
+                    <h2>Page Trail</h2>
+                    <p>{{ association.trailcontent }}</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="jumbotron">
+                    <h2>Résumé Triathlon</h2>
+                    <p>{{ association.triathlonhome }}</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="jumbotron">
+                    <h2>Page Triathlon</h2>
+                    <p>{{ association.triathloncontent }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

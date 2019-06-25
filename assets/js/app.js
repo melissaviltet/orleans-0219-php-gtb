@@ -32,5 +32,25 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $('#summernote').summernote();
+    $('#association1_trailContent').summernote();
+});
+
+$(document).ready(function () {
+    $('#association1_trailHome').summernote();
+});
+
+$(document).ready(function () {
+    $('#association1_triathlonContent').summernote();
+});
+
+$(document).ready(function () {
+    $('#association1_triathlonHome').summernote();
+});
+
+$(document).ready(function () {
+    $('#association1_clubContent').summernote();
+});
+
+$(document).ready(function () {
+    $('#association1_clubHome').summernote();
 });

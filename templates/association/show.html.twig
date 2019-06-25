@@ -3,51 +3,44 @@
 {% block title %}Association{% endblock %}
 
 {% block body %}
-    {% include 'admin/_navbar.html.twig' %}
     <h1>Association</h1>
-    <a href="{{ path('association_edit') }}" class="btn">Éditer les informations</a>
-    <div class="row">
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    {{ association.trailHome }}
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    {{ association.trailcontent }}
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    {{ association.triathlonHome }}
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    {{ association.triathloncontent }}
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    {{ association.clubhome }}
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    {{ association.clubcontent }}
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ association.id }}</td>
+            </tr>
+            <tr>
+                <th>TrailContent</th>
+                <td>{{ association.trailContent }}</td>
+            </tr>
+            <tr>
+                <th>TrailHome</th>
+                <td>{{ association.trailHome }}</td>
+            </tr>
+            <tr>
+                <th>TriathlonContent</th>
+                <td>{{ association.triathlonContent }}</td>
+            </tr>
+            <tr>
+                <th>TriathlonHome</th>
+                <td>{{ association.triathlonHome }}</td>
+            </tr>
+            <tr>
+                <th>ClubContent</th>
+                <td>{{ association.clubContent }}</td>
+            </tr>
+            <tr>
+                <th>ClubHome</th>
+                <td>{{ association.clubHome }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('association_index') }}">back to list</a>
+
+    <a href="{{ path('association_edit', {'id': association.id}) }}">edit</a>
+
+    {{ include('association/_delete_form.html.twig') }}
 {% endblock %}

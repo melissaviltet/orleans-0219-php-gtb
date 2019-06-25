@@ -1,13 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+{{ parent() }}
+    {{ encore_entry_link_tags('summernotecss') }}
+{% endblock %}
 {% block title %}Edit Association{% endblock %}
 
 {% block body %}
     {% include 'admin/_navbar.html.twig' %}
-    <h1>Edit Association</h1>
+    {% include 'admin/_header.html.twig' %}
+    <div class="admin-content position-absolute text-center">
+        {{ include('association/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('association/_form.html.twig', {'button_label': 'Update'}) }}
+        <a class="btn btn-primary" href="{{ path('association_index') }}">back to list</a>
 
-    <a href="{{ path('association_show') }}">Retour à l'affichage des contenus</a>
-
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('summernote') }}
 {% endblock %}

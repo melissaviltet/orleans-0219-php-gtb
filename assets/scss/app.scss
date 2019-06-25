@@ -3,11 +3,23 @@
 @import 'mixins.scss';
 @import "functions";
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 @font-face {
   font-family: "#{$title-font}";
   src: url('../fonts/#{$title-font}.#{$title-font-ext}');
 }
 
+h1, h2, h3, h4, h5 {
+  font-family: $title-font;
+}
+
+p {
+  font-family: $text-font;
+}
 
 /***General styles***/
 
@@ -81,13 +93,13 @@ main {
       &:hover {
         background-color: $trail-primary-color;
         transition: all .6s;
+        color: $font-color;
       }
     }
   }
 }
 
 /***Footer***/
-
 
 section.footer {
   background-color: $trail-secondary-color;
@@ -98,34 +110,31 @@ section.footer {
   margin-right: 0;
 
   .background-footer {
-    background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+    background: $trail-primary-color;
     position: relative;
     height: 5px;
   }
 
   div.address-footer {
-    border-right: 0.5px solid lighten($font-color, 50);
     padding-left: 0px;
     padding-right: 0px;
-
-    address.address-bis {
-      padding-top: 15%;
-
-      .address-ter {
-        padding-left: 48px;
-      }
-    }
   }
 
   .image-footer {
-    border-right: 0.5px solid lighten($font-color, 50);
-    padding-left: 0px;
-    padding-right: 0px;
+    border-width: thin;
+    border-color: $font-color;
+    border-right: 0.5px solid darken($font-color, 50);
+    border-left: 0.5px solid darken($font-color, 50);;
+    padding-left: 0;
+    padding-right: 0;
 
     .logo-footer {
-      max-width: 120px;
       padding: 0;
       margin-right: 0;
+
+      img {
+        max-width: 20vw;
+      }
     }
 
     .fa-facebook-square {
@@ -159,8 +168,8 @@ section.footer {
   }
 }
 
-/***Jumbotron***/
 
+/***Jumbotron***/
 .cont-jumbotron {
   background-image: url('../images/header-site-gtb.jpg');
   background-size: cover;
@@ -199,12 +208,25 @@ section.footer {
   height: 5px;
 }
 
-/* Trail */
+/* Trail & Triathlon */
+
+.trail {
+  border-bottom: $trail-primary-color solid 5px;
+}
+
+.trititle {
+  width: 100%;
+  text-align: center;
+}
+
 .triathlon, .trail {
   h2 {
-    text-align: center;
-    color: $trail-secondary-color;
+    color: $font-color;
     font-family: $title-font;
+  }
+
+  .row {
+    margin-right: 0;
   }
 
   p {
@@ -213,31 +235,19 @@ section.footer {
   }
 
   .back {
-    width: 99vw;
+    width: 100vw;
     z-index: 0;
     filter: brightness(50%);
-    height: 50vh;
+    height: 20em;
     object-fit: cover;
   }
 
   .position-absolute {
-    top: 40%;
+    top: 20%;
   }
 
   .logo {
     width: 20vw;
-  }
-}
-
-.trail {
-  .logo {
-    background-color: $trail-primary-color;
-  }
-}
-
-.triathlon {
-  .logo {
-    background-color: $trail-secondary-color;
   }
 }
 
@@ -305,6 +315,45 @@ section.sponsors {
   }
 }
 
+/* Events */
+.events {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-right: 0;
+
+  .main {
+    .card {
+      max-height: 21em;
+      max-width: 50vw;
+      margin-left: 2em;
+
+      .card-img-top {
+        overflow: hidden;
+      }
+
+      img {
+        object-fit: cover;
+        transition: ease 0.2s;
+
+        &hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .next {
+    margin-right: 0;
+
+    .card {
+      max-height: 7em;
+      margin-left: 2em;
+      margin-bottom: 0.5em;
+      margin-right: 2em;
+    }
+  }
+}
+
 
 /***Login Page***/
 .login-card {
@@ -337,11 +386,40 @@ section.sponsors {
   }
 }
 
+/***homepage Galery***/
+
+
+.homepage-images {
+  .btn-homepage-picture {
+    left: 42vw;
+    margin-top: -70px;
+    z-index: 1;
+  }
+
+  .images-index {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .col-4 {
+    img {
+      object-fit: cover;
+      max-width: 40vw;
+    }
+  }
+}
+
+/* Pages trail & triathlon */
+.sportpage {
+  margin: 3em;
+}
+
 /***formulaire contact accueil***/
 .contact-form {
   margin: auto;
   float: none; /* annule le float:left de bootstrap*/
-  h2{
+  h2 {
     text-align: center;
   }
 }
+

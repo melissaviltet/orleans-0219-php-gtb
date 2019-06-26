@@ -131,12 +131,22 @@ html, body {
     font-family: $text-font;
   }
   a, button {
-    font-size: 12pt;
+    font-size: 14pt;
     margin-bottom: 2em;
   }
   textarea {
     width: 75%;
   }
+}
+
+.panel-heading {
+  font-size: 12pt;
+  .note-btn {
+    background-color: $font-color;
+  }
+}
+.popover {
+  display: none;
 }
 
 

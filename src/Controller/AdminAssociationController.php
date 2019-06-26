@@ -27,29 +27,6 @@ class AdminAssociationController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="association_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $association = new Association();
-        $form = $this->createForm(Association1Type::class, $association);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($association);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('association_index');
-        }
-
-        return $this->render('association/new.html.twig', [
-            'association' => $association,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="association_show", methods={"GET"})
      */
     public function show(Association $association): Response

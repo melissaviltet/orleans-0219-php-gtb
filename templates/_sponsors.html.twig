@@ -30,7 +30,7 @@
                         {% for key, sponsor in sponsors if key >= 0 and key < 5 %}
                             <div class="card col-4 col-sm-5 col-lg-2 p-lg-3 m-3">
                                 <a target="_blanket" href="{{ sponsors[key].site }}">
-                                    <img class="card-img-top" src="{{ sponsors[key].logoUrl }}" alt="{{ sponsors[key].name }}-id-{{ sponsors[key].id }}">
+                                    <img class="card-img-top" src="{{ asset('uploads/images/sponsors/' ~ sponsor.imageName) }}" alt="{{ sponsors[key].name }}-id-{{ sponsors[key].id }}">
                                 </a>
                             </div>
                         {% endfor %}
@@ -44,7 +44,7 @@
 
                                     <div class="card col-4 col-sm-5 col-lg-2 p-lg-3 m-3">
                                         <a target="_blanket" href="{{ sponsor.site }}">
-                                            <img class="card-img-top" src="{{ sponsor.logoUrl }}" alt="{{ sponsor.name }}-id-{{ sponsor.id }}">
+                                            <img class="card-img-top" src="{{ asset('uploads/images/sponsors/' ~ sponsor.imageName) }}" alt="{{ sponsor.name }}-id-{{ sponsor.id }}">
                                         </a>
                                     </div>
 

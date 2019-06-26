@@ -21,6 +21,7 @@
                 {% for sponsor in sponsors %}
                 <div class="card col-11 col-sm-4 col-lg-3 p-1 position-relative">
                     <img src="{{ asset('uploads/images/sponsors/' ~ sponsor.imageName) }}" class="card-img-top" alt="{{ sponsor.name }}.">
+                    <small>{{ form_help(form) }}</small>
                     <small class="text-muted d-block pl-2">{{ sponsor.name }}</small>
                     <span class="position-absolute"><a href="#"><i class="fas fa-trash-alt"></i></a></span>
                 </div>
@@ -30,8 +31,6 @@
                 <div class="form-logo">
                     {{ form_start(form, {'attr': {'novalidate':'novalidate', 'class':'sponsor-form'}}) }}
                     {{ form_widget(form) }}
-                    <small class="text-muted d-block pl-2"><i>*Poids maximum 1024 kilobytes</i></small>
-                    <small class="text-muted d-block pl-2"><i>*Extensions autorisées: .png, .jpg, .jpeg</i></small>
                     <div class="buttons mt-5">
                         <button class="btn btn-outline-warning mr-3">Ajouter</button>
                         <a href="#" class="btn btn-outline-dark">Supprimer</a>

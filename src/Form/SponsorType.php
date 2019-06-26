@@ -12,16 +12,18 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class SponsorType extends AbstractType
 {
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Partenaire: ',
                 'attr' => [
-                    'placeholder' => 'Partenaire: ',
+                    'placeholder' => 'Intersport ',
                 ]
             ])
             ->add('imageFile', VichImageType::class, [
+                'help' => '*Poids maximum autorisé: ' . Sponsor::MAX_SIZE,
                 'label' => 'Logo: ',
                 'attr' => [
                     'placeholder' => 'Chosissez votre image: '
@@ -30,7 +32,7 @@ class SponsorType extends AbstractType
             ->add('site', UrlType::class, [
                 'label' => 'Site web: ',
                 'attr' => [
-                    'placeholder' => 'Site web: ',
+                    'placeholder' => 'https:// ',
                 ]
             ])
         ;

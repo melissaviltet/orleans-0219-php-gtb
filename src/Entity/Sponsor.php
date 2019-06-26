@@ -18,6 +18,10 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  */
 class Sponsor
 {
+
+    const AUTHORIZED_EXTENSIONS = ["image/jpg", "image/png", "image/jpeg"];
+    const MAX_SIZE = '1024k';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -28,10 +32,11 @@ class Sponsor
     /**
      * @Vich\UploadableField(mapping="image_sponsor", fileNameProperty="imageName", size="imageSize")
      * @Assert\NotBlank(message="Champs requis")
-     * @Assert\Image(
-     *     mimeTypes= {"image/jpg", "image/png", "image/jpeg"},
-     *     mimeTypesMessage="Extension non autorisée",
-     *     maxSizeMessage="Image trop lourde"
+     * @Assert\File(
+     *     maxSize=Sponsor::MAX_SIZE,
+     *     maxSizeMessage="Image trop lourde!",
+     *     mimeTypes=Sponsor::AUTHORIZED_EXTENSIONS,
+     *     mimeTypesMessage="Extension de fichier non autorisée",
      * )
      * @var File
      */

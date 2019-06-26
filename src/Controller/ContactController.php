@@ -26,7 +26,9 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $mailContent = $this->renderView(
                 'contact/email.html.twig',
-                array('contact' => $contact)
+                [
+                'contact' => $contact
+                    ]
             );
 
             $message = (new Swift_Message())

@@ -6,6 +6,19 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class Contact
 {
+//    const SUBJECTS = [
+//        mailTrail => [
+//            trail,
+//            evenement,
+//            entrainement,
+//            autre
+//        ],
+//        mailTriathlon => [
+//            triathlon,
+//            natation,
+//            cyclisme
+//        ]
+//    ];
 
     private $id;
 
@@ -29,7 +42,7 @@ class Contact
 
     /**
      * @var string|null
-     * @Assert\NotBlank(message="Veuillez saisir une adresse email valide.")
+     * @Assert\NotBlank(message="L'email est obligatoire.")
      * @Assert\Email(message = "Veuillez saisir une adresse email valide.")
      */
     private $email;
@@ -85,7 +98,15 @@ class Contact
 
         return $this;
     }
-
+//    public function getSubjects()
+//    {
+//        foreach(self::SUBJECTS as $mails){
+//            foreach ($mails as $choice  ){
+//
+//            }
+//
+//        }
+//    }
     public function getSubject(): ?string
     {
         return $this->subject;

@@ -39,20 +39,24 @@ main.container-fluid {
 nav {
   background-color: lighten($trail-secondary-color, 60);
   float: left;
+
   .content {
     a {
       text-align: center;
+
       .fas, .far {
         margin: auto;
         color: $font-color;
         font-size: calc(20px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
         text-align: center;
+
         &:hover {
           color: $trail-primary-color;
           transition: all .3s;
         }
       }
     }
+
     .text {
       font-size: 0.75rem;
       color: $font-color;
@@ -70,21 +74,26 @@ nav.col-md-2 {
 .header.row {
   min-height: 25vh;
   margin: auto 0;
+
   .heading-text {
     font-size: calc(30px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
   }
+
   .fa-user {
     padding: 10px;
     border: 1px solid $trail-primary-color;
     border-radius: 50%;
+
     &:hover {
       color: lighten($trail-primary-color, 30);
       border: 1px solid lighten($trail-primary-color, 30);
       transition: all .3s;
     }
   }
+
   p {
     color: lighten($trail-secondary-color, 60);
+
     i {
       font-size: 0.75rem;
     }
@@ -104,18 +113,23 @@ html, body {
 
 .body-dashboard.row {
   margin: auto 0;
+
   .card.card-dashboard {
     min-height: 13rem;
+
     span {
       right: 1rem;
       top: 1rem;
+
       .far {
         color: $trail-primary-color;
       }
     }
+
     .card {
       background-color: transparent;
       border: none;
+
       h5.card-title {
         font-family: $text-font;
       }
@@ -130,6 +144,7 @@ html, body {
   h2, h3, h4, h5, h6 {
     font-family: $text-font;
   }
+
   a, button {
     font-size: 14pt;
     margin-bottom: 2em;
@@ -149,4 +164,19 @@ html, body {
   display: none;
 }
 
+  .card {
+    width: 18em;
+    .card-img-top {
+      overflow: hidden;
+    }
 
+    img {
+      max-width: 18rem;
+      object-fit: cover;
+    }
+  }
+
+  .btn {
+    margin: 5px;
+  }
+}

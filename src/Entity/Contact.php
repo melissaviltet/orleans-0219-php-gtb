@@ -6,6 +6,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class Contact
 {
+    const SUBJECTS = [
+        'trail' => ['Evénement', 'Entrainement', 'Autre'],
+        'triathlon' => ['Triathlon', 'Natation', 'Cyclisme']
+    ];
 
     private $id;
 
@@ -84,6 +88,18 @@ class Contact
         $this->email = $email;
 
         return $this;
+    }
+
+    public function getSubjects()
+    {
+        $choices = [];
+        foreach (self::SUBJECTS as $category => $subjects) {
+            foreach ($subjects as $subject) {
+                $choices[$subject] = $subject;
+            }
+        }
+
+        return $choices;
     }
 
     public function getSubject(): ?string

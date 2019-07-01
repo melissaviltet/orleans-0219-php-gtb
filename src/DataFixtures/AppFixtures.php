@@ -13,15 +13,15 @@ class AppFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 12; $i++) {
-            $sponsor = new Sponsor();
-            $sponsor->setName($faker->sentence(1));
-            $sponsor->setImageName('logo_veloland.jpg');
-            $sponsor->setImageSize(1024);
-            $sponsor->setUpdatedAt($faker->dateTime('now'));
-            $sponsor->setSite($faker->url);
-            $manager->persist($sponsor);
-        }
-        $manager->flush();
+//        for ($i = 0; $i < 12; $i++) {
+//            $sponsor = new Sponsor();
+//            $sponsor->setName($faker->sentence(1));
+//            $sponsor->setImageName('logo_veloland.jpg');
+//            $sponsor->setImageSize(1024);
+//            $sponsor->setUpdatedAt($faker->dateTime('now'));
+//            $sponsor->setSite($faker->url);
+//            $manager->persist($sponsor);
+//        }
+//        $manager->flush();
     }
 }

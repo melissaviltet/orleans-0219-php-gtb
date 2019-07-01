@@ -39,13 +39,15 @@ class Contact
     private $email;
 
     /**
-     * @Assert\Choice(callback="getSubjects")
+     * @Assert\Choice(callback="getSubjects" , message="Veuillez saisir un des choix valide.")
+     * @Assert\NotBlank(message="Veuillez saisir un des choix valide.")
      */
     private $subject;
 
     /**
      * @var string|null
-     * @Assert\Length(min="5",max="10000", maxMessage="votre message ne peux pas dépasser 10000 caractères")
+     * @Assert\Length(min="5",max="10000",minMessage="votre message ne peux pas faire moins de 5 caractères",
+     *      maxMessage="votre message ne peux pas dépasser 10000 caractères")
      * @Assert\NotBlank(message="Veuillez saisir votre message avant l'envoi")
      *
      */

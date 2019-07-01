@@ -89,11 +89,6 @@ class User implements UserInterface
      */
     private $gender;
 
-    public function __construct()
-    {
-        $this->activities = new ArrayCollection();
-    }
-
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
      */
@@ -101,6 +96,7 @@ class User implements UserInterface
 
     public function __construct()
     {
+        $this->activities = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
 
@@ -257,7 +253,7 @@ class User implements UserInterface
             $this->activities[] = $activity;
             $activity->addUser($this);
         }
-      
+
         return $this;
     }
 
@@ -267,11 +263,11 @@ class User implements UserInterface
             $this->activities->removeElement($activity);
             $activity->removeUser($this);
         }
-      
-       return $this;
-   }
-  
-  /**
+
+        return $this;
+    }
+
+    /**
      * @return Collection|Comment[]
      */
     public function getComments(): Collection
@@ -285,10 +281,10 @@ class User implements UserInterface
             $this->comments[] = $comment;
             $comment->setUser($this);
         }
-      
+
         return $this;
     }
-  
+
     public function removeComment(Comment $comment): self
     {
         if ($this->comments->contains($comment)) {
@@ -298,7 +294,7 @@ class User implements UserInterface
                 $comment->setUser(null);
             }
         }
-      
+
         return $this;
     }
 

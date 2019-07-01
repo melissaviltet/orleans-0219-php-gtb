@@ -408,20 +408,23 @@ section.sponsors {
   }
 }
 
-  .sportpage {
-    margin: 3em;
-  }
+.sportpage {
+  margin: 3em;
 }
 
 /***Création d'un nouveau compte***/
-.new-account-title{
+.new-account-title {
   text-align: center;
 }
-.card-new-account{
+
+.card-new-account {
   background-color: $trail-secondary-color;
+
   .form-control {
     border-bottom: solid 1px $trail-primary-color;
   }
 }
-.btn-primary{
-    @extend %btn-primary;
+
+.btn-primary {
+  @extend %btn-primary;
+}

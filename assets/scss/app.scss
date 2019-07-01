@@ -1,5 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
-//@import "~font-awesome/scss/font-awesome";
+@import "~@fortawesome/fontawesome-svg-core/styles.css";
+//@import "~@fortawesome/free-solid-svg-icons";
 @import "_vars.scss";
 @import 'mixins.scss';
 @import "functions";

@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.19",
+    "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@symfony/webpack-encore": "^0.27.0",
     "bootstrap": "^4.3.1",
     "copy-webpack-plugin": "^5.0.3",
@@ -17,7 +19,7 @@
   },
   "dependencies": {
     "copy": "^0.3.2",
-    "font-awesome": "https://github.com/ip-tools/font-awesome#3.2.1",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "main.js": "0.0.1",
     "node-sass": "^4.12.0",

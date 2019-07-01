@@ -33,7 +33,7 @@ class Contact
 
     /**
      * @var string|null
-     * @Assert\NotBlank(message="Veuillez saisir une adresse email valide.")
+     * @Assert\NotBlank(message="L'adresse mail est obligatoire.")
      * @Assert\Email(message = "Veuillez saisir une adresse email valide.")
      */
     private $email;

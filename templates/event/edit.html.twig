@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Éditer un événement{% endblock %}
+
+{% block body %}
+    {% include 'admin/_navbar.html.twig' %}
+    {% include 'admin/_header.html.twig' %}
+    <div class="admin-content position-absolute text-center">
+        <div class="row justify-content-center">
+            {{ include('event/_form.html.twig', {'button_label': 'Update'}) }}
+        </div>
+        <div class="row justify-content-center">
+            <a class="btn btn-primary" href="{{ path('event_index') }}">Retour aux événements</a>
+
+            {{ include('event/_delete_form.html.twig') }}
+        </div>
+    </div>
+{% endblock %}

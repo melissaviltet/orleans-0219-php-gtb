@@ -169,7 +169,6 @@ html, body {
     .card-img-top {
       overflow: hidden;
     }
-
     img {
       max-width: 18rem;
       object-fit: cover;
@@ -180,3 +179,50 @@ html, body {
     margin: 5px;
   }
 }
+
+
+/***Page Accueil***/
+
+.body-page-home {
+  .nav-page-home {
+    background-color: transparent;
+    .nav-item .nav-link.active {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+  }
+  .contents .logo-gallery {
+    height: 400px;
+    overflow-y: scroll;
+    .card {
+      border: none;
+      span {
+        right: 6%;
+        top: 4%;
+        a .fas {
+          color: $trail-primary-color;
+          &:hover {
+            cursor: pointer;
+            color: $font-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+form.sponsor-form {
+  .form-group {
+    margin-bottom: 0;
+  }
+  fieldset small {
+    font-style: italic;
+    padding-left: 2%;
+  }
+}
+
+.card-img-top {
+      overflow: hidden;
+}
+
+

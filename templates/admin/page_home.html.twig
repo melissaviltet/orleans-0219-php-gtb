@@ -19,7 +19,7 @@
         <div class="contents container d-flex flex-column flex-md-row justify-content-md-around pt-5">
             <div class="logo-gallery col-11 col-md-6 pt-4 d-flex flex-wrap">
                 {% for sponsor in sponsors %}
-                <div id="{{ sponsor.id }}" class="card card-img col-11 col-sm-4 col-lg-3 p-1 position-relative">
+                <div class="card card-img col-11 col-sm-4 col-lg-3 p-1 position-relative">
                     <img src="{{ asset('uploads/images/sponsors/' ~ sponsor.imageName) }}" class="card-img-top" alt="{{ sponsor.name }}.">
                     <small>{{ form_help(form) }}</small>
                     <small class="text-muted d-block pl-2">{{ sponsor.name }}</small>

@@ -49,6 +49,16 @@ class Event
     private $picture;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $shortDescription;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $longDescription;
+
+    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="event")
      */
     private $comments;
@@ -163,6 +173,42 @@ class Event
             }
         }
 
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShortDescription()
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * @param mixed $shortDescription
+     * @return Event
+     */
+    public function setShortDescription($shortDescription)
+    {
+        $this->shortDescription = $shortDescription;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLongDescription()
+    {
+        return $this->longDescription;
+    }
+
+    /**
+     * @param mixed $longDescription
+     * @return Event
+     */
+    public function setLongDescription($longDescription)
+    {
+        $this->longDescription = $longDescription;
         return $this;
     }
 }

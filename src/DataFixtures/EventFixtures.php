@@ -22,6 +22,8 @@ class EventFixtures extends Fixture
             $event->setPlace($faker->city);
             $event->setIsPrivate($faker->boolean);
             $event->setPicture($faker->imageUrl());
+            $event->setShortDescription($faker->sentence(10));
+            $event->setLongDescription($faker->sentence(30));
             $this->addReference('event_' . $i, $event);
             $manager->persist($event);
         }

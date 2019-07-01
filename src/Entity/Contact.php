@@ -38,7 +38,9 @@ class Contact
      */
     private $email;
 
-
+    /**
+     * @Assert\Choice(callback="getSubjects")
+     */
     private $subject;
 
     /**

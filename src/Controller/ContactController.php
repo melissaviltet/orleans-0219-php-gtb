@@ -34,7 +34,7 @@ class ContactController extends AbstractController
                 ->setFrom($this->getParameter('mailer_from'))
                 ->setTo($this->getParameter('mailer_from'))
                 ->setReplyTo($contact->getEmail())
-                ->setBody($mailContent);
+                ->setBody($mailContent, 'text/html');
 
             $mailer->send($message);
 

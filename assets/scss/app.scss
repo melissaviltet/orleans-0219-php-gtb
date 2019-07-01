@@ -417,13 +417,28 @@ section.sponsors {
   overflow: hidden;
   padding : 0;
 }
-.col-4{
-  img{
+.col-4 {
+  img {
     object-fit: cover;
     max-width: 40vw;
 
   }
 
- .sportpage {
-  margin: 3em;
+  .sportpage {
+    margin: 3em;
+  }
+}
+
+/***Création d'un nouveau compte***/
+.new-account-title{
+  text-align: center;
+}
+.card-new-account{
+  background-color: $trail-secondary-color;
+  .form-control {
+    border-bottom: solid 1px $trail-primary-color;
+  }
+}
+.btn-primary{
+    @extend %btn-primary;
 }

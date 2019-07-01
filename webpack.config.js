@@ -21,7 +21,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('summernote', 'summernote/src/js/summernote.js')
-    .addEntry('summernotecss', 'summernote/src/less/summernote.scss')
+    .addEntry('editassociation', './assets/scss/editAssociation.scss')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

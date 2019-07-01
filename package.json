@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "copy": "^0.3.2",
+    "font-awesome": "https://github.com/ip-tools/font-awesome#3.2.1",
     "jquery": "^3.4.1",
     "main.js": "0.0.1",
     "node-sass": "^4.12.0",

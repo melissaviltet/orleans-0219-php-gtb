@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -21,6 +22,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(max="255")
      */
     private $email;
 
@@ -32,41 +35,57 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(max="255")
      */
     private $password;
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="vous devez indiquer votre Prénom !")
+     * @Assert\Length(max="255", message="votre Prénom de doit pas dépasser 255 caractères !")
+     * @Assert\Length(min="8", message="votre mot de passe doit comporter au minimum 8 caractères !")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="vous devez indiquer votre Nom !")
+     * @Assert\Length(max="255", message="votre Nom ne doit pas dépasser 255 caractères !" )
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="vous devez indiquer votre adresse !")
+     * @Assert\Length(max="255", message="votre adresse ne doit pas dépasser 255 caractères !")
      */
     private $address;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank(message="vous devez indiquer votre date de naissance !")
+     * @Assert\DateTime()
      */
     private $birthdate;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="vous devez indiquer votre numéro de téléphone, fix ou portable !")
+     * @Assert\Length(max="255")
+     * @Assert\Length((min="10", message="votre numéro doit composer au minimum 10 chiffres !")
      */
     private $telephone;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Activity", mappedBy="users")
+     * @Assert\NotBlank(message="vous devez indiquer une activité !")
      */
     private $activities;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Gender", inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank(message="vous devez indiquer votre genre, pour les compétitions !")
      */
     private $gender;
 

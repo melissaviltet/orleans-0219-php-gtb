@@ -49,4 +49,19 @@ class AdminPageHomeController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @param Request $request
+     * @param Sponsor $sponsor
+     * @Route("/sponsor/{id}", name="sponsor_delete", methods={"DELETE"})
+     * @return Response
+     */
+    public function deleteSponsor(Request $request, Sponsor $sponsor): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($sponsor);
+        $em->flush();
+
+        return new Response(null, 200);
+    }
 }

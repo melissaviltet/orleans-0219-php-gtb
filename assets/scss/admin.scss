@@ -199,8 +199,12 @@ form.sponsor-form {
   }
 }
 
-.card-img-top {
-      overflow: hidden;
+.logo-gallery .card-img {
+  background-color: transparent;
+  .card-img-top {
+    overflow: hidden;
+  }
+
 }
 
 

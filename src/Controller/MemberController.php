@@ -10,16 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class MemberController extends AbstractController
 {
     /**
-     * @Route("/member", name="member")
-     */
-    public function index()
-    {
-        return $this->render('member/index.html.twig', [
-            'controller_name' => 'MemberController',
-        ]);
-    }
-
-    /**
      * @param EventRepository $eventRepository
      * @Route("/member/event_to_come", name="member_event_to_come")
      * @return Response

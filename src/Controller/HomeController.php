@@ -17,7 +17,6 @@ class HomeController extends AbstractController
      * @param SponsorRepository $sponsorRepository
      * @param AssociationRepository $associationRepository
      * @param EventRepository $eventRepository
-
      * @Route("/", name="home")
      * @return Response
      */

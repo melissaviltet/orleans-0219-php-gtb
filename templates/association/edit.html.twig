@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+    {{ encore_entry_link_tags('editassociation') }}
+{% endblock %}
+{% block title %}Edit Association{% endblock %}
+
+{% block body %}
+    {% include 'admin/_navbar.html.twig' %}
+    {% include 'admin/_header.html.twig' %}
+    <div class="admin-content position-absolute text-center">
+        {{ include('association/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a class="btn btn-primary" href="{{ path('association_index') }}">back to list</a>
+
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('summernote') }}
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}

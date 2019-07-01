@@ -12,8 +12,7 @@ require('../fonts/Dusha.ttf');
 
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-require('jquery');
-import $ from 'jquery';
+const $ = require('jquery');
 require('./main.js');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');

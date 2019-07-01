@@ -34,5 +34,3 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('.summernote').summernote();
 });
-
-console.log($('.summernote'));

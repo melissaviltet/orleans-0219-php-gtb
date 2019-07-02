@@ -408,6 +408,8 @@ section.sponsors {
   }
 }
 
+/* Pages trail & triathlon */
+
 .sportpage {
   margin: 3em;
 }
@@ -428,4 +430,25 @@ section.sponsors {
 
 .btn-primary {
   @extend %btn-primary;
+}
+
+
+
+/***PAGE MEMBER-EVENTS***/
+
+.member-events {
+  .events .card-body{
+    .card-title {
+      font-family: $text-font;
+    }
+  }
+}
+
+/***formulaire contact accueil***/
+.contact-form {
+  margin: auto;
+  float: none;
+  h2 {
+    text-align: center;
+  }
 }

@@ -6,6 +6,10 @@
 parameters:
     locale: 'en'
     upload_directory: '%kernel.project_dir%/public/uploads'
+    mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
+    mailer_from_trail: '%env(resolve:MAILER_FROM_TRAIL)%'
+    mailer_from_triathlon: '%env(resolve:MAILER_FROM_TRIATHLON)%'
+
 
 services:
     # default configuration for services in *this* file

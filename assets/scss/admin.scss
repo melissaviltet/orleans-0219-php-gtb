@@ -138,15 +138,37 @@ html, body {
 }
 
 .admin-content {
-  top: 8em;
+  top: 12em;
   width: 85%;
   left: 15%;
   h2, h3, h4, h5, h6 {
     font-family: $text-font;
   }
 
+  a, button {
+    font-size: 14pt;
+    margin-bottom: 2em;
+  }
+  textarea {
+    width: 75%;
+  }
+}
+
+.panel-heading {
+  font-size: 12pt;
+  .note-btn {
+    background-color: $font-color;
+  }
+}
+.popover {
+  display: none;
+}
+
   .card {
     width: 18em;
+    .card-img-top {
+      overflow: hidden;
+    }
     img {
       max-width: 18rem;
       object-fit: cover;
@@ -156,8 +178,6 @@ html, body {
   .btn {
     margin: 5px;
   }
-}
-
 
 /***Page Accueil***/
 
@@ -199,8 +219,12 @@ form.sponsor-form {
   }
 }
 
-.card-img-top {
-      overflow: hidden;
+.logo-gallery .card-img {
+  background-color: transparent;
+  .card-img-top {
+    overflow: hidden;
+  }
+
 }
 
 

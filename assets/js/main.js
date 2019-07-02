@@ -1,3 +1,7 @@
+/***NAVBAR***/
+
+require('jquery');
+
 $(document).ready(function () {
 
     $(window).scroll(function () {

@@ -20,5 +20,15 @@
 
 {% endblock %}
 {% block javascripts %}
-<script src="node_modules/summernote/src/js/summernote.js"></script>
+    <script src="node_modules/summernote/src/js/summernote.js"></script>
+
+    <script type="text/javascript">
+        window.addEventListener('load', () => {
+            let url = window.location.href;
+            if (url) {
+
+            }
+            alert(url);
+        });
+    </script>
 {% endblock %}

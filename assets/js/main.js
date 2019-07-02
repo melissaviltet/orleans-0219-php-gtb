@@ -23,6 +23,19 @@ $(document).ready(function () {
             });
         }
     });
+
+    let currentUrl = window.location.href;
+    console.log(currentUrl);
+    let aTags = document.getElementsByTagName('a');
+    console.log(aTags);
+
+    for (let i = 0; i < aTags.length; i++) {
+        if (aTags[i].href === currentUrl && aTags[i].parentElement.className === 'nav-item nav-home flex-fill') {
+            aTags[i].parentElement.className = 'active nav-item nav-home flex-fill';
+        } else if (aTags[i].href === currentUrl) {
+            aTags[i].className = 'active';
+        }
+    }
 });
 
 

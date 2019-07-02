@@ -3,12 +3,16 @@
 {% block body %}
     {{ include ('_navbar.html.twig') }}
     {{ include ('home/_jumbotron.html.twig') }}
-    {{ include ('home/_events.html.twig') }}
+    <div class="container-fluid">
+        {{ include ('home/_events.html.twig') }}
+    </div>
     {{ include ('home/_club.html.twig') }}
     {{ include ('home/_trail.html.twig') }}
     {{ include ('home/_triathlon.html.twig') }}
-    {{ render(controller('App\\Controller\\ContactController::Index')) }}
-    {{ include ('home/_HomeGalery.html.twig') }}
-    {{ include ('_sponsors.html.twig') }}
+    <div class="container-fluid">
+        {{ render(controller('App\\Controller\\ContactController::Index')) }}
+        {{ include ('home/_HomeGalery.html.twig') }}
+        {{ include ('_sponsors.html.twig') }}
+    </div>
     {{ include ('_footer.html.twig') }}
 {% endblock %}

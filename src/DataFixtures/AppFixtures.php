@@ -18,7 +18,6 @@ class AppFixtures extends Fixture
             $sponsor->setName($faker->sentence(1));
             $sponsor->setImageName('logo_veloland.jpg');
             $sponsor->setImageSize(1024);
-            $sponsor->setUpdatedAt($faker->dateTime());
             $sponsor->setSite($faker->url);
             $manager->persist($sponsor);
         }

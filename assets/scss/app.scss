@@ -434,3 +434,19 @@ section.sponsors {
     text-align: center;
   }
 }
+
+
+/***MEMBER SHOW ONE EVENT TO COME***/
+
+.event-to-come .row{
+  .card {
+    border: none;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    img {
+      min-width: -webkit-fill-available;
+      min-width: -moz-fill-available;
+      box-sizing: border-box;
+    }
+  }
+}

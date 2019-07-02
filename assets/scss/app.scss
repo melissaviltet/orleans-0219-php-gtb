@@ -426,6 +426,17 @@ section.sponsors {
   margin: 3em;
 }
 
+
+/***PAGE MEMBER-EVENTS***/
+
+.member-events {
+  .events .card-body{
+    .card-title {
+      font-family: $text-font;
+    }
+  }
+}
+
 /***formulaire contact accueil***/
 .contact-form {
   margin: auto;
@@ -435,4 +446,3 @@ section.sponsors {
     text-align: center;
   }
 }
-

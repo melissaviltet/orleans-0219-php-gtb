@@ -25,10 +25,8 @@ $(document).ready(function () {
     });
 
     let currentUrl = window.location.href;
-    console.log(currentUrl);
     let aTags = document.getElementsByTagName('a');
     console.log(aTags);
-
     for (let i = 0; i < aTags.length; i++) {
         if (aTags[i].href === currentUrl && aTags[i].parentElement.className === 'nav-item nav-home flex-fill') {
             aTags[i].parentElement.className = 'active nav-item nav-home flex-fill';
@@ -36,12 +34,13 @@ $(document).ready(function () {
             aTags[i].className = 'active';
         }
     }
+
+    $('.custom-file-input').on('change', function (event) {
+        let inputFile = event.currentTarget;
+        $(inputFile).parent()
+            .find('.custom-file-label')
+            .html(inputFile.files[0].name);
+    });
 });
 
 
-$('.custom-file-input').on('change', function (event) {
-    let inputFile = event.currentTarget;
-    $(inputFile).parent()
-        .find('.custom-file-label')
-        .html(inputFile.files[0].name);
-});

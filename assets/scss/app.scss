@@ -97,6 +97,7 @@ p {
 
 section.footer {
   background-color: $trail-secondary-color;
+  border-top: $trail-primary-color solid 5px;
   color: $font-color;
   font-family: $text-font;
   font-size: 2vh;
@@ -153,8 +154,8 @@ section.footer {
     }
 
     ul {
-      text-align: center;
       list-style-type: none;
+      padding :0;
     }
   }
 }

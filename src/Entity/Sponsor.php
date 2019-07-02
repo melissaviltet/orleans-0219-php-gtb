@@ -61,7 +61,7 @@ class Sponsor
     private $imageSize;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="date_immutable", nullable=true)
      * @var \DateTimeImmutable|null
      */
     private $updatedAt;

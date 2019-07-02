@@ -99,9 +99,12 @@ section.footer {
   background-color: $trail-secondary-color;
   color: $font-color;
   font-family: $text-font;
-  font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  font-size: 2vh;
   margin-left: 0;
   margin-right: 0;
+  @include small {
+    font-size: 3vh;
+  }
 
   div.address-footer {
     padding-left: 0px;
@@ -296,6 +299,7 @@ section.footer {
 
 section.sponsors {
   padding-bottom: $sectionPadding;
+  width: 100vw;
 
   .title-cont h2 {
     font-family: $title-font;

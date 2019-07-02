@@ -22,8 +22,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\NotBlank()
-     * @Assert\Length(max="255")
+     * @Assert\NotBlank(message="L'email est obligatoire")
+     * @Assert\Length(min="2", max="255", minMessage="l'email doit composer {limit} caractères",
+     *     maxMessage="l'email doit composer {limit} caractères")
      */
     private $email;
 
@@ -35,29 +36,32 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
-     * @Assert\NotBlank()
-     * @Assert\Length(max="255")
+     * @Assert\NotBlank(message="le mot de passe est obligatoire !")
+     * @Assert\Length(min="8", max="255", minMessage="le mot de passe doit comporter {limit} caractères !",
+     *      maxMessage="le mot de passe doit comporter {limit} caractères !")
      */
     private $password;
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="vous devez indiquer votre Prénom !")
-     * @Assert\Length(max="255", message="votre Prénom de doit pas dépasser 255 caractères !")
-     * @Assert\Length(min="8", message="votre mot de passe doit comporter au minimum 8 caractères !")
+     * @Assert\Length(min="2", max="255", minMessage="votre mot de passe doit comporter au minimum {limit} caractères" ,
+     *  maxMessage="votre mot de passe doit comporter au maximum {limit} caractères")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="vous devez indiquer votre Nom !")
-     * @Assert\Length(max="255", message="votre Nom ne doit pas dépasser 255 caractères !" )
+     * @Assert\Length(min="2", max="255", maxMessage="votre Nom ne doit pas dépasser {limit} caractères !",
+     *     minMessage=" votre Nom ne doit pas dépasser {limit} caractères !" )
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="vous devez indiquer votre adresse !")
-     * @Assert\Length(max="255", message="votre adresse ne doit pas dépasser 255 caractères !")
+     * @Assert\Length(min="2", max="255", minMessage="votre adresse ne doit pas dépasser {limit} caractères !",
+     *    maxMessage="votre adresse ne doit pas dépasser {limit} caractères !" )
      */
     private $address;
 
@@ -71,8 +75,8 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="vous devez indiquer votre numéro de téléphone, fix ou portable !")
-     * @Assert\Length(max="255")
-     * @Assert\Length((min="10", message="votre numéro doit composer au minimum 10 chiffres !")
+     * @Assert\Length(min="10", max="255", minMessage="votre numéro doit composer {limit} chiffres !",
+     *     maxMessage="votre numéro doit composer {limit} chiffres")
      */
     private $telephone;
 

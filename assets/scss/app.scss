@@ -364,7 +364,7 @@ section.sponsors {
 
   .card-connexion {
     margin-top: 10%;
-    background-color: $trail-secondary-color;
+    background-color: $font-color-light-bg;
   }
 
   .card-body {
@@ -418,8 +418,9 @@ section.sponsors {
 }
 
 .card-new-account {
-  background-color: $trail-secondary-color;
-
+  background-color: $font-color-light-bg;
+  font-family: $text-font;
+  color: $font-color;
   .form-control {
     border-bottom: solid 1px $trail-primary-color;
   }

@@ -21,7 +21,7 @@ class Activity
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $activities;
+    private $name;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="activities")
@@ -38,14 +38,14 @@ class Activity
         return $this->id;
     }
 
-    public function getActivities(): ?string
+    public function getName(): ?string
     {
-        return $this->activities;
+        return $this->name;
     }
 
-    public function setActivities(string $activities): self
+    public function setName(string $name): self
     {
-        $this->activities = $activities;
+        $this->name = $name;
 
         return $this;
     }

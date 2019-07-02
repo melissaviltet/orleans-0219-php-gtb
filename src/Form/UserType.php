@@ -40,7 +40,7 @@ class UserType extends AbstractType
 
             ->add('activities', EntityType::class, [
                 'class' => Activity::class,
-                'choice_label' => 'activities',
+                'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,
                 'by_reference' => false,

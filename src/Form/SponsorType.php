@@ -23,6 +23,8 @@ class SponsorType extends AbstractType
                 ]
             ])
             ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'allow_delete' => true,
                 'help' => '*Poids maximum autorisé: ' . Sponsor::MAX_SIZE,
                 'label' => 'Logo: ',
                 'attr' => [

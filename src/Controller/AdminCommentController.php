@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Form\CommentModerationType;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,7 +22,7 @@ class AdminCommentController extends AbstractController
     public function index(CommentRepository $commentRepository): Response
     {
         return $this->render('comment/index.html.twig', [
-            'comments' => $commentRepository->findAll(),
+            'comments' => $commentRepository->findBy([], ['date'=>'DESC']),
         ]);
     }
 
@@ -49,12 +50,25 @@ class AdminCommentController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="comment_show", methods={"GET"})
+     * @Route("/{id}", name="comment_show", methods={"GET", "POST"})
      */
-    public function show(Comment $comment): Response
+    public function show(Comment $comment, Request $request): Response
     {
+        $form = $this->createForm(CommentModerationType::class, $comment);
+//        dd($request);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('comment_index', [
+                'id' => $comment->getId(),
+            ]);
+        }
         return $this->render('comment/show.html.twig', [
             'comment' => $comment,
+            'form' => $form->createView(),
         ]);
     }
 

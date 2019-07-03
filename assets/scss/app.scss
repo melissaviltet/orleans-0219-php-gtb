@@ -71,6 +71,9 @@ p {
       width: 100vw;
     }
   }
+  li.active.nav-item.nav-home {
+    background-color: $trail-primary-color;
+  }
 
   .navbar-nav .nav-link {
     padding-top: 1rem;
@@ -88,12 +91,6 @@ p {
       background-color: $trail-primary-color;
       transition: all .6s;
       color: $font-color;
-    }
-    .active.nav-item.nav-home {
-      background-color: $trail-primary-color;
-    }
-    a.active.nav-link.text-center {
-      color: $trail-primary-color;
     }
   }
 }

@@ -368,6 +368,13 @@ section.sponsors {
 
 
 /***Login Page***/
+h1{
+  text-align: center;
+}
+
+.button-back-home{
+  text-align: center;
+}
 .login-card {
   margin-left: 0px;
   margin-right: 0px;
@@ -376,7 +383,7 @@ section.sponsors {
 
   .card-connexion {
     margin-top: 10%;
-    background-color: $trail-secondary-color;
+    background-color: $font-color-light-bg;
   }
 
   .card-body {
@@ -392,14 +399,14 @@ section.sponsors {
   .new-account {
     text-align: center;
 
-    a:link {
-      color: $trail-primary-color;
+    a {
+      color: $font-color;
+      text-decoration: none;
     }
   }
 }
 
 /***homepage Galery***/
-
 
 .homepage-images {
   .btn-homepage-picture {
@@ -427,6 +434,25 @@ section.sponsors {
   margin: 3em;
 }
 
+/***Création d'un nouveau compte***/
+.new-account-title {
+  text-align: center;
+}
+
+.card-new-account {
+  background-color: $font-color-light-bg;
+  font-family: $text-font;
+  color: $font-color;
+  .form-control {
+    border-bottom: solid 1px $trail-primary-color;
+  }
+}
+
+.btn-primary {
+  @extend %btn-primary;
+}
+
+
 
 /***PAGE MEMBER-EVENTS***/
 
@@ -445,5 +471,21 @@ section.sponsors {
 
   h2 {
     text-align: center;
+  }
+}
+
+
+/***MEMBER SHOW ONE EVENT TO COME***/
+
+.event-to-come .row{
+  .card {
+    border: none;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    img {
+      min-width: -webkit-fill-available;
+      min-width: -moz-fill-available;
+      box-sizing: border-box;
+    }
   }
 }

@@ -11,9 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/comment")
+ * @Route("/admin/comment")
  */
-class CommentController extends AbstractController
+class AdminCommentController extends AbstractController
 {
     /**
      * @Route("/", name="comment_index", methods={"GET"})

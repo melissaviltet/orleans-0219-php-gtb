@@ -30,7 +30,7 @@ $(document).ready(function () {
     for (let i = 0; i < aTags.length; i++) {
         if (aTags[i].href === currentUrl && aTags[i].parentElement.className === 'nav-item nav-home flex-fill') {
             aTags[i].parentElement.className = 'active nav-item nav-home flex-fill';
-        } else if (aTags[i].href === currentUrl) {
+        } else if (aTags[i].href === currentUrl && aTags[i].nodeName === 'I') {
             aTags[i].className = 'active';
         }
     }

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-    {{ include ('admin/_header.html.twig', { titleHeader: 'Page Accueil' }) }}
+    {{ include ('admin/_header.html.twig', { titleHeader: 'Partenaires' }) }}
     {{ include ('admin/_navbar.html.twig') }}
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
@@ -32,6 +32,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script>
         $(document).ready(function () {
             $('.js-delete-sponsor').on('click', function(e) {

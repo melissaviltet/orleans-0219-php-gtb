@@ -32,6 +32,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setLastname($faker->lastName);
         $user->setTelephone($faker->phoneNumber);
         $user->setRoles(['ROLE_MEMBER']);
+        $user->setPicture($faker->imageUrl());
         $user->setPassword($this->passwordEncoder->encodePassword($user, 'memberpassword'));
         $this->addReference('user_0', $user);
         $manager->persist($user);
@@ -47,6 +48,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setLastname($faker->lastName);
         $user->setTelephone($faker->phoneNumber);
         $user->setRoles(['ROLE_OFFICE']);
+        $user->setPicture($faker->imageUrl());
         $user->setPassword($this->passwordEncoder->encodePassword($user, 'officepassword'));
         $this->addReference('user_1', $user);
         $manager->persist($user);
@@ -61,6 +63,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setLastname($faker->lastName);
         $user->setTelephone($faker->phoneNumber);
         $user->setRoles(['ROLE_ADMIN']);
+        $user->setPicture($faker->imageUrl());
         $user->setPassword($this->passwordEncoder->encodePassword($user, 'adminpassword'));
         $this->addReference('user_2', $user);
         $manager->persist($user);

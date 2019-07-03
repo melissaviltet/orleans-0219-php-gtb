@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\User;
 use App\Repository\EventRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,6 +38,19 @@ class MemberController extends AbstractController
     {
         return $this->render('member/show_event_to_come.html.twig', [
             'event' => $event,
+        ]);
+    }
+
+    /**
+     * @param UserRepository $userRepository
+     * @Route("/page/{id}", name="member_page")
+     * @return Response
+     */
+    public function index(UserRepository $userRepository, User $user) : Response
+    {
+        $id= $user->getId();
+        return $this->render('member_page/index.html.twig', [
+            'user' => $userRepository->findOneby(['id'=> $user->getId()]),
         ]);
     }
 }

@@ -489,3 +489,31 @@ h1{
     }
   }
 }
+
+/***Member page***/
+.title-member-page{
+  margin-top: 5rem;
+  text-align: center;
+}
+.row-about-me{
+  margin-bottom: 5rem;
+  img{
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 25px auto;
+    background-color: #0159b3;
+    border-radius: 50%;
+  }
+  .col-edit-information{
+    text-align: center;
+    .fa-edit{
+      font-size : 2.5rem;
+      color: $trail-primary-color;
+    }
+    a{
+      text-decoration: none;
+      color: $trail-secondary-color;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 <section class="row events">
     {% if events==true %}
-        <div class="col text-center main mt-auto0">
-            <div class="card">
+        <div class="col-lg-6 col-sm-12 main  justify-content-center">
+            <div class="card mx-auto">
                 <img src="{{ events[0].picture }}"
                      class="card-img-top" alt="{{ events[0].name }}">
                 <div class="card-body">
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <div class="col next">
+        <div class="col-lg-6 col-sm-12 next">
             {% for event in events|slice(1,3) %}
                 <div class="card">
                     <div class="card-body">

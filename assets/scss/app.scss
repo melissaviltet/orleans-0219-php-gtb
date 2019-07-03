@@ -356,6 +356,13 @@ section.sponsors {
 
 
 /***Login Page***/
+h1{
+  text-align: center;
+}
+
+.button-back-home{
+  text-align: center;
+}
 .login-card {
   margin-left: 0px;
   margin-right: 0px;
@@ -380,8 +387,9 @@ section.sponsors {
   .new-account {
     text-align: center;
 
-    a:link {
-      color: $trail-primary-color;
+    a {
+      color: $font-color;
+      text-decoration: none;
     }
   }
 }

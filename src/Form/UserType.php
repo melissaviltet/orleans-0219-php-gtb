@@ -47,7 +47,7 @@ class UserType extends AbstractType
             ])
             ->add('gender', EntityType::class, [
                 'class' => Gender::class,
-                'choice_label' => 'gender_name',
+                'choice_label' => 'genderName',
                 'multiple' => false,
                 'expanded' => true,
                 'by_reference' => false,

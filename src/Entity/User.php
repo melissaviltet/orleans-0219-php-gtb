@@ -23,8 +23,8 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank(message="L'email est obligatoire")
-     * @Assert\Length(min="2", max="255", minMessage="l'email doit composer {limit} caractères",
-     *     maxMessage="l'email doit composer {limit} caractères")
+     * @Assert\Length(min="2", max="255", minMessage="l'email doit comporter {limit} caractères",
+     *     maxMessage="l'email doit comporter {limit} caractères")
      */
     private $email;
 
@@ -43,40 +43,40 @@ class User implements UserInterface
     private $password;
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="vous devez indiquer votre Prénom !")
-     * @Assert\Length(min="2", max="255", minMessage="votre mot de passe doit comporter au minimum {limit} caractères" ,
-     *  maxMessage="votre mot de passe doit comporter au maximum {limit} caractères")
+     * @Assert\NotBlank(message="Ce champ est obligatoire !")
+     * @Assert\Length(min="2", max="255", minMessage="votre prénom doit comporter au minimum {limit} caractères" ,
+     *  maxMessage="votre prénom doit comporter au maximum {limit} caractères")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="vous devez indiquer votre Nom !")
-     * @Assert\Length(min="2", max="255", maxMessage="votre Nom ne doit pas dépasser {limit} caractères !",
-     *     minMessage=" votre Nom ne doit pas dépasser {limit} caractères !" )
+     * @Assert\NotBlank(message="Ce champ est obligatoire !")
+     * @Assert\Length(min="2", max="255", maxMessage="votre Nom doit comporter au maximum {limit} caractères !",
+     *     minMessage=" votre Nom doit comporter au minimum {limit} caractères !" )
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="vous devez indiquer votre adresse !")
-     * @Assert\Length(min="2", max="255", minMessage="votre adresse ne doit pas dépasser {limit} caractères !",
-     *    maxMessage="votre adresse ne doit pas dépasser {limit} caractères !" )
+     * @Assert\Length(min="2", max="255", minMessage="votre adresse doit comporter au minimum {limit} caractères !",
+     *    maxMessage="votre adresse doit comporter au maximum {limit} caractères !" )
      */
     private $address;
 
     /**
      * @ORM\Column(type="date")
-     * @Assert\NotBlank(message="vous devez indiquer votre date de naissance !")
+     * @Assert\NotBlank(message="Ce champ est obligatoire !")
      * @Assert\DateTime()
      */
     private $birthdate;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank(message="vous devez indiquer votre numéro de téléphone, fix ou portable !")
-     * @Assert\Length(min="10", max="255", minMessage="votre numéro doit composer {limit} chiffres !",
-     *     maxMessage="votre numéro doit composer {limit} chiffres")
+     * @Assert\NotBlank(message="Ce champ est obligatoire !")
+     * @Assert\Length(min="10", max="255", minMessage="votre numéro doit composer au minimum {limit} chiffres !",
+     *     maxMessage="votre numéro doit composer au maximum {limit} chiffres")
      */
     private $telephone;
 
@@ -89,7 +89,7 @@ class User implements UserInterface
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Gender", inversedBy="users")
      * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotBlank(message="vous devez indiquer votre genre, pour les compétitions !")
+     * @Assert\NotBlank(message="Ce champ est obligatoire, pour les compétitions !")
      */
     private $gender;
 

@@ -11,5 +11,8 @@
 
     {{ include('user/_form.html.twig') }}
 
-    <a href="{{ path('home') }}" class="btn btn-primary">Retour vers l'accueil</a>
+    <div class="button-back-home pt-5">
+        <a href="{{ path('home') }}" class="btn btn-primary">Retour vers l'accueil</a>
+    </div>
+
 {% endblock %}

@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GenderRepository")
@@ -20,8 +21,9 @@ class Gender
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ est obligatoire")
      */
-    private $gender_name;
+    private $genderName;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="gender")
@@ -40,12 +42,12 @@ class Gender
 
     public function getGenderName(): ?string
     {
-        return $this->gender_name;
+        return $this->genderName;
     }
 
-    public function setGenderName(string $gender_name): self
+    public function setGenderName(string $genderName): self
     {
-        $this->gender_name = $gender_name;
+        $this->genderName = $genderName;
 
         return $this;
     }

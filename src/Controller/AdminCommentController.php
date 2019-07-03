@@ -22,7 +22,7 @@ class AdminCommentController extends AbstractController
     public function index(CommentRepository $commentRepository): Response
     {
         return $this->render('comment/index.html.twig', [
-            'comments' => $commentRepository->findBy([], ['date'=>'DESC']),
+            'comments' => $commentRepository->findBy([], ['date' => 'DESC']),
         ]);
     }
 
@@ -55,17 +55,16 @@ class AdminCommentController extends AbstractController
     public function show(Comment $comment, Request $request): Response
     {
         $form = $this->createForm(CommentModerationType::class, $comment);
-//        dd($request);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('comment_index', [
                 'id' => $comment->getId(),
             ]);
         }
+
         return $this->render('comment/show.html.twig', [
             'comment' => $comment,
             'form' => $form->createView(),
@@ -99,7 +98,7 @@ class AdminCommentController extends AbstractController
      */
     public function delete(Request $request, Comment $comment): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $comment->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($comment);
             $entityManager->flush();

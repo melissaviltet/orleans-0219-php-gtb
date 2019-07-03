@@ -16,11 +16,10 @@ class CommentType extends AbstractType
         $builder
             ->add('date')
             ->add('message')
-            ->add('event', EntityType::class,[
-        'class' => Event::class,
-        'choice_label' => 'name',
-    ]);
-//            ->add('user')
+            ->add('event', EntityType::class, [
+                'class' => Event::class,
+                'choice_label' => 'name',
+            ]);//            ->add('user')
         ;
     }
 

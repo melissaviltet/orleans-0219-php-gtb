@@ -1,28 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Comment index{% endblock %}
+{% block title %}Commentaires{% endblock %}
 
 {% block body %}
-    <h1>Comment index</h1>
+    {% include 'admin/_navbar.html.twig' %}
+    {{ include ('admin/_header.html.twig', { titleHeader: 'Commentaires' }) }}
+<div class="admin-content position-absolute justify-content-center">
+
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Utilisateur</th>
                 <th>Date</th>
+                <th>Événements</th>
                 <th>Message</th>
-                <th>actions</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
         {% for comment in comments %}
             <tr>
                 <td>{{ comment.id }}</td>
-                <td>{{ comment.date ? comment.date|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ comment.date ? comment.date|date('Y-m-d H:i') : '' }}</td>
+                <td>{{ comment.event.name }}</td>
                 <td>{{ comment.message }}</td>
                 <td>
-                    <a href="{{ path('comment_show', {'id': comment.id}) }}">show</a>
-                    <a href="{{ path('comment_edit', {'id': comment.id}) }}">edit</a>
+                    <a href="{{ path('comment_show', {'id': comment.id}) }}">Modérer</a>
                 </td>
             </tr>
         {% else %}
@@ -34,4 +38,5 @@
     </table>
 
     <a href="{{ path('comment_new') }}">Create new</a>
+</div>
 {% endblock %}

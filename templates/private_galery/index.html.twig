@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vie du Club - GTB{% endblock %}
+
+{% block body %}
+    {% include '_navbar.html.twig' %}
+    {% include 'home/_jumbotron.html.twig' %}
+    <h1 class="text-center">Galerie : Vie du Club</h1>
+    <div class="row my-4 justify-content-center">
+        {% for photo in galery %}
+            <div class="col-4">
+                <div class="row">
+                    <img src="{{ photo.url }}" alt="{{ photo.alt }}">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% include '_footer.html.twig' %}
+{% endblock %}

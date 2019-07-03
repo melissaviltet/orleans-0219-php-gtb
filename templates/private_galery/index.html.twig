@@ -1,20 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PrivateGaleryController!{% endblock %}
+{% block title %}Vie du Club - GTB{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/pedro/Documents/orleans-0219-php-gtb/src/Controller/PrivateGaleryController.php'|file_link(0) }}">src/Controller/PrivateGaleryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/pedro/Documents/orleans-0219-php-gtb/templates/private_galery/index.html.twig'|file_link(0) }}">templates/private_galery/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% include '_navbar.html.twig' %}
+    {% include 'home/_jumbotron.html.twig' %}
+    <h1 class="text-center">Galerie : Vie du Club</h1>
+    <div class="row my-4 justify-content-center">
+        {% for photo in galery %}
+            <div class="col-4">
+                <div class="row">
+                    <img src="{{ photo.url }}" alt="{{ photo.alt }}">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% include '_footer.html.twig' %}
 {% endblock %}

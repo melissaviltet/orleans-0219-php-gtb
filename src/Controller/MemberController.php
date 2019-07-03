@@ -2,17 +2,23 @@
 
 namespace App\Controller;
 
+use App\Entity\Event;
 use App\Repository\EventRepository;
 use App\Repository\GaleryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class MemberController
+ * @package App\Controller
+ * @Route("/member")
+ */
 class MemberController extends AbstractController
 {
     /**
      * @param EventRepository $eventRepository
-     * @Route("/member/event_to_come", name="member_event_to_come")
+     * @Route("/event_to_come", name="member_event_to_come")
      * @return Response
      */
     public function showEventsToCome(EventRepository $eventRepository): Response
@@ -22,8 +28,19 @@ class MemberController extends AbstractController
         ]);
     }
 
+    /** @param Event $event
+     * @Route("/event_to_come/{id}", name="show_event_to_come", methods={"GET"})
+     * @return Response
+     */
+    public function showOneEventById(Event $event): Response
+    {
+        return $this->render('member/show_event_to_come.html.twig', [
+            'event' => $event,
+        ]);
+    }
+
     /**
-     * @Route("/member/galery", name="member_galery")
+     * @Route("/galery", name="member_galery")
      * @param GaleryRepository $galeryRepository
      * @return Response
      */

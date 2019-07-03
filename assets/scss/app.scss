@@ -23,11 +23,6 @@ p {
 
 /***General styles***/
 
-main.container-fluid {
-  padding-left: 0;
-  padding-right: 0;
-}
-
 /***Buttons***/
 
 %btn-primary-outline {
@@ -55,64 +50,61 @@ main.container-fluid {
   font-size: 1.5vw;
 }
 
-main {
-  .navbar {
+.navbar {
+  padding: 0;
+  background: $trail-secondary-color-nav;
+
+  .navbar-brand {
     padding: 0;
-    background: $trail-secondary-color-nav;
+    margin: 0;
 
-    .navbar-brand {
+    img {
+      max-width: 120px;
       padding: 0;
-      margin: 0;
+      margin-right: 0;
+    }
+  }
 
-      img {
-        max-width: 120px;
-        padding: 0;
-        margin-right: 0;
-      }
+  .collapse .navbar-nav .nav-home {
+    width: 13.5vw;
+    @include medium {
+      width: 100vw;
+    }
+  }
+
+  .navbar-nav .nav-link {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.2vw;
+    font-family: $text-font;
+    @include medium {
+      font-size: 2vw;
+    }
+    @include small {
+      font-size: 3vw;
     }
 
-    .collapse .navbar-nav .nav-home {
-      width: 13.5vw;
-      @include medium {
-        width: 100vw;
-      }
-    }
-
-    .navbar-nav .nav-link {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      font-size: 1.2vw;
-      font-family: $text-font;
-      @include medium {
-        font-size: 2vw;
-      }
-      @include small {
-        font-size: 3vw;
-      }
-
-      &:hover {
-        background-color: $trail-primary-color;
-        transition: all .6s;
-        color: $font-color;
-      }
+    &:hover {
+      background-color: $trail-primary-color;
+      transition: all .6s;
+      color: $font-color;
     }
   }
 }
+
 
 /***Footer***/
 
 section.footer {
   background-color: $trail-secondary-color;
+  border-top: $trail-primary-color solid 5px;
   color: $font-color;
   font-family: $text-font;
-  font-size: calc(0.1vw + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  font-size: 2vh;
   margin-left: 0;
   margin-right: 0;
-
-  .background-footer {
-    background: $trail-primary-color;
-    position: relative;
-    height: 5px;
+  @include small {
+    font-size: 3vh;
   }
 
   div.address-footer {
@@ -162,8 +154,8 @@ section.footer {
     }
 
     ul {
-      text-align: center;
       list-style-type: none;
+      padding :0;
     }
   }
 }
@@ -172,22 +164,30 @@ section.footer {
 /***Jumbotron***/
 .cont-jumbotron {
   background-image: url('../images/header-site-gtb.jpg');
-  background-size: cover;
+  background-size: contain;
   background-attachment: fixed;
-  background-position: center center;
   height: 60vh;
-  width: 100vw;
+  width: 100%;
   padding-top: 15%;
-  margin-bottom: 0;
+  margin: 0;
+  border-bottom: $trail-primary-color solid 5px;
+  border-radius: 0;
+  @include medium {
+    height: 45vh;
+    margin-top: 3em;
+  }
+  @include small {
+    height: 30vh;
+  }
 
   .title-jumbotron {
     font-size: 3rem;
     @include medium {
-      font-size: 3rem;
+      font-size: 2rem;
       text-shadow: 2px 4px 3px $trail-primary-color;
     }
     @include small {
-      font-size: 2vw;
+      display: none;
     }
     color: white;
     font-family: $title-font;
@@ -220,13 +220,11 @@ section.footer {
 }
 
 .triathlon, .trail {
+  overflow: hidden;
+
   h2 {
     color: $font-color;
     font-family: $title-font;
-  }
-
-  .row {
-    margin-right: 0;
   }
 
   p {
@@ -234,20 +232,36 @@ section.footer {
     color: $font-color;
   }
 
-  .back {
+  .row {
     width: 100vw;
+  }
+
+  .back {
+    width: 100%;
     z-index: 0;
     filter: brightness(50%);
-    height: 20em;
+    height: 25em;
     object-fit: cover;
   }
 
   .position-absolute {
     top: 20%;
+    @include small {
+      top: 7%;
+    }
+    @include medium {
+      top: 15%;
+    }
   }
 
   .logo {
     width: 20vw;
+    @include small {
+      width: 70vw;
+    }
+    @include medium {
+      width: 40vw;
+    }
   }
 }
 
@@ -286,6 +300,7 @@ section.footer {
 
 section.sponsors {
   padding-bottom: $sectionPadding;
+  width: 100vw;
 
   .title-cont h2 {
     font-family: $title-font;
@@ -317,14 +332,9 @@ section.sponsors {
 
 /* Events */
 .events {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  margin-right: 0;
-
   .main {
     .card {
       max-height: 21em;
-      max-width: 50vw;
       margin-left: 2em;
 
       .card-img-top {
@@ -334,6 +344,7 @@ section.sponsors {
       img {
         object-fit: cover;
         transition: ease 0.2s;
+        width: 100%;
 
         &hover {
           transform: scale(1.1);
@@ -347,6 +358,7 @@ section.sponsors {
 
     .card {
       max-height: 7em;
+      width: 75%;
       margin-left: 2em;
       margin-bottom: 0.5em;
       margin-right: 2em;
@@ -356,6 +368,13 @@ section.sponsors {
 
 
 /***Login Page***/
+h1{
+  text-align: center;
+}
+
+.button-back-home{
+  text-align: center;
+}
 .login-card {
   margin-left: 0px;
   margin-right: 0px;
@@ -364,7 +383,7 @@ section.sponsors {
 
   .card-connexion {
     margin-top: 10%;
-    background-color: $trail-secondary-color;
+    background-color: $font-color-light-bg;
   }
 
   .card-body {
@@ -380,14 +399,14 @@ section.sponsors {
   .new-account {
     text-align: center;
 
-    a:link {
-      color: $trail-primary-color;
+    a {
+      color: $font-color;
+      text-decoration: none;
     }
   }
 }
 
 /***homepage Galery***/
-
 
 .homepage-images {
   .btn-homepage-picture {
@@ -415,6 +434,25 @@ section.sponsors {
   margin: 3em;
 }
 
+/***Création d'un nouveau compte***/
+.new-account-title {
+  text-align: center;
+}
+
+.card-new-account {
+  background-color: $font-color-light-bg;
+  font-family: $text-font;
+  color: $font-color;
+  .form-control {
+    border-bottom: solid 1px $trail-primary-color;
+  }
+}
+
+.btn-primary {
+  @extend %btn-primary;
+}
+
+
 
 /***PAGE MEMBER-EVENTS***/
 
@@ -430,7 +468,24 @@ section.sponsors {
 .contact-form {
   margin: auto;
   float: none;
+
   h2 {
     text-align: center;
+  }
+}
+
+
+/***MEMBER SHOW ONE EVENT TO COME***/
+
+.event-to-come .row{
+  .card {
+    border: none;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    img {
+      min-width: -webkit-fill-available;
+      min-width: -moz-fill-available;
+      box-sizing: border-box;
+    }
   }
 }

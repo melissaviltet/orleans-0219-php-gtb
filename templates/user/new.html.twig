@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Création de compte{% endblock %}
+
+{% block body %}
+    <div class="new-account-title">
+        <h1>Creation d'un nouveau compte</h1>
+    </div>
+
+    {{ include('user/_form.html.twig') }}
+
+    <div class="button-back-home pt-5">
+        <a href="{{ path('home') }}" class="btn btn-primary">Retour vers l'accueil</a>
+    </div>
+
+{% endblock %}

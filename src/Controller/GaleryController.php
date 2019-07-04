@@ -23,13 +23,13 @@ class GaleryController extends AbstractController
 
     /**
      * @param GaleryRepository $galeryRepository
-     * @Route("/admin/galery", name="admin_galery")
+     * @Route("/admin/gallery", name="admin_gallery")
      * @return Response
      */
     public function showAll(GaleryRepository $galeryRepository): Response
     {
         return $this->render('admin/galery.html.twig', [
-            'galery' => $galeryRepository->findAll()
+            'gallery' => $galeryRepository->findAll()
         ]);
     }
 }

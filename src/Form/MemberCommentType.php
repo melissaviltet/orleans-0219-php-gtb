@@ -16,8 +16,7 @@ class MemberCommentType extends AbstractType
             ->add('message')
             ->add('isActive', HiddenType::class, [
                 'data' => 'private'
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

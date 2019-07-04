@@ -3,6 +3,7 @@
 namespace App\Security;
 
 use App\Entity\User;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,17 +28,23 @@ class LoginFormAuthentificatorAuthenticator extends AbstractFormLoginAuthenticat
     private $urlGenerator;
     private $csrfTokenManager;
     private $passwordEncoder;
+    /**
+     * @var UserRepository
+     */
+    private $userRepository;
 
     public function __construct(
         EntityManagerInterface $entityManager,
         UrlGeneratorInterface $urlGenerator,
         CsrfTokenManagerInterface $csrfTokenManager,
-        UserPasswordEncoderInterface $passwordEncoder
+        UserPasswordEncoderInterface $passwordEncoder,
+        UserRepository $userRepository
     ) {
         $this->entityManager = $entityManager;
         $this->urlGenerator = $urlGenerator;
         $this->csrfTokenManager = $csrfTokenManager;
         $this->passwordEncoder = $passwordEncoder;
+        $this->userRepository = $userRepository;
     }
 
     public function supports(Request $request)
@@ -88,8 +95,10 @@ class LoginFormAuthentificatorAuthenticator extends AbstractFormLoginAuthenticat
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
             return new RedirectResponse($targetPath);
         }
+        $connectedUser = $this->userRepository->findOneBy(['email' => $request->get('email')]);
 
-        return new RedirectResponse($this->urlGenerator->generate('home'));
+
+        return new RedirectResponse($this->urlGenerator->generate('member_page', ['id' => $connectedUser->getId()]));
     }
 
     protected function getLoginUrl()

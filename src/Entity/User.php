@@ -44,16 +44,14 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Ce champ est obligatoire !")
-     * @Assert\Length(min="2", max="255", minMessage="votre prénom doit comporter au minimum {{ limit }} caractères" ,
-     *  maxMessage="votre prénom doit comporter au maximum {{ limit }} caractères")
+     * @Assert\Length(max="255", maxMessage="votre prénom doit comporter au maximum {{ limit }} caractères")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Ce champ est obligatoire !")
-     * @Assert\Length(min="2", max="255", maxMessage="votre Nom doit comporter au maximum {{ limit }} caractères !",
-     *     minMessage=" votre Nom doit comporter au minimum {{ limit }} caractères !" )
+     * @Assert\Length(max="255", maxMessage="votre Nom doit comporter au maximum {{ limit }} caractères !")
      */
     private $lastname;
 

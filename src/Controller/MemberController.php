@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Comment;
 use App\Entity\Event;
-use App\Entity\User;
+use App\Form\MemberCommentType;
 use App\Repository\EventRepository;
-use App\Repository\UserRepository;
 use App\Repository\GaleryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class MemberController
@@ -42,6 +43,31 @@ class MemberController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @Route("/new", name="show_event_to_come", methods={"GET","POST"})
+     * @return Response
+     */
+    public function newMemberComment(Request $request): Response
+    {
+        $commentMember = new Comment();
+        $form = $this->createForm(MemberCommentType::class, $commentMember);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($commentMember);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('show_event_to_come');
+        }
+
+        return $this->render('member/show_event_to_come.html.twig', [
+            'commentMember' => $commentMember,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @Route("/page/", name="member_page")
      * @return Response
      */
@@ -64,8 +90,6 @@ class MemberController extends AbstractController
     {
         return $this->render('private_galery/index.html.twig', [
             'galery' => $galeryRepository->findAll(),
-
-
         ]);
     }
 }

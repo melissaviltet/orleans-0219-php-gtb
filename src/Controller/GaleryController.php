@@ -20,4 +20,16 @@ class GaleryController extends AbstractController
             'galery' => $galeryRepository->findBy(['private' => false])
         ]);
     }
+
+    /**
+     * @param GaleryRepository $galeryRepository
+     * @Route("/admin/galery", name="admin_galery")
+     * @return Response
+     */
+    public function showAll(GaleryRepository $galeryRepository): Response
+    {
+        return $this->render('admin/galery.html.twig', [
+            'galery' => $galeryRepository->findAll()
+        ]);
+    }
 }

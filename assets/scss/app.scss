@@ -71,6 +71,9 @@ p {
       width: 100vw;
     }
   }
+  li.active.nav-item.nav-home {
+    background-color: $trail-primary-color;
+  }
 
   .navbar-nav .nav-link {
     padding-top: 1rem;

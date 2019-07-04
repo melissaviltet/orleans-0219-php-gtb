@@ -492,3 +492,33 @@ h1{
     }
   }
 }
+
+/***Member page***/
+.title-member-page{
+  margin-top: $marginTop;
+  text-align: center;
+}
+.row-about-me{
+  margin-bottom: $marginBottom;
+  img{
+    display: block;
+    width: $widthMemberPersonal;
+    height: $heightMemberPersonal;
+    margin: 25px auto;
+    border-radius: 50%;
+  }
+  .col-about-me-information{
+    margin-top: $marginTopAboutMe;
+  }
+  .col-edit-information{
+    text-align: center;
+    .fa-edit{
+      font-size : 2.5rem;
+      color: $trail-primary-color;
+    }
+    a{
+      text-decoration: none;
+      color: $trail-secondary-color;
+    }
+  }
+}

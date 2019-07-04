@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Event;
+use App\Entity\User;
 use App\Repository\EventRepository;
+use App\Repository\UserRepository;
 use App\Repository\GaleryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,6 +42,20 @@ class MemberController extends AbstractController
     }
 
     /**
+     * @Route("/page/", name="member_page")
+     * @return Response
+     */
+    public function index(): Response
+    {
+        $user=$this->getUser();
+        return $this->render('member_page/index.html.twig', [
+
+            'user' => $user,
+        ]);
+    }
+
+
+    /**
      * @Route("/galery", name="member_galery")
      * @param GaleryRepository $galeryRepository
      * @return Response
@@ -48,6 +64,8 @@ class MemberController extends AbstractController
     {
         return $this->render('private_galery/index.html.twig', [
             'galery' => $galeryRepository->findAll(),
+
+
         ]);
     }
 }

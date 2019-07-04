@@ -49,8 +49,7 @@ class UserType extends AbstractType
                 'class' => Gender::class,
                 'choice_label' => 'genderName',
                 'multiple' => false,
-                'expanded' => true,
-                'by_reference' => false,
+                'expanded' => false,
             ]);
     }
 

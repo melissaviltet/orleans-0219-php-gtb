@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bienvenue sur votre page personnel{% endblock %}
+
+{% block body %}
+    {% include '_navbar.html.twig' %}
+
+    <div class="title-member-page">
+        <h1>Bienvenue {{ user.firstname }} {{ user.lastname }}</h1>
+    </div>
+    <div class="row row-about-me justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-3 col-picture-about-me">
+            <img src="{{ user.picture }}" alt="{{ user.lastname }}">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-3 col-about-me-information">
+            <p>{{ user.firstname }} {{ user.lastname }}</p>
+            <p>{{ user.birthdate|date('d M Y') }}</p>
+            <p>{{ user.address }}</p>
+            <p>{{ user.email }}</p>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-3 col-edit-information">
+            <p><i class="far fa-edit"></i></p>
+            <p><a href="{{ path('user_edit', {'id': user.id}) }}">Éditer mes informations</a></p>
+
+        </div>
+    </div>
+    {% include '_footer.html.twig' %}
+
+{% endblock %}

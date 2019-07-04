@@ -16,7 +16,7 @@ class CommentModerationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('isActive',CheckboxType::class, [
+            ->add('isActive', CheckboxType::class, [
                 'label_format' => 'En ligne',
             ]);
     }

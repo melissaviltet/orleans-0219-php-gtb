@@ -18,11 +18,13 @@ class Comment
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime
      */
     private $date;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $message;
 
@@ -40,6 +42,7 @@ class Comment
 
     /**
      * @ORM\Column(type="boolean", nullable=false)
+     * @Assert\Type("boolean")
      */
     private $isActive;
 

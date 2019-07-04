@@ -50,7 +50,6 @@ class UserType extends AbstractType
                 'choice_label' => 'genderName',
                 'multiple' => false,
                 'expanded' => false,
-                'by_reference' => true,
             ]);
     }
 

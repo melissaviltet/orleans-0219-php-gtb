@@ -50,7 +50,7 @@ class MemberController extends AbstractController
     {
         $id= $user->getId();
         return $this->render('member_page/index.html.twig', [
-            'user' => $userRepository->findOneby(['id'=> $user->getId()]),
+            'user' => $user
         ]);
     }
 }

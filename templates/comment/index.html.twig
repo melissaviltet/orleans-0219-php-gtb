@@ -22,7 +22,7 @@
         <tbody>
         {% for comment in comments %}
             <tr>
-                <td>{{ comment.user.firstname }}</td>
+                <td>{{ (comment.user.firstname ~' '~ comment.user.lastname)}}</td>
                 <td>{{ comment.date ? comment.date|date('Y-m-d H:i') : '' }}</td>
                 <td>{{ comment.event.name }}</td>
                 <td>{{ comment.message|slice(0,50) }}...</td>

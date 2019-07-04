@@ -10,7 +10,7 @@
             <tbody>
             <tr>
                 <th>Utilisateur</th>
-                <td>{{ comment.user.firstname }}</td>
+                <td>{{ (comment.user.firstname ~' '~ comment.user.lastname) }}</td>
             </tr>
             <tr>
                 <th>Date</th>
@@ -32,14 +32,14 @@
         </table>
         <div class="text-center">
             {{ form_start(form) }}
-            {{ form_label(form.isActive, 'en ligne') }}
+            {{ form_label(form.isActive) }}
             {{ form_widget(form.isActive) }}
-            <button class="btn" type="submit">{{ button_label|default('Save') }}</button>
+            <button class="btn btn-primary" type="submit">{{ button_label|default('Mettre à jour') }}</button>
             {{ form_end(form) }}
         </div>
         <div class="text-center">
             {{ include('comment/_delete_form.html.twig') }}
-            <a class="btn" href="{{ path('comment_index') }}">retour à la liste</a>
+            <a class="btn btn-primary" href="{{ path('comment_index') }}">Retour à la liste</a>
         </div>
     </section>
 

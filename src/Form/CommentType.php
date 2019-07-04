@@ -24,6 +24,11 @@ class CommentType extends AbstractType
             ->add('user', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'firstname',
+
+            ])
+            ->add('user', EntityType::class, [
+                'class' => User::class,
+                'choice_label' => 'lastname',
             ]);
     }
 

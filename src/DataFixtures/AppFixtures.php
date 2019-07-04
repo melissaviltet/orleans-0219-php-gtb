@@ -15,7 +15,7 @@ class AppFixtures extends Fixture
 
         for ($i = 0; $i < 12; $i++) {
             $sponsor = new Sponsor();
-            $sponsor->setName($faker->sentence(1));
+            $sponsor->setName($faker->sentence(2));
             $sponsor->setImageName('logo_veloland.jpg');
             $sponsor->setImageSize(1024);
             $sponsor->setSite($faker->url);

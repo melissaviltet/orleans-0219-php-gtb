@@ -42,13 +42,12 @@ class MemberController extends AbstractController
     }
 
     /**
-     * @param UserRepository $userRepository
-     * @Route("/page/{id}", name="member_page")
+     * @Route("/page/", name="member_page")
      * @return Response
      */
-    public function index(UserRepository $userRepository, User $user): Response
+    public function index(): Response
     {
-        $id = $user->getId();
+        $user=$this->getUser();
         return $this->render('member_page/index.html.twig', [
 
             'user' => $user,

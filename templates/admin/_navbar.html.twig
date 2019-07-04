@@ -1,43 +1,43 @@
 <nav class="d-flex flex-column vh-100 col-1 col-md-2 pl-0 pr-0 position-fixed">
     <div class="contents justify-content-center align-items-center vh-100 mt-5">
         <div class="d-flex content flex-column justify-content-center">
-            <a href="{{ path('admin') }}"><i class="fas fa-palette"></i></a>
+            <a class="link" href="{{ path('admin') }}"><i class="fas fa-palette {{ app.request.get('_route') ==  'admin' ? 'active' }}"></i></a>
             <p class="text  d-none d-md-block">Tableau de Bord</p>
         </div>
     </div>
     <div class="contents justify-content-center align-items-center vh-100">
         <div class="d-flex content flex-column justify-content-center">
-            <a href="{{ path('association_index') }}"><i class="fas fa-font"></i></a>
+            <a class="link" href="{{ path('association_index') }}"><i class="fas fa-font {{ app.request.get('_route') ==  'association_index' ? 'active' }}"></i></a>
             <p class="text  d-none d-md-block">Contenu</p>
         </div>
     </div>
     <div class="contents justify-content-center align-items-center vh-100">
         <div class="d-flex content flex-column justify-content-center">
-            <a href="{{ path('event_index') }}"><i class="far fa-calendar-alt"></i></a>
+            <a class="link" href="{{ path('event_index') }}"><i class="far fa-calendar-alt {{ app.request.get('_route') ==  'event_index' ? 'active' }}"></i></a>
             <p class="text  d-none d-md-block">Evènements</p>
         </div>
     </div>
     <div class="contents justify-content-center align-items-center vh-100">
         <div class="d-flex content flex-column justify-content-center">
-            <a href="#"><i class="fas fa-images"></i></a>
+            <a class="link" href="{{ path('admin_gallery') }}"><i class="fas fa-images {{ app.request.get('_route') ==  'admin_gallery' ? 'active' }}"></i></a>
             <p class="text  d-none d-md-block">Galerie</p>
         </div>
     </div>
     <div class="contents justify-content-center align-items-center vh-100">
         <div class="d-flex content flex-column justify-content-center">
-            <a href="#"><i class="fas fa-user-tie"></i></a>
+            <a class="link" href="#"><i class="fas fa-user-tie {{ app.request.get('_route') ==  '#' ? 'active' }}"></i></a>
             <p class="text  d-none d-md-block">Page Membres</p>
         </div>
     </div>
     <div class="contents justify-content-center align-items-center vh-100">
-        <div class="d-flex content flex-column justify-content-center">
-            <a href="{{ path('comment_index') }}"><i class="fas fa-comment-dots"></i></a>
+        <div class="d-flex content flex-column justify-content-center">  
+            <a class="link" href="{{ path('comment_index') }}"><i class="fas fa-comment-dots {{ app.request.get('_route') ==  'comment_index' ? 'active' }}"></i></a>
             <p class="text  d-none d-md-block">Commentaires</p>
         </div>
     </div>
     <div class="contents justify-content-center align-items-center vh-100">
         <div class="d-flex content flex-column justify-content-center">
-            <a href="{{ path('admin_page_home') }}"><i class="fas fa-handshake"></i></a>
+            <a class="link" href="{{ path('admin_page_home') }}"><i class="fas fa-handshake {{ app.request.get('_route') ==  'admin_page_home' ? 'active' }}"></i></a>
             <p class="text  d-none d-md-block">Partenaires</p>
         </div>
     </div>

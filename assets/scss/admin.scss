@@ -56,6 +56,9 @@ nav {
         }
       }
     }
+    a i.active {
+      color: $trail-primary-color;
+    }
 
     .text {
       font-size: 0.75rem;

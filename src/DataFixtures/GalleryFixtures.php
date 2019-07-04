@@ -14,7 +14,7 @@ class GalleryFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < 12; $i++) {
             $picture = new Galery();
             $picture->setUrl($faker->imageUrl());
             $picture->setAlt($faker->sentence);

@@ -13,7 +13,10 @@ security:
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
-      security: false
+      security:
+        role_hierarchy:
+          ROLE_OFFICE:   [ROLE_USER, ROLE_MEMBER]
+          ROLE_ADMIN:    ROLE_OFFICE
     main:
       anonymous: true
       guard:

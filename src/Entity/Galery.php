@@ -11,10 +11,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\GaleryRepository")
  * @Vich\Uploadable
- * @UniqueEntity(
- *     fields={"alt"},
- *     message="Ce image existe déjà"
- * )
  */
 class Galery
 {
@@ -29,7 +25,7 @@ class Galery
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Champs requis")
      * @Assert\Length(
      *     min = 2,

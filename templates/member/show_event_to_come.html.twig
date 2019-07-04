@@ -13,11 +13,35 @@
                     <p class="card-text"><small class="text-muted">{{ event.date|date('d/m/Y') }}</small></p>
                 </div>
             </div>
-            <div class="discussion col-12 col-md-5"></div>
+            <div class="discussion col-12 col-md-5">
+
+            </div>
         </div>
 
 
     </section>
 
     {{ include('_footer.html.twig') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('.js-add-comment').on('click', function(e) {
+                e.preventDefault();
+
+                let deleteUrl = $(this).data('url');
+                let element = $(this).closest('div');
+
+                $.ajax({
+                    url: deleteUrl,
+                    method: 'POST',
+                    success: function() {
+                        element.fadeOut();
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}

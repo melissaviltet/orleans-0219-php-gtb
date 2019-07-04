@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commentaire{% endblock %}
+
+{% block body %}
+    {% include 'admin/_navbar.html.twig' %}
+    {{ include ('admin/_header.html.twig', { titleHeader: 'Commentaire' }) }}
+    <section class="admin-content position-absolute justify-content-center">
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>Utilisateur</th>
+                <td>{{ (comment.user.firstname ~' '~ comment.user.lastname) }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ comment.date ? comment.date|date('Y-m-d H:i') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Évenement</th>
+                <td>{{ comment.event.name }}</td>
+            </tr>
+            <tr>
+                <th>Message</th>
+                <td>{{ comment.message }}</td>
+            </tr>
+            <tr>
+                <th>En ligne</th>
+                <td>{{ comment.isActive ? 'oui' : 'non' }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            {{ form_start(form) }}
+            {{ form_label(form.isActive) }}
+            {{ form_widget(form.isActive) }}
+            <button class="btn btn-primary" type="submit">{{ button_label|default('Mettre à jour') }}</button>
+            {{ form_end(form) }}
+        </div>
+        <div class="text-center">
+            {{ include('comment/_delete_form.html.twig') }}
+            <a class="btn btn-primary" href="{{ path('comment_index') }}">Retour à la liste</a>
+        </div>
+    </section>
+
+{% endblock %}

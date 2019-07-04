@@ -30,8 +30,8 @@
         </div>
     </div>
     <div class="contents justify-content-center align-items-center vh-100">
-        <div class="d-flex content flex-column justify-content-center">
-            <a class="link" href="#"><i class="fas fa-comment-dots {{ app.request.get('_route') ==  '#' ? 'active' }}"></i></a>
+        <div class="d-flex content flex-column justify-content-center">  
+            <a class="link" href="{{ path('comment_index') }}"><i class="fas fa-comment-dots {{ app.request.get('_route') ==  'comment_index' ? 'active' }}"></i></a>
             <p class="text  d-none d-md-block">Commentaires</p>
         </div>
     </div>

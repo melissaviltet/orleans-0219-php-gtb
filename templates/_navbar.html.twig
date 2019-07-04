@@ -2,19 +2,20 @@
     <a class="navbar-brand" href="{{ path('home') }}">
         <img src="{{ asset('build/images/logo.gif') }}" alt="logo-generation-trail-blois" class="ml-5 mr-5 p-1">
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav d-flex w-100">
-            <li class="nav-item nav-home flex-fill">
-                <a class="nav-link text-center" href="{{ path('trail') }}">TRAIL</a>
+            <li class="nav-item nav-home flex-fill {{ app.request.get('_route') ==  'trail' ? 'active' }}">
+                <a class="nav-link text-center " href="{{ path('trail') }}">TRAIL</a>
             </li>
-            <li class="nav-item nav-home flex-fill">
+            <li class="nav-item nav-home flex-fill {{ app.request.get('_route') ==  'triathlon' ? 'active' }}">
                 <a class="nav-link text-center" href="{{ path('triathlon') }}">TRIATHLON</a>
             </li>
-            <li class="nav-item nav-home flex-fill">
-                <a class="nav-link text-center" href="#">CLUB</a>
+            <li class="nav-item nav-home flex-fill {{ app.request.get('_route') ==  'club' ? 'active' }}">
+                <a class="nav-link text-center" href="{{ path('club') }}">CLUB</a>
             </li>
             <li class="nav-item nav-home flex-fill">
                 {% if app.user %}

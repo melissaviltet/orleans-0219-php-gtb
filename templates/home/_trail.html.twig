@@ -1,7 +1,7 @@
 <div class="flex-row position-relative trail">
     <img src="{{ asset("build/images/WP_20170924_12_16_46_Rich.jpg") }}" class="back" alt="trail">
     <div class="row position-absolute justify-content-center">
-        <div class="row trititle justify-content-center mb-5">
+        <div class="row trititle justify-content-center mb-2">
             <h2>Trail</h2>
         </div>
         <div class="row">
@@ -10,7 +10,7 @@
             </div>
             <div class="col-lg-6 col-sm-12 text-center">
                 <p>
-                    {{ association.trailHome }}
+                    {{ association.trailHome|raw }}
                 </p>
                 <a href="{{ path('trail') }}" class="btn btn-primary">Le trail</a>
             </div>

@@ -1,7 +1,7 @@
 <div class="flex-row position-relative triathlon">
     <img src="{{ asset("build/images/GTB-14.jpg") }}" class="back" alt="trail">
     <div class="row position-absolute justify-content-center">
-        <div class="row trititle justify-content-center mb-5">
+        <div class="row trititle justify-content-center mb-2">
             <h2>Triathlon</h2>
         </div>
         <div class="row flex-lg-row-reverse">
@@ -10,7 +10,7 @@
             </div>
             <div class="col-lg-6 col-sm-12 text-center">
                 <p>
-                    {{ association.triathlonHome }}
+                    {{ association.triathlonHome|raw }}
                 </p>
                 <a href="{{ path('triathlon') }}" class="btn btn-primary">Le triathlon</a>
             </div>

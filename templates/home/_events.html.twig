@@ -1,26 +1,30 @@
-<section class="row events">
-    <div class="col text-center main mt-auto0">
-        <div class="card">
-            <img src="{{ events[0].picture }}"
-                 class="card-img-top" alt="{{ events[0].name }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ events[0].name }}</h5>
-                <p class="card-text">Le {{ events[0].date |date('d/m/Y') }}
-                    à {{ events[0].place }}</p>
-                <a href="{{ events[0].url }}" class="btn btn-primary">Voir l'évènement</a>
+<section class="row events my-2">
+    {% if events==true %}
+        <div class="col-lg-6 col-sm-12 main  justify-content-center">
+            <div class="card mx-auto">
+                <img src="{{ events[0].picture }}"
+                     class="card-img-top" alt="{{ events[0].name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ events[0].name }}</h5>
+                    <p class="card-text">Le {{ events[0].date |date('d/m/Y') }}
+                        à {{ events[0].place }}</p>
+                    <a href="{{ events[0].url }}" class="btn btn-primary">Voir l'évènement</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col next">
-        {% for event in events|slice(1,3) %}
-        <div class="card">
-            <div class="card-body">
-                <p>
-                    <strong>{{ event.name }}</strong><br>
-                    Le {{ event.date|date('d/m/Y') }} à {{ event.place }}
-                </p>
-            </div>
+        <div class="col-lg-6 col-sm-12 next">
+            {% for event in events|slice(1,3) %}
+                <div class="card">
+                    <div class="card-body">
+                        <p>
+                            <strong>{{ event.name }}</strong><br>
+                            Le {{ event.date|date('d/m/Y') }} à {{ event.place }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
-    </div>
+    {% else %}
+        <p>Vous n'avez aucun événement enregistré</p>
+    {% endif %}
 </section>

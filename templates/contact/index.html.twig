@@ -1,0 +1,49 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <div class="contact-form container-fluid mt-5">
+        <h2>Nous contacter</h2>
+        {{ form_start(form, {'action': path('contact'), 'method': 'POST'}) }}
+        <div class="row pt-4 justify-content-center">
+            <div class="form-group-lastname col-lg-6">
+                {{ form_label(form.lastname, 'Nom') }}
+                {{ form_widget(form.lastname) }}
+
+            </div>
+        </div>
+        <div class="row pt-4 justify-content-center">
+            <div class="form-group-firstname col-lg-6">
+                {{ form_label(form.firstname, 'Prénom') }}
+                {{ form_widget(form.firstname) }}
+
+            </div>
+        </div>
+        <div class="row pt-4 justify-content-center">
+            <div class="form-group-email col-lg-6">
+                {{ form_label(form.email, 'Email') }}
+                {{ form_widget(form.email) }}
+
+            </div>
+        </div>
+        <div class="row pt-4 justify-content-center">
+            <div class="form-group-subject col-lg-6">
+                {{ form_label(form.subject, 'Sujet') }}
+                {{ form_widget(form.subject) }}
+
+            </div>
+        </div>
+        <div class="row pt-4 justify-content-center">
+            <div class="form-group-message col-lg-6">
+                {{ form_label(form.message, 'Votre message') }}
+                {{ form_widget(form.message,{ 'attr': {'rows': '8'} }) }}
+
+            </div>
+        </div>
+
+        <div class="row pt-4 justify-content-center mb-5">
+            <button class="btn">Envoi</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

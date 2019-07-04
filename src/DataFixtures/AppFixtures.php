@@ -13,10 +13,11 @@ class AppFixtures extends Fixture
     {
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 0; $i < 15; $i++) {
+        for ($i = 0; $i < 12; $i++) {
             $sponsor = new Sponsor();
-            $sponsor->setName($faker->sentence(1));
-            $sponsor->setLogoUrl('https://via.placeholder.com/150/0000FF/808080C?Text=' . $i);
+            $sponsor->setName($faker->sentence(2));
+            $sponsor->setImageName('logo_veloland.jpg');
+            $sponsor->setImageSize(1024);
             $sponsor->setSite($faker->url);
             $manager->persist($sponsor);
         }

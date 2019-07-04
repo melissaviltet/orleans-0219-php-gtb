@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
@@ -18,25 +19,33 @@ class Comment
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime
      */
     private $date;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $message;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="comment")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Event", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $event;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comment")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     * @Assert\Type("boolean")
+     */
+    private $isActive;
 
     public function getId(): ?int
     {
@@ -87,6 +96,18 @@ class Comment
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(?bool $isActive): self
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ include ('admin/_header.html.twig', { titleHeader: 'Partenaires' }) }}
+    {{ include ('admin/_navbar.html.twig') }}
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+    <section class="body-page-home col-10 d-flex flex-column float-right mr-md-3">
+        <div class="contents container d-flex flex-column flex-md-row justify-content-md-around pt-5">
+            <div class="logo-gallery col-11 col-md-6 pt-4 d-flex flex-wrap">
+                {% for sponsor in sponsors %}
+                <div class="card card-img col-11 col-sm-4 col-lg-3 p-1 position-relative">
+                    <img src="{{ asset('uploads/images/sponsors/' ~ sponsor.imageName) }}" class="card-img-top" alt="{{ sponsor.name }}.">
+                    <small>{{ form_help(form) }}</small>
+                    <small class="text-muted d-block pl-2">{{ sponsor.name }}</small>
+                    <span class="position-absolute"><a href="#" class="js-delete-sponsor" data-url="{{ path('sponsor_delete', { 'id': sponsor.id }) }}"><i class="fas fa-trash-alt"></i></a></span>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="cont-form-logo col-11 col-md-4 pt-4">
+                <div class="form-logo">
+                    {{ form_start(form, {'attr': {'novalidate':'novalidate', 'class':'sponsor-form'}}) }}
+                    {{ form_widget(form) }}
+                    <div class="buttons mt-5">
+                        <button class="btn btn-outline-warning mr-3">Ajouter</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('.js-delete-sponsor').on('click', function(e) {
+                e.preventDefault();
+
+                let deleteUrl = $(this).data('url');
+                let element = $(this).closest('div');
+
+                $.ajax({
+                    url: deleteUrl,
+                    method: 'DELETE',
+                    success: function() {
+                        element.fadeOut();
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

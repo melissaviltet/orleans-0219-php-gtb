@@ -135,6 +135,15 @@ class User implements UserInterface
         return (string)$this->email;
     }
 
+    public function getRoleChoices(): array
+    {
+        $choices = [];
+        foreach (self::ROLES as $role) {
+            $choices[] = $role;
+        }
+        return $choices;
+    }
+
     /**
      * @see UserInterface
      */
@@ -316,14 +325,5 @@ class User implements UserInterface
         $this->gender = $gender;
 
         return $this;
-    }
-
-    public function getRoleChoices(): array
-    {
-        $choices = [];
-        foreach (self::ROLES as $role) {
-            $choices[] = $role;
-        }
-        return $choices;
     }
 }

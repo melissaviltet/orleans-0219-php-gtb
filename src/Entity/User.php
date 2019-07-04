@@ -14,7 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User implements UserInterface
 {
     const ROLES = [
-        'ROLE_ADMIN', 'ROLE_OFFICE', 'ROLE_MEMBER', 'ROLE_USER'
+        'ROLE_ADMIN', 'ROLE_PRESIDENT', 'ROLE_OFFICE', 'ROLE_MEMBER', 'ROLE_USER'
     ];
 
     /**

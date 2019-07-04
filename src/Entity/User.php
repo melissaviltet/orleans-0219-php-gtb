@@ -13,6 +13,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
+    const ROLES = [
+        'ROLE_ADMIN', 'ROLE_OFFICE', 'ROLE_MEMBER', 'ROLE_USER'
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -312,5 +316,14 @@ class User implements UserInterface
         $this->gender = $gender;
 
         return $this;
+    }
+
+    public function getRoleChoices(): array
+    {
+        $choices = [];
+        foreach (self::ROLES as $role) {
+            $choices[] = $role;
+        }
+        return $choices;
     }
 }

@@ -13,10 +13,7 @@ security:
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
-      security:
-        role_hierarchy:
-          ROLE_OFFICE:   [ROLE_USER, ROLE_MEMBER]
-          ROLE_ADMIN:    ROLE_OFFICE
+      security: false
     main:
       anonymous: true
       guard:
@@ -24,7 +21,9 @@ security:
           - App\Security\LoginFormAuthentificatorAuthenticator
       logout:
         path: app_logout
-
+  role_hierarchy:
+    ROLE_OFFICE: [ROLE_USER, ROLE_MEMBER]
+    ROLE_ADMIN: ROLE_OFFICE
       # activate different ways to authenticate
 
       # http_basic: true

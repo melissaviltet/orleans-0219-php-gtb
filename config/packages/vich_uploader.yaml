@@ -6,3 +6,6 @@ vich_uploader:
       uri_prefix: /uploads/images/sponsors
       upload_destination: '%kernel.project_dir%/public/uploads/images/sponsors'
 
+    image_gallery:
+      uri_prefix: /uploads/images/gallery
+      upload_destination: '%kernel.project_dir%/public/uploads/images/gallery'

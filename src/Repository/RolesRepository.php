@@ -19,9 +19,9 @@ class RolesRepository extends ServiceEntityRepository
         parent::__construct($registry, Roles::class);
     }
 
-    // /**
-    //  * @return Roles[] Returns an array of Roles objects
-    //  */
+    /**
+     * @return Roles[] Returns an array of Roles objects
+     */
     /*
     public function findByExampleField($value)
     {

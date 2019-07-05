@@ -17,7 +17,7 @@ class ChangePasswordFormType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr' => [
-                    'placeholder' => 'Confirmer votre Email',
+                    'placeholder' => 'Saisissez votre email',
                 ],
                 'constraints' => [new NotBlank(['message'=>'Veuillez compléter ce champs'])]
             ])
@@ -30,7 +30,7 @@ class ChangePasswordFormType extends AbstractType
                     'placeholder' => 'Nouveau mot de passe',
                 ],],
                 'second_options' => ['label' => false,'attr' => [
-                    'placeholder' => 'Répéter votre nouveau mot de passe',
+                    'placeholder' => 'Confirmez votre nouveau mot de passe',
                 ],]
             ]);
     }

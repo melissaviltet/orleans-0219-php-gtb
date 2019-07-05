@@ -143,6 +143,10 @@ section.footer {
         transition: 0.5s;
       }
     }
+
+    a {
+      color: $font-color;
+    }
   }
 
   .hours-footer {
@@ -526,5 +530,20 @@ h1{
       text-decoration: none;
       color: $trail-secondary-color;
     }
+  }
+}
+
+/***Legal Mentions***/
+.container-legal-mention{
+  background-color: $font-color-light-bg;
+  color: $font-color;
+  .title-legal-mentions{
+    text-align: center;
+    margin-top: $marginTopAboutMe;
+    margin-bottom: $marginTopAboutMe;
+  }
+  a {
+    color: $trail-primary-color;
+    font-weight: bold;
   }
 }

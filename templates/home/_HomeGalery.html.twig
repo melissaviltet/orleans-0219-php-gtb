@@ -2,7 +2,7 @@
     <div class="row homepage-picture">
         {% for picture in pictures %}
             <div class="col-lg-4 col-md-6 col-sm-12 images-index">
-                <img src="{{ picture.url }}" alt="{{ picture.alt }}">
+                <img src="{{ asset('uploads/images/gallery/' ~ picture.imageName) }}" class="card-img-top" alt="{{ picture.imageName }}.">
             </div>
 
         {% endfor %}

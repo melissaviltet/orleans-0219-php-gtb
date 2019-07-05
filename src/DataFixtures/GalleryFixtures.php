@@ -16,8 +16,9 @@ class GalleryFixtures extends Fixture
 
         for ($i = 0; $i < 12; $i++) {
             $picture = new Galery();
-            $picture->setUrl($faker->imageUrl());
             $picture->setAlt($faker->sentence);
+            $picture->setImageName('logo_veloland.jpg');
+            $picture->setImageSize(1024);
             $picture->setPrivate($faker->boolean);
             $manager->persist($picture);
         }

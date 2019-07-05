@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ChangePasswordFormType;
+use Swift_Mailer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,7 +34,7 @@ class SecurityController extends AbstractController
      */
     public function forgottenPassword(
         Request $request,
-        \Swift_Mailer $mailer,
+        Swift_Mailer $mailer,
         TokenService $tokenService
     ): Response {
         $form = $this->createForm(ForgottenPasswordType::class);
@@ -54,7 +55,7 @@ class SecurityController extends AbstractController
                 UrlGeneratorInterface::ABSOLUTE_URL
             );
             $message = (new \Swift_Message('Récupération de votre mot de passe'))
-                ->setFrom($this->getParameter('mailer_from'))
+                ->setFrom($this->getParameter('mailer_from_trail'))
                 ->setTo($user->getEmail())
                 ->setBody(
                     "Cliquer sur le lien pour réinitialiser votre mot de passe " . $url,
@@ -80,7 +81,7 @@ class SecurityController extends AbstractController
         $form = $this->createForm(ChangePasswordFormType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $username = $form->getData()['username'];
+            $username = $form->getData()['email'];
             if (!$tokenService->isValid($token, $username)) {
                 $this->addFlash('danger', 'Lien invalide');
                 return $this->redirectToRoute('forgotten_password');

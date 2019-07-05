@@ -13,35 +13,25 @@
                     <p class="card-text"><small class="text-muted">{{ event.date|date('d/m/Y') }}</small></p>
                 </div>
             </div>
-            <div class="discussion col-12 col-md-5">
+            <div class="discussion col-12 ml-md-5 mt-md-5 pt-md-3 col-md-4">
+                <div class="cont-messages">
 
+                </div>
+                <div class="form-message">
+                    {{ form_start(form, {'attr': {'novalidate':'novalidate', 'class':'message-form'}}) }}
+                    {{ form_row(form.message) }}
+                    <div class="buttons mt-5">
+                        <button class="btn btn-outline-warning mr-3">Envoyer</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+                {{ dump(commentMember) }}
+                {{ dump(comments) }}
+                {{ dump(form) }}
+                {{ dump(event) }}
             </div>
         </div>
-
-
     </section>
 
     {{ include('_footer.html.twig') }}
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script>
-        $(document).ready(function () {
-            $('.js-add-comment').on('click', function(e) {
-                e.preventDefault();
-
-                let deleteUrl = $(this).data('url');
-                let element = $(this).closest('div');
-
-                $.ajax({
-                    url: deleteUrl,
-                    method: 'POST',
-                    success: function() {
-                        element.fadeOut();
-                    }
-                });
-            });
-        });
-    </script>
 {% endblock %}

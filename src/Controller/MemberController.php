@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Comment;
 use App\Entity\Event;
 use App\Form\MemberCommentType;
+use App\Repository\CommentRepository;
 use App\Repository\EventRepository;
 use App\Repository\GaleryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,30 +32,28 @@ class MemberController extends AbstractController
         ]);
     }
 
-    /** @param Event $event
-     * @Route("/event_to_come/{id}", name="show_event_to_come", methods={"GET"})
-     * @return Response
-     */
-    public function showOneEventById(Event $event): Response
-    {
-        return $this->render('member/show_event_to_come.html.twig', [
-            'event' => $event,
-        ]);
-    }
-
     /**
      * @param Request $request
-     * @Route("/new", name="show_event_to_come", methods={"GET","POST"})
+     * @param Event $event
+     * @param CommentRepository $commentRepository
+     * @Route("/event_to_come/{id}", name="show_event_to_come", methods={"GET","POST"})
      * @return Response
      */
-    public function newMemberComment(Request $request): Response
-    {
+    public function newMemberComment(
+        Request $request,
+        Event $event,
+        CommentRepository $commentRepository
+    ): Response {
+
         $commentMember = new Comment();
         $form = $this->createForm(MemberCommentType::class, $commentMember);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $commentMember->getUser();
+            $commentMember->setDate(new \DateTime());
+            $commentMember->setIsActive(true);
             $entityManager->persist($commentMember);
             $entityManager->flush();
 
@@ -62,8 +61,10 @@ class MemberController extends AbstractController
         }
 
         return $this->render('member/show_event_to_come.html.twig', [
+            'comments' => $commentRepository->findBy([], ['date' => 'DESC'], 20),
             'commentMember' => $commentMember,
             'form' => $form->createView(),
+            'event' => $event,
         ]);
     }
 

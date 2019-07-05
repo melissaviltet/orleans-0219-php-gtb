@@ -499,6 +499,9 @@ h1{
     .cont-messages {
       height: 500px;
       overflow-y: scroll;
+      .card .card-body {
+        padding: 1rem;
+      }
     }
   }
 }

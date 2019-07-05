@@ -13,8 +13,6 @@ class MemberCommentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $comment = new Comment();
-
         $builder
             ->add('message', TextType::class, [
                 'label' => ' ',

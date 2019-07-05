@@ -35,14 +35,12 @@ class MemberController extends AbstractController
     /**
      * @param Request $request
      * @param Event $event
-     * @param CommentRepository $commentRepository
      * @Route("/event_to_come/{id}", name="show_event_to_come", methods={"GET","POST"})
      * @return Response
      */
     public function newMemberComment(
         Request $request,
-        Event $event,
-        CommentRepository $commentRepository
+        Event $event
     ): Response {
         $commentMember = new Comment();
         $form = $this->createForm(MemberCommentType::class, $commentMember);
@@ -61,7 +59,6 @@ class MemberController extends AbstractController
         }
 
         return $this->render('member/show_event_to_come.html.twig', [
-            'commentMember' => $commentRepository->findAll(),
             'form' => $form->createView(),
             'event' => $event,
         ]);

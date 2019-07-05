@@ -12,7 +12,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User implements UserInterface
+
 {
+    const ROLES = [
+        'Administrateur' => 'ROLE_ADMIN', 'President' => 'ROLE_PRESIDENT', 'Bureau' => 'ROLE_OFFICE', 'Membre' => 'ROLE_MEMBER', 'En attente' => 'ROLE_USER'
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -23,8 +28,8 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank(message="L'email est obligatoire")
-     * @Assert\Length(min="2", max="255", minMessage="l'email doit comporter {limit} caractères",
-     *     maxMessage="l'email doit comporter {limit} caractères")
+     * @Assert\Length(min="2", max="255", minMessage="l'email doit comporter {{ limit }} caractères",
+     *     maxMessage="l'email doit comporter {{ limit }} caractères")
      */
     private $email;
 
@@ -37,31 +42,29 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      * @Assert\NotBlank(message="le mot de passe est obligatoire !")
-     * @Assert\Length(min="8", max="255", minMessage="le mot de passe doit comporter {limit} caractères !",
-     *      maxMessage="le mot de passe doit comporter {limit} caractères !")
+     * @Assert\Length(min="8", max="255", minMessage="le mot de passe doit comporter {{ limit }} caractères !",
+     *      maxMessage="le mot de passe doit comporter {{ limit }} caractères !")
      */
     private $password;
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Ce champ est obligatoire !")
-     * @Assert\Length(min="2", max="255", minMessage="votre prénom doit comporter au minimum {limit} caractères" ,
-     *  maxMessage="votre prénom doit comporter au maximum {limit} caractères")
+     * @Assert\Length(max="255", maxMessage="votre prénom doit comporter au maximum {{ limit }} caractères")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Ce champ est obligatoire !")
-     * @Assert\Length(min="2", max="255", maxMessage="votre Nom doit comporter au maximum {limit} caractères !",
-     *     minMessage=" votre Nom doit comporter au minimum {limit} caractères !" )
+     * @Assert\Length(max="255", maxMessage="votre Nom doit comporter au maximum {{ limit }} caractères !")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="vous devez indiquer votre adresse !")
-     * @Assert\Length(min="2", max="255", minMessage="votre adresse doit comporter au minimum {limit} caractères !",
-     *    maxMessage="votre adresse doit comporter au maximum {limit} caractères !" )
+     * @Assert\Length(min="2", max="255", minMessage="votre adresse doit comporter au minimum {{ limit }} caractères !",
+     *    maxMessage="votre adresse doit comporter au maximum {{ limit }} caractères !" )
      */
     private $address;
 
@@ -75,8 +78,8 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Ce champ est obligatoire !")
-     * @Assert\Length(min="10", max="255", minMessage="votre numéro doit composer au minimum {limit} chiffres !",
-     *     maxMessage="votre numéro doit composer au maximum {limit} chiffres")
+     * @Assert\Length(min="10", max="255", minMessage="votre numéro doit composer au minimum {{ limit }} chiffres !",
+     *     maxMessage="votre numéro doit composer au maximum {{ limit }} chiffres")
      */
     private $telephone;
 
@@ -97,6 +100,11 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="user")
      */
     private $comments;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture;
 
     public function __construct()
     {
@@ -149,6 +157,7 @@ class User implements UserInterface
 
         return $this;
     }
+
 
     /**
      * @see UserInterface
@@ -310,6 +319,18 @@ class User implements UserInterface
     public function setGender(?Gender $gender): self
     {
         $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }

@@ -37,11 +37,18 @@
                     {{ form_errors(form.telephone) }}
                 </div>
             </div>
-            <div class="row form-group-contact-bis pt-3 justify-content-center mt-1">
-                <div class="member-address col-lg-8 col-sm-10 ">
+            <div class="row pt-3 justify-content-center mt-1">
+                <div class="col-lg-8 col-sm-10 ">
                     {{ form_label(form.address, 'Adresse') }}
                     {{ form_widget(form.address, ({'attr': {'class':'form-control'}})) }}
                     {{ form_errors(form.address) }}
+                </div>
+            </div>
+            <div class="row pt-3 justify-content-center mt-1">
+                <div class="col-lg-8 col-sm-10 ">
+                    {{ form_label(form.roles, 'role') }}
+                    {{ form_widget(form.roles) }}
+                    {{ form_errors(form.roles) }}
                 </div>
             </div>
             {{ form_end(form) }}

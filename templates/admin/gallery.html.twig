@@ -9,7 +9,7 @@
                 {% for image in gallery %}
                     <div class="card card-img col-11 col-sm-4 col-lg-3 p-1 position-relative">
                         <img src="{{ asset('uploads/images/gallery/' ~ image.imageName) }}" class="card-img-top" alt="{{ image.imageName }}.">
-                        <span class="position-absolute"><a href="#" class="js-delete-sponsor" data-url=""><i class="fas fa-trash-alt"></i></a></span>
+                        <span class="position-absolute"><a href="#" class="js-delete-gallery" data-url="{{ path('gallery_delete', { 'id': image.id }) }}"><i class="fas fa-trash-alt"></i></a></span>
                     </div>
                 {% endfor %}
             </div>
@@ -28,4 +28,23 @@
     </section>
 
 {% endblock %}
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $(document).ready(function () {
+            $('.js-delete-gallery').on('click', function(e) {
+                e.preventDefault();
+
+                let deleteUrl = $(this).data('url');
+                let element = $(this).closest('div');
+
+                $.ajax({
+                    url: deleteUrl,
+                    method: 'DELETE',
+                    success: function() {
+                        element.fadeOut();
+                    }
+                });
+            });
+        });
+    </script>{% endblock %}

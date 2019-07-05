@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use  App\Entity\Activity;
+use App\Entity\Activity;
 use App\Entity\Gender;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;

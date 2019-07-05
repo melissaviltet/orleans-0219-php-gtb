@@ -25,7 +25,7 @@
     </div>
     <div class="contents justify-content-center align-items-center vh-100">
         <div class="d-flex content flex-column justify-content-center">
-            <a class="link" href="#"><i class="fas fa-user-tie {{ app.request.get('_route') ==  '#' ? 'active' }}"></i></a>
+            <a class="link" href="{{ path('user_index') }}"><i class="fas fa-user-tie {{ app.request.get('_route') ==  'user_index' ? 'active' }}"></i></a>
             <p class="text  d-none d-md-block">Page Membres</p>
         </div>
     </div>

@@ -15,8 +15,49 @@
     </section>
     <section class="sportpage justify-content-center">
         <div class="container">
-        <h2  class="text-center">Les membres et l'equipe</h2>
-        <p  class="text-center">ici viendra s'ajouter le thrombinoscope du club une fois l'us user finie</p>
+            <h2 class="text-center">Le Bureau</h2>
+            <div class="row justify-content-center my-3">
+                {% for president in presidents %}
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ president.picture }}"
+                                 alt="{{ president.firstname }} {{ president.lastname }}">
+                            <div class="card-body">
+                                <p class="text-center card-title">{{ president.firstname }} {{ president.lastname }} </p>
+                                <p class="card-text">Président</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row justify-content-center my-3">
+                {% for office in officeMembers %}
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ office.picture }}"
+                                 alt="{{ office.firstname }} {{ office.lastname }}">
+                            <div class="card-body">
+                                <p class="text-center card-title">{{ office.firstname }} {{ office.lastname }} </p>
+                                <p class="text-center card-text">Membre du bureau</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row justify-content-center my-3">
+                {% for member in members %}
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ member.picture }}"
+                                 alt="{{ member.firstname }} {{ member.lastname }}">
+                            <div class="card-body">
+                                <p class="text-center card-title">{{ member.firstname }} {{ member.lastname }} </p>
+                                <p class="text-center card-text">Membre</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
     {% include '_footer.html.twig' %}

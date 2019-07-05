@@ -435,6 +435,13 @@ h1{
 
 .sportpage {
   margin: 3em;
+  .card {
+    width: 100%;
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+  }
 }
 
 /***Création d'un nouveau compte***/

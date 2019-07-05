@@ -49,4 +49,19 @@ class AdminGalleryController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @param Request $request
+     * @param Galery $galery
+     * @Route("/admin/gallery/{id}", name="gallery_delete", methods={"DELETE"})
+     * @return Response
+     */
+    public function deleteSponsor(Request $request, Galery $galery): Response
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($galery);
+        $em->flush();
+
+        return new Response(null, 200);
+    }
 }

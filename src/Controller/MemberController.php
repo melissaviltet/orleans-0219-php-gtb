@@ -44,25 +44,24 @@ class MemberController extends AbstractController
         Event $event,
         CommentRepository $commentRepository
     ): Response {
-
         $commentMember = new Comment();
         $form = $this->createForm(MemberCommentType::class, $commentMember);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $commentMember->getUser();
+            $commentMember->setEvent($event);
+            $commentMember->setUser($this->getUser());
             $commentMember->setDate(new \DateTime());
-            $commentMember->setIsActive(true);
+
             $entityManager->persist($commentMember);
             $entityManager->flush();
 
-            return $this->redirectToRoute('show_event_to_come');
+            return $this->redirectToRoute('show_event_to_come', ['id' => $event->getId()]);
         }
 
         return $this->render('member/show_event_to_come.html.twig', [
-            'comments' => $commentRepository->findBy([], ['date' => 'DESC'], 20),
-            'commentMember' => $commentMember,
+            'commentMember' => $commentRepository->findAll(),
             'form' => $form->createView(),
             'event' => $event,
         ]);

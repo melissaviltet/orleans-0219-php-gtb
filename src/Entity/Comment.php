@@ -20,7 +20,6 @@ class Comment
     /**
      * @ORM\Column(type="datetime")
      * @Assert\DateTime
-     * @Assert\NotNull
      */
     private $date;
 
@@ -46,7 +45,7 @@ class Comment
      * @ORM\Column(type="boolean", nullable=false)
      * @Assert\Type("boolean")
      */
-    private $isActive;
+    private $isActive = true;
 
     public function getId(): ?int
     {

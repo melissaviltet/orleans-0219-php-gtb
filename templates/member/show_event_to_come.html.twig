@@ -15,7 +15,21 @@
             </div>
             <div class="discussion col-12 ml-md-5 mt-md-5 pt-md-3 col-md-4">
                 <div class="cont-messages">
-
+                    {% for comment in commentMember %}
+                        <div class="card mb-1 w-100">
+                            <div class="row no-gutters">
+                                <div class="col-1 col-md-2 d-flex justify-content-center align-items-center">
+                                    {{ comment.user.picture ?? '<i class="fas fa-user"></i>'}}
+                                </div>
+                                <div class="col-10">
+                                    <div class="card-body">
+                                        <p class="card-text">{{ comment.message }}</p>
+                                        <p class="card-text"><small class="text-muted">{{ comment.date|date('d/m/Y') }}</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
                 </div>
                 <div class="form-message">
                     {{ form_start(form, {'attr': {'novalidate':'novalidate', 'class':'message-form'}}) }}
@@ -26,9 +40,6 @@
                     {{ form_end(form) }}
                 </div>
                 {{ dump(commentMember) }}
-                {{ dump(comments) }}
-                {{ dump(form) }}
-                {{ dump(event) }}
             </div>
         </div>
     </section>

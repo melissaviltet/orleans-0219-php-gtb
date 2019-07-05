@@ -84,7 +84,7 @@ class SecurityController extends AbstractController
             $username = $form->getData()['email'];
             if (!$tokenService->isValid($token, $username)) {
                 $this->addFlash('danger', 'Lien invalide');
-                return $this->redirectToRoute('forgotten_password');
+                return $this->redirectToRoute('app_login');
             }
             $entityManager = $this->getDoctrine()->getManager();
             $user = $entityManager->getRepository(User::class)->findOneByEmail($username);

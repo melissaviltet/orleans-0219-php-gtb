@@ -65,7 +65,7 @@ class MemberController extends AbstractController
     }
 
     /**
-     * @Route("/page/", name="member_page")
+     * @Route("/profil", name="member_page")
      * @return Response
      */
     public function index(): Response

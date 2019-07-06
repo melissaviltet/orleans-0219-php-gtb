@@ -2,13 +2,12 @@
     {% if events==true %}
         <div class="col-lg-6 col-sm-12 main  justify-content-center">
             <div class="card mx-auto">
-                <img src="{{ events[0].picture }}"
-                     class="card-img-top" alt="{{ events[0].name }}">
+                <img src="{{ asset('uploads/images/event/' ~ events[0].imageName) }}" class="card-img-top" alt="{{ events[0].imageName }}.">
                 <div class="card-body">
                     <h5 class="card-title">{{ events[0].name }}</h5>
                     <p class="card-text">Le {{ events[0].date |date('d/m/Y') }}
                         à {{ events[0].place }}</p>
-                    <a href="{{ events[0].url }}" class="btn btn-primary">Voir l'évènement</a>
+                    <a href="{{ events[0].urlEvent }}" class="btn btn-primary">Voir l'évènement</a>
                 </div>
             </div>
         </div>

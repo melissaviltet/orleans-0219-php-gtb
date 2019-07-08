@@ -22,7 +22,7 @@ class EventRepository extends ServiceEntityRepository
     public function getEventCommentNumber(string $direction = 'ASC')
     {
         return $this->createQueryBuilder('e')
-            ->select("COUNT(e.id) as nbComments, e.name, e.date, e.picture")
+            ->select("COUNT(e.id) as nbComments, e.name, e.date, e.imageName")
             ->join('e.comments', 'c')
             ->groupBy('e.id')
             ->orderBy('nbComments', $direction)

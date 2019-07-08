@@ -230,3 +230,16 @@ form.sponsor-form {
 
 }
 
+/***EVENEMENTS***/
+
+form fieldset {
+  .vich-image .form-group {
+    display: none;
+  }
+  .vich-image > a {
+    display: none;
+  }
+}
+
+
+

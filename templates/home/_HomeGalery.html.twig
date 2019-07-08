@@ -1,15 +1,30 @@
 <h2 class="text-center my-5">Galerie photo</h2>
 <div class="homepage-images flex-row position-relative text-center mb-5">
+
     <div class="row homepage-picture">
+
         {% for picture in pictures %}
+
             <div class="col-lg-4 col-md-6 col-sm-12 images-index">
+
                 <img src="{{ asset('uploads/images/gallery/' ~ picture.imageName) }}" class="card-img-top" alt="{{ picture.imageName }}.">
+
             </div>
         {% endfor %}
+
     </div>
+
     <div class="row btn-homepage-picture">
+
+
         <div class="col ">
+
+
             <a href="{{ path('galery') }}" class="btn btn-primary">Voir plus de photos de notre club</a>
+
         </div>
+
     </div>
+
 </div>
+

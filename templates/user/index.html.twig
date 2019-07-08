@@ -1,39 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Membres{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+    {% include 'admin/_navbar.html.twig' %}
+    {{ include ('admin/_header.html.twig', { titleHeader: 'Membres' }) }}
+    <div class="admin-content position-absolute justify-content-center">
 
-    <table class="table">
-        <thead>
+        <table class="table table-hover">
+            <thead>
             <tr>
-                <th>Id</th>
+                <th>Utilisateur</th>
+                <th>Rôle</th>
                 <th>Email</th>
-                <th>Roles</th>
-                <th>Password</th>
-                <th>actions</th>
+                <th>Adresse</th>
+                <th>Téléphone</th>
+                <th>action</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.firstname ~' '~ user.lastname }}</td>
+                    <td>{{ user.roles|join(', ')}}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.telephone }}</td>
+                    <td>
+                        <a href="{{ path('admin_user_edit', {'id': user.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-    <a href="{{ path('creation_utilisateur') }}">Create new</a>
 {% endblock %}

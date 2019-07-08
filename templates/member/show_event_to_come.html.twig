@@ -6,17 +6,44 @@
         <h1 class="text-center pt-5 mt-5">{{ event.name }}</h1>
         <div class="row justify-content-center">
             <div class="card col-12 col-md-5 pl-0 pr-0 pb-5">
-                <img src="{{ event.picture }}" class="card-img-top" alt="{{ event.name }}">
+                <img src="{{ event.imageName }}" class="card-img-top" alt="{{ event.name }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ event.name }}</h5>
                     <p class="card-text">{{ event.longDescription }}</p>
                     <p class="card-text"><small class="text-muted">{{ event.date|date('d/m/Y') }}</small></p>
                 </div>
             </div>
-            <div class="discussion col-12 col-md-5"></div>
+            <div class="discussion col-12 ml-md-5 mt-md-5 pt-md-3 col-md-4">
+                <div class="cont-messages">
+                    {% for eventData in event.comments %}
+                        <div class="card mb-1 w-100">
+                            <div class="row no-gutters">
+                                <div class="col-1 col-md-2 d-flex justify-content-center align-items-center">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="col-10">
+                                    <div class="card-body">
+                                        <p class="card-text">{{ eventData.message }}</p>
+                                        <p class="card-text">
+                                            <small class="text-muted">{{ eventData.user.firstname }} - </small>
+                                            <small class="text-muted">{{ eventData.date|date('d/m/Y') }}</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="form-message">
+                    {{ form_start(form, {'attr': {'novalidate':'novalidate', 'class':'message-form'}}) }}
+                    {{ form_row(form.message) }}
+                    <div class="buttons float-right">
+                        <button class="btn btn-outline-warning">Envoyer</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
         </div>
-
-
     </section>
 
     {{ include('_footer.html.twig') }}

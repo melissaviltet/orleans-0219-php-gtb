@@ -27,7 +27,7 @@
                     <td>{{ user.address }}</td>
                     <td>{{ user.telephone }}</td>
                     <td>
-                        <a href="{{ path('admin_user_edit', {'id': user.id}) }}">Modifier</a>
+                        <a class="btn btn-success" href="{{ path('admin_user_edit', {'id': user.id}) }}">Modifier</a>
                     </td>
                 </tr>
             {% else %}

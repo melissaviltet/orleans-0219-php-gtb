@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Event;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -39,8 +40,9 @@ class EventType extends AbstractType
                     'placeholder' => 'https://'
                 ],
             ])
-            ->add('isPrivate')
-        ;
+            ->add('isPrivate', CheckboxType::class, [
+                'label_format' => 'Évènement privé',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

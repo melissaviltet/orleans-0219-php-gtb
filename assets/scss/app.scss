@@ -265,16 +265,6 @@ section.footer {
   }
 }
 
-.btn {
-  background-color: $trail-primary-color;
-  border-color: darken($trail-primary-color, 20%);
-  transition: ease 0.2s;
-
-  &:hover {
-    background-color: darken($trail-primary-color, 20%);
-    border-color: $trail-primary-color;
-  }
-}
 
 /***Section Le CLub Accueil***/
 
@@ -531,23 +521,28 @@ h1{
 
 
 /***Reset password page***/
-.card-body{
+.card-body {
   background-color: $font-color-light-bg;
   color: $font-color;
+
   p {
     text-align: center;
 
-/***Legal Mentions***/
-.container-legal-mention{
-  background-color: $font-color-light-bg;
-  color: $font-color;
-  .title-legal-mentions{
-    text-align: center;
-    margin-top: $marginTopAboutMe;
-    margin-bottom: $marginTopAboutMe;
-  }
-  a {
-    color: $trail-primary-color;
-    font-weight: bold;
+    /***Legal Mentions***/
+    .container-legal-mention {
+      background-color: $font-color-light-bg;
+      color: $font-color;
+
+      .title-legal-mentions {
+        text-align: center;
+        margin-top: $marginTopAboutMe;
+        margin-bottom: $marginTopAboutMe;
+      }
+
+      a {
+        color: $trail-primary-color;
+        font-weight: bold;
+      }
+    }
   }
 }

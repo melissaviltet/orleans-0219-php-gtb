@@ -484,18 +484,37 @@ h1{
   .col-about-me-information{
     margin-top: $marginTopAboutMe;
   }
-  .col-edit-information{
+  .col-edit-information {
     text-align: center;
-    .fa-edit{
-      font-size : 2.5rem;
+
+    .fa-edit {
+      font-size: 2.5rem;
       color: $trail-primary-color;
     }
-    a{
+
+    a {
       text-decoration: none;
       color: $trail-secondary-color;
     }
   }
-}
+  .fa-images{
+      font-size : 2.5rem;
+      color: $trail-primary-color;
+    }
+  .fa-calendar-alt{
+      font-size : 2.5rem;
+      color: $trail-primary-color;
+    }
+  .fa-portrait{
+      font-size : 2.5rem;
+      color: $trail-primary-color;
+    }
+  a {
+    text-decoration: none;
+    color: $trail-secondary-color;
+  }
+  }
+
 
 
 /***Reset password page***/

@@ -173,26 +173,19 @@ section.footer {
   background-image: url('../images/header-site-gtb.jpg');
   background-size: contain;
   background-attachment: fixed;
-  height: 60vh;
+  background-repeat: no-repeat;
   width: 100%;
-  padding-top: 15%;
+  padding-top: calc(25px + (350 - 25) * ((100vw - 300px) / (1600 - 300)));
   margin: 0;
   border-bottom: $trail-primary-color solid 5px;
   border-radius: 0;
-  @include medium {
-    height: 45vh;
-    margin-top: 3em;
-  }
-  @include small {
-    height: 30vh;
-  }
 
   .title-jumbotron {
     font-size: 3rem;
     @include medium {
-      font-size: 2rem;
-      text-shadow: 2px 4px 3px $trail-primary-color;
+      display: none;
     }
+
     @include small {
       display: none;
     }

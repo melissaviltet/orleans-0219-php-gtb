@@ -50,7 +50,7 @@ p {
   font-size: 1.5vw;
 }
 
-.member-picture{
+.member-picture {
   border-radius: 100%;
   width: 3.5%;
   height: auto;
@@ -111,32 +111,38 @@ p {
   border-top: $trail-primary-color solid 5px;
   color: $font-color;
   font-family: $text-font;
-  font-size: 2vh;
-  margin-right : 0;
+  //font-size: 2vh;
+  margin-right: 0;
   margin-left: 0;
   font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
+
   .embed-responsive {
     max-width: 80%;
     max-width: 300px;
     height: auto;
   }
-    ul{
-    list-style-type: none;
-    a{
-      color: $trail-primary-color;
-      .fa-facebook-square {
-              padding-top: 0.7rem;
-              padding-bottom: 1rem;
-              font-size: 4vh;
-              color: $trail-primary-color;
 
-              &:hover {
-                color: lighten($trail-primary-color, 10%);
-                transition: 0.5s;
-              }
-            }
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    color: $trail-primary-color;
+
+    .fa-facebook-square {
+      padding-top: 0.7rem;
+      padding-bottom: 1rem;
+      font-size: 4vh;
+      color: $trail-primary-color;
+
+      &:hover {
+        color: lighten($trail-primary-color, 10%);
+        transition: 0.5s;
+      }
     }
   }
+}
 
 /***Jumbotron***/
 .cont-jumbotron {
@@ -403,8 +409,10 @@ h1 {
 
 .sportpage {
   margin: 3em;
+
   .card {
     width: 100%;
+
     img {
       object-fit: contain;
       width: 100%;
@@ -462,8 +470,8 @@ h1 {
     margin-top: 5%;
 
     img {
-      min-width: -webkit-fill-available;
-      min-width: -moz-fill-available;
+      //min-width: -webkit-fill-available;
+      //min-width: -moz-fill-available;
       box-sizing: border-box;
     }
 
@@ -515,58 +523,61 @@ h1 {
       color: $trail-secondary-color;
     }
   }
-  .fa-images{
-      font-size : 2.5rem;
-      color: $trail-primary-color;
-    }
-  .fa-calendar-alt{
-      font-size : 2.5rem;
-      color: $trail-primary-color;
-    }
-  .fa-portrait{
-      font-size : 2.5rem;
-      color: $trail-primary-color;
-    }
+
+  .fa-images {
+    font-size: 2.5rem;
+    color: $trail-primary-color;
+  }
+
+  .fa-calendar-alt {
+    font-size: 2.5rem;
+    color: $trail-primary-color;
+  }
+
+  .fa-portrait {
+    font-size: 2.5rem;
+    color: $trail-primary-color;
+  }
+
   a {
     text-decoration: none;
     color: $trail-secondary-color;
   }
-  }
-
+}
 
 
 /***Reset password page***/
 
 
 .rox-poney-password {
-margin-top: 15%;
-margin-bottom: 15%;
+  margin-top: 15%;
+  margin-bottom: 15%;
 
   .card-reset {
     background-color: $font-color-light-bg;
     color: $font-color;
+  }
 
-    p {
-      text-align: center;
-    }
+  p {
+    text-align: center;
+  }
+}
 
+/***Legal Mentions***/
+.container-legal-mention {
+  background-color: $font-color-light-bg;
+  color: $font-color;
 
-    /***Legal Mentions***/
-    .container-legal-mention {
-      background-color: $font-color-light-bg;
-      color: $font-color;
+  .title-legal-mentions {
+    text-align: center;
+    margin-top: $marginTopAboutMe;
+    margin-bottom: $marginTopAboutMe;
+  }
 
-      .title-legal-mentions {
-        text-align: center;
-        margin-top: $marginTopAboutMe;
-        margin-bottom: $marginTopAboutMe;
-      }
-
-      a {
-        color: $trail-primary-color;
-        font-weight: bold;
-      }
-    }
+  a {
+    color: $trail-primary-color;
+    font-weight: bold;
+  }
 
   p {
     text-align: center;

@@ -25,6 +25,8 @@ Encore
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
+    .addEntry('main', './assets/js/main.js')
+    .addEntry('home', './assets/js/home.js')
     .addEntry('summernote', 'summernote/src/js/summernote.js')
     .addEntry('editassociation', './assets/scss/editAssociation.scss')
     //.addEntry('page1', './assets/js/page1.js')

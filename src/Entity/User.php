@@ -106,11 +106,6 @@ class User implements UserInterface
      */
     private $picture;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Roles")
-     */
-    private $role;
-
     public function __construct()
     {
         $this->activities = new ArrayCollection();
@@ -336,18 +331,6 @@ class User implements UserInterface
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
-
-        return $this;
-    }
-
-    public function getRole(): ?Roles
-    {
-        return $this->role;
-    }
-
-    public function setRole(?Roles $role): self
-    {
-        $this->role = $role;
 
         return $this;
     }

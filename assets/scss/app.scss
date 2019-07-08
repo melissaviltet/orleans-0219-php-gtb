@@ -398,6 +398,13 @@ h1{
 
 .sportpage {
   margin: 3em;
+  .card {
+    width: 100%;
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+  }
 }
 
 /***Création d'un nouveau compte***/
@@ -448,11 +455,6 @@ h1{
     border: none;
     margin-bottom: 10%;
     margin-top: 5%;
-    img {
-      min-width: -webkit-fill-available;
-      min-width: -moz-fill-available;
-      box-sizing: border-box;
-    }
   }
   .discussion {
     .cont-messages {
@@ -503,22 +505,5 @@ h1{
 
   p {
     text-align: center;
-  }
-
-  /***Legal Mentions***/
-  .container-legal-mention {
-    background-color: $font-color-light-bg;
-    color: $font-color;
-
-    .title-legal-mentions {
-      text-align: center;
-      margin-top: $marginTopAboutMe;
-      margin-bottom: $marginTopAboutMe;
-    }
-
-    a {
-      color: $trail-primary-color;
-      font-weight: bold;
-    }
   }
 }

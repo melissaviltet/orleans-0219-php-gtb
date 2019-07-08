@@ -21,12 +21,18 @@ class Association1Type extends AbstractType
             ->add('trailHome', TextareaType::class, [
                 'label' => 'Résumé du Trail',
                 'label_attr' => ['class' => 'col-12'],
-                'attr' => ['class' => 'summernote']
+                'attr' => [
+                    'class' => 'summernote',
+                    'row' => '6'
+                ]
             ])
             ->add('triathlonContent', TextareaType::class, [
                 'label' => 'Page du triathlon',
                 'label_attr' => ['class' => 'col-12'],
-                'attr' => ['class' => 'summernote']
+                'attr' => [
+                    'class' => 'summernote',
+                    'row' => '6'
+                ]
             ])
             ->add('triathlonHome', TextareaType::class, [
                 'label' => 'Résumé du Triathlon',

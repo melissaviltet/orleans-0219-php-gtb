@@ -12,10 +12,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User implements UserInterface
-
 {
     const ROLES = [
-        'Administrateur' => 'ROLE_ADMIN', 'President' => 'ROLE_PRESIDENT', 'Bureau' => 'ROLE_OFFICE', 'Membre' => 'ROLE_MEMBER', 'En attente' => 'ROLE_USER'
+        'Administrateur' => 'ROLE_ADMIN', 'President' => 'ROLE_PRESIDENT', 'Bureau' => 'ROLE_OFFICE',
+        'Membre' => 'ROLE_MEMBER', 'En attente' => 'ROLE_USER'
     ];
 
     /**

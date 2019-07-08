@@ -1,1 +1,19 @@
-@import "~summernote/dist/summernote-bs4.css";
+@import "~summernote/dist/summernote.css";
+@import "_vars.scss";
+
+.dropdown-menu.show {
+  z-index: 10;
+}
+
+.note-editable {
+  height: 20em;
+}
+
+a {
+  text-decoration: none;
+  color: $trail-secondary-color;
+  &:hover {
+    text-decoration: none;
+    color: $trail-secondary-color;
+  }
+}

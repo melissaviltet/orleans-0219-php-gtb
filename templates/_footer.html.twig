@@ -1,43 +1,72 @@
-<section class="row footer">
-    <div class="col-12 background-footer"></div>
-    <div class="col-4 address-footer d-flex justify-content-center my-auto">
-        <address class="address-bis">
-            <div class="col-12 text-center">
-                <i class="fas fa-home"></i> Génération Trail et Triathlon Blois
-            </div>
-            <div class="col-12 text-center address-ter">
-                11 Rue Denis Dupont
-                41 000 Blois
-            </div>
-            <div class="col-12 text-center pt-3">
-                <i class="fas fa-phone"></i> 06.03.02.26.09
-            </div>
-            <div class="col-12 text-center pt-3">
-                <i class="fas fa-at"></i> generationtrailblois@hotmail.fr
-            </div>
-        </address>
-    </div>
-    <div class="col-4 image-footer d-flex flex-column">
-        <div class="d-flex justify-content-center pt-5">
-            <img class="logo-footer pt-5 pb-3" src="{{ asset('build/images/logo.png') }}"
-                 alt="logo-generation-trail-blois">
+<section class="container footer">
+    <div class="row row-footer">
+        <div class="col">
+            <ul>
+                <li><img class="image-footer1" src="{{ asset('build/images/logo-triathlon-white.png') }}" alt="logo triathlon white"></li>
+                <li><img class="image-footer2" src="{{ asset('build/images/logo-trail-white.png') }}" alt="logo trail white"></li>
+            </ul>
         </div>
-        <div class="d-flex justify-content-center pt-2">
-            <a href="https://www.facebook.com/GenerationTrailTriathlonBlois/" target="_blank"><i
-                        class="fab fa-facebook-square"></i></a>
-        </div>
-        <div class="d-flex justify-content-center pb-3 pt-5">
-            <a href="{{ path('legal_mention') }}">Tous droits réservés<i class="far fa-copyright"></i></a>
+        <div class="col">
+            <ul>
+
+                <li><a href="{{ path('trail') }}">Le trail</a></li>
+                <li><a href="{{ path('triathlon') }}">Le triathlon</a></li>
+                <li><a href="{{ path('club') }}">Le club</a></li>
+                <a href="{{ path('legal_mention') }}">Tous droits réservés<i class="far fa-copyright"></i></a>
+
+            </ul>
+
         </div>
 
+
+
+
     </div>
-    <div class="col-4 hours-footer my-auto text-center">
-        <h6>Jours d'entraînement :</h6>
-        <ul>
-            <li>Mardi</li>
-            <li>Jeudi</li>
-            <li>Vendredi</li>
-            <li>Samedi et Dimanche (facultatifs)</li>
-        </ul>
-    </div>
+
+
+
 </section>
+
+
+
+{#<div class="col-12 background-footer"></div>#}
+{#<div class="col-4 address-footer d-flex justify-content-center my-auto">#}
+{#    <address class="address-bis">#}
+{#        <div class="col-12 text-center">#}
+{#            <i class="fas fa-home"></i> Génération Trail et Triathlon Blois#}
+{#        </div>#}
+{#        <div class="col-12 text-center address-ter">#}
+{#            11 Rue Denis Dupont#}
+{#            41 000 Blois#}
+{#        </div>#}
+{#        <div class="col-12 text-center pt-3">#}
+{#            <i class="fas fa-phone"></i> 06.03.02.26.09#}
+{#        </div>#}
+{#        <div class="col-12 text-center pt-3">#}
+{#            <i class="fas fa-at"></i> generationtrailblois@hotmail.fr#}
+{#        </div>#}
+{#    </address>#}
+{#</div>#}
+{#<div class="col-4 image-footer d-flex flex-column">#}
+{#    <div class="d-flex justify-content-center pt-5">#}
+{#        <img class="logo-footer pt-5 pb-3" src="{{ asset('build/images/logo.png') }}"#}
+{#             alt="logo-generation-trail-blois">#}
+{#    </div>#}
+{#    <div class="d-flex justify-content-center pt-2">#}
+{#        <a href="https://www.facebook.com/GenerationTrailTriathlonBlois/" target="_blank"><i#}
+{#                    class="fab fa-facebook-square"></i></a>#}
+{#    </div>#}
+{#    <div class="d-flex justify-content-center pb-3 pt-5">#}
+{#        <a href="{{ path('legal_mention') }}">Tous droits réservés<i class="far fa-copyright"></i></a>#}
+{#    </div>#}
+
+{#</div>#}
+{#<div class="col-4 hours-footer my-auto text-center">#}
+{#    <h6>Jours d'entraînement :</h6>#}
+{#    <ul>#}
+{#        <li>Mardi</li>#}
+{#        <li>Jeudi</li>#}
+{#        <li>Vendredi</li>#}
+{#        <li>Samedi et Dimanche (facultatifs)</li>#}
+{#    </ul>#}
+{#</div>#}

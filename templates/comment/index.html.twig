@@ -28,7 +28,7 @@
                 <td>{{ comment.message|slice(0,50) }}...</td>
                 <td>{{ comment.isActive ? 'oui' : 'non' }}</td>
                 <td>
-                    <a class="" href="{{ path('comment_show', {'id': comment.id}) }}">Modérer</a>
+                    <a class="btn btn-success" href="{{ path('comment_show', {'id': comment.id}) }}">Modérer</a>
                 </td>
             </tr>
         {% else %}

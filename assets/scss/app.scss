@@ -240,16 +240,6 @@ p {
   }
 }
 
-.btn {
-  background-color: $trail-primary-color;
-  border-color: darken($trail-primary-color, 20%);
-  transition: ease 0.2s;
-
-  &:hover {
-    background-color: darken($trail-primary-color, 20%);
-    border-color: $trail-primary-color;
-  }
-}
 
 /***Section Le CLub Accueil***/
 
@@ -544,7 +534,6 @@ h1 {
 
 
 /***Reset password page***/
-
 
 .rox-poney-password {
   margin-top: 15%;

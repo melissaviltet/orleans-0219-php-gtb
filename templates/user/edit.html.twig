@@ -3,9 +3,13 @@
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
+
     <h1>Editer mon compte</h1>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Mettre à  jour'}) }}
 
-    <a href="{{ path('member_page', {'id': user.id}) }}" class="btn btn-primary">Retour vers mon profil</a>
+            {{ include('user/_form.html.twig', {'button_label': 'Mettre à  jour'}) }}
+
+            <a href="{{ path('member_page', {'id': user.id}) }}" class="btn btn-primary">Retour vers mon profil</a>
+
+
 {% endblock %}

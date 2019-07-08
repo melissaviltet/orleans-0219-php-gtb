@@ -50,6 +50,13 @@ p {
   font-size: 1.5vw;
 }
 
+.member-picture {
+  border-radius: 100%;
+  width: 3.5%;
+  height: auto;
+  margin-right: 2rem;
+}
+
 .navbar {
   padding: 0;
   background: $trail-secondary-color-nav;
@@ -71,6 +78,7 @@ p {
       width: 100vw;
     }
   }
+
   li.active.nav-item.nav-home {
     background-color: $trail-primary-color;
   }
@@ -98,44 +106,33 @@ p {
 
 /***Footer***/
 
-section.footer {
+.global-footer {
   background-color: $trail-secondary-color;
   border-top: $trail-primary-color solid 5px;
   color: $font-color;
   font-family: $text-font;
-  font-size: 2vh;
-  margin-left: 0;
   margin-right: 0;
-  @include small {
-    font-size: 3vh;
+  margin-left: 0;
+  font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
+
+  .embed-responsive {
+    max-width: 80%;
+    max-width: 300px;
+    height: auto;
   }
 
-  div.address-footer {
-    padding-left: 0px;
-    padding-right: 0px;
+
+  ul {
+    list-style-type: none;
   }
 
-  .image-footer {
-    border-width: thin;
-    border-color: $font-color;
-    border-right: 0.5px solid darken($font-color, 50);
-    border-left: 0.5px solid darken($font-color, 50);;
-    padding-left: 0;
-    padding-right: 0;
-
-    .logo-footer {
-      padding: 0;
-      margin-right: 0;
-
-      img {
-        max-width: 20vw;
-      }
-    }
+  a {
+    color: $trail-primary-color;
 
     .fa-facebook-square {
       padding-top: 0.7rem;
       padding-bottom: 1rem;
-      font-size: 2.5rem;
+      font-size: 4vh;
       color: $trail-primary-color;
 
       &:hover {
@@ -143,30 +140,8 @@ section.footer {
         transition: 0.5s;
       }
     }
-
-    a {
-      color: $font-color;
-    }
-  }
-
-  .hours-footer {
-    padding-left: 0px;
-    padding-right: 0px;
-
-    h6 {
-      text-align: center;
-      font-size: calc(10px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
-      padding-top: 15%;
-
-    }
-
-    ul {
-      list-style-type: none;
-      padding :0;
-    }
   }
 }
-
 
 /***Jumbotron***/
 .cont-jumbotron {
@@ -296,7 +271,6 @@ section.sponsors {
     font-family: $title-font;
     text-transform: uppercase;
     padding-top: 10%;
-    font-size: calc(2vw + 6 * ((100vw - 320px) / 600));
   }
 
   hr.border-sponsors {
@@ -358,13 +332,14 @@ section.sponsors {
 
 
 /***Login Page***/
-h1{
+h1 {
   text-align: center;
 }
 
-.button-back-home{
+.button-back-home {
   text-align: center;
 }
+
 .login-card {
   margin-left: 0px;
   margin-right: 0px;
@@ -374,6 +349,7 @@ h1{
   .card-connexion {
     margin-top: 10%;
     background-color: $font-color-light-bg;
+    margin-bottom: 15%;
   }
 
   .card-body {
@@ -422,6 +398,15 @@ h1{
 
 .sportpage {
   margin: 3em;
+
+  .card {
+    width: 100%;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+  }
 }
 
 /***Création d'un nouveau compte***/
@@ -433,6 +418,7 @@ h1{
   background-color: $font-color-light-bg;
   font-family: $text-font;
   color: $font-color;
+
   .form-control {
     border-bottom: solid 1px $trail-primary-color;
   }
@@ -443,11 +429,10 @@ h1{
 }
 
 
-
 /***PAGE MEMBER-EVENTS***/
 
 .member-events {
-  .events .card-body{
+  .events .card-body {
     .card-title {
       font-family: $text-font;
     }
@@ -467,21 +452,23 @@ h1{
 
 /***MEMBER SHOW ONE EVENT TO COME***/
 
-.event-to-come .row{
+.event-to-come .row {
   .card {
     border: none;
     margin-bottom: 10%;
     margin-top: 5%;
+
     img {
-      min-width: -webkit-fill-available;
-      min-width: -moz-fill-available;
       box-sizing: border-box;
     }
+
   }
+
   .discussion {
     .cont-messages {
       height: 500px;
       overflow-y: scroll;
+
       .card .card-body {
         padding: 1rem;
       }
@@ -490,59 +477,96 @@ h1{
 }
 
 /***Member page***/
-.title-member-page{
+.title-member-page {
   margin-top: $marginTop;
   text-align: center;
 }
-.row-about-me{
+
+.row-about-me {
   margin-bottom: $marginBottom;
-  img{
+
+  img {
     display: block;
     width: $widthMemberPersonal;
     height: $heightMemberPersonal;
     margin: 25px auto;
     border-radius: 50%;
   }
-  .col-about-me-information{
+
+  .col-about-me-information {
     margin-top: $marginTopAboutMe;
   }
-  .col-edit-information{
+
+  .col-edit-information {
     text-align: center;
-    .fa-edit{
-      font-size : 2.5rem;
+
+    .fa-edit {
+      font-size: 2.5rem;
       color: $trail-primary-color;
     }
-    a{
+
+    a {
       text-decoration: none;
       color: $trail-secondary-color;
     }
+  }
+
+  .fa-images {
+    font-size: 2.5rem;
+    color: $trail-primary-color;
+  }
+
+  .fa-calendar-alt {
+    font-size: 2.5rem;
+    color: $trail-primary-color;
+  }
+
+  .fa-portrait {
+    font-size: 2.5rem;
+    color: $trail-primary-color;
+  }
+
+  a {
+    text-decoration: none;
+    color: $trail-secondary-color;
   }
 }
 
 
 /***Reset password page***/
-.card-body {
+
+.rox-poney-password {
+  margin-top: 15%;
+  margin-bottom: 15%;
+
+  .card-reset {
+    background-color: $font-color-light-bg;
+    color: $font-color;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+/***Legal Mentions***/
+.container-legal-mention {
   background-color: $font-color-light-bg;
   color: $font-color;
+
+  .title-legal-mentions {
+    text-align: center;
+    margin-top: $marginTopAboutMe;
+    margin-bottom: $marginTopAboutMe;
+  }
+
+  a {
+    color: $trail-primary-color;
+    font-weight: bold;
+  }
 
   p {
     text-align: center;
 
-    /***Legal Mentions***/
-    .container-legal-mention {
-      background-color: $font-color-light-bg;
-      color: $font-color;
-
-      .title-legal-mentions {
-        text-align: center;
-        margin-top: $marginTopAboutMe;
-        margin-bottom: $marginTopAboutMe;
-      }
-
-      a {
-        color: $trail-primary-color;
-        font-weight: bold;
-      }
-    }
   }
 }

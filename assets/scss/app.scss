@@ -306,7 +306,6 @@ section.sponsors {
     font-family: $title-font;
     text-transform: uppercase;
     padding-top: 10%;
-    font-size: calc(2vw + 6 * ((100vw - 320px) / 600));
   }
 
   hr.border-sponsors {
@@ -539,19 +538,5 @@ h1{
 
   p {
     text-align: center;
-  }
-}
-/***Legal Mentions***/
-.container-legal-mention{
-  background-color: $font-color-light-bg;
-  color: $font-color;
-  .title-legal-mentions{
-    text-align: center;
-    margin-top: $marginTopAboutMe;
-    margin-bottom: $marginTopAboutMe;
-  }
-  a {
-    color: $trail-primary-color;
-    font-weight: bold;
   }
 }

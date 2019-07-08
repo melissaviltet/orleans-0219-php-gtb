@@ -17,11 +17,12 @@ class EventFixtures extends Fixture
         for ($i = 0; $i < 20; $i++) {
             $event = new Event();
             $event->setName($faker->sentence(3));
-            $event->setUrl($faker->url);
+            $event->setImageName('logo_veloland.jpg');
+            $event->setImageSize(1024);
             $event->setDate($faker->dateTime);
             $event->setPlace($faker->city);
             $event->setIsPrivate($faker->boolean);
-            $event->setPicture($faker->imageUrl());
+            $event->setUrlEvent($faker->url);
             $event->setShortDescription($faker->sentence(10));
             $event->setLongDescription($faker->sentence(30));
             $this->addReference('event_' . $i, $event);

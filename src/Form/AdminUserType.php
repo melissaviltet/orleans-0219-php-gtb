@@ -4,7 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -19,7 +19,13 @@ class AdminUserType extends AbstractType
             ->add('lastname', TextType::class)
             ->add('address', TextType::class)
             ->add('telephone', TextType::class)
-            ->add('email', EmailType::class);
+            ->add('email', EmailType::class)
+            ->add('roles', ChoiceType::class, [
+                'placeholder' => 'choisissez un rôle',
+                'choices' => User::ROLES,
+                'multiple'=>true,
+                'expanded'=>true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

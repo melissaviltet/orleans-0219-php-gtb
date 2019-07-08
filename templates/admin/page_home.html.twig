@@ -12,7 +12,7 @@
                     <img src="{{ asset('uploads/images/sponsors/' ~ sponsor.imageName) }}" class="card-img-top" alt="{{ sponsor.name }}.">
                     <small>{{ form_help(form) }}</small>
                     <small class="text-muted d-block pl-2">{{ sponsor.name }}</small>
-                    <span class="position-absolute"><a href="#" class="js-delete-sponsor" data-url="{{ path('sponsor_delete', { 'id': sponsor.id }) }}"><i class="fas fa-trash-alt"></i></a></span>
+                    <span class="position-absolute"><a href="#" class="js-delete-sponsor" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer cet item?');" data-url="{{ path('sponsor_delete', { 'id': sponsor.id }) }}"><i class="fas fa-trash-alt"></i></a></span>
                 </div>
                 {% endfor %}
             </div>

@@ -9,9 +9,9 @@ use App\Entity\Gender;
 class GenderFixtures extends Fixture
 {
     const GENDERS = [
-        'Male',
-        'Female',
-        'Others'
+        'Homme',
+        'Femme',
+        'Autres'
     ];
 
     public function load(ObjectManager $manager)

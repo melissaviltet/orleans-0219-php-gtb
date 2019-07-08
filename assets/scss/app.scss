@@ -50,6 +50,13 @@ p {
   font-size: 1.5vw;
 }
 
+.member-picture{
+  border-radius: 100%;
+  width: 3.5%;
+  height: auto;
+  margin-right: 2rem;
+}
+
 .navbar {
   padding: 0;
   background: $trail-secondary-color-nav;
@@ -71,6 +78,7 @@ p {
       width: 100vw;
     }
   }
+
   li.active.nav-item.nav-home {
     background-color: $trail-primary-color;
   }
@@ -162,7 +170,7 @@ section.footer {
 
     ul {
       list-style-type: none;
-      padding :0;
+      padding: 0;
     }
   }
 }
@@ -367,13 +375,14 @@ section.sponsors {
 
 
 /***Login Page***/
-h1{
+h1 {
   text-align: center;
 }
 
-.button-back-home{
+.button-back-home {
   text-align: center;
 }
+
 .login-card {
   margin-left: 0px;
   margin-right: 0px;
@@ -383,6 +392,7 @@ h1{
   .card-connexion {
     margin-top: 10%;
     background-color: $font-color-light-bg;
+    margin-bottom: 15%;
   }
 
   .card-body {
@@ -442,6 +452,7 @@ h1{
   background-color: $font-color-light-bg;
   font-family: $text-font;
   color: $font-color;
+
   .form-control {
     border-bottom: solid 1px $trail-primary-color;
   }
@@ -452,11 +463,10 @@ h1{
 }
 
 
-
 /***PAGE MEMBER-EVENTS***/
 
 .member-events {
-  .events .card-body{
+  .events .card-body {
     .card-title {
       font-family: $text-font;
     }
@@ -476,21 +486,24 @@ h1{
 
 /***MEMBER SHOW ONE EVENT TO COME***/
 
-.event-to-come .row{
+.event-to-come .row {
   .card {
     border: none;
     margin-bottom: 10%;
     margin-top: 5%;
+
     img {
       min-width: -webkit-fill-available;
       min-width: -moz-fill-available;
       box-sizing: border-box;
     }
   }
+
   .discussion {
     .cont-messages {
       height: 500px;
       overflow-y: scroll;
+
       .card .card-body {
         padding: 1rem;
       }
@@ -499,29 +512,35 @@ h1{
 }
 
 /***Member page***/
-.title-member-page{
+.title-member-page {
   margin-top: $marginTop;
   text-align: center;
 }
-.row-about-me{
+
+.row-about-me {
   margin-bottom: $marginBottom;
-  img{
+
+  img {
     display: block;
     width: $widthMemberPersonal;
     height: $heightMemberPersonal;
     margin: 25px auto;
     border-radius: 50%;
   }
-  .col-about-me-information{
+
+  .col-about-me-information {
     margin-top: $marginTopAboutMe;
   }
-  .col-edit-information{
+
+  .col-edit-information {
     text-align: center;
-    .fa-edit{
-      font-size : 2.5rem;
+
+    .fa-edit {
+      font-size: 2.5rem;
       color: $trail-primary-color;
     }
-    a{
+
+    a {
       text-decoration: none;
       color: $trail-secondary-color;
     }
@@ -530,28 +549,35 @@ h1{
 
 
 /***Reset password page***/
-.card-body {
-  background-color: $font-color-light-bg;
-  color: $font-color;
 
-  p {
-    text-align: center;
-  }
+.rox-poney-password {
+margin-top: 15%;
+margin-bottom: 15%;
 
-  /***Legal Mentions***/
-  .container-legal-mention {
+  .card-reset {
     background-color: $font-color-light-bg;
     color: $font-color;
 
-    .title-legal-mentions {
+    p {
       text-align: center;
-      margin-top: $marginTopAboutMe;
-      margin-bottom: $marginTopAboutMe;
     }
 
-    a {
-      color: $trail-primary-color;
-      font-weight: bold;
+
+    /***Legal Mentions***/
+    .container-legal-mention {
+      background-color: $font-color-light-bg;
+      color: $font-color;
+
+      .title-legal-mentions {
+        text-align: center;
+        margin-top: $marginTopAboutMe;
+        margin-bottom: $marginTopAboutMe;
+      }
+
+      a {
+        color: $trail-primary-color;
+        font-weight: bold;
+      }
     }
   }
 }

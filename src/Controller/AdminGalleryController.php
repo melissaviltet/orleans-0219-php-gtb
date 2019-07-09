@@ -6,11 +6,16 @@ namespace App\Controller;
 use App\Entity\Galery;
 use App\Form\GalleryType;
 use App\Repository\GaleryRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class AdminGalleryController
+ * @IsGranted({"ROLE_ADMIN"}, message="Accès réservé aux Administrateurs")
+ */
 class AdminGalleryController extends AbstractController
 {
     /**
@@ -44,6 +49,7 @@ class AdminGalleryController extends AbstractController
 
             return $this->redirectToRoute('admin_gallery');
         }
+
         return $this->render('admin/gallery.html.twig', [
             'gallery' => $galeryRepository->findAll(),
             'form' => $form->createView(),

@@ -5,13 +5,16 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\AdminUserType;
 use App\Repository\UserRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * @Route("/admin/user", name="admin_")
+ * @IsGranted({"ROLE_ADMIN"}, message="Accès réservé aux Administrateurs")
  */
 class AdminUserController extends AbstractController
 {
@@ -28,21 +31,28 @@ class AdminUserController extends AbstractController
 
 
     /**
+     * @param Request $request
+     * @param User $user
+     * @param Security $security
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
+     * @return Response
      */
-    public function edit(Request $request, User $user): Response
+    public function edit(Request $request, User $user, Security $security): Response
     {
         $form = $this->createForm(AdminUserType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+        if ($security->isGranted('ROLE_ADMIN')) {
+            if ($form->isSubmitted() && $form->isValid()) {
+                $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('user_index', [
-                'id' => $user->getId(),
-            ]);
+                return $this->redirectToRoute('user_index', [
+                    'id' => $user->getId(),
+                ]);
+            }
+        } else {
+            $this->denyAccessUnlessGranted('EDIT', $user, 'Action réservée aux Administrateurs');
         }
-
         return $this->render('user/editAdmin.html.twig', [
             'user' => $user,
             'form' => $form->createView(),
@@ -50,18 +60,25 @@ class AdminUserController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param User $user
+     * @param Security $security
      * @Route("/{id}", name="user_delete", methods={"DELETE"})
+     * @return Response
      */
-    public function delete(Request $request, User $user): Response
+    public function delete(Request $request, User $user, Security $security): Response
     {
-        if (in_array('ROLE_ADMIN', $user->getRoles())) {
-            $this->addFlash('danger', 'Impossible de supprimer un utilisateur Administrateur');
-        } elseif ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($user);
-            $entityManager->flush();
+        if ($security->isGranted('ROLE_ADMIN')) {
+            if (in_array('ROLE_ADMIN', $user->getRoles())) {
+                $this->addFlash('danger', 'Impossible de supprimer un utilisateur Administrateur');
+            } elseif ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($user);
+                $entityManager->flush();
+            }
+        } else {
+            $this->denyAccessUnlessGranted('DELETE', $user, 'Action réservée aux Administrateurs');
         }
-
         return $this->redirectToRoute('user_index');
     }
 }

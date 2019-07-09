@@ -16,8 +16,10 @@ class GaleryController extends AbstractController
      */
     public function index(GaleryRepository $galeryRepository): Response
     {
+        $user=$this->getUser();
         return $this->render('galery/index.html.twig', [
-            'galery' => $galeryRepository->findBy(['private' => false])
+            'galery' => $galeryRepository->findBy(['private' => false]),
+            'user' => $user
         ]);
     }
 
@@ -28,8 +30,10 @@ class GaleryController extends AbstractController
      */
     public function showAll(GaleryRepository $galeryRepository): Response
     {
+        $user=$this->getUser();
         return $this->render('admin/galery.html.twig', [
-            'galery' => $galeryRepository->findAll()
+            'galery' => $galeryRepository->findAll(),
+            'user' => $user
         ]);
     }
 }

@@ -16,8 +16,10 @@ class TrailController extends AbstractController
      */
     public function show(AssociationRepository $associationRepository): Response
     {
+        $user=$this->getUser();
         return $this->render('trail/index.html.twig', [
             'association' => $associationRepository->findOneBy([]),
+            'user' => $user
         ]);
     }
 }

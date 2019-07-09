@@ -57,8 +57,9 @@ p {
 
 .member-picture {
   border-radius: 100%;
-  width: 3.5%;
-  height: auto;
+  width: 50px;
+  height: 50px;
+  //height: auto;
   margin-right: 2rem;
 }
 
@@ -564,6 +565,7 @@ h1 {
 
     img {
       box-sizing: border-box;
+      border-radius: 50%;
     }
 
   }

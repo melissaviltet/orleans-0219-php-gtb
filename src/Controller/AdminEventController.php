@@ -33,26 +33,21 @@ class AdminEventController extends AbstractController
 
     /**
      * @param Request $request
-     * @param Security $security
      * @Route("/new", name="event_new", methods={"GET","POST"})
      * @return Response
      */
-    public function new(Request $request, Security $security): Response
+    public function new(Request $request): Response
     {
         $event = new Event();
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
 
-        if ($security->isGranted('ROLE_OFFICE') || $security->isGranted('ROLE_ADMIN')) {
-            if ($form->isSubmitted() && $form->isValid()) {
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($event);
-                $entityManager->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($event);
+            $entityManager->flush();
 
-                return $this->redirectToRoute('event_index');
-            }
-        } else {
-            $this->denyAccessUnlessGranted('CREATE', $event, 'Action réservée aux Administrateurs');
+            return $this->redirectToRoute('event_index');
         }
 
         return $this->render('event/new.html.twig', [
@@ -66,26 +61,22 @@ class AdminEventController extends AbstractController
     /**
      * @param Request $request
      * @param Event $event
-     * @param Security $security
      * @Route("/{id}/edit", name="event_edit", methods={"GET","POST"})
      * @return Response
      */
-    public function edit(Request $request, Event $event, Security $security): Response
+    public function edit(Request $request, Event $event): Response
     {
         $form = $this->createForm(EventType::class, $event);
         $form->handleRequest($request);
 
-        if ($security->isGranted('ROLE_OFFICE') || $security->isGranted('ROLE_ADMIN')) {
-            if ($form->isSubmitted() && $form->isValid()) {
-                $this->getDoctrine()->getManager()->flush();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
 
-                return $this->redirectToRoute('event_index', [
-                    'id' => $event->getId(),
-                ]);
-            }
-        } else {
-            $this->denyAccessUnlessGranted('EDIT', $event, 'Action réservée aux Administrateurs');
+            return $this->redirectToRoute('event_index', [
+                'id' => $event->getId(),
+            ]);
         }
+
 
         return $this->render('event/edit.html.twig', [
             'event' => $event,
@@ -97,21 +88,17 @@ class AdminEventController extends AbstractController
     /**
      * @param Request $request
      * @param Event $event
-     * @param Security $security
      * @Route("/{id}", name="event_delete", methods={"DELETE"})
      * @return Response
      */
-    public function delete(Request $request, Event $event, Security $security): Response
+    public function delete(Request $request, Event $event): Response
     {
-        if ($security->isGranted('ROLE_OFFICE') || $security->isGranted('ROLE_ADMIN')) {
-            if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->remove($event);
-                $entityManager->flush();
-            }
-        } else {
-            $this->denyAccessUnlessGranted('DELETE', $event, 'Action réservée aux Administrateurs');
+        if ($this->isCsrfTokenValid('delete'.$event->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($event);
+            $entityManager->flush();
         }
+
         return $this->redirectToRoute('event_index');
     }
 }

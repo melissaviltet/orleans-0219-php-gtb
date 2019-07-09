@@ -9,10 +9,12 @@
                 <img src="{{ asset('build/images/GTriB-Blanc@0.5x.png') }}" class="logo" alt="logo gtb">
             </div>
             <div class="col-lg-6 col-sm-12 text-center">
-                <p>
-                    {{ association.triathlonHome|raw }}
-                </p>
+                {% if triathlonHome is defined %}
+                <p>{{ association.triathlonHome|raw }}</p>
                 <a href="{{ path('triathlon') }}" class="btn btn-primary">Le triathlon</a>
+                {% else %}
+                <p>La section est en cours de construction</p>
+                {% endif %}
             </div>
         </div>
     </div>

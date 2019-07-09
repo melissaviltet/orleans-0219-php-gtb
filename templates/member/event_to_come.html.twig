@@ -7,12 +7,12 @@
         <div class="row mb-5 mt-5 pt-5 pb-5 justify-content-center">
             {% for event in events %}
                 <div class="card col-11 col-lg-5 col-xl-4 m-1 mb-5" style="max-width: 540px;">
-                    <div class="row events mb-0 pb-0 no-gutters">
+                    <div class="row events mt-3 mb-0 pb-0 no-gutters">
                         <div class="col-md-5">
                             <img src="{{ event.imageName }}" class="card-img" alt="{{ event.imageName }}">
                         </div>
                         <div class="col-md-7">
-                            <div class="card-body pb-0 pt-0">
+                            <div class="card-body p-0">
                                 <h5 class="card-title">{{ event.name }}</h5>
                                 <p class="card-text">{{ event.shortDescription}}</p>
                                 <p class="card-text"><small class="text-muted">{{ event.date|date('d/m/Y') }}</small></p>

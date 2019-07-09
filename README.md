@@ -8,10 +8,11 @@
 
 1. Check composer is installed
 2. Check yarn & node are installed
+3. Check phpinit is installed
 
 ### Install
 
-1. Clone this project
+1. Clone this project 
 2. Run `composer install`
 3. Run `yarn install`
 
@@ -27,8 +28,17 @@
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+1. Copy the .env file and rename it .env.local, then edit it :
+    - Put on this line the DB name, your username et password username : `DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name`
+    - Put on those lines your address email and password: `For Gmail as a transport, use: "gmail://username:password@localhost"`
+    
+2. Now you have to create a DB, you only have to run this `php bin/console doctrine:database:create` 
 
+3. Then run this `php bin/console doctrine:schema:update --force` to create tables on your database
+
+4. If you need make some insert, you can run this `php bin/console doctrine:fixtures:load`
+
+5. After all of this, run `yarn encore dev` to load scss and `php/bin console server:run` to launch your server.
 ## Built With
 
 * [Symfony](https://github.com/symfony/symfony)

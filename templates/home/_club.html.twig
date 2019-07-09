@@ -2,7 +2,11 @@
     <h2 class="title-club text-center">LE CLUB</h2>
     <hr class="border border-sponsors">
     <div class="about-us container pt-5">
-        <p class="text-center">{{ association.clubHome|raw }}</p>
+        {% if clubHome is defined %}
+            <p class="text-center">{{ association.clubHome|raw }}</p>
+        {% else %}
+            <p>La section est en cours de construction</p>
+        {% endif %}
     </div>
 </div>
 

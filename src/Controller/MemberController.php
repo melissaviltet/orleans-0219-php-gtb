@@ -8,6 +8,7 @@ use App\Form\MemberCommentType;
 use App\Repository\CommentRepository;
 use App\Repository\EventRepository;
 use App\Repository\GaleryRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,10 +26,12 @@ class MemberController extends AbstractController
      * @Route("/event_to_come", name="member_event_to_come")
      * @return Response
      */
-    public function showEventsToCome(EventRepository $eventRepository): Response
+    public function showEventsToCome(EventRepository $eventRepository, UserRepository $userRepository): Response
     {
+        $user=$this->getUser();
         return $this->render('member/event_to_come.html.twig', [
-            'events' => $eventRepository->findBy(['isPrivate' => true], ['date' => 'ASC'], 6)
+            'events' => $eventRepository->findBy(['isPrivate' => true], ['date' => 'DESC'], 6),
+            'user' => $user,
         ]);
     }
 
@@ -45,6 +48,7 @@ class MemberController extends AbstractController
         $commentMember = new Comment();
         $form = $this->createForm(MemberCommentType::class, $commentMember);
         $form->handleRequest($request);
+        $user=$this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -61,6 +65,7 @@ class MemberController extends AbstractController
         return $this->render('member/show_event_to_come.html.twig', [
             'form' => $form->createView(),
             'event' => $event,
+            'user' => $user,
         ]);
     }
 
@@ -72,7 +77,6 @@ class MemberController extends AbstractController
     {
         $user=$this->getUser();
         return $this->render('member_page/index.html.twig', [
-
             'user' => $user,
         ]);
     }
@@ -83,10 +87,12 @@ class MemberController extends AbstractController
      * @param GaleryRepository $galeryRepository
      * @return Response
      */
-    public function galery(GaleryRepository $galeryRepository): Response
+    public function galery(GaleryRepository $galeryRepository, UserRepository $userRepository): Response
     {
+        $user=$this->getUser();
         return $this->render('private_galery/index.html.twig', [
             'galery' => $galeryRepository->findAll(),
+            'user' => $user,
         ]);
     }
 }

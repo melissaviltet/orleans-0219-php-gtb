@@ -16,3 +16,7 @@
     </div>
     {{ include ('_footer.html.twig') }}
 {% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('home') }}
+{% endblock %}

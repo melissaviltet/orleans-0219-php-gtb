@@ -16,8 +16,10 @@ class ClubController extends AbstractController
      */
     public function show(AssociationRepository $associationRepository): Response
     {
+        $user=$this->getUser();
         return $this->render('club/index.html.twig', [
             'association' => $associationRepository->findOneBy([]),
+            'user' => $user,
         ]);
     }
 }

@@ -5,12 +5,19 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
+ * @Vich\Uploadable
  */
 class Event
 {
+    const AUTHORIZED_EXTENSIONS = ["image/jpg", "image/png", "image/jpeg"];
+    const MAX_SIZE = '1024k';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -20,8 +27,52 @@ class Event
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Champs requis")
+     * @Assert\Length(
+     *     min = 2,
+     *     max = 255,
+     *     minMessage = "Doit avoir au moins {{ limit }} caractères",
+     *     maxMessage = "Ne doit pas depasser les {{ limit }} caractères"
+     * )
      */
     private $name;
+
+    /**
+     * @Vich\UploadableField(mapping="image_event", fileNameProperty="imageName", size="imageSize")
+     * @Assert\NotBlank(message="Champs requis")
+     * @Assert\File(
+     *     maxSize=Galery::MAX_SIZE,
+     *     maxSizeMessage="Image trop lourde!",
+     *     mimeTypes=Galery::AUTHORIZED_EXTENSIONS,
+     *     mimeTypesMessage="Extension de fichier non autorisée",
+     * )
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     * @Assert\Length(
+     *     min = 2,
+     *     max = 255,
+     *     minMessage = "Doit avoir au moins {{ limit }} caractères",
+     *     maxMessage = "Ne doit pas depasser les {{ limit }} caractères"
+     * )
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var integer|null
+     */
+    private $imageSize;
+
+    /**
+     * @ORM\Column(type="date_immutable", nullable=true)
+     * @var \DateTimeImmutable|null
+     */
+    private $updatedAt;
 
     /**
      * @ORM\Column(type="datetime")
@@ -36,17 +87,12 @@ class Event
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $url;
+    private $urlEvent;
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $isPrivate;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $picture;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -109,15 +155,21 @@ class Event
         return $this;
     }
 
-    public function getUrl(): ?string
+    /**
+     * @return mixed
+     */
+    public function getUrlEvent()
     {
-        return $this->url;
+        return $this->urlEvent;
     }
 
-    public function setUrl(string $url): self
+    /**
+     * @param mixed $urlEvent
+     * @return Event
+     */
+    public function setUrlEvent($urlEvent)
     {
-        $this->url = $url;
-
+        $this->urlEvent = $urlEvent;
         return $this;
     }
 
@@ -129,18 +181,6 @@ class Event
     public function setIsPrivate(bool $isPrivate): self
     {
         $this->isPrivate = $isPrivate;
-
-        return $this;
-    }
-
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
 
         return $this;
     }
@@ -209,6 +249,69 @@ class Event
     public function setLongDescription($longDescription)
     {
         $this->longDescription = $longDescription;
+        return $this;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->setUpdatedAt(new \DateTimeImmutable());
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
+    }
+
+    /**
+     * @param int|null $imageSize
+     * @return Event
+     */
+    public function setImageSize(?int $imageSize): Event
+    {
+        $this->imageSize = $imageSize;
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeImmutable|null
+     */
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTimeImmutable|null $updatedAt
+     * @return Event
+     */
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): Event
+    {
+        $this->updatedAt = $updatedAt;
         return $this;
     }
 }

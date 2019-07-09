@@ -6,14 +6,32 @@
     {% include '_navbar.html.twig' %}
     {% include 'home/_jumbotron.html.twig' %}
     <h1 class="text-center">Galerie</h1>
-    <div class="row my-4 justify-content-center">
-        {% for photo in galery %}
-            <div class="col-4">
-                <div class="row">
-                    <img src="{{ photo.url }}" alt="{{ photo.alt }}">
+    <div class="homepage-images flex-row position-relative text-center mb-5">
+
+        <div class="row homepage-picture">
+
+            {% for picture in galery %}
+
+                <div class="col-lg-4 col-md-6 col-sm-12 images-index">
+
+                    <img src="{{ asset('uploads/images/gallery/' ~ picture.imageName) }}" alt="{{ picture.alt }}">
+
                 </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="row btn-homepage-picture">
+
+            <div class="col ">
+
+                <a href="{{ path('galery') }}" class="btn btn-primary">Voir plus de photos de notre club</a>
+
             </div>
-        {% endfor %}
+
+        </div>
+
     </div>
     {% include '_footer.html.twig' %}
 {% endblock %}

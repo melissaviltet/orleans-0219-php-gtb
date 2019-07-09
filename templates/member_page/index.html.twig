@@ -13,16 +13,32 @@
             <img src="{{ user.picture }}" alt="{{ user.lastname }}">
         </div>
         <div class="col-lg-6 col-md-6 col-sm-3 col-about-me-information">
-            <p>{{ user.firstname }} {{ user.lastname }}</p>
-            <p>{{ user.birthdate|date('d M Y') }}</p>
-            <p>{{ user.address }}</p>
-            <p>{{ user.email }}</p>
+            <p>Prénom, Nom : {{ user.firstname }} {{ user.lastname }}</p>
+            <p>Date de naissance : {{ user.birthdate|date('d M Y') }}</p>
+            <p>Adresse : {{ user.address }}</p>
+            <p>Email : {{ user.email }}</p>
         </div>
+
         <div class="col-lg-2 col-md-6 col-sm-3 col-edit-information">
             <p><i class="far fa-edit"></i></p>
             <p><a href="{{ path('user_edit', {'id': user.id}) }}">Éditer mes informations</a></p>
-
         </div>
+
+        <div class="row row-button-member text-center">
+            <div class="col-lg-4">
+                <p><a href="{{ path('member_galery') }}"><i class="far fa-images"></i></a></p>
+                <p><a href="{{ path('member_galery') }}">Galerie</a></p>
+            </div>
+            <div class="col-lg-4">
+                <p><a href="{{ path('member_event_to_come') }}"><i class="fas fa-calendar-alt"></i></a></p>
+                <p><a href="{{ path('member_event_to_come') }}">Évènements</a></p>
+            </div>
+            <div class="col-lg-4">
+                <a><a href="{{ path('trombinoscope') }}"><i class="fas fa-portrait"></i></a></p>
+                <p><a href="{{ path('trombinoscope') }}">Trombinoscope</a></p>
+            </div>
+        </div>
+
     </div>
     {% include '_footer.html.twig' %}
 

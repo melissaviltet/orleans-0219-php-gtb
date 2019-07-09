@@ -10,10 +10,10 @@ require('../scss/app.scss');
 require('../scss/admin.scss');
 require('../fonts/Dusha.ttf');
 
-
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 //const $ = require('jquery');
-require('./main.js');
+import $ from 'jquery';
+import './main.js';
 //create global $ and jQuery variables
 global.$ = global.jQuery = $;
 
@@ -28,9 +28,7 @@ require('summernote');
 
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
-});
-
-$(document).ready(function () {
     $('.summernote').summernote();
 });
+
 

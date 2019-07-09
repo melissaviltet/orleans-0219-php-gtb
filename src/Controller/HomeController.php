@@ -26,12 +26,14 @@ class HomeController extends AbstractController
         GaleryRepository $picture,
         EventRepository $eventRepository
     ): Response {
+        $user=$this->getUser();
         $events = $eventRepository->findBy([], ['date' => 'ASC'], 4);
         return $this->render('home/index.html.twig', [
             'events' => $events,
             'sponsors' => $sponsorRepository->findAll(),
             'association' => $associationRepository->findOneBy([]),
-            'pictures' => $picture->findAll()
+            'pictures' => $picture->findAll(),
+            'user' => $user
 
         ]);
     }

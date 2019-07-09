@@ -11,13 +11,13 @@
             {% for event in events %}
                 <div class="col-lg-4">
                     <div class="card">
-                        <img class="card-img-top" src="{{ event.picture }}" alt="Card image cap">
+                        <img src="{{ asset('uploads/images/event/' ~ event.imageName) }}" class="card-img-top" alt="{{ event.imageName }}.">
                         <div class="card-body">
                             <h5 class="card-title">{{ event.name }}</h5>
-                            <p class="card-text"><a href="{{ event.url }}">Lien</a><br>
+                            <p class="card-text"><a href="{{ event.urlEvent }}" target="_blank">Lien</a><br>
                                 Le {{ event.date ? event.date|date('d M Y') : '' }}<br>
                                 À {{ event.place }}</p>
-                            <a class="btn btn-primary" href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
+                            <a class="btn btn-success" href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
                         </div>
                     </div>
                 </div>

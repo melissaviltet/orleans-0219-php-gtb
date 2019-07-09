@@ -9,7 +9,7 @@
                 {% for image in gallery %}
                     <div class="card card-img col-11 col-sm-4 col-lg-3 p-1 position-relative">
                         <img src="{{ asset('uploads/images/gallery/' ~ image.imageName) }}" class="card-img-top" alt="{{ image.imageName }}.">
-                        <span class="position-absolute"><a href="#" class="js-delete-gallery" data-url="{{ path('gallery_delete', { 'id': image.id }) }}"><i class="fas fa-trash-alt"></i></a></span>
+                        <span class="position-absolute"><a href="#" class="js-delete-gallery" onclick="return confirm('Êtes-vous sûr(e) de vouloir supprimer cet item?');" data-url="{{ path('gallery_delete', { 'id': image.id }) }}"><i class="fas fa-trash-alt"></i></a></span>
                     </div>
                 {% endfor %}
             </div>
@@ -20,12 +20,14 @@
                     {{ form_row(form.imageFile) }}
                     {{ form_row(form.private) }}
                     <div class="buttons mt-5">
-                        <button class="btn btn-outline-warning mr-3">Ajouter</button>
+                        <button class="btn btn-success mr-3">Ajouter</button>
                     </div>
                     {{ form_end(form) }}
                 </div>
         </div>
+        </div>
     </section>
+
 
 {% endblock %}
 {% block javascripts %}
@@ -47,4 +49,5 @@
                 });
             });
         });
-    </script>{% endblock %}
+    </script>
+{% endblock %}

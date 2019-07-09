@@ -34,12 +34,16 @@
             {{ form_start(form) }}
             {{ form_label(form.isActive) }}
             {{ form_widget(form.isActive) }}
-            <button class="btn btn-primary" type="submit">{{ button_label|default('Mettre à jour') }}</button>
+            <button class="btn btn-success" type="submit">{{ button_label|default('Mettre à jour') }}</button>
             {{ form_end(form) }}
         </div>
-        <div class="text-center">
-            {{ include('comment/_delete_form.html.twig') }}
-            <a class="btn btn-primary" href="{{ path('comment_index') }}">Retour à la liste</a>
+        <div class=" row text-center">
+            <div class="col-md-6">
+                {{ include('comment/_delete_form.html.twig') }}
+            </div>
+            <div class="col-md-6">
+                <a class="btn btn-primary" href="{{ path('comment_index') }}">Retour à la liste</a>
+            </div>
         </div>
     </section>
 

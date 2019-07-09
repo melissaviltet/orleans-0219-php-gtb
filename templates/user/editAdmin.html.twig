@@ -54,14 +54,16 @@
             {{ form_end(form) }}
 
             <div class="text-center mt-3">
-                <button class="btn btn-primary">{{ button_label|default('Enregistrer') }}</button>
+                <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
             </div>
-            <div class="text-center">
+            <div class=" row text-center">
+                <div class="col-md-6">
                 {{ include('user/_delete_form.html.twig') }}
             </div>
-            <div class="text-center">
+                <div class="col-md-6">
                 <button href="{{ path('admin_user_index') }}" class="btn btn-primary">Retour à la liste</button>
             </div>
+        </div>
         </div>
 
 

@@ -18,15 +18,15 @@
                     {% for eventData in event.comments %}
                         <div class="card mb-1 w-100">
                             <div class="row no-gutters">
-                                <div class="col-1 col-md-2 d-flex justify-content-center align-items-center">
-                                    <i class="fas fa-user"></i>
+                                <div class="cont-user-picture pt-3 pl-2 col-1 col-md-2 d-flex justify-content-center align-items-start">
+                                    {% if eventData.user.picture is not null %} <img src="{{ eventData.user.picture }}" class="card-img-top" alt="user-picture"> {% else %} <i class="fas fa-user"></i> {% endif %}
                                 </div>
                                 <div class="col-10">
                                     <div class="card-body">
                                         <p class="card-text">{{ eventData.message }}</p>
                                         <p class="card-text">
                                             <small class="text-muted">{{ eventData.user.firstname }} - </small>
-                                            <small class="text-muted">{{ eventData.date|date('d/m/Y') }}</small>
+                                            <small class="text-muted">{{ eventData.date|date('d/m/Y H:i') }}</small>
                                         </p>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                 <div class="form-message">
                     {{ form_start(form, {'attr': {'novalidate':'novalidate', 'class':'message-form'}}) }}
                     {{ form_row(form.message) }}
-                    <div class="text-center">
+                    <div class="text-left">
                         <button class="btn btn-success">Envoyer</button>
                     </div>
                     {{ form_end(form) }}

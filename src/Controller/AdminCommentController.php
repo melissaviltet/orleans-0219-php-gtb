@@ -6,13 +6,16 @@ use App\Entity\Comment;
 use App\Form\CommentModerationType;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * @Route("/admin/comment")
+ * @IsGranted({"ROLE_ADMIN"}, message="Accès réservé aux Administrateurs")
  */
 class AdminCommentController extends AbstractController
 {
@@ -27,11 +30,14 @@ class AdminCommentController extends AbstractController
     }
 
     /**
+     * @param Request $request
      * @Route("/new", name="comment_new", methods={"GET","POST"})
+     * @return Response
      */
     public function new(Request $request): Response
     {
         $comment = new Comment();
+
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
@@ -72,7 +78,10 @@ class AdminCommentController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param Comment $comment
      * @Route("/{id}/edit", name="comment_edit", methods={"GET","POST"})
+     * @return Response
      */
     public function edit(Request $request, Comment $comment): Response
     {
@@ -94,7 +103,10 @@ class AdminCommentController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param Comment $comment
      * @Route("/{id}", name="comment_delete", methods={"DELETE"})
+     * @return Response
      */
     public function delete(Request $request, Comment $comment): Response
     {

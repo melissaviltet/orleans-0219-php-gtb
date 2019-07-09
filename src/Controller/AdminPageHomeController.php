@@ -5,11 +5,17 @@ namespace App\Controller;
 use App\Entity\Sponsor;
 use App\Form\SponsorType;
 use App\Repository\SponsorRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
+/**
+ * Class AdminPageHomeController
+ * @IsGranted({"ROLE_ADMIN"}, message="Accès réservé aux Administrateurs")
+ */
 class AdminPageHomeController extends AbstractController
 {
     /**
@@ -43,6 +49,7 @@ class AdminPageHomeController extends AbstractController
 
             return $this->redirectToRoute('admin_page_home');
         }
+
         return $this->render('admin/page_home.html.twig', [
             'sponsors' => $sponsorRepository->findAll(),
             'form' => $form->createView(),

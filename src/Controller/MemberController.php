@@ -8,6 +8,7 @@ use App\Form\MemberCommentType;
 use App\Repository\CommentRepository;
 use App\Repository\EventRepository;
 use App\Repository\GaleryRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,6 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class MemberController
  * @package App\Controller
+ * @IsGranted({"ROLE_MEMBER", "ROLE_ADMIN", "ROLE_OFFICE"}, message="Accès réservé aux Membres")
  * @Route("/member")
  */
 class MemberController extends AbstractController

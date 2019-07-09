@@ -3,10 +3,15 @@
 namespace App\Controller;
 
 use App\Repository\EventRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Class AdminController
+ * @IsGranted({"ROLE_ADMIN", "ROLE_OFFICE"}, message="Accès réservé aux Administrateurs")
+ */
 class AdminController extends AbstractController
 {
     /**

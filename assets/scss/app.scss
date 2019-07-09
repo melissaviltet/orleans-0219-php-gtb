@@ -17,6 +17,11 @@ h1, h2, h3, h4, h5 {
   font-family: $title-font;
 }
 
+h2 {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
 p {
   font-family: $text-font;
 }
@@ -117,7 +122,6 @@ p {
   font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
 
   .embed-responsive {
-    max-width: 80%;
     max-width: 300px;
     height: auto;
   }

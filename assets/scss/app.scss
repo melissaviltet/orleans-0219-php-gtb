@@ -50,7 +50,7 @@ p {
   font-size: 1.5vw;
 }
 
-.member-picture{
+.member-picture {
   border-radius: 100%;
   width: 3.5%;
   height: auto;
@@ -111,32 +111,37 @@ p {
   border-top: $trail-primary-color solid 5px;
   color: $font-color;
   font-family: $text-font;
-  font-size: 2vh;
-  margin-right : 0;
+  margin-right: 0;
   margin-left: 0;
   font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
+
   .embed-responsive {
     max-width: 80%;
     max-width: 300px;
     height: auto;
   }
-    ul{
-    list-style-type: none;
-    a{
-      color: $trail-primary-color;
-      .fa-facebook-square {
-              padding-top: 0.7rem;
-              padding-bottom: 1rem;
-              font-size: 4vh;
-              color: $trail-primary-color;
 
-              &:hover {
-                color: lighten($trail-primary-color, 10%);
-                transition: 0.5s;
-              }
-            }
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    color: $trail-primary-color;
+
+    .fa-facebook-square {
+      padding-top: 0.7rem;
+      padding-bottom: 1rem;
+      font-size: 4vh;
+      color: $trail-primary-color;
+
+      &:hover {
+        color: lighten($trail-primary-color, 10%);
+        transition: 0.5s;
+      }
     }
   }
+}
 
 /***Jumbotron***/
 .cont-jumbotron {
@@ -235,16 +240,6 @@ p {
   }
 }
 
-.btn {
-  background-color: $trail-primary-color;
-  border-color: darken($trail-primary-color, 20%);
-  transition: ease 0.2s;
-
-  &:hover {
-    background-color: darken($trail-primary-color, 20%);
-    border-color: $trail-primary-color;
-  }
-}
 
 /***Section Le CLub Accueil***/
 
@@ -282,22 +277,122 @@ section.sponsors {
     border: 1px solid $trail-primary-color !important;
     width: 10%;
   }
-
-  .carousel-indicators li {
-    width: 15px;
-    height: 15px;
-    background-color: $trail-primary-color;
-    border-radius: 50%;
-  }
-
-  .carousel-inner {
-    padding-bottom: 5%;
-  }
-
-  .card {
-    border: none;
-  }
 }
+
+/***CAROUSEL***/
+
+#eclipse5 .eclipse-slides {
+  opacity: 0.5;
+}
+#eclipse5 .eclipse-active-2 {
+  opacity: 1;
+}
+
+.eclipse-wrapper {
+  position: relative;
+}
+.eclipse-wrapper button {
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.eclipse-hide {
+  display: none !important;
+}
+
+.eclipse-slider {
+  transition: all 500ms;
+}
+.eclipse-slides {
+  height: 300px;
+  border-radius: 15px;
+  font-size: 50px;
+  line-height: 300px;
+  text-align: center;
+  color: #000000;
+  z-index: 1;
+}
+.eclipse-slides img {
+  max-width: 90%;
+}
+.eclipse-active {
+  z-index: 10;
+}
+
+.eclipse-clone {
+  z-index: 0 !important;
+}
+
+.eclipse-arrow {
+  display: block;
+  position: absolute;
+  top: 50%;
+  z-index: 11;
+  width: 21px;
+  height: 35px;
+  margin: -18px 0 0;
+  background: url('../images/arrow.png') 0 0 no-repeat;
+  text-indent: -9999em;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;}
+.eclipse-arrow.eclipse-prev {
+  left: -50px;
+  transform: rotate(180deg);
+}
+.eclipse-arrow.eclipse-next {
+  right: -50px;
+}
+
+.eclipse-controls {
+  position: absolute;
+  left: 50%;
+  z-index: 11;
+  line-height: 0;
+  transform: translateX(-50%);
+}
+
+.eclipse-paging {
+  float: left;
+}
+.eclipse-paging-button {
+  width: 15px;
+  height: 15px;
+  margin: 0 0 0 10px;
+  background: lighten($trail-primary-color, 35);
+  border-radius: 50%;
+  text-indent: -9999em;
+}
+.eclipse-paging-button:first-child {
+  margin-left: 0;
+}
+.eclipse-paging-active {
+  background: $trail-primary-color;
+}
+
+.eclipse-auto-play {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin: 0 0 0 10px;
+  background: url('../images/play.png') 0 0 no-repeat;
+  text-indent: -9999em;
+}
+.eclipse-auto-stop {
+  display: none;
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin: 0 0 0 10px;
+  background: url('../images/stop.png') 0 0 no-repeat;
+  text-indent: -9999em;
+}
+
+
 
 /* Events */
 .events {
@@ -403,8 +498,10 @@ h1 {
 
 .sportpage {
   margin: 3em;
+
   .card {
     width: 100%;
+
     img {
       object-fit: contain;
       width: 100%;
@@ -462,8 +559,6 @@ h1 {
     margin-top: 5%;
 
     img {
-      min-width: -webkit-fill-available;
-      min-width: -moz-fill-available;
       box-sizing: border-box;
     }
 
@@ -515,58 +610,60 @@ h1 {
       color: $trail-secondary-color;
     }
   }
-  .fa-images{
-      font-size : 2.5rem;
-      color: $trail-primary-color;
-    }
-  .fa-calendar-alt{
-      font-size : 2.5rem;
-      color: $trail-primary-color;
-    }
-  .fa-portrait{
-      font-size : 2.5rem;
-      color: $trail-primary-color;
-    }
+
+  .fa-images {
+    font-size: 2.5rem;
+    color: $trail-primary-color;
+  }
+
+  .fa-calendar-alt {
+    font-size: 2.5rem;
+    color: $trail-primary-color;
+  }
+
+  .fa-portrait {
+    font-size: 2.5rem;
+    color: $trail-primary-color;
+  }
+
   a {
     text-decoration: none;
     color: $trail-secondary-color;
   }
-  }
-
+}
 
 
 /***Reset password page***/
 
-
 .rox-poney-password {
-margin-top: 15%;
-margin-bottom: 15%;
+  margin-top: 15%;
+  margin-bottom: 15%;
 
   .card-reset {
     background-color: $font-color-light-bg;
     color: $font-color;
+  }
 
-    p {
-      text-align: center;
-    }
+  p {
+    text-align: center;
+  }
+}
 
+/***Legal Mentions***/
+.container-legal-mention {
+  background-color: $font-color-light-bg;
+  color: $font-color;
 
-    /***Legal Mentions***/
-    .container-legal-mention {
-      background-color: $font-color-light-bg;
-      color: $font-color;
+  .title-legal-mentions {
+    text-align: center;
+    margin-top: $marginTopAboutMe;
+    margin-bottom: $marginTopAboutMe;
+  }
 
-      .title-legal-mentions {
-        text-align: center;
-        margin-top: $marginTopAboutMe;
-        margin-bottom: $marginTopAboutMe;
-      }
-
-      a {
-        color: $trail-primary-color;
-        font-weight: bold;
-      }
-    }
+  a {
+    color: $trail-primary-color;
+    font-weight: bold;
+  }
 
   p {
     text-align: center;

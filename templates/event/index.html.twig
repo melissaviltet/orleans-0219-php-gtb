@@ -17,7 +17,7 @@
                             <p class="card-text"><a href="{{ event.urlEvent }}" target="_blank">Lien</a><br>
                                 Le {{ event.date ? event.date|date('d M Y') : '' }}<br>
                                 À {{ event.place }}</p>
-                            <a class="btn btn-primary" href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
+                            <a class="btn btn-success" href="{{ path('event_edit', {'id': event.id}) }}">Modifier</a>
                         </div>
                     </div>
                 </div>

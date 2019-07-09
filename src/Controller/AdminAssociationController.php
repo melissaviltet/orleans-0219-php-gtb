@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Association;
 use App\Form\Association1Type;
 use App\Repository\AssociationRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/association")
+ * @IsGranted({"ROLE_ADMIN"}, message="Accès réservé aux Administrateurs")
  */
 class AdminAssociationController extends AbstractController
 {
@@ -37,7 +39,10 @@ class AdminAssociationController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param Association $association
      * @Route("/{id}/edit", name="association_edit", methods={"GET","POST"})
+     * @return Response
      */
     public function edit(Request $request, Association $association): Response
     {
@@ -51,7 +56,6 @@ class AdminAssociationController extends AbstractController
                 'id' => $association->getId(),
             ]);
         }
-
         return $this->render('association/edit.html.twig', [
             'association' => $association,
             'form' => $form->createView(),
@@ -60,7 +64,10 @@ class AdminAssociationController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param Association $association
      * @Route("/{id}", name="association_delete", methods={"DELETE"})
+     * @return Response
      */
     public function delete(Request $request, Association $association): Response
     {
@@ -69,7 +76,6 @@ class AdminAssociationController extends AbstractController
             $entityManager->remove($association);
             $entityManager->flush();
         }
-
         return $this->redirectToRoute('association_index');
     }
 }

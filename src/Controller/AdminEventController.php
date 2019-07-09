@@ -5,18 +5,23 @@ namespace App\Controller;
 use App\Entity\Event;
 use App\Form\EventType;
 use App\Repository\EventRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 /**
  * @Route("/admin/event")
+ * @IsGranted({"ROLE_ADMIN", "ROLE_OFFICE"}, message="Accès réservé aux Administrateurs")
  */
 class AdminEventController extends AbstractController
 {
     /**
+     * @param EventRepository $eventRepository
      * @Route("/", name="event_index", methods={"GET"})
+     * @return Response
      */
     public function index(EventRepository $eventRepository): Response
     {
@@ -27,7 +32,9 @@ class AdminEventController extends AbstractController
     }
 
     /**
+     * @param Request $request
      * @Route("/new", name="event_new", methods={"GET","POST"})
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -52,7 +59,10 @@ class AdminEventController extends AbstractController
 
 
     /**
+     * @param Request $request
+     * @param Event $event
      * @Route("/{id}/edit", name="event_edit", methods={"GET","POST"})
+     * @return Response
      */
     public function edit(Request $request, Event $event): Response
     {
@@ -67,6 +77,7 @@ class AdminEventController extends AbstractController
             ]);
         }
 
+
         return $this->render('event/edit.html.twig', [
             'event' => $event,
             'form' => $form->createView(),
@@ -75,7 +86,10 @@ class AdminEventController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param Event $event
      * @Route("/{id}", name="event_delete", methods={"DELETE"})
+     * @return Response
      */
     public function delete(Request $request, Event $event): Response
     {

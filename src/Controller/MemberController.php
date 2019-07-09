@@ -22,21 +22,20 @@ use Symfony\Component\HttpFoundation\Request;
 class MemberController extends AbstractController
 {
     /**
-     * @param UserRepository $userRepository
      * @param EventRepository $eventRepository
      * @Route("/event_to_come", name="member_event_to_come")
      * @return Response
      */
     public function showEventsToCome(EventRepository $eventRepository, UserRepository $userRepository): Response
     {
+        $user=$this->getUser();
         return $this->render('member/event_to_come.html.twig', [
             'events' => $eventRepository->findBy(['isPrivate' => true], ['date' => 'DESC'], 6),
-            'user' => $userRepository->findOneBy([])
+            'user' => $user,
         ]);
     }
 
     /**
-     * @param UserRepository $userRepository
      * @param Request $request
      * @param Event $event
      * @Route("/event_to_come/{id}", name="show_event_to_come", methods={"GET","POST"})
@@ -44,12 +43,12 @@ class MemberController extends AbstractController
      */
     public function newMemberComment(
         Request $request,
-        Event $event,
-        UserRepository $userRepository
+        Event $event
     ): Response {
         $commentMember = new Comment();
         $form = $this->createForm(MemberCommentType::class, $commentMember);
         $form->handleRequest($request);
+        $user=$this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -66,7 +65,7 @@ class MemberController extends AbstractController
         return $this->render('member/show_event_to_come.html.twig', [
             'form' => $form->createView(),
             'event' => $event,
-            'user' => $userRepository->findOneBy([])
+            'user' => $user,
         ]);
     }
 
@@ -78,23 +77,22 @@ class MemberController extends AbstractController
     {
         $user=$this->getUser();
         return $this->render('member_page/index.html.twig', [
-
             'user' => $user,
         ]);
     }
 
 
     /**
-     * @param UserRepository $userRepository
      * @Route("/galery", name="member_galery")
      * @param GaleryRepository $galeryRepository
      * @return Response
      */
     public function galery(GaleryRepository $galeryRepository, UserRepository $userRepository): Response
     {
+        $user=$this->getUser();
         return $this->render('private_galery/index.html.twig', [
             'galery' => $galeryRepository->findAll(),
-            'user' => $userRepository->findOneBy([])
+            'user' => $user,
         ]);
     }
 }

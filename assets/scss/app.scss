@@ -41,13 +41,20 @@ p {
   background-color: transparent;
   color: $trail-primary-color;
   border-radius: 5px;
+  height: 35px;
+  width: 145px;
+  &:hover {
+    @extend %btn-primary;
+  }
 }
 
 %btn-primary {
   background-color: $trail-primary-color;
   color: $font-color;
   border-radius: 5px;
-
+  border: none;
+  height: 35px;
+  width: 145px;
   &:hover {
     @extend %btn-primary-outline;
   }
@@ -174,6 +181,9 @@ p {
           max-height: 250px;
         }
       }
+      .btn.btn-primary {
+        @extend %btn-primary;
+      }
     }
   }
 }
@@ -264,6 +274,9 @@ p {
   }
   .input-group-prepend .fas {
     color: $trail-primary-color;
+  }
+  .btn.btn-primary {
+    @extend %btn-primary;
   }
 }
 

@@ -194,7 +194,7 @@ p {
 ************************************/
 
 .club {
-  background-color: lighten($font-color-light-bg, 50);
+  background-color: lighten($trail-primary-color, 42);
   font-family: $text-font;
   color: $trail-secondary-color;
   padding-bottom: $sectionPadding;

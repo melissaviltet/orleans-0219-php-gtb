@@ -3,6 +3,11 @@
 @import 'mixins.scss';
 @import "functions";
 
+
+/************************************
+            GENERAL STYLES
+************************************/
+
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -26,9 +31,10 @@ p {
   font-family: $text-font;
 }
 
-/***General styles***/
 
-/***Buttons***/
+/************************************
+            BUTTONS
+************************************/
 
 %btn-primary-outline {
   border: 1px solid $trail-primary-color;
@@ -48,7 +54,9 @@ p {
 }
 
 
-/***Visiter Navbar***/
+/************************************
+            VISITER NAVBAR
+************************************/
 
 .fa-user, .fas.fa-map-marker, .fa-user-check {
   color: $trail-primary-color;
@@ -110,45 +118,10 @@ p {
 }
 
 
-/***Footer***/
+/************************************
+            JUMBOTRON
+************************************/
 
-.global-footer {
-  background-color: $trail-secondary-color;
-  border-top: $trail-primary-color solid 5px;
-  color: $font-color;
-  font-family: $text-font;
-  margin-right: 0;
-  margin-left: 0;
-  font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
-
-  .embed-responsive {
-    max-width: 300px;
-    height: auto;
-  }
-
-
-  ul {
-    list-style-type: none;
-  }
-
-  a {
-    color: $trail-primary-color;
-
-    .fa-facebook-square {
-      padding-top: 0.7rem;
-      padding-bottom: 1rem;
-      font-size: 4vh;
-      color: $trail-primary-color;
-
-      &:hover {
-        color: lighten($trail-primary-color, 10%);
-        transition: 0.5s;
-      }
-    }
-  }
-}
-
-/***Jumbotron***/
 .cont-jumbotron {
   background-image: url('../images/header-site-gtb.jpg');
   background-size: contain;
@@ -188,65 +161,28 @@ p {
   height: 5px;
 }
 
-/* Trail & Triathlon */
 
-.trail {
-  border-bottom: $trail-primary-color solid 5px;
-}
+/************************************
+            EVENTS SECTION
+************************************/
 
-.trititle {
-  width: 100%;
-  text-align: center;
-}
-
-.triathlon, .trail {
-  overflow: hidden;
-
-  h2 {
-    color: $font-color;
-    font-family: $title-font;
-  }
-
-  p {
-    font-family: $text-font;
-    color: $font-color;
-  }
-
-  .row {
-    width: 100vw;
-  }
-
-  .back {
-    width: 100%;
-    z-index: 0;
-    filter: brightness(50%);
-    height: 25em;
-    object-fit: cover;
-  }
-
-  .position-absolute {
-    top: 20%;
-    @include small {
-      top: 7%;
-    }
-    @include medium {
-      top: 15%;
-    }
-  }
-
-  .logo {
-    width: 20vw;
-    @include small {
-      width: 70vw;
-    }
-    @include medium {
-      width: 40vw;
+.events {
+  .main {
+    .card.card-event-to-come {
+      .card-header {
+        max-height: 250px;
+        img {
+          max-height: 250px;
+        }
+      }
     }
   }
 }
 
 
-/***Section Le CLub Accueil***/
+/************************************
+            CLUB SECTION
+************************************/
 
 .club {
   background-color: lighten($font-color-light-bg, 50);
@@ -266,7 +202,98 @@ p {
   }
 }
 
-/***Sponsors***/
+
+/************************************
+      TRAIL & TRIATHLON SECTION
+************************************/
+
+.trail {
+  border-bottom: $trail-primary-color solid 5px;
+}
+
+.trititle {
+  width: 100%;
+  text-align: center;
+}
+
+.triathlon, .trail, .cont-absolute {
+  overflow: hidden;
+  max-height: 500px;
+
+  h2 {
+    color: $font-color;
+    font-family: $title-font;
+  }
+
+  p {
+    font-family: $text-font;
+    color: $font-color;
+  }
+
+  .row {
+    width: 100vw;
+  }
+
+  .back {
+    width: 100%;
+    z-index: 0;
+    filter: brightness(50%);
+    max-height: 500px;
+    object-fit: cover;
+  }
+  .cont-absolute {
+    top: 25%;
+    right: 0;
+  }
+  .logo {
+    width: 15vw;
+  }
+}
+
+
+
+/************************************
+      HOME FORM SECTION
+************************************/
+
+.contact-form {
+  margin: auto;
+  float: none;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+
+/************************************
+            HOME GALLERY
+************************************/
+
+.homepage-images {
+  .btn-homepage-picture {
+    left: 42vw;
+    margin-top: -70px;
+    z-index: 1;
+  }
+
+  .images-index {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .col-4 {
+    img {
+      object-fit: cover;
+      max-width: 40vw;
+    }
+  }
+}
+
+
+/************************************
+         SPONSORS SECTION
+************************************/
 
 section.sponsors {
   padding-bottom: $sectionPadding;
@@ -284,7 +311,7 @@ section.sponsors {
   }
 }
 
-/***CAROUSEL***/
+/**********CAROUSEL**********/
 
 #eclipse5 .eclipse-slides {
   opacity: 0.5;
@@ -399,44 +426,69 @@ section.sponsors {
 
 
 
-/* Events */
-.events {
-  .main {
-    .card {
-      max-height: 21em;
-      margin-left: 2em;
+/************************************
+               FOOTER
+************************************/
 
-      .card-img-top {
-        overflow: hidden;
-      }
+.global-footer {
+  background-color: $trail-secondary-color;
+  border-top: $trail-primary-color solid 5px;
+  color: $font-color;
+  font-family: $text-font;
+  margin-right: 0;
+  margin-left: 0;
+  font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
 
-      img {
-        object-fit: cover;
-        transition: ease 0.2s;
-        width: 100%;
-
-        &hover {
-          transform: scale(1.1);
-        }
-      }
-    }
+  .embed-responsive {
+    max-width: 300px;
+    height: auto;
   }
 
-  .next {
-    margin-right: 0;
 
-    .card {
-      max-height: 7em;
-      width: 75%;
-      margin-left: 2em;
-      margin-bottom: 0.5em;
-      margin-right: 2em;
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    color: $trail-primary-color;
+
+    .fa-facebook-square {
+      padding-top: 0.7rem;
+      padding-bottom: 1rem;
+      font-size: 4vh;
+      color: $trail-primary-color;
+
+      &:hover {
+        color: lighten($trail-primary-color, 10%);
+        transition: 0.5s;
+      }
     }
   }
 }
 
 
-/***Login Page***/
+/************************************
+      PAGES TRAIL & TRIATHLON
+************************************/
+
+.sportpage {
+  margin: 3em;
+
+  .card {
+    width: 100%;
+
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+  }
+}
+
+
+/************************************
+          LOGIN PAGE
+************************************/
+
 h1 {
   text-align: center;
 }
@@ -477,44 +529,11 @@ h1 {
   }
 }
 
-/***homepage Galery***/
 
-.homepage-images {
-  .btn-homepage-picture {
-    left: 42vw;
-    margin-top: -70px;
-    z-index: 1;
-  }
+/************************************
+       PAGE CREATE NEW COUNT
+************************************/
 
-  .images-index {
-    overflow: hidden;
-    padding: 0;
-  }
-
-  .col-4 {
-    img {
-      object-fit: cover;
-      max-width: 40vw;
-    }
-  }
-}
-
-/* Pages trail & triathlon */
-
-.sportpage {
-  margin: 3em;
-
-  .card {
-    width: 100%;
-
-    img {
-      object-fit: contain;
-      width: 100%;
-    }
-  }
-}
-
-/***Création d'un nouveau compte***/
 .new-account-title {
   text-align: center;
 }
@@ -534,55 +553,30 @@ h1 {
 }
 
 
-/***PAGE MEMBER-EVENTS***/
+/************************************
+       RESET PASSWORD PAGE
+************************************/
 
-.member-events {
-  .events .card-body {
-    .card-title {
-      font-family: $text-font;
-    }
+.rox-poney-password {
+  margin-top: 15%;
+  margin-bottom: 15%;
+
+  .card-reset {
+    background-color: $font-color-light-bg;
+    color: $font-color;
   }
-}
 
-/***formulaire contact accueil***/
-.contact-form {
-  margin: auto;
-  float: none;
-
-  h2 {
+  p {
     text-align: center;
   }
 }
 
 
-/***MEMBER SHOW ONE EVENT TO COME***/
 
-.event-to-come .row {
-  .card {
-    border: none;
-    margin-bottom: 10%;
-    margin-top: 5%;
+/************************************
+            MEMBER PAGE
+************************************/
 
-    img {
-      box-sizing: border-box;
-      border-radius: 50%;
-    }
-
-  }
-
-  .discussion {
-    .cont-messages {
-      height: 500px;
-      overflow-y: scroll;
-
-      .card .card-body {
-        padding: 1rem;
-      }
-    }
-  }
-}
-
-/***Member page***/
 .title-member-page {
   margin-top: $marginTop;
   text-align: center;
@@ -639,23 +633,55 @@ h1 {
 }
 
 
-/***Reset password page***/
+/************************************
+       MEMBER EVENTS PAGE
+************************************/
 
-.rox-poney-password {
-  margin-top: 15%;
-  margin-bottom: 15%;
-
-  .card-reset {
-    background-color: $font-color-light-bg;
-    color: $font-color;
-  }
-
-  p {
-    text-align: center;
+.member-events {
+  .events .card-body {
+    .card-title {
+      font-family: $text-font;
+    }
   }
 }
 
-/***Legal Mentions***/
+
+
+/************************************
+     MEMBER EVENT TO COME PAGE
+************************************/
+
+.event-to-come .row {
+  .card {
+    border: none;
+    margin-bottom: 10%;
+    margin-top: 5%;
+
+    img {
+      box-sizing: border-box;
+      border-radius: 50%;
+    }
+
+  }
+
+  .discussion {
+    .cont-messages {
+      height: 500px;
+      overflow-y: scroll;
+
+      .card .card-body {
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+
+
+/************************************
+      LEGAL MENTIONS PAGE
+************************************/
+
 .container-legal-mention {
   background-color: $font-color-light-bg;
   color: $font-color;

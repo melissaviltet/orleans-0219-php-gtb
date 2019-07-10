@@ -253,14 +253,6 @@ p {
   font-family: $text-font;
   color: $trail-secondary-color;
   padding-bottom: $sectionPadding;
-
-  .title-club {
-    font-family: $title-font;
-    color: $trail-primary-color;
-    font-size: calc(2vw + 6 * ((100vw - 320px) / 680));
-    padding-top: $sectionPadding - 5;
-  }
-
   .border-sponsors {
     width: 10%;
   }
@@ -546,8 +538,12 @@ h1 {
 
 /***formulaire contact accueil***/
 .contact-form {
+  padding-top : 4.5rem;
   margin: auto;
   float: none;
+  background-color: lighten($font-color-light-bg, 50);
+  padding-right : 0;
+  padding-left : 0;
 
   h2 {
     text-align: center;

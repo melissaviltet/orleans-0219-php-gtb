@@ -290,6 +290,9 @@ p {
     left: 42vw;
     margin-top: -70px;
     z-index: 1;
+    .btn.btn-primary {
+      font-size: 14px;
+    }
   }
 
   .images-index {

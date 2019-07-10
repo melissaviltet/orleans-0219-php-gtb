@@ -67,7 +67,6 @@ p {
   border-radius: 100%;
   width: 50px;
   height: 50px;
-  //height: auto;
   margin-right: 2rem;
 }
 
@@ -262,6 +261,9 @@ p {
 
   h2 {
     text-align: center;
+  }
+  .input-group-prepend .fas {
+    color: $trail-primary-color;
   }
 }
 

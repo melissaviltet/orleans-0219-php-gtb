@@ -20,7 +20,7 @@ class ContactType extends AbstractType
             ->add('lastname', TextType::class, ['attr' => ['placeholder' => 'Nom']])
             ->add('firstname', TextType::class, ['attr' => ['placeholder' => 'Prénom']])
             ->add('email', EmailType::class, ['attr' => ['placeholder' => 'E-mail']])
-            ->add('subject', ChoiceType::class, ['placeholder' => 'choisissez un sujet',
+            ->add('subject', ChoiceType::class, ['placeholder' => 'Choisissez un sujet',
                 'choices' => $contact->getSubjects()
             ])
             ->add('message', TextareaType::class, ['attr' => ['placeholder' => 'Votre message']]);

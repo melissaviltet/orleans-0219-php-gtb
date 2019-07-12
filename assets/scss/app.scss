@@ -264,12 +264,10 @@ p {
   margin: auto;
   float: none;
   background-color: $trail-secondary-color-nav;
+  padding-top: 4.5rem;
 
   h2 {
     text-align: center;
-  }
-  .input-group-prepend .fas {
-    color: $trail-primary-color;
   }
   .btn.btn-primary {
     @extend %btn-primary;

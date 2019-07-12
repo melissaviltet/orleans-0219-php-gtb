@@ -2,52 +2,46 @@
 
 {% block body %}
 
-    <div class="contact-form col-11 col-md-6 mt-5 mb-5 pt-5 pb-3">
-        <h2 class="pb-3">Nous contacter</h2>
+    <div class="contact-form">
+        <h2>Nous contacter</h2>
         {{ form_start(form, {'action': path('contact'), 'method': 'POST'}) }}
         <div class="row pt-4 justify-content-center">
-            <div class="form-group-lastname col-12  input-group mb-2 mr-sm-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-user"></i></div>
-                </div>
-                {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+            <div class="form-group-lastname col-lg-6">
+                {{ form_label(form.lastname, 'Nom') }}
+                {{ form_widget(form.lastname) }}
+
             </div>
         </div>
-
         <div class="row pt-4 justify-content-center">
-            <div class="form-group-firstname col-12  input-group mb-2 mr-sm-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-user"></i></div>
-                </div>
-                {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+            <div class="form-group-firstname col-lg-6">
+                {{ form_label(form.firstname, 'Prénom') }}
+                {{ form_widget(form.firstname) }}
+
             </div>
         </div>
-
         <div class="row pt-4 justify-content-center">
-            <div class="form-group-email col-12  input-group mb-2 mr-sm-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-envelope"></i></div>
-                </div>
-                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            <div class="form-group-email col-lg-6">
+                {{ form_label(form.email, 'Email') }}
+                {{ form_widget(form.email) }}
+
             </div>
         </div>
-
         <div class="row pt-4 justify-content-center">
-            <div class="form-group-subject col-12  input-group mb-2 mr-sm-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="fas fa-check"></i></div>
-                </div>
-                {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+            <div class="form-group-subject col-lg-6">
+                {{ form_label(form.subject, 'Sujet') }}
+                {{ form_widget(form.subject) }}
+
             </div>
         </div>
-
         <div class="row pt-4 justify-content-center">
-            <div class="form-group-message col-12">
+            <div class="form-group-message col-lg-6">
+                {{ form_label(form.message, 'Votre message') }}
                 {{ form_widget(form.message,{ 'attr': {'rows': '8'} }) }}
+
             </div>
         </div>
 
-        <div class="row pt-4 justify-content-end mb-5 mr-2">
+        <div class="row pt-4 justify-content-center mb-5">
             <button class="btn btn-primary">Envoi</button>
         </div>
         {{ form_end(form) }}

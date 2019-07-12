@@ -648,6 +648,19 @@ h1 {
   }
 }
 
+/************************************
+       MEMBER PRIVATE GALLERY
+************************************/
+.private-gallery {
+  .img-cont {
+    img {
+      max-width: 400px;
+      max-height: 400px;
+    }
+  }
+}
+
+
 
 /************************************
        MEMBER EVENTS PAGE

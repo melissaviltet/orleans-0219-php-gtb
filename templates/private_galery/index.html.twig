@@ -5,15 +5,15 @@
 {% block body %}
     {% include '_navbar.html.twig' %}
     {% include 'home/_jumbotron.html.twig' %}
-    <h1 class="text-center">Galerie : Vie du Club</h1>
-    <div class="row my-4 justify-content-center">
-        {% for photo in galery %}
-            <div class="col-4">
-                <div class="row">
-                    <img src="{{ photo.imageName }}" alt="{{ photo.alt }}">
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+    <h1 class="text-center pt-5 mt-5 pb-4">Galerie : Vie du Club</h1>
+    <section class="private-gallery mb-5 pb-5">
+        <div class="img-cont row my-4 justify-content-center">
+            {% for photo in galery %}
+                <img class="col-10 col-md-4 pt-3"
+                     src="{{ asset('uploads/images/gallery/' ~ photo.imageName) }}"
+                     alt="{{ photo.alt }}">
+            {% endfor %}
+        </div>
+    </section>
     {% include '_footer.html.twig' %}
 {% endblock %}

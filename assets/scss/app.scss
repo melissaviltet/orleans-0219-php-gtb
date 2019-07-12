@@ -194,20 +194,15 @@ p {
 ************************************/
 
 .club {
-  background-color: lighten($trail-primary-color, 42);
+  background-color: $trail-secondary-color-nav;
   font-family: $text-font;
   color: $trail-secondary-color;
   padding-bottom: $sectionPadding;
 
   .title-club {
     font-family: $title-font;
-    color: $trail-primary-color;
-    font-size: calc(2vw + 6 * ((100vw - 320px) / 680));
+    color: $trail-secondary-color;
     padding-top: $sectionPadding - 5;
-  }
-
-  .border-sponsors {
-    width: 10%;
   }
 }
 
@@ -268,6 +263,7 @@ p {
 .contact-form {
   margin: auto;
   float: none;
+  background-color: $trail-secondary-color-nav;
 
   h2 {
     text-align: center;

@@ -98,7 +98,7 @@ class LoginFormAuthentificatorAuthenticator extends AbstractFormLoginAuthenticat
         $connectedUser = $this->userRepository->findOneBy(['email' => $request->get('email')]);
 
 
-        return new RedirectResponse($this->urlGenerator->generate('member_page'));
+//        return new RedirectResponse($this->urlGenerator->generate('member_page'));
     }
 
     protected function getLoginUrl()

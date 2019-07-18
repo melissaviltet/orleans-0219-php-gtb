@@ -19,7 +19,10 @@
             <div class="cont-form-logo col-11 col-md-4 pt-4">
                 <div class="form-logo">
                     {{ form_start(form, {'attr': {'novalidate':'novalidate', 'class':'sponsor-form'}}) }}
-                    {{ form_widget(form) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.imageFile) }}
+                    <small class="pl-2 text-muted"><i>*Images carrées requises</i></small>
+                    {{ form_row(form.site) }}
                     <div class="buttons mt-5">
                         <button class="btn btn-success mr-3">Ajouter</button>
                     </div>

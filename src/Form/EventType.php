@@ -4,7 +4,8 @@ namespace App\Form;
 
 use App\Entity\Event;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -40,8 +41,21 @@ class EventType extends AbstractType
                     'placeholder' => 'https://'
                 ],
             ])
-            ->add('isPrivate', CheckboxType::class, [
-                'label_format' => 'Évènement privé',
+            ->add('shortDescription', TextType::class, [
+                'label' => 'Courte description de l\'évènement:',
+                'attr' => [
+                    'placeholder' => 'rassemblement prévu ...'
+                ]
+            ])
+            ->add('longDescription', TextareaType::class, [
+                'label' => 'Description détaillée de l\'évènement:',
+            ])
+            ->add('isPrivate', ChoiceType::class, [
+                'choices' => [
+                    'Oui' => true,
+                    'Non' => false
+                ],
+                'label' => 'L\'évnèment est privé:'
             ]);
     }
 

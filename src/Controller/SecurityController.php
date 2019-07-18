@@ -24,8 +24,12 @@ class SecurityController extends AbstractController
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
+        $user=$this->getUser();
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error' => $error,
+            'user' => $user,]);
     }
 
 
@@ -37,6 +41,7 @@ class SecurityController extends AbstractController
         Swift_Mailer $mailer,
         TokenService $tokenService
     ): Response {
+        $user=$this->getUser();
         $form = $this->createForm(ForgottenPasswordType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -66,7 +71,10 @@ class SecurityController extends AbstractController
              Vous allez recevoir un mail permettant de réinitialiser votre mot de passe à l\'adresse indiquée.');
             return $this->redirectToRoute('app_login');
         }
-        return $this->render('security/resetPassword.html.twig', ['form' => $form->createView()]);
+        return $this->render('security/resetPassword.html.twig', [
+            'form' => $form->createView(),
+            'user' => $user
+        ]);
     }
 
     /**
@@ -78,6 +86,7 @@ class SecurityController extends AbstractController
         UserPasswordEncoderInterface $passwordEncoder,
         TokenService $tokenService
     ) {
+        $user=$this->getUser();
         $form = $this->createForm(ChangePasswordFormType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -94,7 +103,10 @@ class SecurityController extends AbstractController
             $this->addFlash('updated-password', 'Mot de passe mis à jour');
             return $this->redirectToRoute('app_login');
         } else {
-            return $this->render('security/changePassword.html.twig', ['form' => $form->createView()]);
+            return $this->render('security/changePassword.html.twig', [
+                'form' => $form->createView(),
+                'user' => $user
+            ]);
         }
     }
 }

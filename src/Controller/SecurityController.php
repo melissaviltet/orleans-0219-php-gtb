@@ -49,7 +49,7 @@ class SecurityController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $user = $entityManager->getRepository(User::class)->findOneByEmail($username);
             if ($user === null) {
-                $this->addFlash('wrong-notice', 'Email invalide');
+                $this->addFlash('danger', 'Email invalide');
                 return $this->redirectToRoute('forgotten_password');
             }
             $token = $tokenService->generate($username);
@@ -90,6 +90,7 @@ class SecurityController extends AbstractController
         $form = $this->createForm(ChangePasswordFormType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Nouveau pot de passe crée !');
             $username = $form->getData()['email'];
             if (!$tokenService->isValid($token, $username)) {
                 $this->addFlash('danger', 'Lien invalide');

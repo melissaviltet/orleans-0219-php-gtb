@@ -18,13 +18,29 @@ use App\Form\ForgottenPasswordType;
 class SecurityController extends AbstractController
 {
     /**
+     * @param AuthenticationUtils $authenticationUtils
+     * @param Request $request
      * @Route("/login", name="app_login")
+     * @return Response
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response
+    public function login(AuthenticationUtils $authenticationUtils, Request $request): Response
     {
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
         $user=$this->getUser();
+
+        if ($error) {
+            $this->addFlash('login', 'Error Login');
+        }
+
+        if (true === $this->get('security.authorization_checker')->isGranted('ROLE_MEMBER')) {
+            return $this->redirectToRoute('member_page');
+        }
+
+        if (true === $this->get('security.authorization_checker')->isGranted('ROLE_OFFICE')
+            || true === $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('admin');
+        }
 
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername,

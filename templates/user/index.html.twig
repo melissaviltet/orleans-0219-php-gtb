@@ -11,7 +11,7 @@
             <thead>
             <tr>
                 <th>Utilisateur</th>
-                <th>Rôle</th>
+                <th>Statut</th>
                 <th>Email</th>
                 <th>Adresse</th>
                 <th>Téléphone</th>
@@ -22,7 +22,7 @@
             {% for user in users %}
                 <tr>
                     <td>{{ user.firstname ~' '~ user.lastname }}</td>
-                    <td>{{ user.roles|join(', ')}}</td>
+                    <td>{{ user.status}}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.address }}</td>
                     <td>{{ user.telephone }}</td>

@@ -19,4 +19,14 @@ class UserRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, User::class);
     }
+
+    public function findMembers()
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.status NOT IN (:blackListStatuses)')
+                ->setParameter(':blackListStatuses', [User::STAND_BY, User::ADMINISTRATOR])
+            ->orderBy('u.lastname', 'ASC')
+            ->addOrderBy('u.firstname', 'ASC')
+            ->getQuery()->getResult();
+    }
 }

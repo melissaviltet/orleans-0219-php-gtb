@@ -7,20 +7,23 @@
     {% include 'home/_jumbotron.html.twig' %}
     <section class="trombinoscope justify-content-center">
         <div class="container">
-            <h2 class="text-center">Le Bureau</h2>
-            <div class="row justify-content-center">
-                {% set title='' %}
-                {% for title, users in members %}
-                    {% for user in users %}
+            {% for status, users in trombinoscodeUsers %}
+                <h2 class="text-center my-3">{{ status }}</h2>
+                <div class="row justify-content-center">
+            {% for user in users %}
+                    <div class="col-sm-3 my-2">
                         <div class="card text-center">
-                            <img src="{{ user.picture }}" alt="{{ user.firstname }} {{ user.lastname }}"
+                            <img src="{{ user.picture }}"
+                                 alt="{{ user.firstname }} {{ user.lastname }}"
                                  class="card-img-top">
                             <p class="card-title">{{ user.firstname }} {{ user.lastname }}</p>
-                            <p class="card-body">{% if title == 'office' %}Membre du bureau{% elseif title == 'president' %}Président{% else %}Membre{% endif %}</p>
+                            {% if user.roles.0 == 'ROLE_PRESIDENT' %}
+                                <p class="card-body">{{ user.status }}</p>
+                            {% endif %}
                         </div>
-                    {% endfor %}
+                    </div>
                 {% endfor %}
-            </div>
-        </div>
+                </div>
+            {% endfor %}
     </section>
 {% endblock %}

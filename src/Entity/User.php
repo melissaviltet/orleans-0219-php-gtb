@@ -13,9 +13,22 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
+    const STAND_BY = 'En attente';
+    const ADMINISTRATOR = 'Administrateur';
+
     const ROLES = [
-        'Administrateur' => 'ROLE_ADMIN', 'President' => 'ROLE_PRESIDENT', 'Bureau' => 'ROLE_OFFICE',
-        'Membre' => 'ROLE_MEMBER', 'En attente' => 'ROLE_USER'
+        self::ADMINISTRATOR => 'ROLE_ADMIN',
+        'President' => 'ROLE_PRESIDENT',
+        'President Trail' => 'ROLE_PRESIDENT',
+        'President Triathlon' => 'ROLE_PRESIDENT',
+        'Secrétaire' => 'ROLE_OFFICE',
+        'Secrétaire adjoint(e)' => 'ROLE_OFFICE',
+        'Trésorier(e)' => 'ROLE_OFFICE',
+        'Trésorier(e) adjoint(e)' => 'ROLE_OFFICE',
+        'Membre' => 'ROLE_MEMBER',
+        'Membre d\'honneur' => 'ROLE_MEMBER',
+        'Encadrant sportif' => 'ROLE_MEMBER',
+        self::STAND_BY => 'ROLE_USER',
     ];
 
     /**
@@ -105,6 +118,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status;
 
     public function __construct()
     {
@@ -334,5 +352,28 @@ class User implements UserInterface
         $this->picture = $picture;
 
         return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getRolesDetails(): array
+    {
+        $rolesDetails = [];
+        foreach ($this->getRoles() as $role) {
+            foreach (array_keys(self::ROLES, $role) as $roleDetail) {
+                $rolesDetails[] = $roleDetail;
+            }
+        }
+        return $rolesDetails;
     }
 }

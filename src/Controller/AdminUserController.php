@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\AdminUserType;
 use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +30,6 @@ class AdminUserController extends AbstractController
     }
 
 
-
     /**
      * @param Request $request
      * @param User $user
@@ -37,15 +37,21 @@ class AdminUserController extends AbstractController
      * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
      * @return Response
      */
-    public function edit(Request $request, User $user, Security $security): Response
-    {
+    public function edit(
+        Request $request,
+        User $user,
+        Security $security,
+        EntityManagerInterface $entityManager
+    ): Response {
         $form = $this->createForm(AdminUserType::class, $user);
         $form->handleRequest($request);
 
         if ($security->isGranted('ROLE_ADMIN')) {
             if ($form->isSubmitted() && $form->isValid()) {
-                $this->getDoctrine()->getManager()->flush();
+                $role = User::ROLES[$user->getStatus()];
+                $user->setRoles([$role]);
 
+                $entityManager->flush();
                 return $this->redirectToRoute('user_index', [
                     'id' => $user->getId(),
                 ]);
@@ -71,7 +77,7 @@ class AdminUserController extends AbstractController
         if ($security->isGranted('ROLE_ADMIN')) {
             if (in_array('ROLE_ADMIN', $user->getRoles())) {
                 $this->addFlash('danger', 'Impossible de supprimer un utilisateur Administrateur');
-            } elseif ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+            } elseif ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->remove($user);
                 $entityManager->flush();

@@ -9,7 +9,7 @@
         <div class="container">
             <h2 class="text-center">Le Triathlon</h2>
             <div class="text">
-                {% if triathloncontent is defined %}
+                {% if association.triathloncontent is defined %}
                 {{ association.triathloncontent|raw }}
                 {% else %}
                 <p class="text-center">La page est en cours de construction</p>

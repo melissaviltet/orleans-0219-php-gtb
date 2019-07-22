@@ -43,8 +43,6 @@ p {
   background-color: transparent;
   color: $trail-primary-color;
   border-radius: 5px;
-  height: 35px;
-  width: 145px;
   &:hover {
     @extend %btn-primary;
   }
@@ -55,8 +53,6 @@ p {
   color: $font-color;
   border-radius: 5px;
   border: none;
-  height: 35px;
-  width: 145px;
   &:hover {
     @extend %btn-primary-outline;
   }

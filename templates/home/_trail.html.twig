@@ -9,7 +9,7 @@
                 <img src="{{ asset('build/images/GTB-Blanc@2x.png') }}" class="logo" alt="logo gtb">
             </div>
             <div class="col-sm-12 col-lg-8 text-center">
-                {% if trailHome is defined %}
+                {% if association.trailHome is defined %}
                 <p>{{ association.trailHome|raw }}</p>
                 <a href="{{ path('trail') }}" class="btn btn-primary">Le trail</a>
                 {% else %}

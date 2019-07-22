@@ -9,8 +9,8 @@
         <div class="container">
             <h2 class="text-center">Le Club</h2>
             <div class="text">
-                {% if clubhome is defined %}
-                {{ association.clubhome|raw }}
+                {% if association.clubcontent is defined %}
+                {{ association.clubcontent|raw }}
                 {% else %}
                 <p class="text-center">La page est en cours de contruction</p>
                 {% endif %}

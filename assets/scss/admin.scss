@@ -152,9 +152,6 @@ html, body {
     font-size: 14pt;
     margin-bottom: 2em;
   }
-  textarea {
-    width: 75%;
-  }
 }
 
 .panel-heading {
@@ -227,6 +224,14 @@ form fieldset {
   }
   .vich-image > a {
     display: none;
+  }
+}
+
+/**GALLERY***/
+
+.gallery-form {
+  fieldset {
+    margin-bottom: 0;
   }
 }
 

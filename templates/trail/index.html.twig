@@ -9,10 +9,10 @@
         <div class="container">
             <h2 class="text-center">Le Trail</h2>
             <div class="text">
-                {% if trailcontent is defined %}
+                {% if association.trailcontent is defined %}
                 {{ association.trailcontent|raw }}
                 {% else %}
-                <p>La page est en cours de construction</p>
+                <p class="text-center">La page est en cours de construction</p>
                 {%  endif %}
             </div>
         </div>

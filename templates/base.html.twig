@@ -13,9 +13,12 @@
 <body>
 {% for label, messages in app.flashes %}
     {% for message in messages %}
-        <div class="alert alert-{{ label }}">
-            {{ message }}
+        <div class="row row-flash-message justify-content-center">
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
         </div>
+
     {% endfor %}
 {% endfor %}
 {% block body %}{% endblock %}

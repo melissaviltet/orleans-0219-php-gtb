@@ -31,7 +31,9 @@ p {
   font-family: $text-font;
 }
 
-
+.alert{
+  margin-top: 75px;
+}
 /************************************
             BUTTONS
 ************************************/
@@ -41,8 +43,6 @@ p {
   background-color: transparent;
   color: $trail-primary-color;
   border-radius: 5px;
-  height: 35px;
-  width: 145px;
   &:hover {
     @extend %btn-primary;
   }
@@ -53,8 +53,6 @@ p {
   color: $font-color;
   border-radius: 5px;
   border: none;
-  height: 35px;
-  width: 145px;
   &:hover {
     @extend %btn-primary-outline;
   }
@@ -179,6 +177,7 @@ p {
         max-height: 250px;
         img {
           max-height: 250px;
+          object-fit: cover;
         }
       }
       .btn.btn-primary {
@@ -250,8 +249,9 @@ p {
     right: 0;
   }
   .logo {
-    width: 15vw;
+    width: 12vw;
   }
+
 }
 
 
@@ -641,6 +641,19 @@ h1 {
     color: $trail-secondary-color;
   }
 }
+
+/************************************
+       MEMBER PRIVATE GALLERY
+************************************/
+.private-gallery {
+  .img-cont {
+    img {
+      max-width: 400px;
+      max-height: 400px;
+    }
+  }
+}
+
 
 
 /************************************

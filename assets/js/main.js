@@ -5,10 +5,12 @@ require('jquery');
 
 $(document).ready(function () {
 
+    let widthScreen = $(window).width();
+
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
+        if ($(this).scrollTop() < 300 || widthScreen < 990) {
             $('nav.navbar').css({
-                backgroundColor  : "rgba(97, 97, 97, .9)",
+                backgroundColor  : 'rgba(97, 97, 97, .9)',
                 transition       : 'all .5s ease-in-out'
             });
             $('.navbar-nav .nav-link').css({
@@ -16,7 +18,7 @@ $(document).ready(function () {
             });
         } else {
             $('nav.navbar').css({
-                backgroundColor  : "rgba(97, 97, 97, .3)",
+                backgroundColor  : 'rgba(97, 97, 97, .3)',
                 transition       : 'all .5s ease-in-out'
             });
             $('.navbar-nav .nav-link').css({
@@ -42,15 +44,18 @@ $(document).ready(function () {
  * Website: http://www.simplizm.com/
  */
 
-;(function($){
+;(function ($)
+{
     'use strict';
 
     var Eclipse = window.Eclipse || {};
 
-    Eclipse = (function(){
+    Eclipse = (function ()
+    {
         var fnidx = 0;
 
-        function eclipse(element, settings){
+        function eclipse(element, settings)
+        {
             var _ = this;
 
             _.defaults = {
@@ -71,7 +76,6 @@ $(document).ready(function () {
                 connected: null,
                 connectedPager: false
             }
-
             _.options = $.extend(true, _.defaults, settings);
 
             _.initials = {
@@ -99,7 +103,6 @@ $(document).ready(function () {
                 sliderHeight: 0,
                 computedNextIndex: 0
             }
-
             _.events = {
                 click: 'click.eclipse'+_.initials.fnidx,
                 clickstart: 'clickstart.eclipse'+_.initials.fnidx,
@@ -107,7 +110,6 @@ $(document).ready(function () {
                 clickend: 'clickend.eclipse'+_.initials.fnidx,
                 resize: 'resize.eclipse'+_.initials.fnidx
             }
-
             _.$eclipse = $(element);
 
             _.init(true);
@@ -443,8 +445,8 @@ $(document).ready(function () {
 
         if (_.initials.slidesCount > _.options.slidesToShow) {
             if (_.options.arrow === true) {
-                var prev = $('<button>prev</button>').addClass('eclipse-arrow eclipse-prev'),
-                    next = $('<button>next</button>').addClass('eclipse-arrow eclipse-next');
+                var prev = $('<button></button>').addClass('eclipse-arrow eclipse-prev'),
+                    next = $('<button></button>').addClass('eclipse-arrow eclipse-next');
                 _.$arrowPrev = prev.appendTo(_.$eclipse);
                 _.$arrowNext = next.appendTo(_.$eclipse);
             }

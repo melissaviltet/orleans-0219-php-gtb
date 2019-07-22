@@ -14,17 +14,20 @@ class AdminUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $statusesRoles = User::ROLES;
+        foreach ($statusesRoles as $status => $role) {
+            $statuses[$status] = $status;
+        }
+
         $builder
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('address', TextType::class)
             ->add('telephone', TextType::class)
             ->add('email', EmailType::class)
-            ->add('roles', ChoiceType::class, [
+            ->add('status', ChoiceType::class, [
                 'placeholder' => 'choisissez un rôle',
-                'choices' => User::ROLES,
-                'multiple'=>true,
-                'expanded'=>true,
+                'choices' => $statuses,
             ]);
     }
 

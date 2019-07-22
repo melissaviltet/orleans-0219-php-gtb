@@ -22,37 +22,71 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = Faker\Factory::create('fr_FR');
+        $users = [
+            [
+                'mail' => 'member@gtb.com',
+                'password' => 'memberpassword',
+                'role' => ['ROLE_PRESIDENT'],
+                'status' => 'President'
+            ],
+            [
+                'mail' => 'member@gtb.com',
+                'password' => 'memberpassword',
+                'role' => ['ROLE_OFFICE'],
+                'status' => 'Secrétaire'],
+            [
+                'mail' => 'member@gtb.com',
+                'password' => 'memberpassword',
+                'role' => ['ROLE_PRESIDENT'],
+                'status' => 'President Trail'
+            ],
+            [
+                'mail' => 'member@gtb.com',
+                'password' => 'memberpassword',
+                'role' => ['ROLE_PRESIDENT'],
+                'status' => 'President Triathlon'
+            ],
+            [
+                'mail' => 'member@gtb.com',
+                'password' => 'memberpassword',
+                'role' => ['ROLE_OFFICE'],
+                'status' => 'Secrétaire adjoint(e)'
+            ],
+            [
+                'mail' => 'member@gtb.com',
+                'password' => 'memberpassword',
+                'role' => ['ROLE_OFFICE'],
+                'status' => 'Trésorier(e)'
+            ],
+            [
+                'mail' => 'member@gtb.com',
+                'password' => 'memberpassword',
+                'role' => ['ROLE_OFFICE'],
+                'status' => 'Trésorier(e) adjoint(e)'
+            ],
+        ];
 
-        $user = new User();
+        for ($i = 0; $i < 100; $i++) {
+            $users[] = ['mail' => $faker->email, 'password' => 'pass', 'role' => ['ROLE_MEMBER'], 'status' => 'Membre'];
+        }
 
-        $user->setEmail('member@gtb.com');
-        $user->setAddress($faker->address);
-        $user->setBirthdate($faker->dateTime);
-        $user->setFirstname($faker->firstName);
-        $user->setLastname($faker->lastName);
-        $user->setTelephone($faker->phoneNumber);
-        $user->setRoles(['ROLE_MEMBER']);
-        $user->setPicture($faker->imageUrl());
-        $user->setPassword($this->passwordEncoder->encodePassword($user, 'memberpassword'));
-        $this->addReference('user_0', $user);
-        $manager->persist($user);
-        $user->setGender($this->getReference('gender_' . rand(0, 2)));
+        foreach ($users as $key => $member) {
+            $user = new User();
 
-
-        $user = new User();
-
-        $user->setEmail('memberoffice@gtb.com');
-        $user->setAddress($faker->address);
-        $user->setBirthdate($faker->dateTime);
-        $user->setFirstname($faker->firstName);
-        $user->setLastname($faker->lastName);
-        $user->setTelephone($faker->phoneNumber);
-        $user->setRoles(['ROLE_OFFICE']);
-        $user->setPicture($faker->imageUrl());
-        $user->setPassword($this->passwordEncoder->encodePassword($user, 'officepassword'));
-        $this->addReference('user_1', $user);
-        $manager->persist($user);
-        $user->setGender($this->getReference('gender_' . rand(0, 2)));
+            $user->setEmail($faker->email);
+            $user->setAddress($faker->address);
+            $user->setBirthdate($faker->dateTime);
+            $user->setFirstname($faker->firstName);
+            $user->setLastname($faker->lastName);
+            $user->setTelephone($faker->phoneNumber);
+            $user->setRoles($member['role']);
+            $user->setStatus($member['status']);
+            $user->setPicture($faker->imageUrl());
+            $user->setPassword($this->passwordEncoder->encodePassword($user, 'memberpassword'));
+            $this->addReference('user_' . $key, $user);
+            $manager->persist($user);
+            $user->setGender($this->getReference('gender_' . rand(0, 2)));
+        }
 
         $user = new User();
 
@@ -64,9 +98,10 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setTelephone($faker->phoneNumber);
         $user->setRoles(['ROLE_ADMIN']);
         $user->setPicture($faker->imageUrl());
+        $user->setStatus('Administrateur');
         $user->setPassword($this->passwordEncoder->encodePassword($user, 'adminpassword'));
-        $this->addReference('user_2', $user);
         $manager->persist($user);
+        $this->addReference('user_420', $user);
         $user->setGender($this->getReference('gender_' . rand(0, 2)));
 
         $manager->flush();

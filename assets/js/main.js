@@ -445,8 +445,8 @@ $(document).ready(function () {
 
         if (_.initials.slidesCount > _.options.slidesToShow) {
             if (_.options.arrow === true) {
-                var prev = $('<button>prev</button>').addClass('eclipse-arrow eclipse-prev'),
-                    next = $('<button>next</button>').addClass('eclipse-arrow eclipse-next');
+                var prev = $('<button></button>').addClass('eclipse-arrow eclipse-prev'),
+                    next = $('<button></button>').addClass('eclipse-arrow eclipse-next');
                 _.$arrowPrev = prev.appendTo(_.$eclipse);
                 _.$arrowNext = next.appendTo(_.$eclipse);
             }

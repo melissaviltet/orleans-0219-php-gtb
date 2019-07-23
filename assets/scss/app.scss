@@ -31,9 +31,10 @@ p {
   font-family: $text-font;
 }
 
-.alert{
+.alert {
   margin-top: 75px;
 }
+
 /************************************
             BUTTONS
 ************************************/
@@ -43,6 +44,7 @@ p {
   background-color: transparent;
   color: $trail-primary-color;
   border-radius: 5px;
+
   &:hover {
     @extend %btn-primary;
   }
@@ -53,6 +55,7 @@ p {
   color: $font-color;
   border-radius: 5px;
   border: none;
+
   &:hover {
     @extend %btn-primary-outline;
   }
@@ -126,45 +129,30 @@ p {
 /************************************
             JUMBOTRON
 ************************************/
+@media screen and (max-width: 800px) {
+  .cont-jumbotron {
+    display: none;
+  }
+}
+  .cont-jumbotron {
+    background-image: url('../images/header-site-gtb.jpg');
+    background-size: contain;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding-top: calc(25px + (350 - 25) * ((100vw - 300px) / (1600 - 300)));
+    margin: 0;
+    border-bottom: $trail-primary-color solid 5px;
+    border-radius: 0;
 
-.cont-jumbotron {
-  background-image: url('../images/header-site-gtb.jpg');
-  background-size: contain;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  width: 100%;
-  padding-top: calc(25px + (350 - 25) * ((100vw - 300px) / (1600 - 300)));
-  margin: 0;
-  border-bottom: $trail-primary-color solid 5px;
-  border-radius: 0;
-
-  .title-jumbotron {
-    font-size: 3rem;
-    @include medium {
-      display: none;
-    }
-
-    @include small {
-      display: none;
-    }
     color: white;
     font-family: $title-font;
   }
 
-  .logo-container {
-    bottom: 20%;
-    right: 5%;
-
-    .logo-link {
-      text-align: right;
-    }
+  .border-jumbotron {
+    background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+    height: 5px;
   }
-}
-
-.border-jumbotron {
-  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-  height: 5px;
-}
 
 
 /************************************
@@ -176,11 +164,13 @@ p {
     .card.card-event-to-come {
       .card-header {
         max-height: 250px;
+
         img {
           max-height: 250px;
           object-fit: cover;
         }
       }
+
       .btn.btn-primary {
         @extend %btn-primary;
       }
@@ -245,16 +235,17 @@ p {
     max-height: 500px;
     object-fit: cover;
   }
+
   .cont-absolute {
     top: 25%;
     right: 0;
   }
+
   .logo {
     width: 12vw;
   }
 
 }
-
 
 
 /************************************
@@ -269,6 +260,7 @@ p {
   h2 {
     text-align: center;
   }
+
   .btn.btn-primary {
     @extend %btn-primary;
   }
@@ -281,10 +273,12 @@ p {
 
 .homepage-images {
   background-color: $trail-secondary-color-nav;
+
   .btn-homepage-picture {
     left: 42vw;
     margin-top: -70px;
     z-index: 1;
+
     .btn.btn-primary {
       font-size: 14px;
     }
@@ -324,12 +318,11 @@ section.sponsors {
 
   .carousel {
     img {
-      height:200px;
+      height: 200px;
       object-fit: cover;
     }
   }
 }
-
 
 
 /************************************
@@ -466,15 +459,16 @@ h1 {
 .rox-poney-password {
   margin-top: 15%;
   margin-bottom: 15%;
+
   .card-reset {
     background-color: $font-color-light-bg;
     color: $font-color;
   }
+
   p {
     text-align: center;
   }
 }
-
 
 
 /************************************
@@ -549,7 +543,6 @@ h1 {
 }
 
 
-
 /************************************
        MEMBER EVENTS PAGE
 ************************************/
@@ -561,7 +554,6 @@ h1 {
     }
   }
 }
-
 
 
 /************************************
@@ -592,7 +584,6 @@ h1 {
     }
   }
 }
-
 
 
 /************************************

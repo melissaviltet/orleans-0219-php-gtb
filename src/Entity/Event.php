@@ -105,7 +105,7 @@ class Event
     private $longDescription;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="event")
+     * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="event", cascade={"remove"})
      */
     private $comments;
 

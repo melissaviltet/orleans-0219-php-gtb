@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <div class="contact-form">
+    <section class="contact-form">
         <h2>Nous contacter</h2>
         {{ form_start(form, {'action': path('contact'), 'method': 'POST'}) }}
         <div class="row pt-4 justify-content-center">
@@ -45,6 +45,6 @@
             <button class="btn btn-primary">Envoi</button>
         </div>
         {{ form_end(form) }}
-    </div>
+    </section>
     
 {% endblock %}

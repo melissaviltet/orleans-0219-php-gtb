@@ -81,7 +81,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $user->setTelephone($faker->phoneNumber);
             $user->setRoles($member['role']);
             $user->setStatus($member['status']);
-            $user->setPicture($faker->imageUrl());
+            $user->setImageName('logo_veloland.jpg');
             $user->setPassword($this->passwordEncoder->encodePassword($user, 'memberpassword'));
             $this->addReference('user_' . $key, $user);
             $manager->persist($user);
@@ -97,7 +97,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
         $user->setLastname($faker->lastName);
         $user->setTelephone($faker->phoneNumber);
         $user->setRoles(['ROLE_ADMIN']);
-        $user->setPicture($faker->imageUrl());
+        $user->setImageName('logo_veloland.jpg');
         $user->setStatus('Administrateur');
         $user->setPassword($this->passwordEncoder->encodePassword($user, 'adminpassword'));
         $manager->persist($user);

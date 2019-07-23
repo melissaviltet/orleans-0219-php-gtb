@@ -22,3 +22,7 @@ label {
   font-size: 2em;
   font-family: $title-font;
 }
+
+.note-current-color-button, .note-color-all, .note-icon-caret, .btn-fullscreen, .note-fontname {
+  display: none;
+}

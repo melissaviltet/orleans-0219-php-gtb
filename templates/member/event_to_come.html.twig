@@ -10,7 +10,7 @@
                 <div class="card col-11 col-lg-5 col-xl-4 m-1 mb-5" style="max-width: 540px;">
                     <div class="row events mt-3 mb-0 pb-0 no-gutters">
                         <div class="col-md-5">
-                            <img src="{{ event.imageName }}" class="card-img" alt="{{ event.imageName }}">
+                            <img src="{{ asset('uploads/images/event/' ~ event.imageName) }}" class="card-img pr-2" alt="{{ event.imageName }}">
                         </div>
                         <div class="col-md-7">
                             <div class="card-body p-0">

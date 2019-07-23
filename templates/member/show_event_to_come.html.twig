@@ -2,11 +2,11 @@
 {% block body %}
     {{ include('_navbar.html.twig') }}
 
-    <section class="event-to-come justify-content-center">
+    <section class=" justify-content-center">
         <h1 class="text-center pt-5 mt-5">{{ event.name }}</h1>
         <div class="row justify-content-center">
             <div class="card col-12 col-md-5 pl-0 pr-0 pb-5">
-                <img src="{{ event.imageName }}" class="card-img-top" alt="{{ event.name }}">
+                <img src="{{ asset('uploads/images/event/' ~ event.imageName) }}" class="card-img-top" alt="{{ event.imageName }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ event.name }}</h5>
                     <p class="card-text">{{ event.longDescription }}</p>
@@ -19,7 +19,11 @@
                         <div class="card mb-1 w-100">
                             <div class="row no-gutters">
                                 <div class="cont-user-picture pt-3 pl-2 col-1 col-md-2 d-flex justify-content-center align-items-start">
-                                    {% if eventData.user.picture is not null %} <img src="{{ eventData.user.picture }}" class="card-img-top" alt="user-picture"> {% else %} <i class="fas fa-user"></i> {% endif %}
+                                    {% if eventData.user.imageName is not empty %}
+                                        <img src="{{ eventData.user.imageName }}" class="card-img-top" alt="user-picture">
+                                    {% else %}
+                                        <i class="fas fa-user"></i>
+                                    {% endif %}
                                 </div>
                                 <div class="col-10">
                                     <div class="card-body">

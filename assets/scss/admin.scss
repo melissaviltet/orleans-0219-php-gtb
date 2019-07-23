@@ -222,9 +222,6 @@ form fieldset {
   .vich-image .form-group {
     display: none;
   }
-  .vich-image > a {
-    display: none;
-  }
 }
 
 /**GALLERY***/
@@ -235,5 +232,12 @@ form fieldset {
   }
 }
 
+/**********USERS**************/
 
+.vich-image {
+  a img {
+    width: 150px;
+    margin-top: 3%;
+  }
+}
 

@@ -10,7 +10,7 @@
     </div>
     <div class="row row-about-me justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-3 col-picture-about-me">
-            <img src="{{ user.picture }}" alt="{{ user.lastname }}">
+            <img src="{{ asset('uploads/images/member/' ~ user.imageName) }}" alt="{{ user.lastname }}">
         </div>
         <div class="col-lg-6 col-md-6 col-sm-3 col-about-me-information">
             <p>Prénom, Nom : {{ user.firstname }} {{ user.lastname }}</p>

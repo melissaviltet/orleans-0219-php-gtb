@@ -5,14 +5,20 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @Vich\Uploadable
  */
 class User implements UserInterface
 {
+    const AUTHORIZED_EXTENSIONS = ["image/jpg", "image/png", "image/jpeg"];
+    const MAX_SIZE = '1024k';
+
     const STAND_BY = 'En attente';
     const ADMINISTRATOR = 'Administrateur';
 
@@ -115,9 +121,42 @@ class User implements UserInterface
     private $comments;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Vich\UploadableField(mapping="image_member", fileNameProperty="imageName", size="imageSize")
+     * @Assert\NotBlank(message="Champs requis")
+     * @Assert\File(
+     *     maxSize=Sponsor::MAX_SIZE,
+     *     maxSizeMessage="Image trop lourde!",
+     *     mimeTypes=Sponsor::AUTHORIZED_EXTENSIONS,
+     *     mimeTypesMessage="Extension de fichier non autorisée",
+     * )
+     * @var File
      */
-    private $picture;
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     * @Assert\Length(
+     *     min = 2,
+     *     max = 255,
+     *     minMessage = "Doit avoir au moins {{ limit }} caractères",
+     *     maxMessage = "Ne doit pas depasser les {{ limit }} caractères"
+     * )
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var integer|null
+     */
+    private $imageSize;
+
+    /**
+     * @ORM\Column(type="date_immutable", nullable=true)
+     * @var \DateTimeImmutable|null
+     */
+    private $updatedAt;
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -342,18 +381,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
     public function getStatus(): ?string
     {
         return $this->status;
@@ -375,5 +402,68 @@ class User implements UserInterface
             }
         }
         return $rolesDetails;
+    }
+
+    /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->setUpdatedAt(new \DateTimeImmutable());
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
+    }
+
+    /**
+     * @param int|null $imageSize
+     * @return User
+     */
+    public function setImageSize(?int $imageSize): User
+    {
+        $this->imageSize = $imageSize;
+        return $this;
+    }
+
+    /**
+     * @return \DateTimeImmutable|null
+     */
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param \DateTimeImmutable|null $updatedAt
+     * @return User
+     */
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): User
+    {
+        $this->updatedAt = $updatedAt;
+        return $this;
     }
 }

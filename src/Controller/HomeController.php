@@ -32,7 +32,7 @@ class HomeController extends AbstractController
             'events' => $events,
             'sponsors' => $sponsorRepository->findAll(),
             'association' => $associationRepository->findOneBy([]),
-            'pictures' => $picture->findAll(),
+            'pictures' => $picture->findBy(['private' => false]),
             'user' => $user
 
         ]);

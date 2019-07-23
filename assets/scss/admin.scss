@@ -1,6 +1,5 @@
 @import "vars.scss";
 @import 'mixins.scss';
-@import "functions";
 
 @font-face {
   font-family: "#{$title-font}";
@@ -222,9 +221,6 @@ form fieldset {
   .vich-image .form-group {
     display: none;
   }
-  .vich-image > a {
-    display: none;
-  }
 }
 
 /**GALLERY***/
@@ -235,5 +231,23 @@ form fieldset {
   }
 }
 
+/**********USERS**************/
 
+.vich-image {
+  a img {
+    width: 150px;
+    margin-top: 3%;
+  }
+}
 
+/**TROMBINOSCOPE**/
+.trombinoscope {
+  .card {
+    height: 300px;
+  }
+
+  .card-img-top {
+    max-height: 200px;
+    object-fit: contain;
+  }
+}

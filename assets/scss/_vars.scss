@@ -10,6 +10,7 @@ $font-color: rgb(230, 231, 233);
 $text-font: "Ubuntu";
 $title-font: "Pop Warner";
 $title-font-ext: "ttf";
+$text-size: calc(12pt + (16pt - 12pt) * ((100vw - 360px) / (1600px - 360px)));
 
 /***Margins***/
 $sectionPadding: 8%;

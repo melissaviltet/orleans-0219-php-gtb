@@ -20,7 +20,7 @@ final class Version20190709084835 extends AbstractMigration
     public function up(Schema $schema): void
     {
         $this->addSql('INSERT INTO activity (name) VALUES (\'Trail\'),(\'Triathlon\'),(\'Préparation physique\'),
-        (\'natation\'),(\'cyclisme\'),(\'natation\');');
+        (\'natation\'),(\'cyclisme\');');
         $this->addSql('INSERT INTO gender (gender_name) VALUES (\'Homme\'),(\'Femme\'),(\'Autres\');');
     }
 

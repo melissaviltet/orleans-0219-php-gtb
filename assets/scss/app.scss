@@ -263,7 +263,6 @@ p {
 .contact-form {
   margin: auto;
   float: none;
-  background-color: $trail-secondary-color-nav;
   padding-top: 4.5rem;
 
   h2 {
@@ -280,6 +279,7 @@ p {
 ************************************/
 
 .homepage-images {
+  background-color: $trail-secondary-color-nav;
   .btn-homepage-picture {
     left: 42vw;
     margin-top: -70px;

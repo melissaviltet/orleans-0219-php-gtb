@@ -25,12 +25,12 @@ h1, h2, h3, h4, h5 {
 }
 
 h1{
-  font-size: calc(16pt + (4em - 16pt) * ((100vw - 360px) / (1600px - 360px)));
+  font-size: calc(16pt + (4em - 16pt) * ((100vw - 360px) / (1600 - 360)));
   margin-bottom: 1em;
 }
 
 h2 {
-  font-size: calc(12pt + (3em - 12pt) * ((100vw - 360px) / (1600px - 360px)));
+  font-size: calc(12pt + (3em - 12pt) * ((100vw - 360px) / (1600 - 360)));
   text-transform: uppercase;
 }
 
@@ -203,17 +203,36 @@ p {
 ************************************/
 
 .trail {
+  background-image: url("../images/WP_20170924_12_16_46_Rich.jpg");
+  background-size: cover;
+  background-position: center center;
   border-bottom: $trail-primary-color solid 5px;
+  .container-fluid {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+}
+.triathlon {
+  background-image: url("../images/GTB-14.jpg");
+  background-size: cover;
+  background-position: center center;
+  .container-fluid {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
 }
 
 .trititle {
   width: 100%;
   text-align: center;
+  margin-top: 2em;
 }
 
-.triathlon, .trail, .cont-absolute {
-  overflow: hidden;
-  max-height: 500px;
+.triathlon, .trail {
 
   h2 {
     color: $font-color;
@@ -225,6 +244,12 @@ p {
     color: $font-color;
   }
 
+  .col-lg-4.col-sm-12 {
+    img {
+      width: 70%;
+    }
+  }
+
   .row {
     width: 100vw;
   }
@@ -233,7 +258,6 @@ p {
     width: 100%;
     z-index: 0;
     filter: brightness(50%);
-    max-height: 500px;
     object-fit: cover;
   }
 
@@ -337,7 +361,7 @@ section.sponsors {
   font-family: $text-font;
   margin-right: 0;
   margin-left: 0;
-  font-size: calc(12pt + (16pt - 12pt) * ((100vw - 360px) / (1600px - 360px)));
+  font-size: calc(12pt + (16pt - 12pt) * ((100vw - 360px) / (1600 - 360)));
   .embed-responsive {
     max-width: 300px;
     height: auto;

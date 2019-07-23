@@ -50,9 +50,8 @@ class AdminUserController extends AbstractController
             if ($form->isSubmitted() && $form->isValid()) {
                 $role = User::ROLES[$user->getStatus()];
                 $user->setRoles([$role]);
-                $user->setImageFile(null);
-
                 $entityManager->flush();
+                $user->setImageFile(null);
                 return $this->redirectToRoute('user_index', [
                     'id' => $user->getId(),
                 ]);

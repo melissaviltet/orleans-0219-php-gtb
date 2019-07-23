@@ -1,12 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
 @import "_vars.scss";
 @import 'mixins.scss';
-@import "functions";
 
 
 /************************************
             GENERAL STYLES
 ************************************/
+body {
+  font-size:16pt;
+}
 
 .row {
   margin-left: 0;
@@ -21,18 +23,20 @@
 h1, h2, h3, h4, h5 {
   font-family: $title-font;
 }
+
 h1{
-  font-size: 3em;
+  font-size: calc(16pt + (4em - 16pt) * ((100vw - 360px) / (1600px - 360px)));
+  margin-bottom: 1em;
 }
 
 h2 {
-  font-size: 2.5em;
+  font-size: calc(12pt + (3em - 12pt) * ((100vw - 360px) / (1600px - 360px)));
   text-transform: uppercase;
 }
 
 p {
   font-family: $text-font;
-  font-size: 2em;
+  font-size: 16pt;
 }
 
 .alert{
@@ -69,7 +73,7 @@ p {
 
 .fa-user, .fas.fa-map-marker, .fa-user-check {
   color: $trail-primary-color;
-  font-size: 1.5vw;
+  font-size: 16pt;
 }
 
 .member-picture {
@@ -108,15 +112,8 @@ p {
   .navbar-nav .nav-link {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    font-size: 2vw;
+    font-size: $text-size;
     font-family: $text-font;
-    @include medium {
-      font-size: 2.5vw;
-    }
-    @include small {
-      font-size: 3vw;
-    }
-
     &:hover {
       background-color: $trail-primary-color;
       transition: all .6s;
@@ -290,7 +287,7 @@ p {
     margin-top: -70px;
     z-index: 1;
     .btn.btn-primary {
-      font-size: 14px;
+      font-size: $text-size;
     }
   }
 
@@ -299,12 +296,12 @@ p {
     padding: 0;
   }
 
-  .col-4 {
-    img {
-      object-fit: cover;
-      max-width: 40vw;
-    }
+
+  img {
+    object-fit: cover;
+    max-width: 40vw;
   }
+
 }
 
 
@@ -347,8 +344,7 @@ section.sponsors {
   font-family: $text-font;
   margin-right: 0;
   margin-left: 0;
-  font-size: calc(16pt + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
-
+  font-size: calc(12pt + (16pt - 12pt) * ((100vw - 360px) / (1600px - 360px)));
   .embed-responsive {
     max-width: 300px;
     height: auto;

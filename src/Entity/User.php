@@ -9,10 +9,16 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @Vich\Uploadable
+ * @UniqueEntity(
+ *     fields={"email"},
+ *     errorPath="email",
+ *     message="Cette adresse mail est déjà utilisée pour un autre compte"
+ * )
  */
 class User implements UserInterface
 {
@@ -31,9 +37,9 @@ class User implements UserInterface
         'Secrétaire adjoint(e)' => 'ROLE_OFFICE',
         'Trésorier(e)' => 'ROLE_OFFICE',
         'Trésorier(e) adjoint(e)' => 'ROLE_OFFICE',
-        'Membre' => 'ROLE_MEMBER',
         'Membre d\'honneur' => 'ROLE_MEMBER',
         'Encadrant sportif' => 'ROLE_SPORTS',
+        'Membre' => 'ROLE_MEMBER',
         self::STAND_BY => 'ROLE_USER',
     ];
 

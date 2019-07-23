@@ -5,31 +5,20 @@
 {% block body %}
     {% include '_navbar.html.twig' %}
     {% include 'home/_jumbotron.html.twig' %}
-    <h1 class="text-center">Galerie</h1>
-    <div class="homepage-images flex-row position-relative text-center mb-5">
-
-        <div class="row homepage-picture">
-
+    <h1 class="text-center mt-5">Galerie</h1>
+    <div class="homepage-images flex-row text-center mb-5">
+        <div class="row homepage-picture no-gutters">
             {% for picture in galery %}
-
-                <div class="col-lg-4 col-md-6 col-sm-12 images-index">
-
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 ">
                     <img src="{{ asset('uploads/images/gallery/' ~ picture.imageName) }}" alt="{{ picture.alt }}">
-
                 </div>
-
             {% endfor %}
-
         </div>
 
-        <div class="row btn-homepage-picture">
-
-            <div class="col ">
-
-                <a href="{{ path('galery') }}" class="btn btn-primary"><i class="fas fa-plus"></i> En voir plus</a>
-
+        <div class="row btn-homepage-picture mt-5">
+            <div class="col">
+                <a href="{{ path('home') }}" class="mb-5 btn btn-primary"><i class="fas fa-arrow-circle-left"></i> Retour à l'accueil</a>
             </div>
-
         </div>
 
     </div>

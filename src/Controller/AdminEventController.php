@@ -44,6 +44,7 @@ class AdminEventController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $event->setDate(new \DateTime());
             $entityManager->persist($event);
             $entityManager->flush();
 

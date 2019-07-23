@@ -1,38 +1,42 @@
-{% if events[0] is defined %}
-<h2 class="text-center my-5 pt-5">Évènements à venir</h2>
-<section class="row events my-2 m-lg-5 pt-lg-3 pb-lg-5 justify-content-lg-center">
-    <div class="col-12 col-sm-12 col-lg-4 main justify-content-center">
-        <div class="card card-event-to-come mx-auto mb-3">
-            <div class="card-header p-0">
-                <img src="{{ asset('uploads/images/event/' ~ events[0].imageName) }}" class="card-img-top"
-                     alt="{{ events[0].imageName }}.">
+<section class="container-fluid">
+    {% if events[0] is defined %}
+        <h2 class="text-center my-5 pt-5">Évènements à venir</h2>
+        <div class="row events my-2 m-lg-5 pt-lg-3 pb-lg-5 justify-content-lg-center">
+            <div class="col-12 col-sm-12 col-lg-4 main justify-content-center">
+                <div class="card card-event-to-come mx-auto mb-3">
+                    <div class="card-header p-0">
+                        <img src="{{ asset('uploads/images/event/' ~ events[0].imageName) }}" class="card-img-top"
+                             alt="{{ events[0].imageName }}.">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ events[0].name }}</h5>
+                        <p class="card-text">Le {{ events[0].date |date('d/m/Y') }}
+                            à {{ events[0].place }}</p>
+                        <a href="{{ events[0].urlEvent }}" target="_blank" class="btn btn-primary">Voir l'évènement</a>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">{{ events[0].name }}</h5>
-                <p class="card-text">Le {{ events[0].date |date('d/m/Y') }}
-                    à {{ events[0].place }}</p>
-                <a href="{{ events[0].urlEvent }}" class="btn btn-primary">Voir l'évènement</a>
+            <div class="col-12 col-sm-12 col-lg-4 next mb-5 mb-lg-0">
+                {% for event in events|slice(1,3) %}
+                    <div class="card flex-row flex-row mb-3">
+                        <div class="card-header col-4 p-0">
+                            <img src="{{ asset('uploads/images/event/' ~ event.imageName) }}" class="card-img-top"
+                                 alt="{{ event.name }}.">
+                        </div>
+                        <div class="card-body col-8 p-2 p-lg-3">
+                            <p>
+                                <strong>{{ event.name }}</strong><br>
+                                Le {{ event.date|date('d/m/Y') }} à {{ event.place }}
+                            </p>
+                            <a href="{{ event.urlEvent }}" target="_blank" class="btn btn-sm btn-secondary">Voir l'évènement</a>
+
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
-    </div>
-    <div class="col-12 col-sm-12 col-lg-4 next mb-5 mb-lg-0">
-        {% for event in events|slice(1,3) %}
-            <div class="card flex-row flex-row mb-3">
-                <div class="card-header col-4 p-0">
-                    <img src="{{ asset('uploads/images/event/' ~ event.imageName) }}" class="card-img-top"
-                         alt="{{ event.name }}.">
-                </div>
-
-                <div class="card-body col-8 p-2 p-lg-3">
-                    <p>
-                        <strong>{{ event.name }}</strong><br>
-                        Le {{ event.date|date('d/m/Y') }} à {{ event.place }}
-                    </p>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+    {% else %}
+        Aucun événement prévu pour le moment
+    {% endif %}
 </section>
-{% endif %}
-
 

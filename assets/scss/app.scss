@@ -7,7 +7,7 @@
             GENERAL STYLES
 ************************************/
 body {
-  font-size:16pt;
+  font-size: 16pt;
 }
 
 .row {
@@ -24,13 +24,13 @@ h1, h2, h3, h4, h5 {
   font-family: $title-font;
 }
 
-h1{
+h1 {
   font-size: calc(16pt + (4em - 16pt) * ((100vw - 360px) / (1600 - 360)));
   margin-bottom: 1em;
 }
 
 h2 {
-  font-size: calc(12pt + (3em - 12pt) * ((100vw - 360px) / (1600 - 360)));
+  font-size: calc(30px + (45 - 30) * ((100vw - 360px) / (1600 - 360)));
   text-transform: uppercase;
 }
 
@@ -63,6 +63,8 @@ p {
   color: $font-color;
   border-radius: 5px;
   border: none;
+  font-size:16pt;
+  padding:0.4em 0.7em 0.4em 0.7em;
 
   &:hover {
     @extend %btn-primary-outline;
@@ -117,6 +119,7 @@ p {
     padding-bottom: 1rem;
     font-size: $text-size;
     font-family: $text-font;
+
     &:hover {
       background-color: $trail-primary-color;
       transition: all .6s;
@@ -135,25 +138,26 @@ p {
     display: none;
   }
 }
-  .cont-jumbotron {
-    background-image: url('../images/header-site-gtb.jpg');
-    background-size: contain;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    width: 100%;
-    padding-top: calc(25px + (350 - 25) * ((100vw - 300px) / (1600 - 300)));
-    margin: 0;
-    border-bottom: $trail-primary-color solid 5px;
-    border-radius: 0;
 
-    color: white;
-    font-family: $title-font;
-  }
+.cont-jumbotron {
+  background-image: url('../images/header-site-gtb.jpg');
+  background-size: contain;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding-top: calc(25px + (350 - 25) * ((100vw - 300px) / (1600 - 300)));
+  margin: 0;
+  border-bottom: $trail-primary-color solid 5px;
+  border-radius: 0;
 
-  .border-jumbotron {
-    background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
-    height: 5px;
-  }
+  color: white;
+  font-family: $title-font;
+}
+
+.border-jumbotron {
+  background: linear-gradient(to right, $trail-primary-color, $trail-secondary-color);
+  height: 5px;
+}
 
 
 /************************************
@@ -192,7 +196,7 @@ p {
 
   .title-club {
     font-family: $title-font;
-    color: $trail-secondary-color;
+    color: $light;
     padding-top: $sectionPadding - 5;
   }
 }
@@ -205,21 +209,26 @@ p {
 .trail {
   background-image: url("../images/WP_20170924_12_16_46_Rich.jpg");
   background-size: cover;
+  background-attachment: fixed;
   background-position: center center;
   border-bottom: $trail-primary-color solid 5px;
+
   .container-fluid {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     height: 100%;
     padding-top: 2em;
     padding-bottom: 2em;
   }
 }
+
 .triathlon {
   background-image: url("../images/GTB-14.jpg");
   background-size: cover;
+  background-attachment: fixed;
   background-position: center center;
+
   .container-fluid {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     height: 100%;
     padding-top: 2em;
     padding-bottom: 2em;
@@ -233,10 +242,10 @@ p {
 }
 
 .triathlon, .trail {
-
   h2 {
     color: $font-color;
     font-family: $title-font;
+    font-size: calc(12pt + (3em - 12pt) * ((100vw - 360px) / (1600 - 360)));
   }
 
   p {
@@ -295,29 +304,18 @@ p {
 /************************************
             HOME GALLERY
 ************************************/
+section .btn-primary {
+  font-size: $text-size;
+}
 
 .homepage-images {
   background-color: $trail-secondary-color-nav;
 
-  .btn-homepage-picture {
-    left: 42vw;
-    margin-top: -70px;
-    z-index: 1;
-
-    .btn.btn-primary {
-      font-size: $text-size;
-    }
-  }
-
-  .images-index {
-    overflow: hidden;
-    padding: 0;
-  }
-
-
   img {
     object-fit: cover;
-    max-width: 40vw;
+    height: 350px;
+    object-position: top;
+    width: 100%;
   }
 
 }
@@ -362,6 +360,7 @@ section.sponsors {
   margin-right: 0;
   margin-left: 0;
   font-size: calc(12pt + (16pt - 12pt) * ((100vw - 360px) / (1600 - 360)));
+
   .embed-responsive {
     max-width: 300px;
     height: auto;

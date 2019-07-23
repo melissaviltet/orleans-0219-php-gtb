@@ -31,6 +31,7 @@
 1. Copy the .env file and rename it .env.local, then edit it :
     - Put on this line the DB name, your username et password username : `DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name`
     - Put on those lines your address email and password: `For Gmail as a transport, use: "gmail://username:password@localhost"`
+    - Put on those lines your Token lifetime and Token pass phrase here : `TOKEN_LIFETIME=''`, `TOKEN_PASS_PHRASE=""`
     
 2. Now you have to create a DB, you only have to run this `php bin/console doctrine:database:create` 
 

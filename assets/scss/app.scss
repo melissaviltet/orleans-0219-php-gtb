@@ -203,17 +203,36 @@ p {
 ************************************/
 
 .trail {
+  background-image: url("../images/WP_20170924_12_16_46_Rich.jpg");
+  background-size: cover;
+  background-position: center center;
   border-bottom: $trail-primary-color solid 5px;
+  .container-fluid {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+}
+.triathlon {
+  background-image: url("../images/GTB-14.jpg");
+  background-size: cover;
+  background-position: center center;
+  .container-fluid {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
 }
 
 .trititle {
   width: 100%;
   text-align: center;
+  margin-top: 2em;
 }
 
-.triathlon, .trail, .cont-absolute {
-  overflow: hidden;
-  max-height: 500px;
+.triathlon, .trail {
 
   h2 {
     color: $font-color;
@@ -225,6 +244,12 @@ p {
     color: $font-color;
   }
 
+  .col-lg-4.col-sm-12 {
+    img {
+      width: 70%;
+    }
+  }
+
   .row {
     width: 100vw;
   }
@@ -233,7 +258,6 @@ p {
     width: 100%;
     z-index: 0;
     filter: brightness(50%);
-    max-height: 500px;
     object-fit: cover;
   }
 

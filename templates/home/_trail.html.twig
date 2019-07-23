@@ -1,17 +1,16 @@
 <div class="flex-row position-relative trail">
-    <img src="{{ asset("build/images/WP_20170924_12_16_46_Rich.jpg") }}" class="back" alt="trail">
-    <div class="cont-absolute position-absolute">
-        <div class="col-12 trititle m-lg-4">
-            <h2>Trail</h2>
+    <div class="container-fluid">
+        <div class="col-12 trititle">
+            <h2 class="mt-5">Trail</h2>
         </div>
         <div class="col-12 row">
             <div class="col-sm-12 col-lg-4 cont-logo text-center">
                 <img src="{{ asset('build/images/GTB-Blanc@2x.png') }}" class="logo" alt="logo gtb">
             </div>
-            <div class="col-sm-12 col-lg-8 text-center">
+            <div class="col-sm-12 col-lg-8 text-center my-3">
                 {% if association.trailHome is defined %}
-                <p>{{ association.trailHome|raw }}</p>
-                <a href="{{ path('trail') }}" class="btn btn-primary">Le trail</a>
+                    <p>{{ association.trailHome|raw }}</p>
+                    <a href="{{ path('trail') }}" class="btn btn-primary">Le trail</a>
                 {% else %}
                     <div class="row justify-content-center">
                         <p>La section est en cours de construction</p>

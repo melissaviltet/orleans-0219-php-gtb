@@ -7,20 +7,24 @@
     {% include 'home/_jumbotron.html.twig' %}
     <section class="trombinoscope justify-content-center">
         <div class="container">
-            <h2 class="text-center">Le Bureau</h2>
-            <div class="row justify-content-center">
-                {% set title='' %}
-                {% for title, users in members %}
+            {% for role, users in trombinoscodeUsers %}
+                <h2 class="text-center my-3 pt-5">{{ role }}</h2>
+                <div class="row justify-content-center">
                     {% for user in users %}
-                        <div class="card text-center">
-                            <img src="{{ user.picture }}" alt="{{ user.firstname }} {{ user.lastname }}"
-                                 class="card-img-top">
-                            <p class="card-title">{{ user.firstname }} {{ user.lastname }}</p>
-                            <p class="card-body">{% if title == 'office' %}Membre du bureau{% elseif title == 'president' %}Président{% else %}Membre{% endif %}</p>
+                        <div class="col-sm-3 my-2">
+                            <div class="card text-center">
+                                {% set img = user.picture is not empty ? user.picture : 'build/images/person-placeholder.png' %}
+                                <img src="{{ asset(img) }}"
+                                     alt="{{ user.firstname }} {{ user.lastname }}"
+                                     class="card-img-top">
+                                <div class="card-body">
+                                    <div class="card-title">{{ user.firstname }} {{ user.lastname|upper }}</div>
+                                    <span class="badge badge-secondary">{{ user.status }}</span>
+                                </div>
+                            </div>
                         </div>
                     {% endfor %}
-                {% endfor %}
-            </div>
-        </div>
+                </div>
+            {% endfor %}
     </section>
 {% endblock %}

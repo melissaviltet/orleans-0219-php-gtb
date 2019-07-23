@@ -22,7 +22,7 @@ class MembersGetting
         $members = [];
         $users = $this->userRepository->findBy([], ['lastname'=>'ASC', 'firstname'=>'ASC']);
         foreach ($users as $user) {
-            if (in_array('ROLE_PRESIDENT', $user->getRoles())) {
+            if (in_array('ROLE_PRESIDENT', $user->getStatus())) {
                 $members['president'][] = $user;
             } elseif (in_array('ROLE_OFFICE', $user->getRoles())) {
                 $members['office'][] = $user;

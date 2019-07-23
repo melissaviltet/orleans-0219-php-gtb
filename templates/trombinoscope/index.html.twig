@@ -13,7 +13,7 @@
                     {% for user in users %}
                         <div class="col-sm-3 my-2">
                             <div class="card text-center">
-                                {% set img = user.picture is not empty ? user.picture : 'build/images/person-placeholder.png' %}
+                                {% set img = user.imageName is not empty ? 'uploads/images/member/' ~ user.imageName : 'build/images/person-placeholder.png' %}
                                 <img src="{{ asset(img) }}"
                                      alt="{{ user.firstname }} {{ user.lastname }}"
                                      class="card-img-top">

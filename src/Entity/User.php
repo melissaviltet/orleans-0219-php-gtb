@@ -37,7 +37,7 @@ class User implements UserInterface
         'Secrétaire adjoint(e)' => 'ROLE_OFFICE',
         'Trésorier(e)' => 'ROLE_OFFICE',
         'Trésorier(e) adjoint(e)' => 'ROLE_OFFICE',
-        'Membre d\'honneur' => 'ROLE_MEMBER',
+        'Membre d\'honneur' => 'ROLE_OFFICE',
         'Encadrant sportif' => 'ROLE_SPORTS',
         'Membre' => 'ROLE_MEMBER',
         self::STAND_BY => 'ROLE_USER',

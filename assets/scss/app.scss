@@ -601,14 +601,18 @@ h1 {
     .cont-messages {
       height: 500px;
       overflow-y: scroll;
-
-      .card .card-body {
-        padding: 1rem;
+      .card {
+        .card-body {
+          padding: 1rem;
+        }
       }
     }
   }
 }
 
+.cont-user-picture .card-img-top {
+  border-radius: 50%;
+}
 
 /************************************
       LEGAL MENTIONS PAGE

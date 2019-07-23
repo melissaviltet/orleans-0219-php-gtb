@@ -122,7 +122,6 @@ class User implements UserInterface
 
     /**
      * @Vich\UploadableField(mapping="image_member", fileNameProperty="imageName", size="imageSize")
-     * @Assert\NotBlank(message="Champs requis")
      * @Assert\File(
      *     maxSize=Sponsor::MAX_SIZE,
      *     maxSizeMessage="Image trop lourde!",
@@ -134,7 +133,7 @@ class User implements UserInterface
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @var string
      * @Assert\Length(
      *     min = 2,

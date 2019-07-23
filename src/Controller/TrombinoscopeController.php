@@ -10,6 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TrombinoscopeController extends AbstractController
 {
+    const ROLE_STATUSES = [
+        'ROLE_PRESIDENT' => 'Présidents',
+        'ROLE_OFFICE'    => 'Bureau',
+        'ROLE_MEMBER'    => 'Membres',
+    ];
+
     /**
      * @Route("/trombinoscope", name="trombinoscope")
      */
@@ -18,14 +24,10 @@ class TrombinoscopeController extends AbstractController
         $user = $this->getUser();
         $users = $userRepository->findMembers();
 
-        foreach (User::ROLES as $status => $role) {
+        foreach (self::ROLE_STATUSES as $role => $roleLabel) {
             foreach ($users as $user) {
-                if ($user->getStatus() == $status) {
-                    if (in_array('ROLE_PRESIDENT', $user->getRoles())) {
-                        $status = 'Présidents';
-                    }
-
-                    $trombinoscopeUsers[$status][] = $user;
+                if (in_array($role, $user->getRoles())) {
+                    $trombinoscopeUsers[$roleLabel][] = $user;
                 }
             }
         }
@@ -33,7 +35,7 @@ class TrombinoscopeController extends AbstractController
 
         return $this->render('trombinoscope/index.html.twig', [
             'trombinoscodeUsers' => $trombinoscopeUsers ?? [],
-            'user' => $user,
+            'user'               => $user,
         ]);
     }
 }

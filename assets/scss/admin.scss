@@ -241,3 +241,14 @@ form fieldset {
   }
 }
 
+/**TROMBINOSCOPE**/
+.trombinoscope {
+  .card {
+    height: 300px;
+  }
+
+  .card-img-top {
+    max-height: 200px;
+    object-fit: contain;
+  }
+}

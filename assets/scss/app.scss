@@ -21,14 +21,18 @@
 h1, h2, h3, h4, h5 {
   font-family: $title-font;
 }
+h1{
+  font-size: 3em;
+}
 
 h2 {
-  font-size: 2em;
+  font-size: 2.5em;
   text-transform: uppercase;
 }
 
 p {
   font-family: $text-font;
+  font-size: 2em;
 }
 
 .alert{
@@ -43,8 +47,6 @@ p {
   background-color: transparent;
   color: $trail-primary-color;
   border-radius: 5px;
-  height: 35px;
-  width: 145px;
   &:hover {
     @extend %btn-primary;
   }
@@ -55,8 +57,6 @@ p {
   color: $font-color;
   border-radius: 5px;
   border: none;
-  height: 35px;
-  width: 145px;
   &:hover {
     @extend %btn-primary-outline;
   }
@@ -108,10 +108,10 @@ p {
   .navbar-nav .nav-link {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    font-size: 1.2vw;
+    font-size: 2vw;
     font-family: $text-font;
     @include medium {
-      font-size: 2vw;
+      font-size: 2.5vw;
     }
     @include small {
       font-size: 3vw;
@@ -267,7 +267,6 @@ p {
 .contact-form {
   margin: auto;
   float: none;
-  background-color: $trail-secondary-color-nav;
   padding-top: 4.5rem;
 
   h2 {
@@ -284,6 +283,7 @@ p {
 ************************************/
 
 .homepage-images {
+  background-color: $trail-secondary-color-nav;
   .btn-homepage-picture {
     left: 42vw;
     margin-top: -70px;
@@ -313,7 +313,6 @@ p {
 
 section.sponsors {
   padding-bottom: $sectionPadding;
-  width: 100vw;
 
   .title-cont h2 {
     font-family: $title-font;
@@ -325,119 +324,13 @@ section.sponsors {
     border: 1px solid $trail-primary-color !important;
     width: 10%;
   }
-}
 
-/**********CAROUSEL**********/
-
-#eclipse5 .eclipse-slides {
-  opacity: 0.5;
-}
-#eclipse5 .eclipse-active-2 {
-  opacity: 1;
-}
-
-.eclipse-wrapper {
-  position: relative;
-}
-.eclipse-wrapper button {
-  border: none;
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;
-}
-
-.eclipse-hide {
-  display: none !important;
-}
-
-.eclipse-slider {
-  transition: all 500ms;
-}
-.eclipse-slides {
-  height: 300px;
-  border-radius: 15px;
-  font-size: 50px;
-  line-height: 300px;
-  text-align: center;
-  color: #000000;
-  z-index: 1;
-}
-.eclipse-slides img {
-  max-width: 90%;
-}
-.eclipse-active {
-  z-index: 10;
-}
-
-.eclipse-clone {
-  z-index: 0 !important;
-}
-
-.eclipse-arrow {
-  display: block;
-  position: absolute;
-  top: 50%;
-  z-index: 11;
-  width: 21px;
-  height: 35px;
-  margin: -18px 0 0;
-  background: url('../images/arrow.png') 0 0 no-repeat;
-  text-indent: -9999em;
-  border: none;
-  -webkit-appearance: none;
-  appearance: none;
-  cursor: pointer;}
-.eclipse-arrow.eclipse-prev {
-  left: -50px;
-  transform: rotate(180deg);
-}
-.eclipse-arrow.eclipse-next {
-  right: -50px;
-}
-
-.eclipse-controls {
-  position: absolute;
-  left: 50%;
-  z-index: 11;
-  line-height: 0;
-  transform: translateX(-50%);
-}
-
-.eclipse-paging {
-  float: left;
-}
-.eclipse-paging-button {
-  width: 15px;
-  height: 15px;
-  margin: 0 0 0 10px;
-  background: lighten($trail-primary-color, 35);
-  border-radius: 50%;
-  text-indent: -9999em;
-}
-.eclipse-paging-button:first-child {
-  margin-left: 0;
-}
-.eclipse-paging-active {
-  background: $trail-primary-color;
-}
-
-.eclipse-auto-play {
-  display: block;
-  float: left;
-  width: 25px;
-  height: 25px;
-  margin: 0 0 0 10px;
-  background: url('../images/play.png') 0 0 no-repeat;
-  text-indent: -9999em;
-}
-.eclipse-auto-stop {
-  display: none;
-  float: left;
-  width: 25px;
-  height: 25px;
-  margin: 0 0 0 10px;
-  background: url('../images/stop.png') 0 0 no-repeat;
-  text-indent: -9999em;
+  .carousel {
+    img {
+      height:200px;
+      object-fit: cover;
+    }
+  }
 }
 
 
@@ -453,7 +346,7 @@ section.sponsors {
   font-family: $text-font;
   margin-right: 0;
   margin-left: 0;
-  font-size: calc(10px + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
+  font-size: calc(16pt + (14 - 10) * ((100vw - 300px) / (1600 - 300)));
 
   .embed-responsive {
     max-width: 300px;
@@ -541,6 +434,7 @@ h1 {
     a {
       color: $font-color;
       text-decoration: none;
+      font-size: 16pt;
     }
   }
 }

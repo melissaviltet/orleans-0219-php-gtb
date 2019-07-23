@@ -14,12 +14,3 @@ if (screenWidth < 576) {
 } else {
     slidesToShow = 5;
 }
-
-window.jQuery('#eclipse5').eclipse({
-    margin: 20,
-    slidesToShow: slidesToShow,
-    countIndex: 1,
-    autoplay: true,
-    interval: 2000,
-    autoControl: true
-});

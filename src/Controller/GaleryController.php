@@ -18,7 +18,7 @@ class GaleryController extends AbstractController
     {
         $user=$this->getUser();
         return $this->render('galery/index.html.twig', [
-            'galery' => $galeryRepository->findBy(['private' => false]),
+            'galery' => $galeryRepository->findBy(['private' => 0]),
             'user' => $user
         ]);
     }

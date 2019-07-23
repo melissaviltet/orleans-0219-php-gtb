@@ -45,10 +45,14 @@
                 </div>
             </div>
             <div class="row pt-3 justify-content-center mt-1">
-                <div class="col-lg-8 col-sm-10 ">
+                <div class="col-lg-4 col-md-7 col-sm-3">
                     {{ form_label(form.status, 'statut') }}
                     {{ form_widget(form.status) }}
                     {{ form_errors(form.status) }}
+                </div>
+                <div class="col-lg-4 col-md-7 col-sm-10 ">
+                    {{ form_row(form.imageFile, ({'attr': {'class':'img-thumbnail'}})) }}
+                    {{ form_errors(form.imageFile) }}
                 </div>
             </div>
             {{ form_end(form) }}
@@ -61,7 +65,7 @@
                 {{ include('user/_delete_form.html.twig') }}
             </div>
                 <div class="col-md-6">
-                <button href="{{ path('admin_user_index') }}" class="btn btn-primary">Retour à la liste</button>
+                <button href="{{ path('admin_user_index') }}" class="btn btn-primary">Retour</button>
             </div>
         </div>
         </div>

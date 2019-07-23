@@ -27,7 +27,7 @@ class HomeController extends AbstractController
         EventRepository $eventRepository
     ): Response {
         $user=$this->getUser();
-        $events = $eventRepository->findBy([], ['date' => 'DESC'], 4);
+        $events = $eventRepository->findBy(['isPrivate'=>false], ['date' => 'DESC'], 4);
         return $this->render('home/index.html.twig', [
             'events' => $events,
             'sponsors' => $sponsorRepository->findAll(),

@@ -64,6 +64,12 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
                 'role' => ['ROLE_OFFICE'],
                 'status' => 'Trésorier(e) adjoint(e)'
             ],
+            [
+                'mail' => 'member@gtb.com',
+                'password' => 'memberpassword',
+                'role' => ['ROLE_SPORTS'],
+                'status' => 'Encadrant sportif'
+            ],
         ];
 
         for ($i = 0; $i < 100; $i++) {

@@ -13,6 +13,7 @@ class TrombinoscopeController extends AbstractController
     const ROLE_STATUSES = [
         'ROLE_PRESIDENT' => 'Présidents',
         'ROLE_OFFICE'    => 'Bureau',
+        'ROLE_SPORTS'    => 'Encadrants Sportifs',
         'ROLE_MEMBER'    => 'Membres',
     ];
 

@@ -25,12 +25,12 @@ h1, h2, h3, h4, h5 {
 }
 
 h1{
-  font-size: calc(16pt + (4em - 16pt) * ((100vw - 360px) / (1600px - 360px)));
+  font-size: calc(16pt + (4em - 16pt) * ((100vw - 360px) / (1600 - 360)));
   margin-bottom: 1em;
 }
 
 h2 {
-  font-size: calc(12pt + (3em - 12pt) * ((100vw - 360px) / (1600px - 360px)));
+  font-size: calc(12pt + (3em - 12pt) * ((100vw - 360px) / (1600 - 360)));
   text-transform: uppercase;
 }
 
@@ -337,7 +337,7 @@ section.sponsors {
   font-family: $text-font;
   margin-right: 0;
   margin-left: 0;
-  font-size: calc(12pt + (16pt - 12pt) * ((100vw - 360px) / (1600px - 360px)));
+  font-size: calc(12pt + (16pt - 12pt) * ((100vw - 360px) / (1600 - 360)));
   .embed-responsive {
     max-width: 300px;
     height: auto;

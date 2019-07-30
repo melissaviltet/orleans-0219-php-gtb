@@ -20,7 +20,7 @@
                             <div class="row no-gutters">
                                 <div class="cont-user-picture pt-3 pl-2 col-1 col-md-2 d-flex justify-content-center align-items-start">
                                     {% if eventData.user.imageName is not empty %}
-                                        <img src="{{ asset('uploads/images/event/' ~ eventData.user.imageName) }}" class="profil-picture-comment card-img-top" alt="user-picture">
+                                        <img src="{{ asset('uploads/images/member/' ~ eventData.user.imageName) }}" class="profil-picture-comment card-img-top" alt="user-picture">
                                     {% else %}
                                         <i class="fas fa-user"></i>
                                     {% endif %}

@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class AdminGalleryController
- * @IsGranted({"ROLE_ADMIN"}, message="Accès réservé aux Administrateurs")
+ * @IsGranted({"ROLE_ADMIN", "ROLE_PRESIDENT"}, message="Accès réservé aux Administrateurs")
  */
 class AdminGalleryController extends AbstractController
 {

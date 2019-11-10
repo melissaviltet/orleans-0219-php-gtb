@@ -15,7 +15,7 @@ use Symfony\Component\Security\Core\Security;
 
 /**
  * @Route("/admin/comment")
- * @IsGranted({"ROLE_ADMIN"}, message="Accès réservé aux Administrateurs")
+ * @IsGranted({"ROLE_ADMIN", "ROLE_PRESIDENT"}, message="Accès réservé aux Administrateurs")
  */
 class AdminCommentController extends AbstractController
 {

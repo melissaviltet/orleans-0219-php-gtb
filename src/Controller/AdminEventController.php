@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Security;
 
 /**
  * @Route("/admin/event")
- * @IsGranted({"ROLE_ADMIN", "ROLE_OFFICE"}, message="Accès réservé aux Administrateurs")
+ * @IsGranted({"ROLE_ADMIN", "ROLE_OFFICE", "ROLE_PRESIDENT"}, message="Accès réservé aux Administrateurs")
  */
 class AdminEventController extends AbstractController
 {

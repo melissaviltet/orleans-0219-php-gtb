@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Class MemberController
  * @package App\Controller
- * @IsGranted({"ROLE_MEMBER", "ROLE_ADMIN", "ROLE_OFFICE"}, message="Accès réservé aux Membres")
+ * @IsGranted({"ROLE_MEMBER", "ROLE_ADMIN", "ROLE_OFFICE", "ROLE_PRESIDENT"}, message="Accès réservé aux Membres")
  * @Route("/member")
  */
 class MemberController extends AbstractController

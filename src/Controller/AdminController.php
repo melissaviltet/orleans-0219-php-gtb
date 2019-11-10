@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class AdminController
- * @IsGranted({"ROLE_ADMIN", "ROLE_OFFICE"}, message="Accès réservé aux Administrateurs")
+ * @IsGranted({"ROLE_ADMIN", "ROLE_OFFICE", "ROLE_PRESIDENT"}, message="Accès réservé aux Administrateurs")
  */
 class AdminController extends AbstractController
 {
